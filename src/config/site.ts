@@ -57,7 +57,7 @@ export const agencyServices = [
 export const expert = {
   name: "Edson Ferreira",
   role: "Responsável pela agência Viagens Riva",
-  bio: "Professor, mestre e apaixonado pelo mundo das viagens. Junto com a equipe da Viagens Riva, acompanha cada planejamento com atenção ao perfil, ao período e ao orçamento de quem vai viajar.",
+  bio: "Professor, mestre e apaixonado pelo mundo das viagens. À frente da Viagens Riva, acompanha junto com a equipe cada planejamento com atenção ao perfil, ao período e às expectativas de quem vai viajar.",
   image: null as string | null,
 };
 

@@ -613,7 +613,7 @@ export function ExpertSection() {
             subtitle={expert.bio}
           />
           <p className="mt-4 text-sm text-foreground/80">
-            {expert.role} · CNPJ {agency.cnpj} · {agency.cadastur}
+            {expert.role}
           </p>
 
           <p className="mt-6 text-sm leading-relaxed text-foreground/80">
