@@ -359,7 +359,7 @@ export function CruisesSection() {
           </Button>
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden h-full lg:block">
           <img
             src={cruiseImg}
             alt="Navio de cruzeiro sofisticado navegando ao pôr do sol"
