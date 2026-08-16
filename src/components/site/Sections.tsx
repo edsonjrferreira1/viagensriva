@@ -546,11 +546,10 @@ const travelServices = [
 
 export function TravelServicesSection() {
   return (
-    <Section id="agencia-completa" tone="deep">
+    <Section id="agencia-completa" tone="sand">
       <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
         <div>
           <SectionHeading
-            invert
             eyebrow="Agência completa"
             title="Muito além da hospedagem"
             subtitle="Resort é só uma parte da viagem. Passagens, cruzeiros, seguro, transfer e carro são organizados pela mesma equipe, na mesma cotação e com um único atendimento."
@@ -560,21 +559,22 @@ export function TravelServicesSection() {
             {travelServices.map((s) => (
               <li
                 key={s.title}
-                className="rounded-2xl border border-white/25 bg-white/10 p-6 backdrop-blur-sm transition hover:border-gold/60"
+                className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
               >
-                <s.icon className="size-6 text-gold" strokeWidth={1.5} aria-hidden="true" />
-                <h3 className="mt-4 text-lg text-white">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/85">
+                <s.icon className="size-6 text-teal" strokeWidth={1.5} aria-hidden="true" />
+                <h3 className="mt-4 text-lg text-primary">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/75">
                   {s.text}
                 </p>
               </li>
             ))}
           </ul>
 
-          <Button asChild variant="gold" size="xl" className="mt-10">
+          <Button asChild variant="cta" size="xl" className="mt-10">
             <a href="#cotacao">Quero cotar minha viagem completa</a>
           </Button>
         </div>
+
 
         <img
           src={servicosImg}
