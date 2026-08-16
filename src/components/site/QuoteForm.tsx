@@ -19,6 +19,9 @@ const initial = {
   criancas: "0",
   idades: "",
   tipo: "Ainda não sei",
+  flexibilidade: "",
+  perfil: "",
+  momento: "",
   observacoes: "",
 };
 
