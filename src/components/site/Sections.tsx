@@ -519,6 +519,11 @@ const travelServices = [
     title: "Aluguel de carros",
     text: "Categoria, seguro e retirada organizados para quem quer explorar o destino com autonomia.",
   },
+  {
+    icon: MapPinned,
+    title: "Passeios e experiências",
+    text: "Ingressos, tours e experiências reservados com antecedência, sem fila e sem improviso no destino.",
+  },
 ];
 
 export function TravelServicesSection() {
@@ -529,9 +534,10 @@ export function TravelServicesSection() {
           <SectionHeading
             invert
             eyebrow="Agência completa"
-            title="Muito além da hospedagem"
-            subtitle="Resort é só uma parte da viagem. Passagens, cruzeiros, seguro, transfer e carro são organizados pela mesma equipe, na mesma cotação e com um único atendimento."
+            title="Cada serviço com o mesmo cuidado"
+            subtitle="Aéreo, cruzeiro, seguro, transfer, carro e passeios: todos organizados pela mesma equipe, em um único atendimento."
           />
+
 
           <ul className="mt-10 grid gap-4 sm:grid-cols-2">
             {travelServices.map((s) => (
