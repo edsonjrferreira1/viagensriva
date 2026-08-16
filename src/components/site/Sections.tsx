@@ -606,8 +606,9 @@ export function DestinationsSection() {
           const img = destinationImages[i % destinationImages.length];
           return (
             <article
+              id={d.id}
               key={d.name}
-              className="group relative overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
+              className="group relative scroll-mt-24 overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50 lg:scroll-mt-28"
             >
               <img
                 src={img}
@@ -629,7 +630,12 @@ export function DestinationsSection() {
                 </p>
 
                 <Button asChild variant="gold" size="sm" className="mt-5">
-                  <a href="#cotacao">Quero receber opções</a>
+                  <a
+                    href="#cotacao"
+                    onClick={() => preselect({ destination: d.preference })}
+                  >
+                    Quero receber opções
+                  </a>
                 </Button>
               </div>
             </article>
