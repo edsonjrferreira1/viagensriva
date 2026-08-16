@@ -197,6 +197,54 @@ export function QuoteForm() {
             />
           </Field>
 
+          <div className="sm:col-span-2">
+            <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-border/60 bg-background p-3 transition hover:border-primary/30">
+              <Checkbox
+                checked={hasFlex}
+                onCheckedChange={handleFlexCheck}
+                className="mt-0.5"
+                aria-describedby="flex-label"
+              />
+              <span id="flex-label" className="text-sm font-medium text-foreground">
+                Tenho flexibilidade nas datas para buscar melhores valores
+              </span>
+            </label>
+
+            {hasFlex && (
+              <div className="mt-4">
+                <p className="mb-2 text-sm font-medium text-foreground">
+                  Qual é a sua flexibilidade?
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {flexOptions.map((option) => {
+                    const active = form.flexibilidade === option;
+                    return (
+                      <label
+                        key={option}
+                        className={cn(
+                          "flex cursor-pointer items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition",
+                          active
+                            ? "border-teal bg-teal text-teal-foreground"
+                            : "border-primary/25 bg-background text-foreground/85 hover:border-teal hover:text-primary",
+                        )}
+                      >
+                        <input
+                          type="radio"
+                          name="flexibilidade"
+                          value={option}
+                          checked={active}
+                          onChange={() => set("flexibilidade")(option)}
+                          className="sr-only"
+                        />
+                        {option}
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
           <Field label="Adultos" id="adultos">
             <Input
               id="adultos"
