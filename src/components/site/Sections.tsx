@@ -72,7 +72,6 @@ import destVacation from "@/assets/destination-vacation.jpg";
 import agentImg from "@/assets/agent-placeholder.jpg";
 import panorama from "@/assets/final-cta.jpg";
 
-const inclusiveIcons = [Coffee, UtensilsCrossed, Salad, ChefHat, Wine, Sparkles, Waves];
 const destinationImages = [destBeach, destMountain, destInternational, destVacation];
 
 const serviceIcons: Record<string, LucideIcon> = {
@@ -91,47 +90,50 @@ const experienceIcons: Record<string, LucideIcon> = {
   heart: Heart,
   luggage: Luggage,
   ship: Ship,
+  palm: Palmtree,
 };
 
+const benefitIcons: Record<string, LucideIcon> = {
+  chef: ChefHat,
+  wine: Wine,
+  waves: Waves,
+  sparkles: Sparkles,
+  utensils: UtensilsCrossed,
+};
 
-export function DesireSection() {
+export function ServicesSection() {
   return (
-    <Section id="experiencias">
+    <Section id="servicos">
       <SectionHeading
         align="center"
-        eyebrow="Experiências"
-        title="E se a sua próxima viagem fosse assim?"
-        subtitle="Resorts selecionados que reúnem conforto, gastronomia, lazer e paisagens de tirar o fôlego."
+        eyebrow="Serviços Viagens Riva"
+        title="Cuidamos de cada etapa da sua viagem."
+        subtitle="Organizamos viagens nacionais e internacionais do planejamento ao retorno, reunindo todos os serviços em um só atendimento."
       />
 
-      <div className="mt-12 grid gap-4 md:grid-cols-3">
-        <img
-          src={desire1}
-          alt="Resort tropical com piscinas e praia ao pôr do sol"
-          width={1200}
-          height={900}
-          loading="lazy"
-          className="h-72 w-full rounded-2xl object-cover shadow-lift md:col-span-2 md:h-96"
-        />
-        <div className="grid gap-4 md:grid-rows-2">
-          <img
-            src={desire2}
-            alt="Praia tropical com águas cristalinas"
-            width={1200}
-            height={900}
-            loading="lazy"
-            className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
-          />
-          <img
-            src={desire3}
-            alt="Gastronomia variada em resort"
-            width={1200}
-            height={900}
-            loading="lazy"
-            className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
-          />
-        </div>
-      </div>
+      <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {agencyServices.map((s) => {
+          const Icon = serviceIcons[s.icon] ?? MapPinned;
+          return (
+            <li
+              key={s.label}
+              className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+            >
+              <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
+                <Icon
+                  className="size-5 text-primary"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                />
+              </span>
+              <h3 className="mt-5 text-lg text-primary">{s.label}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+                {s.description}
+              </p>
+            </li>
+          );
+        })}
+      </ul>
 
       <div className="mt-10 flex justify-center">
         <Button asChild variant="cta" size="xl">
@@ -148,47 +150,49 @@ export function InclusiveSection() {
       <SectionHeading
         invert
         align="center"
-        eyebrow="Regime de alimentação e bebidas"
-        title="O que é All Inclusive?"
-        subtitle="Um conceito de hospedagem que oferece mais liberdade para aproveitar as férias. Cada resort define o que está incluído, os horários e as regras vigentes."
+        eyebrow="Uma das nossas especialidades"
+        title="Quer férias com ainda mais praticidade?"
+        subtitle="Também selecionamos resorts e experiências All Inclusive no Brasil e no exterior para quem quer aproveitar gastronomia, bebidas, lazer e estrutura completa durante a hospedagem."
       />
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {inclusiveCards.map((card, i) => {
-          const Icon = inclusiveIcons[i % inclusiveIcons.length] ?? Sparkles;
+      <p className="mx-auto mt-6 w-fit rounded-full border border-gold/70 bg-gold/15 px-5 py-2 text-center text-sm font-medium uppercase tracking-[0.2em] text-gold">
+        Resorts &amp; All Inclusive
+      </p>
 
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {inclusiveBenefits.map((b) => {
+          const Icon = benefitIcons[b.icon] ?? Sparkles;
           return (
             <div
-              key={card.title}
-              className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm transition hover:border-gold/50"
+              key={b.title}
+              className="rounded-2xl border border-white/25 bg-white/10 p-6 backdrop-blur-sm transition hover:border-gold/60"
             >
-              <Icon className="size-6 text-gold" />
+              <Icon className="size-6 text-gold" aria-hidden="true" />
               <h3 className="mt-4 text-xl uppercase tracking-wide text-white">
-                {card.title}
+                {b.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/70">
-                {card.text}
+              <p className="mt-2 text-sm leading-relaxed text-white/85">
+                {b.text}
               </p>
             </div>
           );
         })}
       </div>
 
-      <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-white/55">
-        Os alimentos, bebidas e atividades disponíveis dependem dos cardápios,
-        restaurantes participantes, horários e regras vigentes de cada resort.
-        Restaurantes, cardápios, horários, bebidas e serviços podem sofrer
-        alterações conforme programação e regras do estabelecimento escolhido.
+      <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-white/75">
+        Serviços e itens incluídos variam conforme o resort e o regime
+        contratado.
       </p>
 
       <div className="mt-10 flex justify-center">
         <Button asChild variant="gold" size="xl">
-          <a href="#cotacao">Quero cotar All Inclusive</a>
+          <a href="#cotacao">Quero conhecer opções All Inclusive</a>
         </Button>
       </div>
     </Section>
   );
 }
+
 
 export function GastronomySection() {
   return (
