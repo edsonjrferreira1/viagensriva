@@ -39,6 +39,11 @@ import { Section, SectionHeading } from "./Section";
 import {
   accommodations,
   agency,
+  cruiseBenefits,
+  cruiseExtras,
+  cruiseIntro,
+  cruiseIntroComplement,
+  cruiseNote,
   destinations,
   experiences,
   expert,
@@ -46,15 +51,24 @@ import {
   googleReviews,
   inclusiveBenefits,
   leisureCards,
-  
+  whatsappLink,
+  defaultWhatsappMessage,
 } from "@/config/site";
 
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
 import cruiseImg from "@/assets/cruzeiro.jpg";
 
-/** Pré-seleciona um serviço no formulário de cotação. */
+/** Pré-seleciona serviço, destino ou tipo de viagem no formulário de cotação. */
+function preselect(detail: {
+  interest?: string;
+  destination?: string;
+  tripType?: string;
+}) {
+  window.dispatchEvent(new CustomEvent("riva:preselect", { detail }));
+}
+
 function preselectInterest(option: string) {
-  window.dispatchEvent(new CustomEvent("riva:preselect-interest", { detail: option }));
+  preselect({ interest: option });
 }
 
 
@@ -154,16 +168,29 @@ export function DesireSection() {
 
 
 
-/** Mapeia cada experiência para o serviço correspondente no formulário. */
-const experienceInterest: Record<string, string> = {
-  "Resorts & All Inclusive": "Resort / All Inclusive",
-  Cruzeiros: "Cruzeiro",
-  "Férias nacionais e internacionais": "Passagens aéreas",
-  "Praia & descanso": "Hospedagem",
-  "Lua de mel": "Hospedagem",
-  "Neve & inverno": "Passagens aéreas",
-  "Natureza & aventura": "Passeios e experiências",
-  "Cultura & gastronomia": "Passeios e experiências",
+/**
+ * Cada experiência aponta para o bloco de conteúdo correspondente.
+ * "Cultura & gastronomia" não tem bloco próprio: vai direto ao formulário.
+ */
+const experienceLinks: Record<
+  string,
+  { href: string; cta: string; preselect?: Parameters<typeof preselect>[0] }
+> = {
+  "Resorts & All Inclusive": { href: "#resorts", cta: "Conhecer essa experiência" },
+  Cruzeiros: { href: "#cruzeiros", cta: "Conhecer essa experiência" },
+  "Férias nacionais e internacionais": { href: "#destinos", cta: "Conhecer essa experiência" },
+  "Praia & descanso": { href: "#destinos-praia", cta: "Conhecer essa experiência" },
+  "Lua de mel": { href: "#momentos-dois", cta: "Conhecer essa experiência" },
+  "Neve & inverno": { href: "#destinos-montanha", cta: "Conhecer essa experiência" },
+  "Natureza & aventura": { href: "#destinos-montanha", cta: "Conhecer essa experiência" },
+  "Cultura & gastronomia": {
+    href: "#cotacao",
+    cta: "Planejar essa experiência",
+    preselect: {
+      interest: "Passeios e experiências",
+      destination: "Cultura & gastronomia",
+    },
+  },
 };
 
 export function ExperiencesSection() {
@@ -183,16 +210,15 @@ export function ExperiencesSection() {
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {experiences.map((exp) => {
           const Icon = experienceIcons[exp.icon] ?? Sparkles;
-          const cardId = exp.name
-            .toLowerCase()
-            .replace(/[^a-z0-9\s]/g, "")
-            .replace(/\s+/g, "-");
+          const link = experienceLinks[exp.name] ?? {
+            href: "#cotacao",
+            cta: "Planejar essa experiência",
+          };
           return (
             <a
-              id={`experiencia-${cardId}`}
               key={exp.name}
-              href="#cotacao"
-              onClick={() => preselectInterest(experienceInterest[exp.name] ?? "Hospedagem")}
+              href={link.href}
+              onClick={() => link.preselect && preselect(link.preselect)}
               className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
@@ -215,7 +241,7 @@ export function ExperiencesSection() {
                 ))}
               </div>
               <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition group-hover:text-gold">
-                Conhecer essa experiência
+                {link.cta}
                 <ArrowRight className="size-4" aria-hidden="true" />
               </span>
             </a>
@@ -260,55 +286,92 @@ export function ExperiencesSection() {
   );
 }
 
-export function CruisesSection() {
-  const highlights = [
-    { icon: MapPinned, text: "Vários destinos em um único roteiro" },
-    { icon: Ship, text: "Experiências a bordo" },
-    { icon: UtensilsCrossed, text: "Gastronomia variada" },
-    { icon: Sparkles, text: "Entretenimento todos os dias" },
-    { icon: Plane, text: "Roteiros nacionais e internacionais" },
-    { icon: Users, text: "Casais, famílias e grupos" },
-  ];
+const cruiseIcons: Record<string, LucideIcon> = {
+  map: MapPinned,
+  bed: BedDouble,
+  sparkles: Sparkles,
+  users: Users,
+  ship: Ship,
+};
 
+export function CruisesSection() {
   return (
     <Section id="cruzeiros">
-      <div className="grid items-center gap-10 lg:grid-cols-2">
+      <div className="grid items-stretch gap-10 lg:grid-cols-2">
         <div>
           <SectionHeading
             eyebrow="Cruzeiros"
             title="Uma viagem. Vários destinos."
-            subtitle="Conheça diferentes destinos em uma única viagem, com hospedagem, gastronomia, entretenimento e experiências a bordo."
+            subtitle={cruiseIntro}
+          />
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
+            {cruiseIntroComplement}
+          </p>
+
+          <img
+            src={cruiseImg}
+            alt="Navio de cruzeiro sofisticado navegando ao pôr do sol"
+            width={1600}
+            height={1067}
+            loading="lazy"
+            decoding="async"
+            className="mt-8 h-64 w-full rounded-3xl object-cover shadow-lift sm:h-80 lg:hidden"
           />
 
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {highlights.map((h) => (
-              <li
-                key={h.text}
-                className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-soft"
-              >
-                <h.icon className="size-5 shrink-0 text-gold" aria-hidden="true" />
-                <span className="text-sm text-foreground/85">{h.text}</span>
-              </li>
-            ))}
+            {cruiseBenefits.map((b) => {
+              const Icon = cruiseIcons[b.icon] ?? Ship;
+              return (
+                <li
+                  key={b.title}
+                  className="rounded-2xl border border-border bg-card px-5 py-4 shadow-soft"
+                >
+                  <span className="flex items-center gap-3">
+                    <Icon className="size-5 shrink-0 text-gold" aria-hidden="true" />
+                    <span className="text-sm font-medium text-primary">{b.title}</span>
+                  </span>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+                    {b.text}
+                  </p>
+                </li>
+              );
+            })}
           </ul>
 
-          <Button asChild variant="gold" size="xl" className="mt-8">
+          <div className="mt-6 rounded-2xl border border-primary/15 bg-secondary/60 px-5 py-5">
+            <p className="text-sm font-medium text-primary">
+              A viagem completa, não só o embarque.
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+              Se precisar, organizamos também o que vem antes e depois do navio:{" "}
+              {cruiseExtras.join(" · ").toLowerCase()}.
+            </p>
+          </div>
+
+          <p className="mt-5 text-xs leading-relaxed text-foreground/70">
+            {cruiseNote}
+          </p>
+
+          <Button asChild variant="gold" size="xl" className="mt-7">
             <a href="#cotacao" onClick={() => preselectInterest("Cruzeiro")}>
               Quero cotar um cruzeiro
             </a>
           </Button>
         </div>
 
-        <img
-          src={cruiseImg}
-          alt="Navio de cruzeiro sofisticado navegando ao pôr do sol"
-          width={1600}
-          height={1067}
-          loading="lazy"
-          decoding="async"
-          className="h-full max-h-[520px] w-full rounded-3xl object-cover shadow-lift"
-        />
+        <div className="hidden h-full lg:block">
+          <img
+            src={cruiseImg}
+            alt="Navio de cruzeiro sofisticado navegando ao pôr do sol"
+            width={1600}
+            height={1067}
+            loading="lazy"
+            decoding="async"
+            className="h-full min-h-[640px] w-full rounded-3xl object-cover shadow-lift"
+          />
+        </div>
       </div>
+
     </Section>
   );
 }
@@ -370,7 +433,12 @@ export function AccommodationsSection() {
             </p>
 
             <Button asChild variant="gold" size="xl" className="mt-7">
-              <a href="#cotacao">Quero conhecer opções All Inclusive</a>
+              <a
+                href="#cotacao"
+                onClick={() => preselectInterest("Resort / All Inclusive")}
+              >
+                Quero conhecer opções All Inclusive
+              </a>
             </Button>
           </div>
 
@@ -436,7 +504,12 @@ export function AccommodationsSection() {
                 {a.description}
               </p>
               <Button asChild variant="outline" className="mt-5 w-full rounded-full">
-                <a href="#cotacao">Consultar disponibilidade</a>
+                <a
+                  href="#cotacao"
+                  onClick={() => preselectInterest("Hospedagem")}
+                >
+                  Consultar disponibilidade
+                </a>
               </Button>
             </div>
           </article>
@@ -450,19 +523,23 @@ export function AccommodationsSection() {
 export function MomentsSection() {
   const cards = [
     {
+      id: "momentos-familia",
       img: family,
       alt: "Família se divertindo na piscina de resort",
       eyebrow: "Viagens em família",
       title: "As crianças se divertem. Os adultos aproveitam.",
       text: "Voos, hospedagem, transporte, seguro e experiências planejados considerando adultos e crianças.",
+      tripType: "Família com crianças",
       variant: "navy" as const,
     },
     {
+      id: "momentos-dois",
       img: couples,
       alt: "Casal jantando em restaurante com vista para o mar",
       eyebrow: "Viagens a dois",
       title: "Também existe espaço para desacelerar a dois.",
       text: "Destinos, hospedagens e experiências para casais que querem descansar ou comemorar uma data especial.",
+      tripType: "Casal",
       variant: "cta" as const,
     },
   ];
@@ -479,8 +556,9 @@ export function MomentsSection() {
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         {cards.map((c) => (
           <article
+            id={c.id}
             key={c.eyebrow}
-            className="flex h-full flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft"
+            className="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft lg:scroll-mt-28"
           >
             <img
               src={c.img}
@@ -500,7 +578,12 @@ export function MomentsSection() {
                 {c.text}
               </p>
               <Button asChild variant={c.variant} size="xl" className="mt-6">
-                <a href="#cotacao">Quero planejar minha viagem</a>
+                <a
+                  href="#cotacao"
+                  onClick={() => preselect({ tripType: c.tripType })}
+                >
+                  Quero planejar minha viagem
+                </a>
               </Button>
             </div>
           </article>
@@ -526,8 +609,9 @@ export function DestinationsSection() {
           const img = destinationImages[i % destinationImages.length];
           return (
             <article
+              id={d.id}
               key={d.name}
-              className="group relative overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
+              className="group relative scroll-mt-24 overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50 lg:scroll-mt-28"
             >
               <img
                 src={img}
@@ -549,7 +633,12 @@ export function DestinationsSection() {
                 </p>
 
                 <Button asChild variant="gold" size="sm" className="mt-5">
-                  <a href="#cotacao">Quero receber opções</a>
+                  <a
+                    href="#cotacao"
+                    onClick={() => preselect({ destination: d.preference })}
+                  >
+                    Quero receber opções
+                  </a>
                 </Button>
               </div>
             </article>
@@ -657,7 +746,13 @@ export function ExpertSection() {
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild variant="cta" size="xl">
-              <a href="#cotacao">Falar com a Viagens Riva</a>
+              <a
+                href={whatsappLink(defaultWhatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Falar com a Viagens Riva
+              </a>
             </Button>
 
             <Button asChild variant="outline" size="xl">
@@ -766,7 +861,13 @@ export function FaqSection() {
           Nossa equipe pode ajudar você a planejar sua viagem.
         </h3>
         <Button asChild variant="cta" size="xl" className="mt-8">
-          <a href="#cotacao">Quero planejar minha viagem</a>
+          <a
+            href={whatsappLink(defaultWhatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Falar com a Viagens Riva
+          </a>
         </Button>
 
       </div>

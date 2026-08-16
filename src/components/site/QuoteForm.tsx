@@ -83,12 +83,26 @@ export function QuoteForm() {
 
   useEffect(() => {
     const onPreselect = (e: Event) => {
-      const option = (e as CustomEvent<string>).detail;
-      if (!option) return;
-      setInterests((prev) => (prev.includes(option) ? prev : [...prev, option]));
+      const detail = (e as CustomEvent<{
+        interest?: string;
+        destination?: string;
+        tripType?: string;
+      }>).detail;
+      if (!detail) return;
+      if (detail.interest) {
+        setInterests((prev) =>
+          prev.includes(detail.interest!) ? prev : [...prev, detail.interest!],
+        );
+      }
+      if (detail.destination) {
+        setForm((f) => (f.destino ? f : { ...f, destino: detail.destination! }));
+      }
+      if (detail.tripType) {
+        setForm((f) => ({ ...f, tipo: detail.tripType! }));
+      }
     };
-    window.addEventListener("riva:preselect-interest", onPreselect);
-    return () => window.removeEventListener("riva:preselect-interest", onPreselect);
+    window.addEventListener("riva:preselect", onPreselect);
+    return () => window.removeEventListener("riva:preselect", onPreselect);
   }, []);
 
   const set = (key: keyof typeof initial) => (value: string) =>
