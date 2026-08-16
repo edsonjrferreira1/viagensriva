@@ -46,6 +46,12 @@ import {
 } from "@/config/site";
 
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
+import cruiseImg from "@/assets/cruzeiro.jpg";
+
+/** Pré-seleciona um serviço no formulário de cotação. */
+function preselectInterest(option: string) {
+  window.dispatchEvent(new CustomEvent("riva:preselect-interest", { detail: option }));
+}
 
 
 import desire1 from "@/assets/desire-mosaic-1.webp";
