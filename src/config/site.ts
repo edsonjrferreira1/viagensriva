@@ -153,42 +153,69 @@ export const accommodations = [
 
 export const destinations = [
   {
-    name: "Litoral brasileiro",
-    description: "Praias, resorts e muito sol para quem quer aproveitar o verão brasileiro.",
-    tag: "Nacional",
+    name: "Destinos de praia",
+    description:
+      "Praias, resorts e experiências para quem quer sol, mar e dias de descanso do começo ao fim da viagem.",
+    tag: "Sol e mar",
   },
   {
     name: "Destinos de montanha",
-    description: "Clima ameno, paisagens verdes e estrutura para descansar em qualquer época.",
-    tag: "Nacional",
+    description:
+      "Clima agradável, natureza, charme e hospedagens para relaxar em qualquer época do ano.",
+    tag: "Serra e natureza",
   },
   {
     name: "Resorts internacionais",
-    description: "Experiências fora do país com atendimento e suporte em português.",
+    description:
+      "Experiências fora do país com atendimento em português e suporte para uma viagem mais completa.",
     tag: "Internacional",
+  },
+  {
+    name: "Destinos de férias",
+    description:
+      "Opções pensadas para quem quer aproveitar as férias com conforto, lazer, boa hospedagem e experiências especiais.",
+    tag: "Férias",
   },
 ];
 
 export const experiences = [
   {
-    name: "Resort All Inclusive",
-    destination: "Destino nacional",
-    regime: "All Inclusive",
-    differentials: ["Refeições", "Bebidas", "Lazer", "Recreação"],
+    name: "All Inclusive",
+    icon: "sparkles",
+    description:
+      "Hospedagem em resort com possibilidade de incluir passagem aérea, transfer, seguro viagem e experiências complementares.",
+    tags: ["Hospedagem", "Aéreo", "Transfer", "Seguro", "Lazer"],
   },
   {
-    name: "Resort para famílias",
-    destination: "Destino nacional",
-    regime: "Meia pensão ou All Inclusive",
-    differentials: ["Kids Club", "Piscinas", "Recreação", "Família"],
+    name: "Viagem em família",
+    icon: "users",
+    description:
+      "Opções pensadas para quem viaja com crianças, podendo incluir hospedagem, transporte, seguro e passeios.",
+    tags: ["Família", "Hospedagem", "Aéreo", "Passeios", "Transfer"],
   },
   {
     name: "Experiência a dois",
-    destination: "Nacional ou internacional",
-    regime: "Sob consulta",
-    differentials: ["Romântico", "Bem-estar", "Gastronomia", "Exclusividade"],
+    icon: "heart",
+    description:
+      "Viagens para casais com foco em conforto, gastronomia, descanso e experiências especiais.",
+    tags: ["Casal", "Hospedagem", "Passeios", "Seguro", "Gastronomia"],
+  },
+  {
+    name: "Pacote completo",
+    icon: "luggage",
+    description:
+      "Viagens com organização mais completa, reunindo os principais serviços em uma só cotação.",
+    tags: ["Aéreo", "Hospedagem", "Transfer", "Seguro", "Passeios"],
+  },
+  {
+    name: "Cruzeiros e experiências especiais",
+    icon: "ship",
+    description:
+      "Opções para quem busca viagens diferentes, incluindo cruzeiros e roteiros personalizados.",
+    tags: ["Cruzeiros", "Experiências", "Roteiros", "Lazer"],
   },
 ];
+
 
 export const whyAllInclusive = [
   {
