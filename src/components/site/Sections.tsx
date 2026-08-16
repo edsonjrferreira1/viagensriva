@@ -449,7 +449,7 @@ export function DestinationsSection() {
         align="center"
         eyebrow="Destinos"
         title="Para onde você quer viajar?"
-        subtitle="Da praia ao clima de montanha, do Brasil ao exterior, selecionamos destinos e experiências para as suas próximas férias."
+        subtitle="Do Brasil ao exterior, ajudamos você a encontrar a experiência ideal para as suas próximas férias."
       />
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
