@@ -22,6 +22,8 @@ import {
   WhyRivaSection,
   TestimonialsSection,
 } from "@/components/site/Sections";
+import heroDesktop from "@/assets/hero-premium-desktop.jpg.asset.json";
+import heroMobile from "@/assets/hero-premium-mobile.jpg.asset.json";
 
 const title = "Viagens Riva | Viagens nacionais e internacionais";
 const description =
@@ -36,6 +38,24 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: heroDesktop.url },
+      { name: "twitter:image", content: heroDesktop.url },
+    ],
+    links: [
+      {
+        rel: "preload",
+        as: "image",
+        href: heroMobile.url,
+        media: "(max-width: 767px)",
+        fetchpriority: "high",
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: heroDesktop.url,
+        media: "(min-width: 768px)",
+        fetchpriority: "high",
+      },
     ],
   }),
   component: Index,
