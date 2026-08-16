@@ -95,7 +95,8 @@ const benefitIcons: Record<string, LucideIcon> = {
 
 export function DesireSection() {
   return (
-    <Section id="inspiracao" tone="sand">
+    <Section id="inspiracao" tone="sand" className="!pb-12 md:!pb-16">
+
       <SectionHeading
         align="center"
         eyebrow="Inspiração"
