@@ -25,9 +25,19 @@ import {
   ShieldCheck,
   Plane,
   MapPin,
+  MapPinned,
+  BedDouble,
+  Ship,
+  Car,
+  BusFront,
+  Users,
+  Heart,
+  Luggage,
   Star,
   Instagram,
+  type LucideIcon,
 } from "lucide-react";
+
 import { Section, SectionHeading } from "./Section";
 import {
   accommodations,
@@ -60,11 +70,31 @@ import spa from "@/assets/spa-wellness.jpg";
 import destBeach from "@/assets/destination-beach.jpg";
 import destMountain from "@/assets/destination-mountain.jpg";
 import destInternational from "@/assets/destination-international.jpg";
+import destVacation from "@/assets/destination-vacation.jpg";
 import agentImg from "@/assets/agent-placeholder.jpg";
 import panorama from "@/assets/final-cta.jpg";
 
 const inclusiveIcons = [Coffee, UtensilsCrossed, Salad, ChefHat, Wine, Sparkles, Waves];
-const destinationImages = [destBeach, destMountain, destInternational];
+const destinationImages = [destBeach, destMountain, destInternational, destVacation];
+
+const serviceIcons: Record<string, LucideIcon> = {
+  plane: Plane,
+  bed: BedDouble,
+  ship: Ship,
+  car: Car,
+  shield: ShieldCheck,
+  bus: BusFront,
+  map: MapPinned,
+};
+
+const experienceIcons: Record<string, LucideIcon> = {
+  sparkles: Sparkles,
+  users: Users,
+  heart: Heart,
+  luggage: Luggage,
+  ship: Ship,
+};
+
 
 export function DesireSection() {
   return (
@@ -363,16 +393,16 @@ export function DestinationsSection() {
         align="center"
         eyebrow="Destinos"
         title="Para onde você quer viajar?"
-        subtitle="Trabalhamos com resorts e hotéis selecionados no Brasil e no exterior. Conte para a gente o seu destino dos sonhos."
+        subtitle="Da praia ao clima de montanha, do Brasil ao exterior, selecionamos destinos e experiências para as suas próximas férias."
       />
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
         {destinations.map((d, i) => {
           const img = destinationImages[i % destinationImages.length];
           return (
-            <div
+            <article
               key={d.name}
-              className="group overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-soft transition hover:border-gold/50"
+              className="group relative overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
             >
               <img
                 src={img}
@@ -380,21 +410,22 @@ export function DestinationsSection() {
                 width={1200}
                 height={900}
                 loading="lazy"
-                className="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                className="h-72 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-80"
               />
-              <div className="p-6">
-                <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-gold">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-7">
+                <span className="text-[0.65rem] font-medium uppercase tracking-[0.22em] text-gold">
                   {d.tag}
                 </span>
-                <h3 className="mt-2 text-xl text-white">{d.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
+                <h3 className="mt-2 text-2xl text-white">{d.name}</h3>
+                <p className="mt-2 max-w-md text-sm leading-relaxed text-white/80">
                   {d.description}
                 </p>
                 <Button asChild variant="gold" size="sm" className="mt-5">
-                  <a href="#cotacao">Ver opções</a>
+                  <a href="#cotacao">Quero receber opções</a>
                 </Button>
               </div>
-            </div>
+            </article>
           );
         })}
       </div>
@@ -409,44 +440,48 @@ export function ExperiencesSection() {
         align="center"
         eyebrow="Seleção Viagens Riva"
         title="Experiências selecionadas"
-        subtitle="Opções de hospedagem pensadas para diferentes perfis de viagem."
+        subtitle="Experiências e viagens planejadas para diferentes perfis, com opções de hospedagem, transporte, passeios e serviços complementares."
       />
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {experiences.map((exp) => (
-          <div
-            key={exp.name}
-            className="rounded-2xl border border-border bg-card p-6 shadow-soft"
-          >
-            <div className="flex items-center gap-2">
-              <Star className="size-4 text-gold" />
-              <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                {exp.destination}
+        {experiences.map((exp) => {
+          const Icon = experienceIcons[exp.icon] ?? Sparkles;
+          return (
+            <article
+              key={exp.name}
+              className="flex h-full flex-col rounded-3xl border border-primary/10 bg-card p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+            >
+              <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
+                <Icon className="size-5 text-primary" strokeWidth={1.5} />
               </span>
-            </div>
-            <h3 className="mt-3 text-xl text-primary">{exp.name}</h3>
-            <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-              Regime: {exp.regime}
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {exp.differentials.map((diff) => (
-                <span
-                  key={diff}
-                  className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
-                >
-                  {diff}
-                </span>
-              ))}
-            </div>
-            <Button asChild variant="cta" className="mt-6 w-full">
-              <a href="#cotacao">Solicitar cotação</a>
-            </Button>
-          </div>
-        ))}
+              <h3 className="mt-5 text-xl text-primary">{exp.name}</h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {exp.description}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {exp.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-primary/10 px-3 py-1 text-xs text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <Button asChild variant="cta" className="mt-6 w-full">
+                <a href="#cotacao">Montar minha viagem</a>
+              </Button>
+              <p className="mt-3 text-center text-xs text-muted-foreground">
+                A cotação pode incluir aéreo, transfer, seguro e passeios.
+              </p>
+            </article>
+          );
+        })}
       </div>
     </Section>
   );
 }
+
 
 export function WhyAllInclusiveSection() {
   return (
@@ -505,21 +540,36 @@ export function ExpertSection() {
             Organizamos viagens nacionais e internacionais, cuidando de cada
             etapa do roteiro:
           </p>
-          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-            {agencyServices.map((s) => (
-              <li
-                key={s.label}
-                className="flex items-center gap-2 rounded-xl bg-secondary px-3 py-2 text-sm text-secondary-foreground"
-              >
-                <span aria-hidden="true">{s.emoji}</span>
-                {s.label}
-              </li>
-            ))}
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            {agencyServices.map((s) => {
+              const Icon = serviceIcons[s.icon] ?? MapPinned;
+              return (
+                <li
+                  key={s.label}
+                  className="flex items-center gap-3 rounded-2xl border border-primary/10 bg-card px-4 py-3 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
+                >
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary">
+                    <Icon
+                      className="size-[18px] text-primary"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <span className="text-sm text-primary">{s.label}</span>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild variant="cta" size="xl">
-              <a href="#cotacao">Falar com {expert.name.split(" ")[0]}</a>
+              <a
+                href={whatsappLink(defaultWhatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Falar com a {agency.name}
+              </a>
             </Button>
             <Button asChild variant="outline" size="xl">
               <a
@@ -527,7 +577,7 @@ export function ExpertSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram className="size-4" />
+                <Instagram className="size-[18px]" strokeWidth={1.5} />
                 {agency.instagramHandle}
               </a>
             </Button>
@@ -537,6 +587,7 @@ export function ExpertSection() {
     </Section>
   );
 }
+
 
 
 export function WhyRivaSection() {
