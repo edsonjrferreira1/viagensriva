@@ -194,76 +194,113 @@ export function Header() {
           </Button>
           <button
             type="button"
-            aria-label="Abrir menu"
+            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-primary lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/15 text-primary lg:hidden"
           >
-            <Menu className="size-5" />
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
       </div>
 
-      {open && (
-        <div className="fixed inset-0 z-50 flex flex-col surface-deep lg:hidden">
-          <div className="flex items-center justify-between px-4 py-4">
-            <span className="inline-flex items-center rounded-xl bg-white px-3 py-2">
-              <img
-                src={logoAsset.url}
-                alt={`Logo ${agency.name}`}
-                width={512}
-                height={512}
-                className="h-10 w-auto object-contain"
-              />
-            </span>
-
+      {mounted &&
+        open &&
+        createPortal(
+          <div className="fixed inset-0 z-[100] lg:hidden">
             <button
               type="button"
               aria-label="Fechar menu"
               onClick={() => setOpen(false)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-white"
-            >
-              <X className="size-5" />
-            </button>
-          </div>
-          <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 pb-8">
-            {navItems.map((item) => (
-              <div key={item.href} className="border-b border-white/15 py-3">
-                <a
-                  href={item.href}
+              className="absolute inset-0 h-full w-full bg-black/60 backdrop-blur-sm"
+            />
+            <div className="absolute inset-y-0 right-0 flex h-full w-[86%] max-w-sm animate-in slide-in-from-right duration-200 flex-col surface-deep shadow-lift">
+              <div className="flex shrink-0 items-center justify-between border-b border-white/10 px-4 py-3">
+                <span className="inline-flex items-center rounded-lg bg-white px-2.5 py-1.5">
+                  <img
+                    src={logoAsset.url}
+                    alt={`Logo ${agency.name}`}
+                    width={512}
+                    height={512}
+                    className="h-8 w-auto object-contain"
+                  />
+                </span>
+                <button
+                  type="button"
+                  aria-label="Fechar menu"
                   onClick={() => setOpen(false)}
-                  className="block font-display text-2xl text-white"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white"
                 >
-                  {item.label}
-                </a>
-                {item.children && (
-                  <ul className="mt-2 space-y-1 pl-4">
-                    {item.children.map((child) => (
-                      <li key={child.label}>
-                        <a
-                          href={child.href}
-                          onClick={() => setOpen(false)}
-                          className="block py-1.5 text-sm text-white/80"
-                        >
-                          {child.label}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                  <X className="size-5" />
+                </button>
               </div>
-            ))}
-            <Button
-              asChild
-              variant="gold"
-              size="xl"
-              className="mt-8 w-full"
-              onClick={() => setOpen(false)}
-            >
-              <a href="#cotacao">Solicitar cotação</a>
-            </Button>
-          </nav>
-        </div>
-      )}
+
+              <nav className="flex-1 overflow-y-auto overscroll-contain px-5 py-4">
+                <ul className="flex flex-col">
+                  {navItems.map((item) => (
+                    <li key={item.href} className="border-b border-white/10">
+                      <div className="flex items-center justify-between">
+                        <a
+                          href={item.href}
+                          onClick={() => setOpen(false)}
+                          className="block flex-1 py-4 text-lg font-medium text-white"
+                        >
+                          {item.label}
+                        </a>
+                        {item.children && (
+                          <button
+                            type="button"
+                            aria-label={`Abrir subitens de ${item.label}`}
+                            aria-expanded={mobileAccordion === item.href}
+                            onClick={() =>
+                              setMobileAccordion((v) =>
+                                v === item.href ? null : item.href,
+                              )
+                            }
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-white/80"
+                          >
+                            <ChevronDown
+                              className={cn(
+                                "size-5 transition-transform",
+                                mobileAccordion === item.href && "rotate-180",
+                              )}
+                            />
+                          </button>
+                        )}
+                      </div>
+                      {item.children && mobileAccordion === item.href && (
+                        <ul className="pb-3 pl-3">
+                          {item.children.map((child) => (
+                            <li key={child.label}>
+                              <a
+                                href={child.href}
+                                onClick={() => setOpen(false)}
+                                className="block py-2.5 text-sm text-white/80"
+                              >
+                                {child.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  asChild
+                  variant="gold"
+                  size="xl"
+                  className="mt-6 w-full"
+                  onClick={() => setOpen(false)}
+                >
+                  <a href="#cotacao">Solicitar cotação</a>
+                </Button>
+              </nav>
+            </div>
+          </div>,
+          document.body,
+        )}
     </header>
   );
 }
