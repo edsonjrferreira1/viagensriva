@@ -104,7 +104,8 @@ export function DesireSection() {
       />
 
       {/* Mosaico editorial: 2 colunas / 2 linhas no desktop */}
-      <div className="mt-10 grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 md:grid-rows-2 md:gap-5">
+      <div className="mt-10 grid grid-cols-1 gap-3 sm:gap-4 md:h-[540px] md:grid-cols-2 md:grid-rows-2 md:gap-5">
+
         <img
           src={desire1}
           alt="Resort premium com piscina e estrutura de viagem sofisticada"
