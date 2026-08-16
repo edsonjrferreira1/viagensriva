@@ -370,6 +370,8 @@ export function CruisesSection() {
             className="h-full min-h-[640px] w-full rounded-3xl object-cover shadow-lift"
           />
         </div>
+      </div>
+
     </Section>
   );
 }
