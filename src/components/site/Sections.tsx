@@ -13,9 +13,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  Coffee,
   UtensilsCrossed,
-  Salad,
   Wine,
   ChefHat,
   Sparkles,
@@ -24,7 +22,6 @@ import {
   Headphones,
   ShieldCheck,
   Plane,
-  MapPin,
   MapPinned,
   BedDouble,
   Ship,
@@ -33,6 +30,7 @@ import {
   Users,
   Heart,
   Luggage,
+  Palmtree,
   Star,
   Instagram,
   type LucideIcon,
@@ -49,12 +47,12 @@ import {
   expert,
   faq,
   googleReviews,
-
-  inclusiveCards,
+  inclusiveBenefits,
   leisureCards,
   whatsappLink,
   whyAllInclusive,
 } from "@/config/site";
+
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
 
 
