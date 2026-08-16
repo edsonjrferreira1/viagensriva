@@ -713,7 +713,7 @@ export function TestimonialsSection() {
                 {r.author}
               </span>
               <span className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
-                <BadgeCheck className="size-3.5 text-turquoise" />
+                <BadgeCheck className="size-3.5 text-primary/70" />
                 Avaliação real publicada no Google
               </span>
             </figcaption>
