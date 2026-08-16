@@ -492,12 +492,12 @@ export function DestinationsSection() {
 
 export function ExperiencesSection() {
   return (
-    <Section>
+    <Section id="experiencias">
       <SectionHeading
         align="center"
-        eyebrow="Seleção Viagens Riva"
-        title="Experiências selecionadas"
-        subtitle="Experiências e viagens planejadas para diferentes perfis, com opções de hospedagem, transporte, passeios e serviços complementares."
+        eyebrow="Formas de viajar"
+        title="Experiências para cada jeito de viajar."
+        subtitle="Encontre a experiência que mais combina com o seu jeito de viajar — com passagens, hospedagem, transfer, seguro e passeios organizados por nós."
       />
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -506,20 +506,20 @@ export function ExperiencesSection() {
           return (
             <article
               key={exp.name}
-              className="flex h-full flex-col rounded-3xl border border-primary/10 bg-card p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+              className="flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
             >
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
-                <Icon className="size-5 text-primary" strokeWidth={1.5} />
+                <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
               </span>
               <h3 className="mt-5 text-xl text-primary">{exp.name}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
                 {exp.description}
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {exp.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-primary/10 px-3 py-1 text-xs text-muted-foreground"
+                    className="rounded-full border border-primary/25 px-3 py-1 text-xs text-foreground/80"
                   >
                     {tag}
                   </span>
@@ -528,9 +528,10 @@ export function ExperiencesSection() {
               <Button asChild variant="cta" className="mt-6 w-full">
                 <a href="#cotacao">Montar minha viagem</a>
               </Button>
-              <p className="mt-3 text-center text-xs text-muted-foreground">
-                A cotação pode incluir aéreo, transfer, seguro e passeios.
+              <p className="mt-3 text-center text-xs text-foreground/70">
+                A cotação pode incluir aéreo, hospedagem, transfer, seguro e passeios.
               </p>
+
             </article>
           );
         })}
