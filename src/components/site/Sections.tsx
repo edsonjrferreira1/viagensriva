@@ -415,12 +415,13 @@ export function AccommodationsSection() {
                 />
                 <div className="p-6">
                   <h3 className="text-xl text-primary">{a.name}</h3>
-                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
                     {a.capacity}
                   </p>
-                  <p className="mt-3 text-sm text-muted-foreground">
+                  <p className="mt-3 text-sm leading-relaxed text-foreground/75">
                     {a.description}
                   </p>
+
                   <Button
                     asChild
                     variant="outline"
