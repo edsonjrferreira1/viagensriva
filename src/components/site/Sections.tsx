@@ -38,6 +38,8 @@ import {
   experiences,
   expert,
   faq,
+  googleReviews,
+
   inclusiveCards,
   leisureCards,
   whatsappLink,
