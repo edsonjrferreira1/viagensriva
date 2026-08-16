@@ -33,12 +33,14 @@ import {
   accommodations,
   agency,
   agencyServices,
+  defaultWhatsappMessage,
   destinations,
   experiences,
   expert,
   faq,
   inclusiveCards,
   leisureCards,
+  whatsappLink,
   whyAllInclusive,
 } from "@/config/site";
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
@@ -593,6 +595,7 @@ export function FaqSection() {
         align="center"
         eyebrow="Dúvidas"
         title="Perguntas frequentes"
+        subtitle="Esclarecemos as principais dúvidas para você planejar sua viagem com mais tranquilidade."
       />
       <Accordion type="single" collapsible className="mx-auto mt-10 max-w-3xl">
         {faq.map((item, i) => (
@@ -600,12 +603,30 @@ export function FaqSection() {
             <AccordionTrigger className="text-left font-display text-lg text-primary">
               {item.q}
             </AccordionTrigger>
-            <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+            <AccordionContent className="whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
               {item.a}
             </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
+
+      <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-border bg-card p-8 text-center shadow-soft sm:p-10">
+        <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+          Ainda ficou com alguma dúvida?
+        </p>
+        <h3 className="mt-3 font-display text-2xl text-primary sm:text-3xl">
+          Nossa equipe pode ajudar você a planejar sua viagem.
+        </h3>
+        <Button asChild variant="cta" size="xl" className="mt-8">
+          <a
+            href={whatsappLink(defaultWhatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Falar com a {agency.name}
+          </a>
+        </Button>
+      </div>
     </Section>
   );
 }

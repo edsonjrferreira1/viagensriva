@@ -185,32 +185,54 @@ export const whyAllInclusive = [
 
 export const faq = [
   {
-    q: "O que é um resort All Inclusive?",
-    a: "É um regime de hospedagem que inclui, conforme as regras de cada resort, refeições, bebidas, lazer e outras atividades. Cada estabelecimento define o que está incluído, os horários e as condições vigentes.",
+    q: "O que está incluído em um resort All Inclusive?",
+    a:
+      "O que está incluído varia de acordo com cada resort. Normalmente, o regime All Inclusive pode contemplar refeições, petiscos, bebidas e algumas atividades durante a hospedagem. Antes da reserva, informamos exatamente o que está incluído na opção escolhida.",
   },
   {
-    q: "Posso contratar somente hospedagem?",
-    a: "Sim. É possível solicitar cotação somente da hospedagem, com o regime que você preferir.",
+    q: "Posso contratar somente hospedagem ou montar um pacote completo?",
+    a:
+      "Sim. Podemos cotar somente a hospedagem ou organizar uma viagem completa, incluindo passagens aéreas, hospedagem, transfer, seguro viagem, aluguel de carro, passeios e outras experiências, conforme a necessidade de cada cliente.",
   },
   {
-    q: "Também posso incluir passagem aérea?",
-    a: "Sim. Podemos preparar uma cotação incluindo hospedagem e passagem aérea, além de outros serviços.",
+    q: "Quais são as formas de pagamento?",
+    a:
+      "Trabalhamos com diferentes formas de pagamento.\n\n💳 Cartão de crédito: pacotes podem ter parcelamento em até 10x sem juros, conforme as condições disponíveis para a reserva.\n\n💰 Pix: pagamento à vista com possibilidade de desconto.\n\n📄 Boleto: disponível mediante análise de crédito, podendo haver opções de parcelamento em até 10 ou 12 vezes sem juros, de acordo com a aprovação e as condições disponíveis.\n\nAs condições exatas são apresentadas juntamente com cada cotação.",
   },
   {
     q: "Posso viajar com crianças?",
-    a: "Sim. Trabalhamos com resorts que possuem estrutura e experiências voltadas também para famílias com crianças.",
-  },
-  {
-    q: "É possível parcelar?",
-    a: "As condições de pagamento disponíveis serão apresentadas juntamente com a cotação personalizada.",
+    a:
+      "Sim. Podemos buscar hospedagens e resorts adequados para famílias, considerando a idade das crianças, estrutura infantil, alimentação, recreação e demais necessidades da viagem.\n\nÉ importante informar a idade de cada criança no momento da cotação, pois as regras e tarifas podem variar de acordo com a hospedagem.",
   },
   {
     q: "Os preços apresentados são fixos?",
-    a: "Não. As tarifas dependem do período, ocupação, disponibilidade e condições vigentes no momento da reserva.",
+    a:
+      "Não. Tarifas de passagens, hospedagens e pacotes são dinâmicas e podem sofrer alterações conforme disponibilidade, período da viagem, quantidade de hóspedes e condições dos fornecedores.\n\nPor isso, uma cotação representa as condições disponíveis no momento da pesquisa e está sujeita a alteração até a confirmação da reserva.",
   },
   {
-    q: "É possível incluir transfer?",
-    a: "Sim. Consulte disponibilidade para incluir transfer, seguro viagem e outros serviços na sua viagem.",
+    q: "Quais documentos preciso para viajar?",
+    a:
+      "A documentação necessária depende do destino e do perfil dos passageiros.\n\nViagens nacionais e internacionais podem exigir documentos diferentes, principalmente quando há menores de idade envolvidos.\n\nDurante o atendimento, orientamos o cliente sobre a documentação necessária para a viagem contratada.",
+  },
+  {
+    q: "É possível alterar ou cancelar uma viagem depois da reserva?",
+    a:
+      "Sim, porém as condições dependem das regras da tarifa, hospedagem, companhia aérea e demais serviços contratados.\n\nAlgumas tarifas permitem alteração ou cancelamento mediante cobrança de multas e diferença tarifária, enquanto outras podem possuir condições mais restritivas.\n\nAntes da confirmação da reserva, apresentamos as principais regras aplicáveis.",
+  },
+  {
+    q: "Vocês oferecem suporte depois que a viagem é contratada?",
+    a:
+      "Sim. O atendimento da Viagens Riva não termina após a reserva.\n\nNossa equipe auxilia com orientações antes da viagem e presta suporte relacionado aos serviços contratados sempre que necessário.",
+  },
+  {
+    q: "Posso solicitar uma cotação mesmo sem saber exatamente para onde quero viajar?",
+    a:
+      "Sim. Informe o período aproximado, cidade de origem, quantidade de passageiros e o tipo de experiência que procura.\n\nPodemos ajudar na escolha do destino e apresentar opções compatíveis com o perfil da viagem.",
+  },
+  {
+    q: "Com quanto tempo de antecedência é melhor reservar?",
+    a:
+      "Quanto maior a antecedência, normalmente maiores são as possibilidades de encontrar boas opções de voos, hospedagens e condições de pagamento.\n\nEm períodos de alta procura, como férias, feriados, réveillon e carnaval, recomendamos iniciar o planejamento com antecedência ainda maior.",
   },
 ];
 
