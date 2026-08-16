@@ -71,6 +71,8 @@ import destInternational from "@/assets/destination-international.jpg";
 import destVacation from "@/assets/destination-vacation.jpg";
 import agentImg from "@/assets/agent-placeholder.jpg";
 import panorama from "@/assets/final-cta.jpg";
+import servicosImg from "@/assets/servicos-completos.jpg";
+
 
 const destinationImages = [destBeach, destMountain, destInternational, destVacation];
 
@@ -200,13 +202,9 @@ export function InclusiveSection() {
         invert
         align="center"
         eyebrow="Uma das nossas especialidades"
-        title="Quer férias com ainda mais praticidade?"
-        subtitle="Também selecionamos resorts e experiências All Inclusive no Brasil e no exterior para quem quer aproveitar gastronomia, bebidas, lazer e estrutura completa durante a hospedagem."
+        title="Resorts &amp; All Inclusive"
+        subtitle="Para quem quer férias sem logística: gastronomia, bebidas, piscinas e recreação já resolvidos na hospedagem, no Brasil ou no exterior."
       />
-
-      <p className="mx-auto mt-6 w-fit rounded-full border border-gold/70 bg-gold/15 px-5 py-2 text-center text-sm font-medium uppercase tracking-[0.2em] text-gold">
-        Resorts &amp; All Inclusive
-      </p>
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {inclusiveBenefits.map((b) => {
@@ -228,12 +226,70 @@ export function InclusiveSection() {
         })}
       </div>
 
-      <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-white/75">
+      <div className="mt-14 grid gap-8 lg:grid-cols-2 lg:items-center">
+        <div className="grid grid-cols-2 gap-4">
+          <img
+            src={gastro}
+            alt="Mesa com pratos variados durante uma viagem"
+            width={1200}
+            height={900}
+            loading="lazy"
+            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+          />
+          <img
+            src={lazerImg.url}
+            alt="Piscina de borda infinita com espreguiçadeiras e paisagismo tropical"
+            width={1600}
+            height={1200}
+            loading="lazy"
+            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+          />
+        </div>
+
+        <div>
+          <h3 className="font-display text-2xl text-sand sm:text-3xl">
+            Gastronomia, piscinas e dias inteiros para aproveitar
+          </h3>
+          <p className="mt-4 text-sm leading-relaxed text-white/90">
+            Do café da manhã ao jantar, dos restaurantes temáticos aos bares à
+            beira da piscina: ajudamos você a escolher o regime de alimentação e
+            a estrutura de lazer que combinam com o ritmo das suas férias.
+          </p>
+          <div className="mt-7 flex flex-wrap gap-2">
+            {leisureCards.map((c) => (
+              <span
+                key={c}
+                className="rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.16em] text-white"
+              >
+                {c}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {whyAllInclusive.map((item) => (
+          <div
+            key={item.title}
+            className="rounded-2xl border border-white/20 bg-white/5 p-6"
+          >
+            <h3 className="font-display text-lg leading-snug text-gold">
+              {item.title}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-white/85">
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-relaxed text-white/75">
         Serviços e itens incluídos variam conforme o resort e o regime
         contratado.
       </p>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-8 flex justify-center">
         <Button asChild variant="gold" size="xl">
           <a href="#cotacao">Quero conhecer opções All Inclusive</a>
         </Button>
@@ -242,87 +298,6 @@ export function InclusiveSection() {
   );
 }
 
-
-export function GastronomySection() {
-  return (
-    <Section id="gastronomia">
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <img
-          src={gastro}
-          alt="Mesa com pratos variados durante uma viagem"
-          width={1200}
-          height={900}
-          loading="lazy"
-          className="h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[28rem]"
-        />
-        <div>
-          <SectionHeading
-            eyebrow="Gastronomia e experiências"
-            title="Viajar também é feito de sabores"
-            subtitle="Além de passagens e hospedagem, ajudamos você a incluir na viagem experiências gastronômicas, passeios e momentos que valem a pena reservar com antecedência."
-          />
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            {[
-              { t: "Restaurantes e roteiros", d: "Sugestões e reservas conforme o destino escolhido." },
-              { t: "Regimes de alimentação", d: "Do café da manhã ao All Inclusive, conforme a hospedagem." },
-              { t: "Passeios e ingressos", d: "Experiências garantidas antes mesmo de embarcar." },
-              { t: "Opções para crianças", d: "Roteiros e cardápios pensados também nos pequenos." },
-            ].map((b) => (
-              <div key={b.t} className="border-l-2 border-gold pl-4">
-                <h3 className="text-lg text-primary">{b.t}</h3>
-                <p className="mt-1 text-sm text-foreground/75">{b.d}</p>
-              </div>
-            ))}
-          </div>
-          <Button asChild variant="cta" size="xl" className="mt-9">
-            <a href="#cotacao">Quero conhecer as opções</a>
-          </Button>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-export function LeisureSection() {
-  return (
-    <Section id="lazer" tone="sand">
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <img
-          src={lazerImg.url}
-          alt="Piscina de borda infinita com espreguiçadeiras e paisagismo tropical"
-          width={1600}
-          height={1200}
-          loading="lazy"
-          className="h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[28rem]"
-        />
-
-        <div>
-          <SectionHeading
-            eyebrow="Lazer e descanso"
-            title="Dias inteiros para aproveitar"
-            subtitle="Praia, piscina, natureza, passeios ou simplesmente não fazer nada: montamos a viagem de acordo com o ritmo que você quer ter nas férias."
-          />
-          <div className="mt-8 flex flex-wrap gap-2">
-            {leisureCards.map((c) => (
-              <span
-                key={c}
-                className="rounded-full border border-primary/25 bg-card px-4 py-2 text-xs uppercase tracking-[0.16em] text-primary"
-              >
-                {c}
-              </span>
-            ))}
-          </div>
-          <p className="mt-8 text-xs text-foreground/70">
-            A estrutura disponível varia conforme o destino e os serviços contratados.
-          </p>
-          <Button asChild variant="navy" size="xl" className="mt-6">
-            <a href="#cotacao">Quero planejar minhas férias</a>
-          </Button>
-        </div>
-      </div>
-    </Section>
-  );
-}
 
 
 export function FamilySection() {
@@ -541,33 +516,100 @@ export function ExperiencesSection() {
 }
 
 
-export function WhyAllInclusiveSection() {
+const travelServices = [
+  {
+    icon: Plane,
+    title: "Passagens aéreas",
+    text: "Comparamos companhias, conexões e horários para achar o voo que faz sentido para o seu roteiro — nacional ou internacional.",
+  },
+  {
+    icon: Ship,
+    title: "Cruzeiros",
+    text: "Vários destinos em uma só viagem, com cabine, regime de bordo e excursões escolhidos com você.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Seguro viagem",
+    text: "Cobertura adequada ao destino, ao período e à idade dos passageiros, incluindo exigências de países que pedem seguro obrigatório.",
+  },
+  {
+    icon: BusFront,
+    title: "Transfer",
+    text: "Traslado entre aeroporto, hospedagem e passeios já contratado, para você não chegar no destino resolvendo transporte.",
+  },
+  {
+    icon: Car,
+    title: "Aluguel de carros",
+    text: "Categoria, seguro e retirada organizados para quem quer explorar o destino com autonomia.",
+  },
+];
+
+export function TravelServicesSection() {
   return (
-    <Section tone="sand">
-      <SectionHeading
-        align="center"
-        eyebrow="Por que All Inclusive"
-        title="Mais liberdade para aproveitar suas férias"
-        subtitle="Entre as viagens que organizamos, o regime All Inclusive é uma boa escolha para quem quer previsibilidade de gastos e praticidade durante a hospedagem."
-      />
+    <Section id="agencia-completa" tone="sand">
+      <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div>
+          <SectionHeading
+            eyebrow="Agência completa"
+            title="Muito além da hospedagem"
+            subtitle="Resort é só uma parte da viagem. Passagens, cruzeiros, seguro, transfer e carro são organizados pela mesma equipe, na mesma cotação e com um único atendimento."
+          />
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {whyAllInclusive.map((item) => (
-          <div
-            key={item.title}
-            className="rounded-2xl border border-primary/15 bg-card p-6 text-center shadow-soft"
-          >
-            <h3 className="text-xl text-primary">{item.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/75">
-              {item.text}
-            </p>
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+            {travelServices.map((s) => (
+              <li
+                key={s.title}
+                className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+              >
+                <s.icon className="size-6 text-teal" strokeWidth={1.5} aria-hidden="true" />
+                <h3 className="mt-4 text-lg text-primary">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+                  {s.text}
+                </p>
+              </li>
+            ))}
+          </ul>
 
-          </div>
-        ))}
+          <Button asChild variant="cta" size="xl" className="mt-10">
+            <a href="#cotacao">Quero cotar minha viagem completa</a>
+          </Button>
+        </div>
+
+
+        <img
+          src={servicosImg}
+          alt="Asa de avião sobre o mar ao pôr do sol com navio de cruzeiro ao fundo"
+          width={1600}
+          height={1200}
+          loading="lazy"
+          className="h-80 w-full rounded-3xl object-cover shadow-lift lg:h-[36rem]"
+        />
       </div>
     </Section>
   );
 }
+
+export function GoogleRatingBadge() {
+  return (
+    <div className="border-b border-primary/10 bg-secondary px-4 py-5 sm:px-6">
+      <a
+        href={googleReviews.profileUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mx-auto flex w-fit flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-primary/20 bg-card px-6 py-3 text-center shadow-soft transition hover:border-gold/70"
+      >
+        <Stars />
+        <span className="text-sm font-medium text-primary sm:text-base">
+          {googleReviews.rating} no Google
+        </span>
+        <span className="text-sm text-foreground/80">
+          · {googleReviews.count} avaliações reais
+        </span>
+      </a>
+    </div>
+  );
+}
+
 
 export function ExpertSection() {
   return (
