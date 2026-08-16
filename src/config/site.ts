@@ -222,7 +222,7 @@ export const experiences = [
     icon: "sparkles",
     description:
       "Dias sem logística: você chega, desacelera e aproveita tudo o que a hospedagem oferece.",
-    tags: ["Descanso", "Gastronomia", "Lazer", "Conforto", "All Inclusive"],
+    tags: ["Descanso", "Gastronomia", "Lazer", "Conforto"],
   },
   {
     name: "Cruzeiros",
@@ -236,14 +236,14 @@ export const experiences = [
     icon: "luggage",
     description:
       "Do Brasil ao exterior, um roteiro com o ritmo certo para o seu tempo livre.",
-    tags: ["Brasil", "Exterior", "Roteiros", "Férias", "Experiências"],
+    tags: ["Brasil", "Exterior", "Roteiros", "Férias"],
   },
   {
     name: "Praia & descanso",
     icon: "palm",
     description:
       "Mar, silêncio e dias sem hora marcada para quem só quer sair da rotina.",
-    tags: ["Praia", "Descanso", "Bem-estar", "Férias", "Tranquilidade"],
+    tags: ["Praia", "Descanso", "Bem-estar", "Tranquilidade"],
   },
   {
     name: "Lua de mel",
@@ -251,6 +251,27 @@ export const experiences = [
     description:
       "Destinos, hospedagens e experiências especiais para começar essa nova fase com uma viagem inesquecível.",
     tags: ["Romance", "Experiências", "Conforto", "Destinos especiais"],
+  },
+  {
+    name: "Neve & inverno",
+    icon: "snowflake",
+    description:
+      "Destinos para viver o frio, paisagens de inverno e experiências que transformam a estação em parte da viagem.",
+    tags: ["Neve", "Inverno", "Montanha", "Experiências"],
+  },
+  {
+    name: "Natureza & aventura",
+    icon: "mountain",
+    description:
+      "Viagens para quem quer descobrir paisagens, natureza e experiências diferentes da rotina.",
+    tags: ["Natureza", "Aventura", "Paisagens", "Experiências"],
+  },
+  {
+    name: "Cultura & gastronomia",
+    icon: "utensils",
+    description:
+      "Destinos para conhecer também pelos sabores, história, cultura e experiências locais.",
+    tags: ["Cultura", "Gastronomia", "História", "Experiências"],
   },
 ];
 
