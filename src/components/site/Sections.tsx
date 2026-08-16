@@ -87,6 +87,9 @@ const experienceIcons: Record<string, LucideIcon> = {
   luggage: Luggage,
   ship: Ship,
   palm: Palmtree,
+  snowflake: Snowflake,
+  mountain: Mountain,
+  utensils: UtensilsCrossed,
 };
 
 const benefitIcons: Record<string, LucideIcon> = {
