@@ -70,6 +70,7 @@ export const defaultWhatsappMessage =
 
 export const navItems = [
   { label: "Serviços", href: "#servicos" },
+  { label: "Diferenciais", href: "#diferenciais" },
   { label: "Experiências", href: "#experiencias" },
   { label: "Agência completa", href: "#agencia-completa" },
   { label: "All Inclusive", href: "#all-inclusive" },
@@ -232,29 +233,6 @@ export const experiences = [
   },
 ];
 
-
-export const whyAllInclusive = [
-  {
-    title: "Orçamento fechado antes de embarcar",
-    text: "Você sabe o que já está pago e viaja sem a conta aberta do restaurante no fim de cada dia.",
-  },
-  {
-    title: "Nada para resolver no destino",
-    text: "Refeições, bebidas e atividades combinadas com antecedência — resta escolher o que fazer primeiro.",
-  },
-  {
-    title: "Restaurantes e bares no mesmo lugar",
-    text: "Cozinhas diferentes, bares e cardápio infantil sem precisar sair da hospedagem.",
-  },
-  {
-    title: "Crianças ocupadas, adultos descansando",
-    text: "Recreação monitorada e estrutura kids que dão tempo livre de verdade para os pais.",
-  },
-  {
-    title: "Mais horas de férias por dia",
-    text: "Menos deslocamento e menos logística: o dia rende para a piscina, a praia e o descanso.",
-  },
-];
 
 
 export const faq = [
