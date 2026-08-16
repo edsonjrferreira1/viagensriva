@@ -194,201 +194,184 @@ export function ServicesSection() {
   );
 }
 
-export function InclusiveSection() {
-  return (
-    <Section id="all-inclusive" tone="deep">
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <div>
-          <SectionHeading
-            invert
-            eyebrow="Uma das nossas especialidades"
-            title="Resorts &amp; All Inclusive"
-            subtitle="Para quem prefere férias sem logística: gastronomia, bebidas, piscinas e recreação já resolvidos na hospedagem, no Brasil ou no exterior."
-          />
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {inclusiveBenefits.map((b) => {
-              const Icon = benefitIcons[b.icon] ?? Sparkles;
-              return (
-                <div
-                  key={b.title}
-                  className="rounded-2xl border border-white/25 bg-white/10 p-5 backdrop-blur-sm transition hover:border-gold/60"
-                >
-                  <Icon className="size-5 text-gold" aria-hidden="true" />
-                  <h3 className="mt-3 text-lg text-white">{b.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/85">
-                    {b.text}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
-          <p className="mt-6 text-xs leading-relaxed text-white/75">
-            Itens inclusos variam conforme o resort e o regime contratado.
-          </p>
-
-          <Button asChild variant="gold" size="xl" className="mt-8">
-            <a href="#cotacao">Quero conhecer opções All Inclusive</a>
-          </Button>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <img
-            src={gastro}
-            alt="Mesa com pratos variados durante uma viagem"
-            width={1200}
-            height={900}
-            loading="lazy"
-            decoding="async"
-            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-80"
-          />
-          <img
-            src={lazerImg.url}
-            alt="Piscina de borda infinita com espreguiçadeiras e paisagismo tropical"
-            width={1600}
-            height={1200}
-            loading="lazy"
-            decoding="async"
-            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-80"
-          />
-          <div className="col-span-2 flex flex-wrap gap-2">
-            {leisureCards.map((c) => (
-              <span
-                key={c}
-                className="rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.16em] text-white"
-              >
-                {c}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-
-
-
-export function FamilySection() {
-  return (
-    <Section id="familias">
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <div>
-          <SectionHeading
-            eyebrow="Famílias"
-            title={
-              <>
-                As crianças se divertem.
-                <br />
-                Os adultos aproveitam.
-              </>
-            }
-            subtitle="Planejamos cada etapa considerando adultos e crianças: voos, hospedagem, transporte, seguro e experiências para toda a família aproveitar junto."
-          />
-          <Button asChild variant="navy" size="xl" className="mt-8">
-            <a href="#cotacao">Quero planejar a viagem da família</a>
-          </Button>
-
-        </div>
-        <img
-          src={family}
-          alt="Família se divertindo na piscina de resort"
-          width={1200}
-          height={900}
-          loading="lazy"
-        decoding="async"
-          className="h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[26rem]"
-        />
-      </div>
-    </Section>
-  );
-}
-
-export function CouplesSection() {
-  return (
-    <Section id="casais" tone="sand">
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <img
-          src={couples}
-          alt="Casal jantando em restaurante com vista para o mar"
-          width={1200}
-          height={900}
-          loading="lazy"
-        decoding="async"
-          className="order-2 h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[26rem] lg:order-1"
-        />
-        <div className="order-1 lg:order-2">
-          <SectionHeading
-            eyebrow="Viagens a dois"
-            title="Também existe espaço para desacelerar a dois"
-            subtitle="Destinos, hospedagens e experiências para casais que querem descansar, comemorar uma data especial ou simplesmente viajar juntos."
-
-          />
-          <Button asChild variant="cta" size="xl" className="mt-8">
-            <a href="#cotacao">Quero planejar minha viagem</a>
-          </Button>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
 export function AccommodationsSection() {
   return (
-    <Section id="acomodacoes">
+    <Section id="hospedagens">
       <SectionHeading
+        align="center"
         eyebrow="Hospedagens"
-        title="Um bom lugar para descansar em cada etapa da viagem"
-        subtitle="Hotéis, pousadas, flats e resorts selecionados conforme o roteiro, o período e o orçamento. As categorias variam de acordo com a disponibilidade."
+        title="Hospedagens para cada estilo de viagem"
+        subtitle="De hotéis e pousadas a resorts completos e experiências All Inclusive, selecionamos opções de acordo com o destino, perfil da viagem e investimento desejado."
       />
 
+      {/* Destaque: Resorts & All Inclusive */}
+      <div className="mt-12 overflow-hidden rounded-3xl surface-deep shadow-lift">
+        <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="eyebrow text-champagne">Uma das nossas especialidades</p>
+            <h3 className="mt-3 font-display text-3xl leading-tight text-sand sm:text-4xl">
+              Resorts &amp; All Inclusive
+            </h3>
+            <p className="mt-4 text-base leading-relaxed text-white/90">
+              Férias sem logística: gastronomia, bebidas, piscinas e recreação já
+              resolvidos na hospedagem, no Brasil ou no exterior.
+            </p>
 
-      <Carousel className="mt-10" opts={{ align: "start" }}>
-        <CarouselContent>
-          {accommodations.map((a) => (
-            <CarouselItem
-              key={a.name}
-              className="sm:basis-1/2 lg:basis-1/3"
-            >
-              <div className="h-full overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
-                <img
-                  src={room}
-                  alt={`Acomodação — ${a.name}`}
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-        decoding="async"
-                  className="h-52 w-full object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl text-primary">{a.name}</h3>
-                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
-                    {a.capacity}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-foreground/75">
-                    {a.description}
-                  </p>
-
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="mt-5 w-full rounded-full"
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {inclusiveBenefits.map((b) => {
+                const Icon = benefitIcons[b.icon] ?? Sparkles;
+                return (
+                  <li
+                    key={b.title}
+                    className="flex items-center gap-3 rounded-2xl border border-white/25 bg-white/10 px-4 py-3 backdrop-blur-sm"
                   >
-                    <a href="#cotacao">Consultar disponibilidade</a>
-                  </Button>
-                </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="hidden sm:flex" />
-        <CarouselNext className="hidden sm:flex" />
-      </Carousel>
+                    <Icon className="size-5 shrink-0 text-gold" aria-hidden="true" />
+                    <span className="text-sm text-white">{b.title}</span>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {leisureCards.slice(0, 5).map((c) => (
+                <span
+                  key={c}
+                  className="rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs uppercase tracking-[0.16em] text-white"
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+
+            <p className="mt-5 text-xs leading-relaxed text-white/80">
+              Os serviços incluídos variam conforme o resort e o regime contratado.
+            </p>
+
+            <Button asChild variant="gold" size="xl" className="mt-7">
+              <a href="#cotacao">Quero conhecer opções All Inclusive</a>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src={gastro}
+              alt="Mesa com pratos variados durante uma viagem"
+              width={1200}
+              height={900}
+              loading="lazy"
+              decoding="async"
+              className="h-52 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+            />
+            <img
+              src={lazerImg.url}
+              alt="Piscina de borda infinita com espreguiçadeiras e paisagismo tropical"
+              width={1600}
+              height={1200}
+              loading="lazy"
+              decoding="async"
+              className="h-52 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-8 grid gap-6 md:grid-cols-3">
+        {accommodations.map((a) => (
+          <article
+            key={a.name}
+            className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
+          >
+            <img
+              src={room}
+              alt={`Hospedagem — ${a.name}`}
+              width={1200}
+              height={900}
+              loading="lazy"
+              decoding="async"
+              className="h-48 w-full object-cover"
+            />
+            <div className="flex flex-1 flex-col p-6">
+              <h3 className="text-xl text-primary">{a.name}</h3>
+              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
+                {a.capacity}
+              </p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
+                {a.description}
+              </p>
+              <Button asChild variant="outline" className="mt-5 w-full rounded-full">
+                <a href="#cotacao">Consultar disponibilidade</a>
+              </Button>
+            </div>
+          </article>
+        ))}
+      </div>
     </Section>
   );
 }
+
+export function MomentsSection() {
+  const cards = [
+    {
+      img: family,
+      alt: "Família se divertindo na piscina de resort",
+      eyebrow: "Viagens em família",
+      title: "As crianças se divertem. Os adultos aproveitam.",
+      text: "Voos, hospedagem, transporte, seguro e experiências planejados considerando adultos e crianças.",
+      variant: "navy" as const,
+    },
+    {
+      img: couples,
+      alt: "Casal jantando em restaurante com vista para o mar",
+      eyebrow: "Viagens a dois",
+      title: "Também existe espaço para desacelerar a dois.",
+      text: "Destinos, hospedagens e experiências para casais que querem descansar ou comemorar uma data especial.",
+      variant: "cta" as const,
+    },
+  ];
+
+  return (
+    <Section id="momentos" tone="sand">
+      <SectionHeading
+        align="center"
+        eyebrow="Perfis de viagem"
+        title="Viagens para cada momento da sua vida"
+        subtitle="Cada viagem tem um ritmo diferente — e o roteiro é montado a partir dele."
+      />
+
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
+        {cards.map((c) => (
+          <article
+            key={c.eyebrow}
+            className="flex h-full flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft"
+          >
+            <img
+              src={c.img}
+              alt={c.alt}
+              width={1200}
+              height={900}
+              loading="lazy"
+              decoding="async"
+              className="h-64 w-full object-cover sm:h-72"
+            />
+            <div className="flex flex-1 flex-col p-7">
+              <p className="eyebrow">{c.eyebrow}</p>
+              <h3 className="mt-3 font-display text-2xl leading-snug text-primary">
+                {c.title}
+              </h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
+                {c.text}
+              </p>
+              <Button asChild variant={c.variant} size="xl" className="mt-6">
+                <a href="#cotacao">Quero planejar minha viagem</a>
+              </Button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 
 export function DestinationsSection() {
   return (
