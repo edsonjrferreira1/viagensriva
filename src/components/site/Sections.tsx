@@ -501,7 +501,14 @@ export function AccommodationsSection() {
                 {a.description}
               </p>
               <Button asChild variant="outline" className="mt-5 w-full rounded-full">
-                <a href="#cotacao">Consultar disponibilidade</a>
+                <a
+                  href="#cotacao"
+                  onClick={() =>
+                    preselect({ interest: "Hospedagem", destination: a.name })
+                  }
+                >
+                  Consultar disponibilidade
+                </a>
               </Button>
             </div>
           </article>
