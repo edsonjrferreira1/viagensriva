@@ -363,16 +363,16 @@ export function DestinationsSection() {
         align="center"
         eyebrow="Destinos"
         title="Para onde você quer viajar?"
-        subtitle="Trabalhamos com resorts e hotéis selecionados no Brasil e no exterior. Conte para a gente o seu destino dos sonhos."
+        subtitle="Da praia ao clima de montanha, do Brasil ao exterior, selecionamos destinos e experiências para as suas próximas férias."
       />
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-6 md:grid-cols-2">
         {destinations.map((d, i) => {
           const img = destinationImages[i % destinationImages.length];
           return (
-            <div
+            <article
               key={d.name}
-              className="group overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-soft transition hover:border-gold/50"
+              className="group relative overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
             >
               <img
                 src={img}
@@ -380,21 +380,22 @@ export function DestinationsSection() {
                 width={1200}
                 height={900}
                 loading="lazy"
-                className="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+                className="h-72 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-80"
               />
-              <div className="p-6">
-                <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-gold">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-7">
+                <span className="text-[0.65rem] font-medium uppercase tracking-[0.22em] text-gold">
                   {d.tag}
                 </span>
-                <h3 className="mt-2 text-xl text-white">{d.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
+                <h3 className="mt-2 text-2xl text-white">{d.name}</h3>
+                <p className="mt-2 max-w-md text-sm leading-relaxed text-white/80">
                   {d.description}
                 </p>
                 <Button asChild variant="gold" size="sm" className="mt-5">
-                  <a href="#cotacao">Ver opções</a>
+                  <a href="#cotacao">Quero receber opções</a>
                 </Button>
               </div>
-            </div>
+            </article>
           );
         })}
       </div>
@@ -409,44 +410,48 @@ export function ExperiencesSection() {
         align="center"
         eyebrow="Seleção Viagens Riva"
         title="Experiências selecionadas"
-        subtitle="Opções de hospedagem pensadas para diferentes perfis de viagem."
+        subtitle="Experiências e viagens planejadas para diferentes perfis, com opções de hospedagem, transporte, passeios e serviços complementares."
       />
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {experiences.map((exp) => (
-          <div
-            key={exp.name}
-            className="rounded-2xl border border-border bg-card p-6 shadow-soft"
-          >
-            <div className="flex items-center gap-2">
-              <Star className="size-4 text-gold" />
-              <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                {exp.destination}
+        {experiences.map((exp) => {
+          const Icon = experienceIcons[exp.icon] ?? Sparkles;
+          return (
+            <article
+              key={exp.name}
+              className="flex h-full flex-col rounded-3xl border border-primary/10 bg-card p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+            >
+              <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
+                <Icon className="size-5 text-primary" strokeWidth={1.5} />
               </span>
-            </div>
-            <h3 className="mt-3 text-xl text-primary">{exp.name}</h3>
-            <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">
-              Regime: {exp.regime}
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {exp.differentials.map((diff) => (
-                <span
-                  key={diff}
-                  className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
-                >
-                  {diff}
-                </span>
-              ))}
-            </div>
-            <Button asChild variant="cta" className="mt-6 w-full">
-              <a href="#cotacao">Solicitar cotação</a>
-            </Button>
-          </div>
-        ))}
+              <h3 className="mt-5 text-xl text-primary">{exp.name}</h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {exp.description}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {exp.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-primary/10 px-3 py-1 text-xs text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <Button asChild variant="cta" className="mt-6 w-full">
+                <a href="#cotacao">Montar minha viagem</a>
+              </Button>
+              <p className="mt-3 text-center text-xs text-muted-foreground">
+                A cotação pode incluir aéreo, transfer, seguro e passeios.
+              </p>
+            </article>
+          );
+        })}
       </div>
     </Section>
   );
 }
+
 
 export function WhyAllInclusiveSection() {
   return (
