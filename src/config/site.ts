@@ -216,12 +216,15 @@ export const faq = [
 
 export const interestOptions = [
   "Hospedagem",
-  "Hospedagem + passagem aérea",
+  "Passagens aéreas",
   "All Inclusive",
+  "Cruzeiros",
+  "Aluguel de carros",
   "Transfer",
   "Seguro viagem",
-  "Passeios",
+  "Passeios e experiências",
 ];
+
 
 export const tripTypes = [
   "Ainda não sei",
