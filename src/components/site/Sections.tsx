@@ -31,7 +31,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { Section, SectionHeading } from "./Section";
+
 import {
   accommodations,
   agency,
