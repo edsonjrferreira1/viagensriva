@@ -18,9 +18,9 @@ export function Footer() {
               className="h-12 w-auto object-contain sm:h-14"
             />
           </span>
-          <p className="mt-4 text-sm text-white/70">{agency.legal}</p>
-          <p className="mt-1 text-sm text-white/70">CNPJ: {agency.cnpj}</p>
-          <p className="mt-1 text-sm text-white/70">Cadastur: {agency.cadastur}</p>
+          <p className="mt-4 text-sm text-white/85">{agency.legal}</p>
+          <p className="mt-1 text-sm text-white/85">CNPJ: {agency.cnpj}</p>
+          <p className="mt-1 text-sm text-white/85">Cadastur: {agency.cadastur}</p>
         </div>
 
         <div>
@@ -44,7 +44,7 @@ export function Footer() {
             <Instagram className="size-4" />
             {agency.instagramHandle}
           </a>
-          <p className="mt-2 text-sm text-white/70">
+          <p className="mt-2 text-sm text-white/85">
             Atendimento e cotações pelo WhatsApp.
           </p>
         </div>
