@@ -53,7 +53,7 @@ export function Hero() {
           </Button>
         </div>
 
-        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 lg:mt-6">
+        <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 lg:mt-6">
           {heroHighlights.map((h) => (
             <li
               key={h}
