@@ -50,7 +50,7 @@ import {
   inclusiveBenefits,
   leisureCards,
   whatsappLink,
-  whyAllInclusive,
+  
 } from "@/config/site";
 
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
@@ -450,7 +450,7 @@ export function ExperiencesSection() {
         align="center"
         eyebrow="Formas de viajar"
         title="Experiências para cada jeito de viajar."
-        subtitle="Encontre a experiência que mais combina com o seu jeito de viajar — com passagens, hospedagem, transfer, seguro e passeios organizados por nós."
+        subtitle="Escolha o estilo de viagem e montamos o roteiro a partir dele."
       />
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
