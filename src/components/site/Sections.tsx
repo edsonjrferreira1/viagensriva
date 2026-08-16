@@ -57,10 +57,12 @@ import desire1 from "@/assets/desire-mosaic-1.webp";
 import desire2 from "@/assets/desire-mosaic-2.webp";
 import desire3 from "@/assets/desire-mosaic-3.webp";
 import lazerImg from "@/assets/lazer-premium.jpg.asset.json";
-import gastro from "@/assets/desire-mosaic-3.webp";
+import gastro from "@/assets/gastronomy-1.webp";
 import family from "@/assets/family-pool.webp";
 import couples from "@/assets/couples-dinner.webp";
-import room from "@/assets/room-suite.webp";
+import hospHotel from "@/assets/hosp-hoteis-pousadas.jpg";
+import hospFlat from "@/assets/hosp-flats.jpg";
+import hospPremium from "@/assets/hosp-premium.jpg";
 import spa from "@/assets/spa-wellness.webp";
 import destBeach from "@/assets/destination-beach.webp";
 import destMountain from "@/assets/destination-mountain.webp";
@@ -321,16 +323,31 @@ export function AccommodationsSection() {
       </div>
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">
-        {accommodations.map((a) => (
+        {accommodations.map((a, i) => {
+          const media = [
+            {
+              src: hospHotel,
+              alt: "Fachada iluminada de pousada de charme com varanda de madeira e jardim tropical ao entardecer",
+            },
+            {
+              src: hospFlat,
+              alt: "Flat com sala integrada, mesa de jantar e cozinha completa, com grande janela e vista da cidade",
+            },
+            {
+              src: hospPremium,
+              alt: "Suíte de alto padrão com piscina privativa e vista para o mar ao pôr do sol",
+            },
+          ][i] ?? { src: hospHotel, alt: `Hospedagem — ${a.name}` };
+          return (
           <article
             key={a.name}
             className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
           >
             <img
-              src={room}
-              alt={`Hospedagem — ${a.name}`}
+              src={media.src}
+              alt={media.alt}
               width={1200}
-              height={900}
+              height={912}
               loading="lazy"
               decoding="async"
               className="h-48 w-full object-cover"
@@ -348,7 +365,8 @@ export function AccommodationsSection() {
               </Button>
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </Section>
   );
