@@ -60,6 +60,8 @@ function Index() {
         <WhyAllInclusiveSection />
         <ExpertSection />
         <WhyRivaSection />
+        <TestimonialsSection />
+
         <Section id="cotacao">
           <QuoteForm />
         </Section>
