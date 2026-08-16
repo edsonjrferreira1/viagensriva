@@ -366,7 +366,7 @@ export function CruisesSection() {
           height={1067}
           loading="lazy"
           decoding="async"
-          className="sticky top-28 hidden h-[640px] w-full rounded-3xl object-cover shadow-lift lg:block"
+          className="hidden h-full min-h-[640px] w-full rounded-3xl object-cover shadow-lift lg:block"
         />
       </div>
     </Section>
