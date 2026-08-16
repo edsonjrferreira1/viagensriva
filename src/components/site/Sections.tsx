@@ -168,16 +168,29 @@ export function DesireSection() {
 
 
 
-/** Mapeia cada experiência para o serviço correspondente no formulário. */
-const experienceInterest: Record<string, string> = {
-  "Resorts & All Inclusive": "Resort / All Inclusive",
-  Cruzeiros: "Cruzeiro",
-  "Férias nacionais e internacionais": "Passagens aéreas",
-  "Praia & descanso": "Hospedagem",
-  "Lua de mel": "Hospedagem",
-  "Neve & inverno": "Passagens aéreas",
-  "Natureza & aventura": "Passeios e experiências",
-  "Cultura & gastronomia": "Passeios e experiências",
+/**
+ * Cada experiência aponta para o bloco de conteúdo correspondente.
+ * "Cultura & gastronomia" não tem bloco próprio: vai direto ao formulário.
+ */
+const experienceLinks: Record<
+  string,
+  { href: string; cta: string; preselect?: Parameters<typeof preselect>[0] }
+> = {
+  "Resorts & All Inclusive": { href: "#resorts", cta: "Conhecer essa experiência" },
+  Cruzeiros: { href: "#cruzeiros", cta: "Conhecer essa experiência" },
+  "Férias nacionais e internacionais": { href: "#destinos", cta: "Conhecer essa experiência" },
+  "Praia & descanso": { href: "#destinos-praia", cta: "Conhecer essa experiência" },
+  "Lua de mel": { href: "#momentos-dois", cta: "Conhecer essa experiência" },
+  "Neve & inverno": { href: "#destinos-montanha", cta: "Conhecer essa experiência" },
+  "Natureza & aventura": { href: "#destinos-montanha", cta: "Conhecer essa experiência" },
+  "Cultura & gastronomia": {
+    href: "#cotacao",
+    cta: "Planejar essa experiência",
+    preselect: {
+      interest: "Passeios e experiências",
+      destination: "Cultura & gastronomia",
+    },
+  },
 };
 
 export function ExperiencesSection() {
