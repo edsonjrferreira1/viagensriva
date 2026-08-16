@@ -165,7 +165,7 @@ export function QuoteForm() {
               id="tipo"
               value={form.tipo}
               onChange={(e) => set("tipo")(e.target.value)}
-              className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               {tripTypes.map((t) => (
                 <option key={t} value={t}>
@@ -178,8 +178,11 @@ export function QuoteForm() {
 
         <fieldset className="mt-6">
           <legend className="text-sm font-medium text-primary">
-            Tenho interesse em:
+            Quais serviços você quer incluir?
           </legend>
+          <p className="mt-1 text-xs text-foreground/75">
+            Selecione quantas opções quiser.
+          </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {interestOptions.map((option) => {
               const active = interests.includes(option);
@@ -187,10 +190,10 @@ export function QuoteForm() {
                 <label
                   key={option}
                   className={cn(
-                    "flex cursor-pointer items-center gap-2 rounded-full border px-4 py-2 text-xs transition",
+                    "flex cursor-pointer items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition",
                     active
                       ? "border-teal bg-teal text-teal-foreground"
-                      : "border-border bg-background text-muted-foreground hover:border-teal",
+                      : "border-primary/25 bg-background text-foreground/85 hover:border-teal hover:text-primary",
                   )}
                 >
                   <Checkbox
@@ -218,11 +221,12 @@ export function QuoteForm() {
         <Button type="submit" variant="cta" size="xl" className="mt-6 w-full">
           Receber minha cotação
         </Button>
-        <p className="mt-3 text-center text-xs text-muted-foreground">
+        <p className="mt-3 text-center text-xs text-foreground/80">
           Ao enviar, seus dados são organizados em uma única mensagem no
           WhatsApp da Viagens Riva.
         </p>
-        <p className="mt-2 text-center text-xs text-muted-foreground">
+        <p className="mt-2 text-center text-xs text-foreground/80">
+
           Acompanhe também no Instagram{" "}
           <a
             href={agency.instagramUrl}
