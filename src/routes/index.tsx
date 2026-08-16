@@ -85,6 +85,7 @@ function Index() {
         <Hero />
         <GoogleRatingBadge />
         <ServicesSection />
+        <WhyRivaSection />
         <DesireSection />
         <ExperiencesSection />
         <TravelServicesSection />
@@ -94,8 +95,8 @@ function Index() {
         <CouplesSection />
         <AccommodationsSection />
         <ExpertSection />
-        <WhyRivaSection />
         <TestimonialsSection />
+
 
         <Section id="cotacao">
           <QuoteForm />
