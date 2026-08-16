@@ -28,6 +28,8 @@ import {
   Star,
   Instagram,
   ArrowRight,
+  Snowflake,
+  Mountain,
   type LucideIcon,
 } from "lucide-react";
 
