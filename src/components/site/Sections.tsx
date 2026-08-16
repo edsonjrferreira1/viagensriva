@@ -56,7 +56,7 @@ import {
 } from "@/config/site";
 
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
-import cruiseImg from "@/assets/cruzeiro.jpg";
+import cruiseImg from "@/assets/cruise-premium.jpg.asset.json";
 
 /** Pré-seleciona serviço, destino ou tipo de viagem no formulário de cotação. */
 function preselect(detail: {
@@ -309,8 +309,8 @@ export function CruisesSection() {
           </p>
 
           <img
-            src={cruiseImg}
-            alt="Navio de cruzeiro sofisticado navegando ao pôr do sol"
+            src={cruiseImg.url}
+            alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
             width={1600}
             height={1067}
             loading="lazy"
@@ -361,8 +361,8 @@ export function CruisesSection() {
 
         <div className="hidden h-full lg:block">
           <img
-            src={cruiseImg}
-            alt="Navio de cruzeiro sofisticado navegando ao pôr do sol"
+            src={cruiseImg.url}
+            alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
             width={1600}
             height={1067}
             loading="lazy"
