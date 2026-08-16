@@ -16,11 +16,12 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "section-y px-4 sm:px-6",
+        "section-y scroll-mt-24 px-4 sm:px-6 lg:scroll-mt-28",
         tone === "sand" && "bg-secondary",
         tone === "deep" && "surface-deep",
         className,
       )}
+
     >
       <div className="mx-auto max-w-7xl">{children}</div>
     </section>

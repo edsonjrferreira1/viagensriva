@@ -7,7 +7,6 @@ import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import {
   AccommodationsSection,
-  CouplesSection,
   DesireSection,
   DestinationsSection,
   ExperiencesSection,
@@ -15,13 +14,12 @@ import {
   FaqSection,
   FinalCta,
   GoogleRatingBadge,
-  InclusiveSection,
-  FamilySection,
+  MomentsSection,
   ServicesSection,
-  TravelServicesSection,
   WhyRivaSection,
   TestimonialsSection,
 } from "@/components/site/Sections";
+
 import heroDesktop from "@/assets/hero-premium-desktop.jpg.asset.json";
 import heroMobile from "@/assets/hero-premium-mobile.jpg.asset.json";
 
@@ -88,13 +86,11 @@ function Index() {
         <WhyRivaSection />
         <DesireSection />
         <ExperiencesSection />
-        <TravelServicesSection />
         <DestinationsSection />
-        <InclusiveSection />
-        <FamilySection />
-        <CouplesSection />
         <AccommodationsSection />
+        <MomentsSection />
         <ExpertSection />
+
         <TestimonialsSection />
 
 

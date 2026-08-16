@@ -68,19 +68,28 @@ export const whatsappLink = (message: string) =>
 export const defaultWhatsappMessage =
   "Olá! Vi a página da Viagens Riva e gostaria de planejar minha próxima viagem.";
 
-export const navItems = [
+/** Submenu de Experiências (desktop dropdown / mobile recuado). */
+export const experienceMenu = [
+  { label: "Resorts & All Inclusive", href: "#hospedagens" },
+  { label: "Cruzeiros", href: "#servicos" },
+  { label: "Viagens em família", href: "#momentos" },
+  { label: "Viagens a dois", href: "#momentos" },
+  { label: "Férias nacionais e internacionais", href: "#experiencias" },
+];
+
+export const navItems: {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}[] = [
   { label: "Serviços", href: "#servicos" },
-  { label: "Diferenciais", href: "#diferenciais" },
-  { label: "Experiências", href: "#experiencias" },
-  { label: "Agência completa", href: "#agencia-completa" },
-  { label: "All Inclusive", href: "#all-inclusive" },
-  { label: "Famílias", href: "#familias" },
-  { label: "Casais", href: "#casais" },
+  { label: "Experiências", href: "#experiencias", children: experienceMenu },
   { label: "Destinos", href: "#destinos" },
+  { label: "Sobre nós", href: "#sobre" },
   { label: "Avaliações", href: "#avaliacoes" },
-  { label: "Planejar viagem", href: "#cotacao" },
   { label: "Dúvidas", href: "#faq" },
 ];
+
 
 /**
  * Avaliações reais publicadas no Google.
@@ -154,24 +163,25 @@ export const leisureCards = [
 
 export const accommodations = [
   {
-    name: "Hotéis e pousadas de charme",
-    capacity: "Do bem localizado ao boutique de alto padrão",
+    name: "Hotéis e pousadas",
+    capacity: "Do bem localizado ao boutique de charme",
     description:
-      "Selecionamos endereços pela localização, pelo café da manhã e pela avaliação real de quem já se hospedou — não apenas pela diária.",
-  },
-  {
-    name: "Resorts com estrutura completa",
-    capacity: "Pé na areia, All Inclusive ou meia pensão",
-    description:
-      "Piscinas, gastronomia e recreação no mesmo lugar, com o regime de alimentação escolhido de acordo com o seu ritmo de férias.",
+      "Endereços escolhidos pela localização, pelo café da manhã e pela avaliação real de quem já se hospedou.",
   },
   {
     name: "Flats e apartamentos",
     capacity: "Ideal para estadias de 7 noites ou mais",
     description:
-      "Mais espaço, cozinha e autonomia para viagens longas, em família ou quando o roteiro pede uma base fixa no destino.",
+      "Mais espaço, cozinha e autonomia para viagens longas, em família ou quando o roteiro pede uma base fixa.",
+  },
+  {
+    name: "Hospedagens premium",
+    capacity: "Alto padrão e serviço personalizado",
+    description:
+      "Suítes, vistas privilegiadas e atendimento diferenciado para ocasiões que pedem algo especial.",
   },
 ];
+
 
 
 export const destinations = [
