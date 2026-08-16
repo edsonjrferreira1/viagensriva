@@ -131,17 +131,17 @@ export function QuoteForm() {
   };
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-10">
       <SectionHeading
+        align="center"
         eyebrow="Planejamento de viagem"
         title="Vamos planejar sua próxima viagem?"
         subtitle="Conte como você quer viajar e receba uma cotação personalizada. Os valores variam conforme período, destino, número de passageiros, serviços escolhidos e disponibilidade."
       />
 
-
       <form
         onSubmit={handleSubmit}
-        className="rounded-2xl border border-border bg-card p-5 shadow-soft sm:p-8"
+        className="w-full max-w-4xl rounded-2xl border border-border bg-card p-5 shadow-soft sm:p-8"
       >
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Nome" id="nome">
@@ -430,7 +430,6 @@ export function QuoteForm() {
           WhatsApp da Viagens Riva.
         </p>
         <p className="mt-2 text-center text-xs text-foreground/80">
-
           Acompanhe também no Instagram{" "}
           <a
             href={agency.instagramUrl}
