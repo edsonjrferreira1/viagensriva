@@ -493,7 +493,12 @@ const travelServices = [
   {
     icon: Plane,
     title: "Passagens aéreas",
-    text: "Comparamos companhias, conexões e horários para achar o voo que faz sentido para o seu roteiro — nacional ou internacional.",
+    text: "Companhias, conexões e horários comparados para achar o voo que faz sentido no seu roteiro.",
+  },
+  {
+    icon: BedDouble,
+    title: "Hospedagens",
+    text: "Hotéis, pousadas, flats e resorts selecionados pelo destino, pelo perfil da viagem e pelo investimento.",
   },
   {
     icon: Ship,
@@ -501,73 +506,27 @@ const travelServices = [
     text: "Vários destinos em uma só viagem, com cabine, regime de bordo e excursões escolhidos com você.",
   },
   {
+    icon: Car,
+    title: "Aluguel de carros",
+    text: "Categoria, seguro e retirada organizados para explorar o destino com autonomia.",
+  },
+  {
     icon: ShieldCheck,
     title: "Seguro viagem",
-    text: "Cobertura adequada ao destino, ao período e à idade dos passageiros, incluindo exigências de países que pedem seguro obrigatório.",
+    text: "Cobertura adequada ao destino, ao período e à idade dos passageiros, inclusive onde é obrigatório.",
   },
   {
     icon: BusFront,
     title: "Transfer",
-    text: "Traslado entre aeroporto, hospedagem e passeios já contratado, para você não chegar no destino resolvendo transporte.",
-  },
-  {
-    icon: Car,
-    title: "Aluguel de carros",
-    text: "Categoria, seguro e retirada organizados para quem quer explorar o destino com autonomia.",
+    text: "Traslado entre aeroporto, hospedagem e passeios já contratado antes do embarque.",
   },
   {
     icon: MapPinned,
     title: "Passeios e experiências",
-    text: "Ingressos, tours e experiências reservados com antecedência, sem fila e sem improviso no destino.",
+    text: "Ingressos, tours e experiências reservados com antecedência, sem fila e sem improviso.",
   },
 ];
 
-export function TravelServicesSection() {
-  return (
-    <Section id="agencia-completa" tone="deep">
-      <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-        <div>
-          <SectionHeading
-            invert
-            eyebrow="Agência completa"
-            title="Cada serviço com o mesmo cuidado"
-            subtitle="Aéreo, cruzeiro, seguro, transfer, carro e passeios: todos organizados pela mesma equipe, em um único atendimento."
-          />
-
-
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-            {travelServices.map((s) => (
-              <li
-                key={s.title}
-                className="rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm transition hover:-translate-y-1 hover:border-gold/60"
-              >
-                <s.icon className="size-6 text-gold" strokeWidth={1.5} aria-hidden="true" />
-                <h3 className="mt-4 text-lg text-white">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/85">
-                  {s.text}
-                </p>
-              </li>
-            ))}
-          </ul>
-
-          <Button asChild variant="gold" size="xl" className="mt-10">
-            <a href="#cotacao">Quero cotar minha viagem completa</a>
-          </Button>
-        </div>
-
-        <img
-          src={servicosImg}
-          alt="Asa de avião sobre o mar ao pôr do sol com navio de cruzeiro ao fundo"
-          width={1600}
-          height={1200}
-          loading="lazy"
-        decoding="async"
-          className="h-80 w-full rounded-3xl object-cover shadow-lift lg:h-[36rem]"
-        />
-      </div>
-    </Section>
-  );
-}
 
 export function GoogleRatingBadge() {
   return (
