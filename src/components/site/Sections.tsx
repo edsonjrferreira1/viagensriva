@@ -677,27 +677,28 @@ export function WhyRivaSection() {
   return (
     <Section tone="sand">
       <SectionHeading
-        eyebrow={`Por que reservar com a ${agency.name}?`}
-        title="Sua viagem começa antes do check-in"
-        subtitle={`Na ${agency.name}, sua reserva vem acompanhada de atendimento personalizado para ajudar você a planejar cada detalhe da viagem.`}
+        eyebrow={`Por que planejar com a ${agency.name}?`}
+        title="Sua viagem começa antes do embarque"
+        subtitle={`Na ${agency.name}, o atendimento personalizado acompanha você desde a escolha do destino até o retorno para casa.`}
       />
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((c) => (
           <div
             key={c.t}
-            className="rounded-2xl border border-border bg-card p-6 shadow-soft"
+            className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft"
           >
-            <c.icon className="size-6 text-teal" />
+            <c.icon className="size-6 text-teal" aria-hidden="true" />
             <h3 className="mt-4 text-lg text-primary">{c.t}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/75">{c.d}</p>
           </div>
         ))}
       </div>
 
-      <p className="mt-8 text-xs text-muted-foreground">
+      <p className="mt-8 text-xs text-foreground/70">
         {agency.name} · CNPJ {agency.cnpj} · {agency.cadastur}
       </p>
+
     </Section>
   );
 }
