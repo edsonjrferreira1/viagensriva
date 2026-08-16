@@ -18,15 +18,16 @@ import {
   InclusiveSection,
   LeisureSection,
   FamilySection,
+  ServicesSection,
   WhyAllInclusiveSection,
   WhyRivaSection,
   TestimonialsSection,
 
 } from "@/components/site/Sections";
 
-const title = "Viagens Riva | Resorts Premium e All Inclusive";
+const title = "Viagens Riva | Viagens nacionais e internacionais";
 const description =
-  "Agência de viagens especializada em resorts premium e All Inclusive no Brasil e no exterior. Cotação personalizada via WhatsApp com a Viagens Riva.";
+  "Agência de viagens que organiza passagens, hospedagens, resorts All Inclusive, cruzeiros, seguro, transfer e passeios. Cotação personalizada via WhatsApp.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,19 +49,21 @@ function Index() {
       <Header />
       <main>
         <Hero />
+        <ServicesSection />
         <DesireSection />
+        <ExperiencesSection />
+        <DestinationsSection />
         <InclusiveSection />
+        <WhyAllInclusiveSection />
         <GastronomySection />
         <LeisureSection />
         <FamilySection />
         <CouplesSection />
         <AccommodationsSection />
-        <DestinationsSection />
-        <ExperiencesSection />
-        <WhyAllInclusiveSection />
         <ExpertSection />
         <WhyRivaSection />
         <TestimonialsSection />
+
 
         <Section id="cotacao">
           <QuoteForm />
