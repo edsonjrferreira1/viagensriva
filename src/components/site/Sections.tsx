@@ -135,7 +135,8 @@ export function InclusiveSection() {
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {inclusiveCards.map((card, i) => {
-          const Icon = inclusiveIcons[i % inclusiveIcons.length];
+          const Icon = inclusiveIcons[i % inclusiveIcons.length] ?? Sparkles;
+
           return (
             <div
               key={card.title}
