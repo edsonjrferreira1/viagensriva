@@ -62,7 +62,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-4 text-base leading-relaxed",
-            invert ? "text-sand/80" : "text-muted-foreground",
+            invert ? "text-white/90" : "text-foreground/80",
           )}
         >
           {subtitle}

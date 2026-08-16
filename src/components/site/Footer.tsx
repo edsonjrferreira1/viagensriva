@@ -18,9 +18,9 @@ export function Footer() {
               className="h-12 w-auto object-contain sm:h-14"
             />
           </span>
-          <p className="mt-4 text-sm text-white/70">{agency.legal}</p>
-          <p className="mt-1 text-sm text-white/70">CNPJ: {agency.cnpj}</p>
-          <p className="mt-1 text-sm text-white/70">Cadastur: {agency.cadastur}</p>
+          <p className="mt-4 text-sm text-white/85">{agency.legal}</p>
+          <p className="mt-1 text-sm text-white/85">CNPJ: {agency.cnpj}</p>
+          <p className="mt-1 text-sm text-white/85">Cadastur: {agency.cadastur}</p>
         </div>
 
         <div>
@@ -44,7 +44,7 @@ export function Footer() {
             <Instagram className="size-4" />
             {agency.instagramHandle}
           </a>
-          <p className="mt-2 text-sm text-white/70">
+          <p className="mt-2 text-sm text-white/85">
             Atendimento e cotações pelo WhatsApp.
           </p>
         </div>
@@ -54,7 +54,7 @@ export function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">
             Institucional
           </h3>
-          <ul className="mt-4 space-y-2 text-sm text-white/75">
+          <ul className="mt-4 space-y-2 text-sm text-white/85">
             <li>
               <Link to="/privacidade" className="hover:text-white">
                 Política de Privacidade
@@ -75,7 +75,7 @@ export function Footer() {
       </div>
 
       <div className="mx-auto mt-12 max-w-7xl border-t border-white/15 pt-6">
-        <p className="text-xs leading-relaxed text-white/55">
+        <p className="text-xs leading-relaxed text-white/75">
           Esta página é administrada pela {agency.name}, agência de viagens
           independente (CNPJ {agency.cnpj}, {agency.cadastur}), para divulgação
           e comercialização de serviços turísticos. As informações, imagens e

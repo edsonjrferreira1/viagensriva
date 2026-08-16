@@ -42,7 +42,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[0.78rem] tracking-wide text-muted-foreground transition-colors hover:text-teal"
+              className="text-[0.78rem] font-medium tracking-wide text-foreground/80 transition-colors hover:text-teal"
             >
               {item.label}
             </a>

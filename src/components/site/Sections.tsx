@@ -13,9 +13,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  Coffee,
   UtensilsCrossed,
-  Salad,
   Wine,
   ChefHat,
   Sparkles,
@@ -24,7 +22,6 @@ import {
   Headphones,
   ShieldCheck,
   Plane,
-  MapPin,
   MapPinned,
   BedDouble,
   Ship,
@@ -33,6 +30,7 @@ import {
   Users,
   Heart,
   Luggage,
+  Palmtree,
   Star,
   Instagram,
   type LucideIcon,
@@ -49,12 +47,12 @@ import {
   expert,
   faq,
   googleReviews,
-
-  inclusiveCards,
+  inclusiveBenefits,
   leisureCards,
   whatsappLink,
   whyAllInclusive,
 } from "@/config/site";
+
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
 
 
@@ -74,7 +72,6 @@ import destVacation from "@/assets/destination-vacation.jpg";
 import agentImg from "@/assets/agent-placeholder.jpg";
 import panorama from "@/assets/final-cta.jpg";
 
-const inclusiveIcons = [Coffee, UtensilsCrossed, Salad, ChefHat, Wine, Sparkles, Waves];
 const destinationImages = [destBeach, destMountain, destInternational, destVacation];
 
 const serviceIcons: Record<string, LucideIcon> = {
@@ -93,23 +90,31 @@ const experienceIcons: Record<string, LucideIcon> = {
   heart: Heart,
   luggage: Luggage,
   ship: Ship,
+  palm: Palmtree,
 };
 
+const benefitIcons: Record<string, LucideIcon> = {
+  chef: ChefHat,
+  wine: Wine,
+  waves: Waves,
+  sparkles: Sparkles,
+  utensils: UtensilsCrossed,
+};
 
 export function DesireSection() {
   return (
-    <Section id="experiencias">
+    <Section id="inspiracao" tone="sand">
       <SectionHeading
         align="center"
-        eyebrow="Experiências"
+        eyebrow="Inspiração"
         title="E se a sua próxima viagem fosse assim?"
-        subtitle="Resorts selecionados que reúnem conforto, gastronomia, lazer e paisagens de tirar o fôlego."
+        subtitle="Destinos nacionais e internacionais, roteiros bem planejados e experiências que ficam na memória."
       />
 
       <div className="mt-12 grid gap-4 md:grid-cols-3">
         <img
           src={desire1}
-          alt="Resort tropical com piscinas e praia ao pôr do sol"
+          alt="Vista aérea de destino litorâneo com piscinas e praia ao pôr do sol"
           width={1200}
           height={900}
           loading="lazy"
@@ -126,7 +131,7 @@ export function DesireSection() {
           />
           <img
             src={desire3}
-            alt="Gastronomia variada em resort"
+            alt="Mesa com gastronomia variada durante uma viagem"
             width={1200}
             height={900}
             loading="lazy"
@@ -144,53 +149,99 @@ export function DesireSection() {
   );
 }
 
+
+export function ServicesSection() {
+  return (
+    <Section id="servicos">
+      <SectionHeading
+        align="center"
+        eyebrow="Serviços Viagens Riva"
+        title="Cuidamos de cada etapa da sua viagem."
+        subtitle="Organizamos viagens nacionais e internacionais do planejamento ao retorno, reunindo todos os serviços em um só atendimento."
+      />
+
+      <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {agencyServices.map((s) => {
+          const Icon = serviceIcons[s.icon] ?? MapPinned;
+          return (
+            <li
+              key={s.label}
+              className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+            >
+              <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
+                <Icon
+                  className="size-5 text-primary"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                />
+              </span>
+              <h3 className="mt-5 text-lg text-primary">{s.label}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+                {s.description}
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div className="mt-10 flex justify-center">
+        <Button asChild variant="cta" size="xl">
+          <a href="#cotacao">Quero planejar minha viagem</a>
+        </Button>
+      </div>
+    </Section>
+  );
+}
+
 export function InclusiveSection() {
   return (
     <Section id="all-inclusive" tone="deep">
       <SectionHeading
         invert
         align="center"
-        eyebrow="Regime de alimentação e bebidas"
-        title="O que é All Inclusive?"
-        subtitle="Um conceito de hospedagem que oferece mais liberdade para aproveitar as férias. Cada resort define o que está incluído, os horários e as regras vigentes."
+        eyebrow="Uma das nossas especialidades"
+        title="Quer férias com ainda mais praticidade?"
+        subtitle="Também selecionamos resorts e experiências All Inclusive no Brasil e no exterior para quem quer aproveitar gastronomia, bebidas, lazer e estrutura completa durante a hospedagem."
       />
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {inclusiveCards.map((card, i) => {
-          const Icon = inclusiveIcons[i % inclusiveIcons.length] ?? Sparkles;
+      <p className="mx-auto mt-6 w-fit rounded-full border border-gold/70 bg-gold/15 px-5 py-2 text-center text-sm font-medium uppercase tracking-[0.2em] text-gold">
+        Resorts &amp; All Inclusive
+      </p>
 
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {inclusiveBenefits.map((b) => {
+          const Icon = benefitIcons[b.icon] ?? Sparkles;
           return (
             <div
-              key={card.title}
-              className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm transition hover:border-gold/50"
+              key={b.title}
+              className="rounded-2xl border border-white/25 bg-white/10 p-6 backdrop-blur-sm transition hover:border-gold/60"
             >
-              <Icon className="size-6 text-gold" />
+              <Icon className="size-6 text-gold" aria-hidden="true" />
               <h3 className="mt-4 text-xl uppercase tracking-wide text-white">
-                {card.title}
+                {b.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/70">
-                {card.text}
+              <p className="mt-2 text-sm leading-relaxed text-white/85">
+                {b.text}
               </p>
             </div>
           );
         })}
       </div>
 
-      <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-white/55">
-        Os alimentos, bebidas e atividades disponíveis dependem dos cardápios,
-        restaurantes participantes, horários e regras vigentes de cada resort.
-        Restaurantes, cardápios, horários, bebidas e serviços podem sofrer
-        alterações conforme programação e regras do estabelecimento escolhido.
+      <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-white/75">
+        Serviços e itens incluídos variam conforme o resort e o regime
+        contratado.
       </p>
 
       <div className="mt-10 flex justify-center">
         <Button asChild variant="gold" size="xl">
-          <a href="#cotacao">Quero cotar All Inclusive</a>
+          <a href="#cotacao">Quero conhecer opções All Inclusive</a>
         </Button>
       </div>
     </Section>
   );
 }
+
 
 export function GastronomySection() {
   return (
@@ -198,7 +249,7 @@ export function GastronomySection() {
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <img
           src={gastro}
-          alt="Gastronomia variada em resort premium"
+          alt="Mesa com pratos variados durante uma viagem"
           width={1200}
           height={900}
           loading="lazy"
@@ -206,20 +257,20 @@ export function GastronomySection() {
         />
         <div>
           <SectionHeading
-            eyebrow="Gastronomia"
-            title="Férias também são feitas de sabores"
-            subtitle="Experiências gastronômicas variadas para aproveitar durante toda a hospedagem, com opções para diferentes paladares e momentos do dia."
+            eyebrow="Gastronomia e experiências"
+            title="Viajar também é feito de sabores"
+            subtitle="Além de passagens e hospedagem, ajudamos você a incluir na viagem experiências gastronômicas, passeios e momentos que valem a pena reservar com antecedência."
           />
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {[
-              { t: "Restaurantes temáticos", d: "Propostas diferentes para cada refeição." },
-              { t: "Buffet e à la carte", d: "Opções que acompanham o regime contratado." },
-              { t: "Drinks e petiscos", d: "Para acompanhar a piscina e o entardecer." },
-              { t: "Opções para crianças", d: "Cardápios pensados também nos pequenos." },
+              { t: "Restaurantes e roteiros", d: "Sugestões e reservas conforme o destino escolhido." },
+              { t: "Regimes de alimentação", d: "Do café da manhã ao All Inclusive, conforme a hospedagem." },
+              { t: "Passeios e ingressos", d: "Experiências garantidas antes mesmo de embarcar." },
+              { t: "Opções para crianças", d: "Roteiros e cardápios pensados também nos pequenos." },
             ].map((b) => (
               <div key={b.t} className="border-l-2 border-gold pl-4">
                 <h3 className="text-lg text-primary">{b.t}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{b.d}</p>
+                <p className="mt-1 text-sm text-foreground/75">{b.d}</p>
               </div>
             ))}
           </div>
@@ -238,7 +289,7 @@ export function LeisureSection() {
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <img
           src={lazerImg.url}
-          alt="Piscina de borda infinita com espreguiçadeiras e paisagismo tropical em resort de alto padrão"
+          alt="Piscina de borda infinita com espreguiçadeiras e paisagismo tropical"
           width={1600}
           height={1200}
           loading="lazy"
@@ -247,31 +298,32 @@ export function LeisureSection() {
 
         <div>
           <SectionHeading
-            eyebrow="Piscinas e lazer"
+            eyebrow="Lazer e descanso"
             title="Dias inteiros para aproveitar"
-            subtitle="Escolha entre aproveitar a piscina, relaxar de frente para o mar ou simplesmente não fazer nada."
+            subtitle="Praia, piscina, natureza, passeios ou simplesmente não fazer nada: montamos a viagem de acordo com o ritmo que você quer ter nas férias."
           />
           <div className="mt-8 flex flex-wrap gap-2">
             {leisureCards.map((c) => (
               <span
                 key={c}
-                className="rounded-full border border-primary/15 bg-card px-4 py-2 text-xs uppercase tracking-[0.16em] text-primary"
+                className="rounded-full border border-primary/25 bg-card px-4 py-2 text-xs uppercase tracking-[0.16em] text-primary"
               >
                 {c}
               </span>
             ))}
           </div>
-          <p className="mt-8 text-xs text-muted-foreground">
-            A estrutura de lazer varia conforme o resort escolhido.
+          <p className="mt-8 text-xs text-foreground/70">
+            A estrutura disponível varia conforme o destino e os serviços contratados.
           </p>
           <Button asChild variant="navy" size="xl" className="mt-6">
-            <a href="#cotacao">Quero cotar meu lazer</a>
+            <a href="#cotacao">Quero planejar minhas férias</a>
           </Button>
         </div>
       </div>
     </Section>
   );
 }
+
 
 export function FamilySection() {
   return (
@@ -287,11 +339,12 @@ export function FamilySection() {
                 Os adultos aproveitam.
               </>
             }
-            subtitle="Piscinas, recreação, Kids Club e refeições variadas: estrutura para que cada um da família aproveite as férias do seu jeito, no mesmo lugar."
+            subtitle="Planejamos cada etapa considerando adultos e crianças: voos, hospedagem, transporte, seguro e experiências para toda a família aproveitar junto."
           />
           <Button asChild variant="navy" size="xl" className="mt-8">
-            <a href="#cotacao">Quero cotar para minha família</a>
+            <a href="#cotacao">Quero planejar a viagem da família</a>
           </Button>
+
         </div>
         <img
           src={family}
@@ -320,9 +373,10 @@ export function CouplesSection() {
         />
         <div className="order-1 lg:order-2">
           <SectionHeading
-            eyebrow="Para casais"
+            eyebrow="Viagens a dois"
             title="Também existe espaço para desacelerar a dois"
-            subtitle="Jantares com calma, drinks ao entardecer, momentos de bem-estar e cenários especiais. Uma viagem para descansar de verdade."
+            subtitle="Destinos, hospedagens e experiências para casais que querem descansar, comemorar uma data especial ou simplesmente viajar juntos."
+
           />
           <Button asChild variant="cta" size="xl" className="mt-8">
             <a href="#cotacao">Quero planejar minha viagem</a>
@@ -337,10 +391,11 @@ export function AccommodationsSection() {
   return (
     <Section id="acomodacoes">
       <SectionHeading
-        eyebrow="Acomodações"
-        title="Conforto para descansar depois de um dia inteiro de férias"
-        subtitle="As categorias disponíveis variam conforme período e ocupação. Consulte as opções para as suas datas."
+        eyebrow="Hospedagens"
+        title="Um bom lugar para descansar em cada etapa da viagem"
+        subtitle="Hotéis, pousadas, flats e resorts selecionados conforme o roteiro, o período e o orçamento. As categorias variam de acordo com a disponibilidade."
       />
+
 
       <Carousel className="mt-10" opts={{ align: "start" }}>
         <CarouselContent>
@@ -360,12 +415,13 @@ export function AccommodationsSection() {
                 />
                 <div className="p-6">
                   <h3 className="text-xl text-primary">{a.name}</h3>
-                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                  <p className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
                     {a.capacity}
                   </p>
-                  <p className="mt-3 text-sm text-muted-foreground">
+                  <p className="mt-3 text-sm leading-relaxed text-foreground/75">
                     {a.description}
                   </p>
+
                   <Button
                     asChild
                     variant="outline"
@@ -393,7 +449,7 @@ export function DestinationsSection() {
         align="center"
         eyebrow="Destinos"
         title="Para onde você quer viajar?"
-        subtitle="Da praia ao clima de montanha, do Brasil ao exterior, selecionamos destinos e experiências para as suas próximas férias."
+        subtitle="Do Brasil ao exterior, ajudamos você a encontrar a experiência ideal para as suas próximas férias."
       />
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -412,15 +468,16 @@ export function DestinationsSection() {
                 loading="lazy"
                 className="h-72 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-80"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10" />
               <div className="absolute inset-x-0 bottom-0 p-7">
                 <span className="text-[0.65rem] font-medium uppercase tracking-[0.22em] text-gold">
                   {d.tag}
                 </span>
                 <h3 className="mt-2 text-2xl text-white">{d.name}</h3>
-                <p className="mt-2 max-w-md text-sm leading-relaxed text-white/80">
+                <p className="mt-2 max-w-md text-sm leading-relaxed text-white/90">
                   {d.description}
                 </p>
+
                 <Button asChild variant="gold" size="sm" className="mt-5">
                   <a href="#cotacao">Quero receber opções</a>
                 </Button>
@@ -435,12 +492,12 @@ export function DestinationsSection() {
 
 export function ExperiencesSection() {
   return (
-    <Section>
+    <Section id="experiencias">
       <SectionHeading
         align="center"
-        eyebrow="Seleção Viagens Riva"
-        title="Experiências selecionadas"
-        subtitle="Experiências e viagens planejadas para diferentes perfis, com opções de hospedagem, transporte, passeios e serviços complementares."
+        eyebrow="Formas de viajar"
+        title="Experiências para cada jeito de viajar."
+        subtitle="Encontre a experiência que mais combina com o seu jeito de viajar — com passagens, hospedagem, transfer, seguro e passeios organizados por nós."
       />
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -449,20 +506,20 @@ export function ExperiencesSection() {
           return (
             <article
               key={exp.name}
-              className="flex h-full flex-col rounded-3xl border border-primary/10 bg-card p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+              className="flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
             >
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
-                <Icon className="size-5 text-primary" strokeWidth={1.5} />
+                <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
               </span>
               <h3 className="mt-5 text-xl text-primary">{exp.name}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
                 {exp.description}
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {exp.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-primary/10 px-3 py-1 text-xs text-muted-foreground"
+                    className="rounded-full border border-primary/25 px-3 py-1 text-xs text-foreground/80"
                   >
                     {tag}
                   </span>
@@ -471,9 +528,10 @@ export function ExperiencesSection() {
               <Button asChild variant="cta" className="mt-6 w-full">
                 <a href="#cotacao">Montar minha viagem</a>
               </Button>
-              <p className="mt-3 text-center text-xs text-muted-foreground">
-                A cotação pode incluir aéreo, transfer, seguro e passeios.
+              <p className="mt-3 text-center text-xs text-foreground/70">
+                A cotação pode incluir aéreo, hospedagem, transfer, seguro e passeios.
               </p>
+
             </article>
           );
         })}
@@ -490,19 +548,20 @@ export function WhyAllInclusiveSection() {
         align="center"
         eyebrow="Por que All Inclusive"
         title="Mais liberdade para aproveitar suas férias"
-        subtitle="Descubra as vantagens de reservar uma experiência com tudo incluso, sob medida para o seu perfil."
+        subtitle="Entre as viagens que organizamos, o regime All Inclusive é uma boa escolha para quem quer previsibilidade de gastos e praticidade durante a hospedagem."
       />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {whyAllInclusive.map((item) => (
           <div
             key={item.title}
-            className="rounded-2xl border border-border bg-card p-6 text-center shadow-soft"
+            className="rounded-2xl border border-primary/15 bg-card p-6 text-center shadow-soft"
           >
             <h3 className="text-xl text-primary">{item.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-2 text-sm leading-relaxed text-foreground/75">
               {item.text}
             </p>
+
           </div>
         ))}
       </div>
@@ -532,13 +591,13 @@ export function ExpertSection() {
             title={expert.name}
             subtitle={expert.bio}
           />
-          <p className="mt-4 text-sm text-muted-foreground">
+          <p className="mt-4 text-sm text-foreground/80">
             {expert.role} · CNPJ {agency.cnpj} · {agency.cadastur}
           </p>
 
-          <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-            Organizamos viagens nacionais e internacionais, cuidando de cada
-            etapa do roteiro:
+          <p className="mt-6 text-sm leading-relaxed text-foreground/80">
+            A Viagens Riva organiza viagens nacionais e internacionais,
+            cuidando de cada etapa do roteiro:
           </p>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
             {agencyServices.map((s) => {
@@ -546,8 +605,9 @@ export function ExpertSection() {
               return (
                 <li
                   key={s.label}
-                  className="flex items-center gap-3 rounded-2xl border border-primary/10 bg-card px-4 py-3 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
+                  className="flex items-center gap-3 rounded-2xl border border-primary/15 bg-card px-4 py-3 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
                 >
+
                   <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary">
                     <Icon
                       className="size-[18px] text-primary"
@@ -617,27 +677,28 @@ export function WhyRivaSection() {
   return (
     <Section tone="sand">
       <SectionHeading
-        eyebrow={`Por que reservar com a ${agency.name}?`}
-        title="Sua viagem começa antes do check-in"
-        subtitle={`Na ${agency.name}, sua reserva vem acompanhada de atendimento personalizado para ajudar você a planejar cada detalhe da viagem.`}
+        eyebrow={`Por que planejar com a ${agency.name}?`}
+        title="Sua viagem começa antes do embarque"
+        subtitle={`Na ${agency.name}, o atendimento personalizado acompanha você desde a escolha do destino até o retorno para casa.`}
       />
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((c) => (
           <div
             key={c.t}
-            className="rounded-2xl border border-border bg-card p-6 shadow-soft"
+            className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft"
           >
-            <c.icon className="size-6 text-teal" />
+            <c.icon className="size-6 text-teal" aria-hidden="true" />
             <h3 className="mt-4 text-lg text-primary">{c.t}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/75">{c.d}</p>
           </div>
         ))}
       </div>
 
-      <p className="mt-8 text-xs text-muted-foreground">
+      <p className="mt-8 text-xs text-foreground/70">
         {agency.name} · CNPJ {agency.cnpj} · {agency.cadastur}
       </p>
+
     </Section>
   );
 }
@@ -649,25 +710,26 @@ export function FaqSection() {
         align="center"
         eyebrow="Dúvidas"
         title="Perguntas frequentes"
-        subtitle="Esclarecemos as principais dúvidas para você planejar sua viagem com mais tranquilidade."
+        subtitle="Esclarecemos as principais dúvidas sobre pagamento, documentação, prazos e serviços para você planejar sua viagem com tranquilidade."
       />
       <Accordion type="single" collapsible className="mx-auto mt-10 max-w-3xl">
         {faq.map((item, i) => (
           <AccordionItem key={item.q} value={`item-${i}`}>
-            <AccordionTrigger className="text-left font-display text-lg text-primary">
+            <AccordionTrigger className="text-left font-display text-lg font-normal text-primary">
               {item.q}
             </AccordionTrigger>
-            <AccordionContent className="whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
+            <AccordionContent className="whitespace-pre-line text-sm leading-relaxed text-foreground/85">
               {item.a}
             </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
 
-      <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-border bg-card p-8 text-center shadow-soft sm:p-10">
-        <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+      <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-primary/15 bg-card p-8 text-center shadow-soft sm:p-10">
+        <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-foreground/75">
           Ainda ficou com alguma dúvida?
         </p>
+
         <h3 className="mt-3 font-display text-2xl text-primary sm:text-3xl">
           Nossa equipe pode ajudar você a planejar sua viagem.
         </h3>
@@ -696,21 +758,21 @@ export function FinalCta() {
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 media-overlay" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/60 to-black/75" />
       <div className="relative mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
         <h2 className="text-3xl leading-tight text-white sm:text-5xl">
-          Suas próximas férias podem começar aqui.
+          Vamos começar a planejar sua próxima viagem?
         </h2>
-        <p className="mt-5 text-sm leading-relaxed text-white/85 sm:text-base">
-          Resorts selecionados, gastronomia, lazer e dias inteiros para aproveitar.
-          Conte para a gente quando você pretende viajar e receba sua cotação
-          personalizada.
+        <p className="mt-5 text-sm leading-relaxed text-white/95 sm:text-base">
+          Conte para a Viagens Riva o que você está procurando e receba uma
+          cotação personalizada.
         </p>
         <Button asChild variant="gold" size="xl" className="mt-8">
-          <a href="#cotacao">Quero receber minha cotação</a>
+          <a href="#cotacao">Quero planejar minha viagem</a>
         </Button>
       </div>
     </section>
+
   );
 }
 
@@ -735,12 +797,12 @@ export function TestimonialsSection() {
       />
 
       <div className="mt-8 flex justify-center">
-        <div className="flex items-center gap-4 rounded-full border border-primary/10 bg-card px-6 py-3 shadow-lift">
+        <div className="flex items-center gap-4 rounded-full border border-primary/20 bg-card px-6 py-3 shadow-lift">
           <Stars />
           <span className="text-lg font-medium text-primary">
             {googleReviews.rating} no Google
           </span>
-          <span className="text-sm text-muted-foreground">
+          <span className="text-sm text-foreground/80">
             {googleReviews.count} avaliações
           </span>
         </div>
@@ -750,24 +812,25 @@ export function TestimonialsSection() {
         {googleReviews.items.map((r) => (
           <figure
             key={r.author}
-            className="flex h-full flex-col rounded-2xl border border-primary/10 bg-card p-7 shadow-lift"
+            className="flex h-full flex-col rounded-2xl border border-primary/20 bg-card p-7 shadow-lift"
           >
             <Stars />
             <p className="mt-5 font-display text-xl italic leading-snug text-primary">
               “{r.highlight}”
             </p>
-            <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+            <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground/80">
               {r.text}
             </blockquote>
-            <figcaption className="mt-6 border-t border-primary/10 pt-4">
+            <figcaption className="mt-6 border-t border-primary/15 pt-4">
               <span className="block text-sm font-medium text-primary">
                 {r.author}
               </span>
-              <span className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
-                <BadgeCheck className="size-3.5 text-primary/70" />
+              <span className="mt-1 flex items-center gap-1.5 text-xs text-foreground/75">
+                <BadgeCheck className="size-3.5 text-primary" aria-hidden="true" />
                 Avaliação real publicada no Google
               </span>
             </figcaption>
+
           </figure>
         ))}
       </div>

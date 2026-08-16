@@ -16,20 +16,48 @@ export const agency = {
 
 /** Serviços organizados pela agência (viagens nacionais e internacionais). */
 export const agencyServices = [
-  { icon: "plane", label: "Passagens aéreas" },
-  { icon: "bed", label: "Hospedagens" },
-  { icon: "ship", label: "Cruzeiros" },
-  { icon: "car", label: "Aluguel de carros" },
-  { icon: "shield", label: "Seguro viagem" },
-  { icon: "bus", label: "Transfer" },
-  { icon: "map", label: "Passeios e experiências" },
+  {
+    icon: "plane",
+    label: "Passagens aéreas",
+    description: "Voos nacionais e internacionais pesquisados de acordo com o seu roteiro.",
+  },
+  {
+    icon: "bed",
+    label: "Hospedagens",
+    description: "Hotéis, pousadas, flats e resorts para cada perfil de viagem.",
+  },
+  {
+    icon: "ship",
+    label: "Cruzeiros",
+    description: "Roteiros em alto-mar reunindo vários destinos em uma só viagem.",
+  },
+  {
+    icon: "car",
+    label: "Aluguel de carros",
+    description: "Mais autonomia para explorar o destino no seu ritmo.",
+  },
+  {
+    icon: "shield",
+    label: "Seguro viagem",
+    description: "Coberturas adequadas ao destino, ao período e ao perfil dos passageiros.",
+  },
+  {
+    icon: "bus",
+    label: "Transfer",
+    description: "Traslados entre aeroporto, hospedagem e passeios contratados.",
+  },
+  {
+    icon: "map",
+    label: "Passeios e experiências",
+    description: "Ingressos, roteiros e experiências para aproveitar cada dia.",
+  },
 ] as const;
 
 
 export const expert = {
   name: "Edson Ferreira",
   role: "Responsável pela agência Viagens Riva",
-  bio: "Professor, mestre e apaixonado pelo mundo das viagens. Acompanha cada cotação com atenção às preferências de quem está planejando a próxima experiência.",
+  bio: "Professor, mestre e apaixonado pelo mundo das viagens. Junto com a equipe da Viagens Riva, acompanha cada planejamento com atenção ao perfil, ao período e ao orçamento de quem vai viajar.",
   image: null as string | null,
 };
 
@@ -38,18 +66,17 @@ export const whatsappLink = (message: string) =>
   `https://wa.me/${agency.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 export const defaultWhatsappMessage =
-  "Olá! Vi a página da Viagens Riva e gostaria de receber uma cotação personalizada para minha viagem.";
+  "Olá! Vi a página da Viagens Riva e gostaria de planejar minha próxima viagem.";
 
 export const navItems = [
+  { label: "Serviços", href: "#servicos" },
   { label: "Experiências", href: "#experiencias" },
   { label: "All Inclusive", href: "#all-inclusive" },
-  { label: "Gastronomia", href: "#gastronomia" },
-  { label: "Lazer", href: "#lazer" },
   { label: "Famílias", href: "#familias" },
   { label: "Casais", href: "#casais" },
   { label: "Destinos", href: "#destinos" },
   { label: "Avaliações", href: "#avaliacoes" },
-  { label: "Cotação", href: "#cotacao" },
+  { label: "Planejar viagem", href: "#cotacao" },
   { label: "Dúvidas", href: "#faq" },
 ];
 
@@ -83,39 +110,32 @@ export const googleReviews = {
 
 export const heroHighlights = [
   "Atendimento personalizado",
-  "Resorts selecionados",
+  "Viagens nacionais e internacionais",
   "Cotação sem compromisso",
   "Agência regularizada",
 ];
 
-export const inclusiveCards = [
+/** Benefícios resumidos do regime All Inclusive (bloco comercial enxuto). */
+export const inclusiveBenefits = [
   {
-    title: "Café da manhã",
-    text: "Comece o dia sem pressa, com opções variadas para todos os gostos.",
-  },
-  {
-    title: "Almoço",
-    text: "Refeições servidas durante a hospedagem, conforme a programação do resort.",
-  },
-  {
-    title: "Petiscos",
-    text: "Opções ao longo do dia para acompanhar a piscina e a praia.",
-  },
-  {
-    title: "Jantar",
-    text: "Jantares com propostas diferentes a cada noite, conforme cardápios vigentes.",
-  },
-  {
-    title: "Bebidas",
-    text: "Seleção de bebidas conforme as regras e horários do regime contratado.",
-  },
-  {
+    icon: "chef",
     title: "Gastronomia",
-    text: "Experiências em restaurantes participantes do regime All Inclusive.",
+    text: "Refeições e restaurantes participantes conforme o regime contratado.",
   },
   {
+    icon: "wine",
+    title: "Bebidas",
+    text: "Seleção de bebidas de acordo com as regras e horários do resort.",
+  },
+  {
+    icon: "waves",
     title: "Lazer",
-    text: "Piscinas, recreação e atividades incluídas conforme a programação do resort.",
+    text: "Piscinas, recreação e atividades disponíveis durante a hospedagem.",
+  },
+  {
+    icon: "sparkles",
+    title: "Praticidade",
+    text: "Mais previsibilidade de gastos e menos preocupações no dia a dia.",
   },
 ];
 
@@ -132,22 +152,22 @@ export const leisureCards = [
 
 export const accommodations = [
   {
-    name: "Acomodação standard",
-    capacity: "Ocupação sob consulta",
+    name: "Hotéis e pousadas",
+    capacity: "Categorias sob consulta",
     description:
-      "Quartos e suítes confortáveis para descansar depois de um dia inteiro de férias. Consulte as categorias disponíveis para as suas datas.",
+      "Opções em diferentes categorias e localizações, escolhidas conforme o roteiro e o orçamento da viagem.",
   },
   {
-    name: "Opção para casais",
+    name: "Viagens a dois",
     capacity: "Ocupação sob consulta",
     description:
-      "Acomodações pensadas para quem quer descansar a dois, com vistas e conforto especiais.",
+      "Hospedagens e experiências pensadas para casais que querem descansar, comemorar ou simplesmente viajar juntos.",
   },
   {
-    name: "Opção para famílias",
+    name: "Viagens em família",
     capacity: "Ocupação sob consulta",
     description:
-      "Espaço para acomodar adultos e crianças com conforto durante toda a estadia.",
+      "Espaço, estrutura e serviços para acomodar adultos e crianças com conforto durante toda a viagem.",
   },
 ];
 
@@ -155,64 +175,72 @@ export const destinations = [
   {
     name: "Destinos de praia",
     description:
-      "Praias, resorts e experiências para quem quer sol, mar e dias de descanso do começo ao fim da viagem.",
+      "Sol, mar e dias de descanso: praias brasileiras e internacionais para desacelerar de verdade.",
     tag: "Sol e mar",
   },
   {
     name: "Destinos de montanha",
     description:
-      "Clima agradável, natureza, charme e hospedagens para relaxar em qualquer época do ano.",
+      "Clima agradável, natureza e charme para viajar em qualquer época do ano.",
     tag: "Serra e natureza",
   },
   {
-    name: "Resorts internacionais",
+    name: "Destinos internacionais",
     description:
-      "Experiências fora do país com atendimento em português e suporte para uma viagem mais completa.",
+      "Viagens fora do país com planejamento completo: aéreo, hospedagem, seguro, transfer e passeios.",
     tag: "Internacional",
   },
   {
     name: "Destinos de férias",
     description:
-      "Opções pensadas para quem quer aproveitar as férias com conforto, lazer, boa hospedagem e experiências especiais.",
+      "Roteiros pensados para as férias em família ou entre amigos, com ritmo, conforto e experiências na medida.",
     tag: "Férias",
   },
 ];
 
+/** Formas de viajar — perfis de experiência comercializados pela agência. */
 export const experiences = [
   {
-    name: "All Inclusive",
+    name: "Resorts & All Inclusive",
     icon: "sparkles",
     description:
-      "Hospedagem em resort com possibilidade de incluir passagem aérea, transfer, seguro viagem e experiências complementares.",
-    tags: ["Hospedagem", "Aéreo", "Transfer", "Seguro", "Lazer"],
+      "Alguns dias de descanso com gastronomia, lazer e estrutura completa, no Brasil ou no exterior.",
+    tags: ["Resort", "Gastronomia", "Lazer", "Aéreo", "Transfer"],
   },
   {
-    name: "Viagem em família",
+    name: "Viagens em família",
     icon: "users",
     description:
-      "Opções pensadas para quem viaja com crianças, podendo incluir hospedagem, transporte, seguro e passeios.",
-    tags: ["Família", "Hospedagem", "Aéreo", "Passeios", "Transfer"],
+      "Planejamento considerando adultos, crianças, hospedagem, transporte e experiências para todos.",
+    tags: ["Família", "Hospedagem", "Aéreo", "Passeios", "Seguro"],
   },
   {
-    name: "Experiência a dois",
+    name: "Viagens a dois",
     icon: "heart",
     description:
-      "Viagens para casais com foco em conforto, gastronomia, descanso e experiências especiais.",
-    tags: ["Casal", "Hospedagem", "Passeios", "Seguro", "Gastronomia"],
+      "Destinos, hospedagens e experiências para descansar, comemorar ou simplesmente viajar junto.",
+    tags: ["Casal", "Hospedagem", "Passeios", "Gastronomia"],
   },
   {
-    name: "Pacote completo",
-    icon: "luggage",
-    description:
-      "Viagens com organização mais completa, reunindo os principais serviços em uma só cotação.",
-    tags: ["Aéreo", "Hospedagem", "Transfer", "Seguro", "Passeios"],
-  },
-  {
-    name: "Cruzeiros e experiências especiais",
+    name: "Cruzeiros",
     icon: "ship",
     description:
-      "Opções para quem busca viagens diferentes, incluindo cruzeiros e roteiros personalizados.",
-    tags: ["Cruzeiros", "Experiências", "Roteiros", "Lazer"],
+      "Experiências em alto-mar combinando diferentes destinos em uma única viagem.",
+    tags: ["Cruzeiro", "Aéreo", "Transfer", "Roteiros"],
+  },
+  {
+    name: "Férias nacionais e internacionais",
+    icon: "luggage",
+    description:
+      "Viagens pelo Brasil ou pelo exterior planejadas de acordo com perfil, período e orçamento.",
+    tags: ["Aéreo", "Hospedagem", "Seguro", "Carro", "Passeios"],
+  },
+  {
+    name: "Praia & descanso",
+    icon: "palm",
+    description:
+      "Para quem quer desacelerar e aproveitar alguns dias longe da rotina, sem complicação.",
+    tags: ["Praia", "Hospedagem", "Transfer", "Experiências"],
   },
 ];
 
@@ -220,11 +248,11 @@ export const experiences = [
 export const whyAllInclusive = [
   {
     title: "Previsibilidade",
-    text: "Saiba antecipadamente o que está incluído na sua hospedagem e planeje seu orçamento com mais tranquilidade.",
+    text: "Você sabe antecipadamente o que está incluído e planeja o orçamento com mais tranquilidade.",
   },
   {
     title: "Praticidade",
-    text: "Menos preocupação com refeições, bebidas e atividades do dia a dia durante as férias.",
+    text: "Menos preocupação com refeições, bebidas e atividades no dia a dia da viagem.",
   },
   {
     title: "Variedade",
@@ -242,65 +270,71 @@ export const whyAllInclusive = [
 
 export const faq = [
   {
-    q: "O que está incluído em um resort All Inclusive?",
-    a:
-      "O que está incluído varia de acordo com cada resort. Normalmente, o regime All Inclusive pode contemplar refeições, petiscos, bebidas e algumas atividades durante a hospedagem. Antes da reserva, informamos exatamente o que está incluído na opção escolhida.",
-  },
-  {
-    q: "Posso contratar somente hospedagem ou montar um pacote completo?",
-    a:
-      "Sim. Podemos cotar somente a hospedagem ou organizar uma viagem completa, incluindo passagens aéreas, hospedagem, transfer, seguro viagem, aluguel de carro, passeios e outras experiências, conforme a necessidade de cada cliente.",
-  },
-  {
     q: "Quais são as formas de pagamento?",
     a:
       "Trabalhamos com diferentes formas de pagamento.\n\n💳 Cartão de crédito: pacotes podem ter parcelamento em até 10x sem juros, conforme as condições disponíveis para a reserva.\n\n💰 Pix: pagamento à vista com possibilidade de desconto.\n\n📄 Boleto: disponível mediante análise de crédito, podendo haver opções de parcelamento em até 10 ou 12 vezes sem juros, de acordo com a aprovação e as condições disponíveis.\n\nAs condições exatas são apresentadas juntamente com cada cotação.",
   },
   {
-    q: "Posso viajar com crianças?",
+    q: "Posso contratar somente alguns serviços ou preciso fechar um pacote completo?",
     a:
-      "Sim. Podemos buscar hospedagens e resorts adequados para famílias, considerando a idade das crianças, estrutura infantil, alimentação, recreação e demais necessidades da viagem.\n\nÉ importante informar a idade de cada criança no momento da cotação, pois as regras e tarifas podem variar de acordo com a hospedagem.",
+      "Você escolhe. Podemos cotar apenas passagens aéreas, apenas hospedagem, apenas seguro viagem ou transfer, por exemplo.\n\nTambém podemos montar a viagem completa, reunindo aéreo, hospedagem, transfer, seguro, aluguel de carro, passeios e experiências em uma única cotação.",
   },
   {
-    q: "Os preços apresentados são fixos?",
+    q: "Vocês montam a viagem completa, do começo ao fim?",
     a:
-      "Não. Tarifas de passagens, hospedagens e pacotes são dinâmicas e podem sofrer alterações conforme disponibilidade, período da viagem, quantidade de hóspedes e condições dos fornecedores.\n\nPor isso, uma cotação representa as condições disponíveis no momento da pesquisa e está sujeita a alteração até a confirmação da reserva.",
+      "Sim. Organizamos viagens nacionais e internacionais de forma completa: escolha do destino, voos, hospedagem, deslocamentos, seguro, passeios e experiências.\n\nO roteiro é montado de acordo com o seu perfil, o período disponível e o orçamento definido.",
   },
   {
     q: "Quais documentos preciso para viajar?",
     a:
-      "A documentação necessária depende do destino e do perfil dos passageiros.\n\nViagens nacionais e internacionais podem exigir documentos diferentes, principalmente quando há menores de idade envolvidos.\n\nDurante o atendimento, orientamos o cliente sobre a documentação necessária para a viagem contratada.",
+      "A documentação necessária depende do destino e do perfil dos passageiros.\n\nViagens nacionais e internacionais podem exigir documentos diferentes, principalmente quando há menores de idade envolvidos.\n\nDurante o atendimento, orientamos você sobre a documentação necessária para a viagem contratada.",
+  },
+  {
+    q: "Posso viajar com crianças?",
+    a:
+      "Sim. Planejamos a viagem considerando a idade das crianças, estrutura infantil, alimentação, recreação, assentos, bagagens e demais necessidades.\n\nÉ importante informar a idade de cada criança no momento da solicitação, pois regras e tarifas variam conforme os serviços contratados.",
   },
   {
     q: "É possível alterar ou cancelar uma viagem depois da reserva?",
     a:
-      "Sim, porém as condições dependem das regras da tarifa, hospedagem, companhia aérea e demais serviços contratados.\n\nAlgumas tarifas permitem alteração ou cancelamento mediante cobrança de multas e diferença tarifária, enquanto outras podem possuir condições mais restritivas.\n\nAntes da confirmação da reserva, apresentamos as principais regras aplicáveis.",
-  },
-  {
-    q: "Vocês oferecem suporte depois que a viagem é contratada?",
-    a:
-      "Sim. O atendimento da Viagens Riva não termina após a reserva.\n\nNossa equipe auxilia com orientações antes da viagem e presta suporte relacionado aos serviços contratados sempre que necessário.",
-  },
-  {
-    q: "Posso solicitar uma cotação mesmo sem saber exatamente para onde quero viajar?",
-    a:
-      "Sim. Informe o período aproximado, cidade de origem, quantidade de passageiros e o tipo de experiência que procura.\n\nPodemos ajudar na escolha do destino e apresentar opções compatíveis com o perfil da viagem.",
+      "Sim, porém as condições dependem das regras da tarifa, hospedagem, companhia aérea e demais serviços contratados.\n\nAlgumas tarifas permitem alteração ou cancelamento mediante multas e diferença tarifária, enquanto outras possuem condições mais restritivas.\n\nAntes da confirmação da reserva, apresentamos as principais regras aplicáveis.",
   },
   {
     q: "Com quanto tempo de antecedência é melhor reservar?",
     a:
       "Quanto maior a antecedência, normalmente maiores são as possibilidades de encontrar boas opções de voos, hospedagens e condições de pagamento.\n\nEm períodos de alta procura, como férias, feriados, réveillon e carnaval, recomendamos iniciar o planejamento com antecedência ainda maior.",
   },
+  {
+    q: "Os preços apresentados são fixos?",
+    a:
+      "Não. Tarifas de passagens, hospedagens, cruzeiros e pacotes são dinâmicas e podem mudar conforme disponibilidade, período da viagem, quantidade de passageiros e condições dos fornecedores.\n\nUma cotação representa as condições disponíveis no momento da pesquisa e está sujeita a alteração até a confirmação da reserva.",
+  },
+  {
+    q: "Posso pedir ajuda mesmo sem saber para onde quero viajar?",
+    a:
+      "Sim. Informe o período aproximado, cidade de origem, quantidade de passageiros e o tipo de experiência que procura.\n\nAjudamos você a escolher o destino e apresentamos opções compatíveis com o perfil da viagem.",
+  },
+  {
+    q: "O que está incluído em um resort All Inclusive?",
+    a:
+      "Varia conforme cada resort e o regime contratado. Normalmente, o All Inclusive pode contemplar refeições, petiscos, bebidas e algumas atividades durante a hospedagem.\n\nAntes da reserva, informamos exatamente o que está incluído na opção escolhida.",
+  },
+  {
+    q: "Vocês oferecem suporte depois que a viagem é contratada?",
+    a:
+      "Sim. O atendimento da Viagens Riva não termina após a reserva.\n\nNossa equipe auxilia com orientações antes da viagem e presta suporte relacionado aos serviços contratados sempre que necessário.",
+  },
 ];
 
+/** Serviços que o cliente pode marcar no formulário (seleção múltipla). */
 export const interestOptions = [
-  "Hospedagem",
   "Passagens aéreas",
-  "All Inclusive",
-  "Cruzeiros",
-  "Aluguel de carros",
+  "Hospedagem",
+  "Resort / All Inclusive",
+  "Cruzeiro",
   "Transfer",
   "Seguro viagem",
+  "Aluguel de carros",
   "Passeios e experiências",
 ];
 

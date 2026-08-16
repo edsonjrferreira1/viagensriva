@@ -40,20 +40,20 @@ export function QuoteForm() {
     e.preventDefault();
 
     const message = [
-      "Olá! Gostaria de receber uma cotação personalizada da Viagens Riva.",
+      "Olá! Gostaria de planejar minha próxima viagem com a Viagens Riva.",
       "",
       `Nome: ${form.nome || "-"}`,
       `WhatsApp: ${form.whatsapp || "-"}`,
       `E-mail: ${form.email || "-"}`,
       `Destino de interesse: ${form.destino || "-"}`,
       `Tipo de viagem: ${form.tipo || "-"}`,
-      `Check-in: ${form.checkin || "-"}`,
-      `Check-out: ${form.checkout || "-"}`,
+      `Ida: ${form.checkin || "-"}`,
+      `Volta: ${form.checkout || "-"}`,
       `Adultos: ${form.adultos || "-"}`,
       `Crianças: ${form.criancas || "0"}`,
       `Idades: ${form.idades || "-"}`,
       "",
-      "Tenho interesse em:",
+      "Gostaria de incluir na viagem:",
       interests.length ? interests.join(", ") : "-",
       "",
       "Observações:",
@@ -66,10 +66,11 @@ export function QuoteForm() {
   return (
     <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
       <SectionHeading
-        eyebrow="Cotação personalizada"
-        title="Quanto custa viver essa experiência?"
-        subtitle="Conte para a gente como será sua viagem e receba uma cotação personalizada. Os valores variam conforme período, ocupação, categoria da acomodação, regime escolhido e disponibilidade."
+        eyebrow="Planejamento de viagem"
+        title="Vamos planejar sua próxima viagem?"
+        subtitle="Conte como você quer viajar e receba uma cotação personalizada. Os valores variam conforme período, destino, número de passageiros, serviços escolhidos e disponibilidade."
       />
+
 
       <form
         onSubmit={handleSubmit}
@@ -112,7 +113,7 @@ export function QuoteForm() {
               placeholder="Ex: Nordeste, Sul, Caribe, Europa..."
             />
           </Field>
-          <Field label="Check-in" id="checkin">
+          <Field label="Data de ida" id="checkin">
             <Input
               id="checkin"
               type="date"
@@ -120,7 +121,7 @@ export function QuoteForm() {
               onChange={(e) => set("checkin")(e.target.value)}
             />
           </Field>
-          <Field label="Check-out" id="checkout">
+          <Field label="Data de volta" id="checkout">
             <Input
               id="checkout"
               type="date"
@@ -128,6 +129,7 @@ export function QuoteForm() {
               onChange={(e) => set("checkout")(e.target.value)}
             />
           </Field>
+
           <Field label="Adultos" id="adultos">
             <Input
               id="adultos"
@@ -163,7 +165,7 @@ export function QuoteForm() {
               id="tipo"
               value={form.tipo}
               onChange={(e) => set("tipo")(e.target.value)}
-              className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm text-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               {tripTypes.map((t) => (
                 <option key={t} value={t}>
@@ -176,8 +178,11 @@ export function QuoteForm() {
 
         <fieldset className="mt-6">
           <legend className="text-sm font-medium text-primary">
-            Tenho interesse em:
+            Quais serviços você quer incluir?
           </legend>
+          <p className="mt-1 text-xs text-foreground/75">
+            Selecione quantas opções quiser.
+          </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {interestOptions.map((option) => {
               const active = interests.includes(option);
@@ -185,10 +190,10 @@ export function QuoteForm() {
                 <label
                   key={option}
                   className={cn(
-                    "flex cursor-pointer items-center gap-2 rounded-full border px-4 py-2 text-xs transition",
+                    "flex cursor-pointer items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium transition",
                     active
                       ? "border-teal bg-teal text-teal-foreground"
-                      : "border-border bg-background text-muted-foreground hover:border-teal",
+                      : "border-primary/25 bg-background text-foreground/85 hover:border-teal hover:text-primary",
                   )}
                 >
                   <Checkbox
@@ -216,11 +221,12 @@ export function QuoteForm() {
         <Button type="submit" variant="cta" size="xl" className="mt-6 w-full">
           Receber minha cotação
         </Button>
-        <p className="mt-3 text-center text-xs text-muted-foreground">
+        <p className="mt-3 text-center text-xs text-foreground/80">
           Ao enviar, seus dados são organizados em uma única mensagem no
           WhatsApp da Viagens Riva.
         </p>
-        <p className="mt-2 text-center text-xs text-muted-foreground">
+        <p className="mt-2 text-center text-xs text-foreground/80">
+
           Acompanhe também no Instagram{" "}
           <a
             href={agency.instagramUrl}
@@ -250,10 +256,11 @@ function Field({
 }) {
   return (
     <div className={cn("space-y-1.5", className)}>
-      <Label htmlFor={id} className="text-xs text-muted-foreground">
+      <Label htmlFor={id} className="text-xs font-medium text-foreground/85">
         {label}
       </Label>
       {children}
     </div>
+
   );
 }
