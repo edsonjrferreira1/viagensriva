@@ -604,7 +604,7 @@ export function GoogleRatingBadge() {
 
 export function ExpertSection() {
   return (
-    <Section>
+    <Section id="sobre">
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div className="mx-auto w-full max-w-md">
           <div className="rounded-3xl border border-border bg-card p-3 shadow-lift">
