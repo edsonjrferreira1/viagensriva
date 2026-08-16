@@ -1,13 +1,30 @@
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems, agency } from "@/config/site";
 import logoAsset from "@/assets/logo-riva.png.asset.json";
 import { cn } from "@/lib/utils";
 
+const sectionIds = [
+  "servicos",
+  "diferenciais",
+  "inspiracao",
+  "experiencias",
+  "destinos",
+  "hospedagens",
+  "momentos",
+  "sobre",
+  "avaliacoes",
+  "cotacao",
+  "faq",
+];
+
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -16,45 +33,139 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const els = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+    if (!els.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(`#${visible.target.id}`);
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 1] },
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenDropdown(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const isActive = (item: { href: string; children?: { href: string }[] }) =>
+    active === item.href ||
+    Boolean(item.children?.some((c) => c.href === active));
+
+  const scheduleClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 160);
+  };
+  const cancelClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  };
+
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-soft"
-          : "bg-white/80 backdrop-blur-md",
+          : "bg-white/85 backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6">
-        <a href="#top" className="flex items-center" aria-label={agency.name}>
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:gap-6">
+        <a
+          href="#top"
+          className="flex shrink-0 items-center"
+          aria-label={agency.name}
+        >
           <img
             src={logoAsset.url}
             alt={`Logo ${agency.name}`}
             width={512}
             height={512}
-            className="h-12 w-auto object-contain sm:h-14 lg:h-16"
+            className="h-11 w-auto object-contain lg:h-14"
           />
         </a>
 
+        <nav className="hidden h-full items-center gap-4 lg:flex xl:gap-7">
+          {navItems.map((item) =>
+            item.children ? (
+              <div
+                key={item.href}
+                className="relative flex h-full items-center"
+                onMouseEnter={() => {
+                  cancelClose();
+                  setOpenDropdown(item.href);
+                }}
+                onMouseLeave={scheduleClose}
+              >
+                <a
+                  href={item.href}
+                  aria-haspopup="true"
+                  aria-expanded={openDropdown === item.href}
+                  onClick={() => setOpenDropdown(null)}
+                  onFocus={() => setOpenDropdown(item.href)}
+                  className={cn(
+                    "inline-flex items-center gap-1 whitespace-nowrap border-b-2 border-transparent py-1 text-[0.82rem] font-medium leading-none tracking-wide transition-colors",
+                    isActive(item)
+                      ? "border-gold text-primary"
+                      : "text-foreground/80 hover:text-teal",
+                  )}
+                >
+                  {item.label}
+                  <ChevronDown className="size-3.5" aria-hidden="true" />
+                </a>
 
-        <nav className="hidden items-center gap-5 xl:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-[0.78rem] font-medium tracking-wide text-foreground/80 transition-colors hover:text-teal"
-            >
-              {item.label}
-            </a>
-          ))}
+                {openDropdown === item.href && (
+                  <div className="absolute left-1/2 top-full w-64 -translate-x-1/2 pt-3">
+                    <ul className="overflow-hidden rounded-2xl border border-primary/15 bg-white p-2 shadow-lift">
+                      {item.children.map((child) => (
+                        <li key={child.label}>
+                          <a
+                            href={child.href}
+                            onClick={() => setOpenDropdown(null)}
+                            className="block rounded-xl px-4 py-2.5 text-sm text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
+                          >
+                            {child.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "inline-flex items-center whitespace-nowrap border-b-2 border-transparent py-1 text-[0.82rem] font-medium leading-none tracking-wide transition-colors",
+                  isActive(item)
+                    ? "border-gold text-primary"
+                    : "text-foreground/80 hover:text-teal",
+                )}
+              >
+                {item.label}
+              </a>
+            ),
+          )}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <Button
             asChild
             variant="cta"
             size="sm"
-            className="hidden rounded-full px-5 sm:inline-flex"
+            className="hidden whitespace-nowrap rounded-full px-5 sm:inline-flex"
           >
             <a href="#cotacao">Solicitar cotação</a>
           </Button>
@@ -62,7 +173,7 @@ export function Header() {
             type="button"
             aria-label="Abrir menu"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-primary xl:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-primary lg:hidden"
           >
             <Menu className="size-5" />
           </button>
@@ -70,7 +181,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex flex-col surface-deep xl:hidden">
+        <div className="fixed inset-0 z-50 flex flex-col surface-deep lg:hidden">
           <div className="flex items-center justify-between px-4 py-4">
             <span className="inline-flex items-center rounded-xl bg-white px-3 py-2">
               <img
@@ -93,14 +204,30 @@ export function Header() {
           </div>
           <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 pb-8">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="border-b border-white/15 py-4 font-display text-2xl text-white"
-              >
-                {item.label}
-              </a>
+              <div key={item.href} className="border-b border-white/15 py-3">
+                <a
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block font-display text-2xl text-white"
+                >
+                  {item.label}
+                </a>
+                {item.children && (
+                  <ul className="mt-2 space-y-1 pl-4">
+                    {item.children.map((child) => (
+                      <li key={child.label}>
+                        <a
+                          href={child.href}
+                          onClick={() => setOpen(false)}
+                          className="block py-1.5 text-sm text-white/80"
+                        >
+                          {child.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             ))}
             <Button
               asChild
