@@ -797,12 +797,12 @@ export function TestimonialsSection() {
       />
 
       <div className="mt-8 flex justify-center">
-        <div className="flex items-center gap-4 rounded-full border border-primary/10 bg-card px-6 py-3 shadow-lift">
+        <div className="flex items-center gap-4 rounded-full border border-primary/20 bg-card px-6 py-3 shadow-lift">
           <Stars />
           <span className="text-lg font-medium text-primary">
             {googleReviews.rating} no Google
           </span>
-          <span className="text-sm text-muted-foreground">
+          <span className="text-sm text-foreground/80">
             {googleReviews.count} avaliações
           </span>
         </div>
@@ -812,24 +812,25 @@ export function TestimonialsSection() {
         {googleReviews.items.map((r) => (
           <figure
             key={r.author}
-            className="flex h-full flex-col rounded-2xl border border-primary/10 bg-card p-7 shadow-lift"
+            className="flex h-full flex-col rounded-2xl border border-primary/20 bg-card p-7 shadow-lift"
           >
             <Stars />
             <p className="mt-5 font-display text-xl italic leading-snug text-primary">
               “{r.highlight}”
             </p>
-            <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+            <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground/80">
               {r.text}
             </blockquote>
-            <figcaption className="mt-6 border-t border-primary/10 pt-4">
+            <figcaption className="mt-6 border-t border-primary/15 pt-4">
               <span className="block text-sm font-medium text-primary">
                 {r.author}
               </span>
-              <span className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
-                <BadgeCheck className="size-3.5 text-primary/70" />
+              <span className="mt-1 flex items-center gap-1.5 text-xs text-foreground/75">
+                <BadgeCheck className="size-3.5 text-primary" aria-hidden="true" />
                 Avaliação real publicada no Google
               </span>
             </figcaption>
+
           </figure>
         ))}
       </div>
