@@ -365,7 +365,8 @@ export function AccommodationsSection() {
               </Button>
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
     </Section>
   );
