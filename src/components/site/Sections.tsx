@@ -520,19 +520,23 @@ export function AccommodationsSection() {
 export function MomentsSection() {
   const cards = [
     {
+      id: "momentos-familia",
       img: family,
       alt: "Família se divertindo na piscina de resort",
       eyebrow: "Viagens em família",
       title: "As crianças se divertem. Os adultos aproveitam.",
       text: "Voos, hospedagem, transporte, seguro e experiências planejados considerando adultos e crianças.",
+      tripType: "Família com crianças",
       variant: "navy" as const,
     },
     {
+      id: "momentos-dois",
       img: couples,
       alt: "Casal jantando em restaurante com vista para o mar",
       eyebrow: "Viagens a dois",
       title: "Também existe espaço para desacelerar a dois.",
       text: "Destinos, hospedagens e experiências para casais que querem descansar ou comemorar uma data especial.",
+      tripType: "Casal",
       variant: "cta" as const,
     },
   ];
@@ -549,8 +553,9 @@ export function MomentsSection() {
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         {cards.map((c) => (
           <article
+            id={c.id}
             key={c.eyebrow}
-            className="flex h-full flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft"
+            className="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft lg:scroll-mt-28"
           >
             <img
               src={c.img}
@@ -570,7 +575,12 @@ export function MomentsSection() {
                 {c.text}
               </p>
               <Button asChild variant={c.variant} size="xl" className="mt-6">
-                <a href="#cotacao">Quero planejar minha viagem</a>
+                <a
+                  href="#cotacao"
+                  onClick={() => preselect({ tripType: c.tripType })}
+                >
+                  Quero planejar minha viagem
+                </a>
               </Button>
             </div>
           </article>
