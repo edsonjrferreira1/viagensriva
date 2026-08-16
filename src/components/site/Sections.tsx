@@ -359,16 +359,17 @@ export function CruisesSection() {
           </Button>
         </div>
 
-        <img
-          src={cruiseImg}
-          alt="Navio de cruzeiro sofisticado navegando ao pôr do sol"
-          width={1600}
-          height={1067}
-          loading="lazy"
-          decoding="async"
-          className="hidden h-full min-h-[640px] w-full rounded-3xl object-cover shadow-lift lg:block"
-        />
-      </div>
+        <div className="hidden lg:block">
+          <img
+            src={cruiseImg}
+            alt="Navio de cruzeiro sofisticado navegando ao pôr do sol"
+            width={1600}
+            height={1067}
+            loading="lazy"
+            decoding="async"
+            className="h-full min-h-[640px] w-full rounded-3xl object-cover shadow-lift"
+          />
+        </div>
     </Section>
   );
 }
