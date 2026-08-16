@@ -39,7 +39,9 @@ Todo CTA leva ao formulário ou abre o WhatsApp `+55 62 98217-9433`. O envio do 
 
 ## Imagens
 
-As fotos atuais serão reaproveitadas quando genéricas, e novas imagens serão geradas para cobrir os temas que faltam (mosaico de desejo, gastronomia variada, destinos, cards de experiências), sempre sem elementos que identifiquem um estabelecimento real.
+- Logo oficial: versão transparente enviada, publicada via Lovable Assets e usada no header e rodapé sem redesenho.
+- Fotos reais enviadas pela agência (piscina ao pôr do sol e piscina com coqueiros ao dia) serão convertidas de HEIC para JPG otimizado e usadas em posições de destaque — a foto do pôr do sol como imagem principal do Hero e a foto diurna na seção de desejo/lazer. Nenhuma delas identifica marca ou estabelecimento.
+- As demais fotos atuais serão reaproveitadas quando genéricas, e novas imagens serão geradas para os temas que faltam (mosaico de desejo, gastronomia variada, destinos, cards de experiências), sempre sem elementos que identifiquem um estabelecimento real.
 
 ## SEO e responsividade
 
