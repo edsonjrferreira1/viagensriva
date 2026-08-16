@@ -4,16 +4,15 @@ Reposicionar a página atual (hoje focada em um resort específico) em uma landi
 
 ## Identidade visual
 
-Paleta extraída da logo enviada:
-- Azul-marinho profundo (fundo escuro, títulos, header)
-- Amarelo/âmbar dourado (cor de destaque e botões principais)
-- Turquesa (cor secundária, ícones, detalhes)
-- Vermelho-carmim (uso pontual, selos e destaques)
-- Off-white / areia clara (fundos claros)
+Paleta extraída da logo enviada, com amarelo/dourado como cor dominante:
+- Amarelo/âmbar dourado (cor principal, botões principais, destaques de CTA)
+- Azul-marinho profundo (títulos, textos fortes, elementos de confiança)
+- Turquesa (cor secundária, ícones, detalhes, toques de frescor)
+- Vermelho-carmim (uso pontual, selos e destaques emocionais)
+- Branco/off-white (fundo predominante, leitura confortável e profissional)
+- Azul-marinho muito claro ou areia (fundo de blocos alternativos, quando necessário)
 
-Contraste verificado para texto sobre fundo escuro e sobre amarelo (texto azul-marinho sobre amarelo). Tipografia mantém par sofisticado (display serifado para títulos + sans geométrica para textos), alinhado ao traço da logo.
-
-A logo enviada será usada como logo oficial no header e rodapé, sem redesenho.
+A logo será usada na versão transparente (sem fundo branco) no header e rodapé, garantindo integração limpa com o fundo branco da página. O amarelo/dourado lidera os elementos de conversão, enquanto o azul-marinho estrutura a hierarquia tipográfica e transmite credibilidade. Contraste e acessibilidade verificados para texto azul sobre branco e amarelo sobre branco.
 
 ## Estrutura de seções
 
