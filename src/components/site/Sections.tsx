@@ -41,7 +41,6 @@ import {
   accommodations,
   agency,
   agencyServices,
-  defaultWhatsappMessage,
   destinations,
   experiences,
   expert,
@@ -49,7 +48,6 @@ import {
   googleReviews,
   inclusiveBenefits,
   leisureCards,
-  whatsappLink,
   
 } from "@/config/site";
 
