@@ -10,8 +10,10 @@ const sectionIds = [
   "diferenciais",
   "inspiracao",
   "experiencias",
+  "cruzeiros",
   "destinos",
   "hospedagens",
+  "resorts",
   "momentos",
   "sobre",
   "avaliacoes",
@@ -62,7 +64,8 @@ export function Header() {
 
   const isActive = (item: { href: string; children?: { href: string }[] }) =>
     active === item.href ||
-    Boolean(item.children?.some((c) => c.href === active));
+    Boolean(item.children?.some((c) => c.href === active)) ||
+    (item.href === "#hospedagens" && active === "#resorts");
 
   const scheduleClose = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
