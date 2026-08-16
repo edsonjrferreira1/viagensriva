@@ -858,7 +858,13 @@ export function FaqSection() {
           Nossa equipe pode ajudar você a planejar sua viagem.
         </h3>
         <Button asChild variant="cta" size="xl" className="mt-8">
-          <a href="#cotacao">Quero planejar minha viagem</a>
+          <a
+            href={whatsappLink(defaultWhatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Falar com a Viagens Riva
+          </a>
         </Button>
 
       </div>
