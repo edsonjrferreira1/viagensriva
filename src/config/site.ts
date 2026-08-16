@@ -47,9 +47,38 @@ export const navItems = [
   { label: "Famílias", href: "#familias" },
   { label: "Casais", href: "#casais" },
   { label: "Destinos", href: "#destinos" },
+  { label: "Avaliações", href: "#avaliacoes" },
   { label: "Cotação", href: "#cotacao" },
   { label: "Dúvidas", href: "#faq" },
 ];
+
+/**
+ * Avaliações reais publicadas no Google.
+ * Para atualizar a nota ou a quantidade, altere `rating` e `count`.
+ */
+export const googleReviews = {
+  rating: "5,0",
+  count: 23,
+  profileUrl: "https://share.google/k24MKSS3qRVz2ec5M",
+  items: [
+    {
+      highlight: "Cuidou de todos os detalhes da minha viagem.",
+      text: "Quero agradecer a atenção e presteza dos serviços que a agência Riva teve com minha família, cuidou de todos os detalhes da minha viagem, atendeu minhas necessidades e enquadrou dentro das minhas necessidades. Foi maravilhosa nossa experiência e com certeza será somente a primeira de várias futuras.",
+      author: "Gleice Nascimento",
+    },
+    {
+      highlight: "Total suporte durante toda a viagem.",
+      text: "Tivemos total suporte durante toda a viagem. Experiência incrível.",
+      author: "Izabella Cardoso",
+    },
+    {
+      highlight: "A experiência começou já no atendimento.",
+      text: "A experiência da minha viagem começou já no atendimento! Empresa perfeita, preço ótimo, atendimento melhor ainda!",
+      author: "Nathalia Moura",
+    },
+  ],
+};
+
 
 export const heroHighlights = [
   "Atendimento personalizado",
