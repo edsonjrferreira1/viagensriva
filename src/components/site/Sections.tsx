@@ -758,21 +758,21 @@ export function FinalCta() {
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 media-overlay" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/60 to-black/75" />
       <div className="relative mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
         <h2 className="text-3xl leading-tight text-white sm:text-5xl">
-          Suas próximas férias podem começar aqui.
+          Vamos começar a planejar sua próxima viagem?
         </h2>
-        <p className="mt-5 text-sm leading-relaxed text-white/85 sm:text-base">
-          Resorts selecionados, gastronomia, lazer e dias inteiros para aproveitar.
-          Conte para a gente quando você pretende viajar e receba sua cotação
-          personalizada.
+        <p className="mt-5 text-sm leading-relaxed text-white/95 sm:text-base">
+          Conte para a Viagens Riva o que você está procurando e receba uma
+          cotação personalizada.
         </p>
         <Button asChild variant="gold" size="xl" className="mt-8">
-          <a href="#cotacao">Quero receber minha cotação</a>
+          <a href="#cotacao">Quero planejar minha viagem</a>
         </Button>
       </div>
     </section>
+
   );
 }
 
