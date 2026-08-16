@@ -57,6 +57,8 @@ import {
 
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
 import cruiseImg from "@/assets/cruise-premium.jpg.asset.json";
+import cruiseOnboardImg from "@/assets/cruise-onboard.jpg.asset.json";
+import cruiseDiningImg from "@/assets/cruise-dining.jpg.asset.json";
 
 /** Pré-seleciona serviço, destino ou tipo de viagem no formulário de cotação. */
 function preselect(detail: {
@@ -308,15 +310,37 @@ export function CruisesSection() {
             {cruiseIntroComplement}
           </p>
 
-          <img
-            src={cruiseImg.url}
-            alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
-            width={1600}
-            height={1067}
-            loading="lazy"
-            decoding="async"
-            className="mt-8 h-64 w-full rounded-3xl object-cover shadow-lift sm:h-80 lg:hidden"
-          />
+          <div className="mt-8 grid gap-3 lg:hidden">
+            <img
+              src={cruiseImg.url}
+              alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
+              width={1600}
+              height={1067}
+              loading="lazy"
+              decoding="async"
+              className="h-56 w-full rounded-3xl object-cover shadow-lift sm:h-72"
+            />
+            <div className="grid grid-cols-2 gap-3">
+              <img
+                src={cruiseOnboardImg.url}
+                alt="Piscina e espreguiçadeiras no deck de um navio de cruzeiro ao entardecer"
+                width={1408}
+                height={1008}
+                loading="lazy"
+                decoding="async"
+                className="h-32 w-full rounded-2xl object-cover shadow-soft sm:h-40"
+              />
+              <img
+                src={cruiseDiningImg.url}
+                alt="Jantar sofisticado a bordo com vista para o mar durante o pôr do sol"
+                width={1408}
+                height={1008}
+                loading="lazy"
+                decoding="async"
+                className="h-32 w-full rounded-2xl object-cover shadow-soft sm:h-40"
+              />
+            </div>
+          </div>
 
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {cruiseBenefits.map((b) => {
@@ -359,7 +383,7 @@ export function CruisesSection() {
           </Button>
         </div>
 
-        <div className="hidden h-full lg:block">
+        <div className="hidden h-full min-h-[640px] grid-rows-[1.35fr_1fr] gap-4 lg:grid">
           <img
             src={cruiseImg.url}
             alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
@@ -367,8 +391,28 @@ export function CruisesSection() {
             height={1067}
             loading="lazy"
             decoding="async"
-            className="h-full min-h-[640px] w-full rounded-3xl object-cover shadow-lift"
+            className="h-full w-full rounded-3xl object-cover shadow-lift"
           />
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src={cruiseOnboardImg.url}
+              alt="Piscina e espreguiçadeiras no deck de um navio de cruzeiro ao entardecer"
+              width={1408}
+              height={1008}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full rounded-3xl object-cover shadow-lift"
+            />
+            <img
+              src={cruiseDiningImg.url}
+              alt="Jantar sofisticado a bordo com vista para o mar durante o pôr do sol"
+              width={1408}
+              height={1008}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full rounded-3xl object-cover shadow-lift"
+            />
+          </div>
         </div>
       </div>
 
