@@ -152,24 +152,25 @@ export const leisureCards = [
 
 export const accommodations = [
   {
-    name: "Hotéis e pousadas",
-    capacity: "Categorias sob consulta",
+    name: "Hotéis e pousadas de charme",
+    capacity: "Do 3 estrelas bem localizado ao boutique de alto padrão",
     description:
-      "Opções em diferentes categorias e localizações, escolhidas conforme o roteiro e o orçamento da viagem.",
+      "Selecionamos endereços pela localização, pelo café da manhã e pela avaliação real de quem já se hospedou — não apenas pela diária.",
   },
   {
-    name: "Viagens a dois",
-    capacity: "Ocupação sob consulta",
+    name: "Resorts com estrutura completa",
+    capacity: "Pé na areia, All Inclusive ou meia pensão",
     description:
-      "Hospedagens e experiências pensadas para casais que querem descansar, comemorar ou simplesmente viajar juntos.",
+      "Piscinas, gastronomia e recreação no mesmo lugar, com o regime de alimentação escolhido de acordo com o seu ritmo de férias.",
   },
   {
-    name: "Viagens em família",
-    capacity: "Ocupação sob consulta",
+    name: "Flats e apartamentos",
+    capacity: "Ideal para estadias de 7 noites ou mais",
     description:
-      "Espaço, estrutura e serviços para acomodar adultos e crianças com conforto durante toda a viagem.",
+      "Mais espaço, cozinha e autonomia para viagens longas, em família ou quando o roteiro pede uma base fixa no destino.",
   },
 ];
+
 
 export const destinations = [
   {
