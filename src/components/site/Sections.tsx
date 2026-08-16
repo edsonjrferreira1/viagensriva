@@ -548,19 +548,20 @@ export function WhyAllInclusiveSection() {
         align="center"
         eyebrow="Por que All Inclusive"
         title="Mais liberdade para aproveitar suas férias"
-        subtitle="Descubra as vantagens de reservar uma experiência com tudo incluso, sob medida para o seu perfil."
+        subtitle="Entre as viagens que organizamos, o regime All Inclusive é uma boa escolha para quem quer previsibilidade de gastos e praticidade durante a hospedagem."
       />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {whyAllInclusive.map((item) => (
           <div
             key={item.title}
-            className="rounded-2xl border border-border bg-card p-6 text-center shadow-soft"
+            className="rounded-2xl border border-primary/15 bg-card p-6 text-center shadow-soft"
           >
             <h3 className="text-xl text-primary">{item.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-2 text-sm leading-relaxed text-foreground/75">
               {item.text}
             </p>
+
           </div>
         ))}
       </div>
