@@ -1,54 +1,68 @@
-# Revisão geral de legibilidade e contraste
+# Reposicionamento da narrativa + revisão de legibilidade
 
-Objetivo: manter a estética sofisticada da Viagens Riva, mas garantir leitura fácil em toda a landing page, seguindo boas práticas de acessibilidade (WCAG AA).
+Sem reconstruir o site: layout, paleta, tipografia e componentes atuais permanecem. Muda a NARRATIVA (a Viagens Riva organiza a viagem completa; resorts e All Inclusive são uma das especialidades) e o contraste dos textos.
 
-## Hierarquia de leitura adotada
+## 1. Hero
 
-- Títulos: azul-marinho profundo, contraste máximo.
-- Subtítulos e descrições: cinza-azulado escuro, perfeitamente legível.
-- Textos corridos: leitura confortável, nunca abaixo do contraste AA.
-- Informações auxiliares (notas sob botões, avisos legais): discretas, mas ainda dentro do mínimo aceitável.
+- Mantém o título "Viagens selecionadas para quem merece o extraordinário."
+- Etiqueta do topo passa de "ALL INCLUSIVE" para "VIAGENS NACIONAIS & INTERNACIONAIS".
+- Linha de apoio passa a "Viagens nacionais e internacionais planejadas para você."
+- Parágrafo: "Passagens, hospedagens, resorts, cruzeiros e experiências para você aproveitar sua viagem com mais tranquilidade."
+- Destaques de credibilidade revisados para linguagem de agência completa.
 
-## Ajustes por área
+## 2. Nova seção de serviços (logo após o Hero)
 
-1. Tokens globais
-   - Escurecer o tom de texto secundário usado em toda a página (hoje claro demais sobre branco) e criar um tom auxiliar separado para notas pequenas, para que "secundário" e "auxiliar" não sejam a mesma cor apagada.
-   - Escurecer levemente as bordas de cards e campos, para separar blocos sem depender de texto claro.
+"Cuidamos de cada etapa da sua viagem." com 7 itens em ícones vetoriais minimalistas (sem emojis): passagens aéreas, hospedagens, cruzeiros, aluguel de carros, seguro viagem, transfer, passeios e experiências. CTA para o formulário.
 
-2. Banner principal (Hero)
-   - Reforçar o gradiente escuro na base e adicionar leve escurecimento lateral onde ficam os textos, sem apagar a fotografia.
-   - Subir o contraste do subtítulo, do parágrafo e da lista de destaques (hoje em branco translúcido) para branco pleno ou quase pleno.
-   - Selo "All Inclusive" com fundo mais sólido para o dourado não sumir sobre áreas claras da foto.
+## 3. Experiências para cada jeito de viajar
 
-3. Seções sobre imagem (desejo, gastronomia, famílias, casais, CTA final)
-   - Padronizar overlay/gradiente suficiente atrás dos textos.
-   - Textos sobre foto passam de branco translúcido para branco pleno; legendas em branco de alta opacidade.
+Seções hoje concentradas em hospedagem passam a apresentar formas de viajar: Resorts & All Inclusive, Viagens em família, Viagens a dois, Cruzeiros, Férias nacionais e internacionais, Praia & descanso. Composição visual equilibrada (não todos os cards em uma grade longa). Subtítulo de "Experiências selecionadas" passa a "Viagens e experiências pensadas para diferentes perfis."
 
-4. Cards (All Inclusive, lazer, destinos, experiências, comparativo, depoimentos)
-   - Descrições e tags com o novo tom secundário escuro.
-   - Tags/pílulas com borda e texto mais definidos.
+## 4. All Inclusive enxuto
 
-5. Formulário de cotação
-   - Labels em azul-marinho, com peso um pouco maior.
-   - Texto digitado em cor de alto contraste e placeholders num tom legível (nunca cinza claro).
-   - Chips de interesse: estado inativo com texto escuro em vez de cinza claro.
-   - Notas abaixo do botão em tom auxiliar legível.
+A seção de 7 cards vira um bloco comercial: título "Quer férias com ainda mais praticidade?", destaque "Resorts & All Inclusive", texto explicativo curto, 4 benefícios (gastronomia, bebidas, lazer, praticidade), nota discreta sobre variação por resort e CTA "Quero conhecer opções All Inclusive".
 
-6. FAQ
-   - Perguntas em azul-marinho forte, respostas no tom de texto corrido confortável.
-   - Bloco de CTA final da seção com texto mais escuro.
+## 5. Destinos
 
-7. Rodapé (fundo escuro)
-   - Textos brancos translúcidos passam para opacidades mais altas; o aviso legal pequeno deixa de ser quase transparente.
-   - Links com estado hover e foco visível.
+Mesma seção, comunicação ampliada: praia, férias, montanha, internacionais e experiências especiais. Subtítulo inspirador, sem parecer catálogo de hotéis.
 
-8. Menu e cabeçalho
-   - Itens de navegação com tom mais escuro em repouso.
+## 6. Institucional
+
+Mantém foto, CNPJ, Cadastur e Instagram; reforça viagens nacionais e internacionais e a lista completa de serviços. Botão "Falar com a Viagens Riva".
+
+## 7. Prova social
+
+Mantida como está, imediatamente antes do formulário (5,0 no Google, 23 avaliações, depoimentos reais).
+
+## 8. Formulário
+
+Reposicionado como planejamento de viagem: "Vamos planejar sua próxima viagem?". A pergunta de serviços vira "O que você gostaria de incluir na sua viagem?" com seleção múltipla: passagens aéreas, hospedagem, resort/All Inclusive, cruzeiro, transfer, seguro viagem, aluguel de carros, passeios e experiências. Tudo enviado na mesma mensagem de WhatsApp.
+
+## 9. FAQ
+
+Reescrito com foco em viagem: pagamento, parcelamento, Pix, boleto sujeito a análise, documentação, crianças, alterações e cancelamentos, antecedência, contratar apenas alguns serviços, pacote completo, suporte. Apenas uma pergunta específica sobre All Inclusive. CTA final da seção mantido.
+
+## 10. CTA final
+
+"Vamos começar a planejar sua próxima viagem?" + "Conte para a Viagens Riva o que você está procurando e receba uma cotação personalizada." Botão "Quero planejar minha viagem".
+
+## 11. Revisão de vocabulário
+
+Varredura de "resort", "hospedagem", "All Inclusive" e "hotel" em toda a página, ampliando para viagem, experiência, pacote, férias, planejamento e destinos nacionais e internacionais onde a comunicação parecer restrita. SEO (title, description, og) atualizado para agência de viagens completa.
+
+## 12. Legibilidade e contraste (toda a página)
+
+- Tokens globais: escurecer o tom de texto secundário e criar um tom auxiliar separado para notas pequenas; bordas de cards e campos levemente mais definidas.
+- Hero e blocos sobre foto: overlay/gradiente suficiente e textos em branco pleno ou quase pleno, sem apagar a fotografia.
+- Cards: descrições e tags no novo tom escuro.
+- Formulário: labels em azul-marinho, texto digitado de alto contraste, placeholders legíveis, chips inativos com texto escuro, notas abaixo do botão legíveis.
+- FAQ: perguntas em contraste forte, respostas confortáveis.
+- Rodapé: opacidades mais altas, aviso legal deixa de ser quase transparente, foco visível nos links.
+- Menu: itens mais escuros em repouso.
 
 ## Detalhes técnicos
 
-- Ajustes concentrados em `src/styles.css` (tokens `--muted-foreground`, `--border`, `--input` e um novo token para texto auxiliar) para que a maior parte das seções melhore automaticamente.
-- Substituições pontuais nas classes `text-white/xx` em `Hero.tsx`, `Sections.tsx` e `Footer.tsx`.
-- Ajustes de label/placeholder em `QuoteForm.tsx` e nos primitivos `input`/`textarea` quando necessário.
-- Nenhuma mudança de cor da logo, de estrutura de seções ou de lógica de conversão.
-- Verificação final com checagem de contraste dos principais pares texto/fundo.
+- Textos, listas de serviços, perfis, destinos e FAQ centralizados em `src/config/site.ts`.
+- Ajustes de conteúdo em `Hero.tsx`, `Sections.tsx`, `QuoteForm.tsx`, `Footer.tsx`; nova seção de serviços reutilizando os componentes existentes.
+- Contraste ajustado principalmente via tokens em `src/styles.css`, com substituições pontuais de classes `text-white/xx`.
+- Sem mudança de identidade visual, logo, estrutura de rotas ou lógica de envio ao WhatsApp.
