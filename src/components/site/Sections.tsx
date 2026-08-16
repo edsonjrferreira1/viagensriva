@@ -373,9 +373,10 @@ export function CouplesSection() {
         />
         <div className="order-1 lg:order-2">
           <SectionHeading
-            eyebrow="Para casais"
+            eyebrow="Viagens a dois"
             title="Também existe espaço para desacelerar a dois"
-            subtitle="Jantares com calma, drinks ao entardecer, momentos de bem-estar e cenários especiais. Uma viagem para descansar de verdade."
+            subtitle="Destinos, hospedagens e experiências para casais que querem descansar, comemorar uma data especial ou simplesmente viajar juntos."
+
           />
           <Button asChild variant="cta" size="xl" className="mt-8">
             <a href="#cotacao">Quero planejar minha viagem</a>
