@@ -25,9 +25,19 @@ import {
   ShieldCheck,
   Plane,
   MapPin,
+  MapPinned,
+  BedDouble,
+  Ship,
+  Car,
+  BusFront,
+  Users,
+  Heart,
+  Luggage,
   Star,
   Instagram,
+  type LucideIcon,
 } from "lucide-react";
+
 import { Section, SectionHeading } from "./Section";
 import {
   accommodations,
