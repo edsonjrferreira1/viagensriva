@@ -39,6 +39,11 @@ import { Section, SectionHeading } from "./Section";
 import {
   accommodations,
   agency,
+  cruiseBenefits,
+  cruiseExtras,
+  cruiseIntro,
+  cruiseIntroComplement,
+  cruiseNote,
   destinations,
   experiences,
   expert,
@@ -46,15 +51,24 @@ import {
   googleReviews,
   inclusiveBenefits,
   leisureCards,
-  
+  whatsappLink,
+  defaultWhatsappMessage,
 } from "@/config/site";
 
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
 import cruiseImg from "@/assets/cruzeiro.jpg";
 
-/** Pré-seleciona um serviço no formulário de cotação. */
+/** Pré-seleciona serviço, destino ou tipo de viagem no formulário de cotação. */
+function preselect(detail: {
+  interest?: string;
+  destination?: string;
+  tripType?: string;
+}) {
+  window.dispatchEvent(new CustomEvent("riva:preselect", { detail }));
+}
+
 function preselectInterest(option: string) {
-  window.dispatchEvent(new CustomEvent("riva:preselect-interest", { detail: option }));
+  preselect({ interest: option });
 }
 
 
