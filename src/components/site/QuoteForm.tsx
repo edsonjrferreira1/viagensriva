@@ -220,6 +220,18 @@ export function QuoteForm() {
           Ao enviar, seus dados são organizados em uma única mensagem no
           WhatsApp da Viagens Riva.
         </p>
+        <p className="mt-2 text-center text-xs text-muted-foreground">
+          Acompanhe também no Instagram{" "}
+          <a
+            href={agency.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-teal hover:underline"
+          >
+            {agency.instagramHandle}
+          </a>
+        </p>
+
       </form>
     </div>
   );
