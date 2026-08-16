@@ -7,6 +7,7 @@ import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import {
   AccommodationsSection,
+  CruisesSection,
   DesireSection,
   DestinationsSection,
   ExperiencesSection,
@@ -86,6 +87,7 @@ function Index() {
         <WhyRivaSection />
         <DesireSection />
         <ExperiencesSection />
+        <CruisesSection />
         <DestinationsSection />
         <AccommodationsSection />
         <MomentsSection />

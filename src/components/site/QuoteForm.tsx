@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -80,6 +80,16 @@ export function QuoteForm() {
   const [form, setForm] = useState(initial);
   const [interests, setInterests] = useState<string[]>(["Hospedagem"]);
   const [hasFlex, setHasFlex] = useState(false);
+
+  useEffect(() => {
+    const onPreselect = (e: Event) => {
+      const option = (e as CustomEvent<string>).detail;
+      if (!option) return;
+      setInterests((prev) => (prev.includes(option) ? prev : [...prev, option]));
+    };
+    window.addEventListener("riva:preselect-interest", onPreselect);
+    return () => window.removeEventListener("riva:preselect-interest", onPreselect);
+  }, []);
 
   const set = (key: keyof typeof initial) => (value: string) =>
     setForm((f) => ({ ...f, [key]: value }));
