@@ -14,15 +14,13 @@ import {
   ExpertSection,
   FaqSection,
   FinalCta,
-  GastronomySection,
+  GoogleRatingBadge,
   InclusiveSection,
-  LeisureSection,
   FamilySection,
   ServicesSection,
-  WhyAllInclusiveSection,
+  TravelServicesSection,
   WhyRivaSection,
   TestimonialsSection,
-
 } from "@/components/site/Sections";
 
 const title = "Viagens Riva | Viagens nacionais e internacionais";
@@ -49,14 +47,13 @@ function Index() {
       <Header />
       <main>
         <Hero />
+        <GoogleRatingBadge />
         <ServicesSection />
         <DesireSection />
         <ExperiencesSection />
+        <TravelServicesSection />
         <DestinationsSection />
         <InclusiveSection />
-        <WhyAllInclusiveSection />
-        <GastronomySection />
-        <LeisureSection />
         <FamilySection />
         <CouplesSection />
         <AccommodationsSection />
@@ -64,12 +61,12 @@ function Index() {
         <WhyRivaSection />
         <TestimonialsSection />
 
-
         <Section id="cotacao">
           <QuoteForm />
         </Section>
         <FaqSection />
         <FinalCta />
+
       </main>
       <Footer />
       <FloatingWhatsApp />
