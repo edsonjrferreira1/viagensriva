@@ -661,14 +661,9 @@ export function ExpertSection() {
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild variant="cta" size="xl">
-              <a
-                href={whatsappLink(defaultWhatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Falar com a {agency.name}
-              </a>
+              <a href="#cotacao">Quero planejar minha viagem</a>
             </Button>
+
             <Button asChild variant="outline" size="xl">
               <a
                 href={agency.instagramUrl}
