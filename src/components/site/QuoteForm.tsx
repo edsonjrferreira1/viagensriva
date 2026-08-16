@@ -430,7 +430,6 @@ export function QuoteForm() {
           WhatsApp da Viagens Riva.
         </p>
         <p className="mt-2 text-center text-xs text-foreground/80">
-
           Acompanhe também no Instagram{" "}
           <a
             href={agency.instagramUrl}
