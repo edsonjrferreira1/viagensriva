@@ -56,22 +56,22 @@ import {
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
 
 
-import desire1 from "@/assets/desire-mosaic-1.jpg";
-import desire2 from "@/assets/desire-mosaic-2.jpg";
-import desire3 from "@/assets/desire-mosaic-3.jpg";
+import desire1 from "@/assets/desire-mosaic-1.webp";
+import desire2 from "@/assets/desire-mosaic-2.webp";
+import desire3 from "@/assets/desire-mosaic-3.webp";
 import lazerImg from "@/assets/lazer-premium.jpg.asset.json";
-import gastro from "@/assets/desire-mosaic-3.jpg";
-import family from "@/assets/family-pool.jpg";
-import couples from "@/assets/couples-dinner.jpg";
-import room from "@/assets/room-suite.jpg";
-import spa from "@/assets/spa-wellness.jpg";
-import destBeach from "@/assets/destination-beach.jpg";
-import destMountain from "@/assets/destination-mountain.jpg";
-import destInternational from "@/assets/destination-international.jpg";
-import destVacation from "@/assets/destination-vacation.jpg";
-import agentImg from "@/assets/agent-placeholder.jpg";
-import panorama from "@/assets/final-cta.jpg";
-import servicosImg from "@/assets/servicos-completos.jpg";
+import gastro from "@/assets/desire-mosaic-3.webp";
+import family from "@/assets/family-pool.webp";
+import couples from "@/assets/couples-dinner.webp";
+import room from "@/assets/room-suite.webp";
+import spa from "@/assets/spa-wellness.webp";
+import destBeach from "@/assets/destination-beach.webp";
+import destMountain from "@/assets/destination-mountain.webp";
+import destInternational from "@/assets/destination-international.webp";
+import destVacation from "@/assets/destination-vacation.webp";
+import agentImg from "@/assets/agent-placeholder.webp";
+import panorama from "@/assets/final-cta.webp";
+import servicosImg from "@/assets/servicos-completos.webp";
 
 
 const destinationImages = [destBeach, destMountain, destInternational, destVacation];
@@ -120,6 +120,8 @@ export function DesireSection() {
           width={1200}
           height={900}
           loading="lazy"
+        decoding="async"
+          decoding="async"
           className="h-72 w-full rounded-2xl object-cover shadow-lift md:col-span-2 md:h-96"
         />
         <div className="grid gap-4 md:grid-rows-2">
@@ -129,6 +131,9 @@ export function DesireSection() {
             width={1200}
             height={900}
             loading="lazy"
+        decoding="async"
+            decoding="async"
+          decoding="async"
             className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
           />
           <img
@@ -137,6 +142,9 @@ export function DesireSection() {
             width={1200}
             height={900}
             loading="lazy"
+        decoding="async"
+            decoding="async"
+          decoding="async"
             className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
           />
         </div>
@@ -234,6 +242,9 @@ export function InclusiveSection() {
             width={1200}
             height={900}
             loading="lazy"
+        decoding="async"
+            decoding="async"
+          decoding="async"
             className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-72"
           />
           <img
@@ -242,6 +253,9 @@ export function InclusiveSection() {
             width={1600}
             height={1200}
             loading="lazy"
+        decoding="async"
+            decoding="async"
+          decoding="async"
             className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-72"
           />
         </div>
@@ -327,6 +341,8 @@ export function FamilySection() {
           width={1200}
           height={900}
           loading="lazy"
+        decoding="async"
+          decoding="async"
           className="h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[26rem]"
         />
       </div>
@@ -344,6 +360,8 @@ export function CouplesSection() {
           width={1200}
           height={900}
           loading="lazy"
+        decoding="async"
+          decoding="async"
           className="order-2 h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[26rem] lg:order-1"
         />
         <div className="order-1 lg:order-2">
@@ -386,6 +404,11 @@ export function AccommodationsSection() {
                   width={1200}
                   height={900}
                   loading="lazy"
+        decoding="async"
+                  decoding="async"
+                decoding="async"
+            decoding="async"
+          decoding="async"
                   className="h-52 w-full object-cover"
                 />
                 <div className="p-6">
@@ -440,6 +463,10 @@ export function DestinationsSection() {
                 width={1200}
                 height={900}
                 loading="lazy"
+        decoding="async"
+                decoding="async"
+            decoding="async"
+          decoding="async"
                 className="h-72 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10" />
@@ -581,6 +608,8 @@ export function TravelServicesSection() {
           width={1600}
           height={1200}
           loading="lazy"
+        decoding="async"
+          decoding="async"
           className="h-80 w-full rounded-3xl object-cover shadow-lift lg:h-[36rem]"
         />
       </div>
@@ -622,6 +651,9 @@ export function ExpertSection() {
               width={900}
               height={1125}
               loading="lazy"
+        decoding="async"
+            decoding="async"
+          decoding="async"
               className="aspect-[4/5] w-full rounded-2xl object-cover"
             />
           </div>
@@ -797,6 +829,7 @@ export function FinalCta() {
         width={1920}
         height={1080}
         loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/60 to-black/75" />
