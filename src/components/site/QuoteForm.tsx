@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { SectionHeading } from "./Section";
-import { interestOptions, whatsappLink, tripTypes } from "@/config/site";
+import { agency, interestOptions, whatsappLink, tripTypes } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 const initial = {
