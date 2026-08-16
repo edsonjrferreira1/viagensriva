@@ -210,16 +210,15 @@ export function ExperiencesSection() {
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {experiences.map((exp) => {
           const Icon = experienceIcons[exp.icon] ?? Sparkles;
-          const cardId = exp.name
-            .toLowerCase()
-            .replace(/[^a-z0-9\s]/g, "")
-            .replace(/\s+/g, "-");
+          const link = experienceLinks[exp.name] ?? {
+            href: "#cotacao",
+            cta: "Planejar essa experiência",
+          };
           return (
             <a
-              id={`experiencia-${cardId}`}
               key={exp.name}
-              href="#cotacao"
-              onClick={() => preselectInterest(experienceInterest[exp.name] ?? "Hospedagem")}
+              href={link.href}
+              onClick={() => link.preselect && preselect(link.preselect)}
               className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
@@ -242,7 +241,7 @@ export function ExperiencesSection() {
                 ))}
               </div>
               <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition group-hover:text-gold">
-                Conhecer essa experiência
+                {link.cta}
                 <ArrowRight className="size-4" aria-hidden="true" />
               </span>
             </a>
