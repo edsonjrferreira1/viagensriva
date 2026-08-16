@@ -32,18 +32,18 @@ export function Hero() {
           Viagens nacionais &amp; internacionais
         </span>
 
-        <h1 className="mt-6 max-w-4xl text-4xl leading-[1.05] text-white sm:text-6xl md:text-7xl">
+        <h1 className="mt-5 max-w-4xl text-4xl leading-[1.05] text-white sm:text-6xl md:text-7xl lg:mt-4 lg:text-6xl xl:text-7xl">
           Viagens selecionadas para quem merece o extraordinário.
         </h1>
-        <p className="mt-4 max-w-2xl font-display text-2xl italic text-white sm:text-3xl">
+        <p className="mt-3 max-w-2xl font-display text-2xl italic text-white sm:text-3xl">
           Viagens nacionais e internacionais planejadas para você.
         </p>
-        <p className="mt-5 max-w-2xl text-sm leading-relaxed text-white/95 sm:text-base">
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/95 sm:text-base">
           Passagens, hospedagens, resorts, cruzeiros e experiências para você
           aproveitar sua viagem com mais tranquilidade.
         </p>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row lg:mt-6">
           <Button asChild variant="cta" size="xl" className="w-full sm:w-auto">
             <a href="#cotacao">Quero planejar minha viagem</a>
           </Button>
@@ -52,7 +52,7 @@ export function Hero() {
           </Button>
         </div>
 
-        <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2">
+        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 lg:mt-6">
           {heroHighlights.map((h) => (
             <li
               key={h}

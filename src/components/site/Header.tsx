@@ -99,7 +99,7 @@ export function Header() {
           />
         </a>
 
-        <nav className="hidden h-full items-center gap-4 lg:flex xl:gap-7">
+        <nav className="hidden h-full items-center gap-4 lg:flex xl:gap-6">
           {navItems.map((item) =>
             item.children ? (
               <div
@@ -118,7 +118,7 @@ export function Header() {
                   onClick={() => setOpenDropdown(null)}
                   onFocus={() => setOpenDropdown(item.href)}
                   className={cn(
-                    "inline-flex items-center gap-1 whitespace-nowrap border-b-2 border-transparent py-1 text-[0.82rem] font-medium leading-none tracking-wide transition-colors",
+                    "inline-flex items-center gap-1 whitespace-nowrap border-b-2 border-transparent py-1 text-[0.94rem] font-medium leading-none tracking-wide transition-colors",
                     isActive(item)
                       ? "border-gold text-primary"
                       : "text-foreground/80 hover:text-teal",
@@ -136,7 +136,7 @@ export function Header() {
                           <a
                             href={child.href}
                             onClick={() => setOpenDropdown(null)}
-                            className="block rounded-xl px-4 py-2.5 text-sm text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
+                            className="block rounded-xl px-4 py-2.5 text-[0.95rem] text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
                           >
                             {child.label}
                           </a>
@@ -151,7 +151,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "inline-flex items-center whitespace-nowrap border-b-2 border-transparent py-1 text-[0.82rem] font-medium leading-none tracking-wide transition-colors",
+                  "inline-flex items-center whitespace-nowrap border-b-2 border-transparent py-1 text-[0.94rem] font-medium leading-none tracking-wide transition-colors",
                   isActive(item)
                     ? "border-gold text-primary"
                     : "text-foreground/80 hover:text-teal",
