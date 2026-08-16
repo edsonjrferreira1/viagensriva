@@ -164,28 +164,26 @@ export function ServicesSection() {
       />
 
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {agencyServices.map((s) => {
-          const Icon = serviceIcons[s.icon] ?? MapPinned;
-          return (
-            <li
-              key={s.label}
-              className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
-            >
-              <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
-                <Icon
-                  className="size-5 text-primary"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                />
-              </span>
-              <h3 className="mt-5 text-lg text-primary">{s.label}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-foreground/75">
-                {s.description}
-              </p>
-            </li>
-          );
-        })}
+        {travelServices.map((s) => (
+          <li
+            key={s.title}
+            className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
+          >
+            <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
+              <s.icon
+                className="size-5 text-primary"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
+            </span>
+            <h3 className="mt-5 text-lg text-primary">{s.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+              {s.text}
+            </p>
+          </li>
+        ))}
       </ul>
+
 
       <div className="mt-10 flex justify-center">
         <Button asChild variant="cta" size="xl">
