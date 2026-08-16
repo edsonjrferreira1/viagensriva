@@ -309,7 +309,7 @@ export function CruisesSection() {
           </p>
 
           <img
-            src={cruiseImg}
+            src={cruiseImg.url}
             alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
             width={1600}
             height={1067}
@@ -361,7 +361,7 @@ export function CruisesSection() {
 
         <div className="hidden h-full lg:block">
           <img
-            src={cruiseImg}
+            src={cruiseImg.url}
             alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
             width={1600}
             height={1067}
