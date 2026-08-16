@@ -591,13 +591,13 @@ export function ExpertSection() {
             title={expert.name}
             subtitle={expert.bio}
           />
-          <p className="mt-4 text-sm text-muted-foreground">
+          <p className="mt-4 text-sm text-foreground/80">
             {expert.role} · CNPJ {agency.cnpj} · {agency.cadastur}
           </p>
 
-          <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-            Organizamos viagens nacionais e internacionais, cuidando de cada
-            etapa do roteiro:
+          <p className="mt-6 text-sm leading-relaxed text-foreground/80">
+            A Viagens Riva organiza viagens nacionais e internacionais,
+            cuidando de cada etapa do roteiro:
           </p>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
             {agencyServices.map((s) => {
@@ -605,8 +605,9 @@ export function ExpertSection() {
               return (
                 <li
                   key={s.label}
-                  className="flex items-center gap-3 rounded-2xl border border-primary/10 bg-card px-4 py-3 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
+                  className="flex items-center gap-3 rounded-2xl border border-primary/15 bg-card px-4 py-3 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
                 >
+
                   <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary">
                     <Icon
                       className="size-[18px] text-primary"
