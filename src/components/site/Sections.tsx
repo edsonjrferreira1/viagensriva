@@ -547,33 +547,8 @@ const travelServices = [
   { icon: MapPinned, title: "Passeios e experiências" },
 ];
 
-const _unusedServices = [
-  {
-    icon: Car,
-    title: "Aluguel de carros",
-    text: "Categoria, seguro e retirada organizados para explorar o destino com autonomia.",
-  },
-  {
-    icon: Car,
-    title: "Aluguel de carros",
-    text: "Categoria, seguro e retirada organizados para explorar o destino com autonomia.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Seguro viagem",
-    text: "Cobertura adequada ao destino, ao período e à idade dos passageiros, inclusive onde é obrigatório.",
-  },
-  {
-    icon: BusFront,
-    title: "Transfer",
-    text: "Traslado entre aeroporto, hospedagem e passeios já contratado antes do embarque.",
-  },
-  {
-    icon: MapPinned,
-    title: "Passeios e experiências",
-    text: "Ingressos, tours e experiências reservados com antecedência, sem fila e sem improviso.",
-  },
-];
+
+
 
 
 export function GoogleRatingBadge() {
