@@ -234,28 +234,36 @@ export const accommodations = [
 
 export const destinations = [
   {
+    id: "destinos-praia",
     name: "Destinos de praia",
     description:
       "Sol, mar e dias de descanso: praias brasileiras e internacionais para desacelerar de verdade.",
     tag: "Sol e mar",
+    preference: "Praia",
   },
   {
+    id: "destinos-montanha",
     name: "Destinos de montanha",
     description:
       "Clima agradável, natureza e charme para viajar em qualquer época do ano.",
     tag: "Serra e natureza",
+    preference: "Montanha / natureza",
   },
   {
+    id: "destinos-internacionais",
     name: "Destinos internacionais",
     description:
       "Viagens fora do país com planejamento completo: aéreo, hospedagem, seguro, transfer e passeios.",
     tag: "Internacional",
+    preference: "Internacional",
   },
   {
+    id: "destinos-ferias",
     name: "Destinos de férias",
     description:
       "Roteiros pensados para as férias em família ou entre amigos, com ritmo, conforto e experiências na medida.",
     tag: "Férias",
+    preference: "Férias",
   },
 ];
 
