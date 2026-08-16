@@ -510,21 +510,36 @@ export function ExpertSection() {
             Organizamos viagens nacionais e internacionais, cuidando de cada
             etapa do roteiro:
           </p>
-          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-            {agencyServices.map((s) => (
-              <li
-                key={s.label}
-                className="flex items-center gap-2 rounded-xl bg-secondary px-3 py-2 text-sm text-secondary-foreground"
-              >
-                <span aria-hidden="true">{s.emoji}</span>
-                {s.label}
-              </li>
-            ))}
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            {agencyServices.map((s) => {
+              const Icon = serviceIcons[s.icon] ?? MapPinned;
+              return (
+                <li
+                  key={s.label}
+                  className="flex items-center gap-3 rounded-2xl border border-primary/10 bg-card px-4 py-3 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
+                >
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary">
+                    <Icon
+                      className="size-[18px] text-primary"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <span className="text-sm text-primary">{s.label}</span>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild variant="cta" size="xl">
-              <a href="#cotacao">Falar com {expert.name.split(" ")[0]}</a>
+              <a
+                href={whatsappLink(defaultWhatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Falar com a {agency.name}
+              </a>
             </Button>
             <Button asChild variant="outline" size="xl">
               <a
@@ -532,7 +547,7 @@ export function ExpertSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram className="size-4" />
+                <Instagram className="size-[18px]" strokeWidth={1.5} />
                 {agency.instagramHandle}
               </a>
             </Button>
@@ -542,6 +557,7 @@ export function ExpertSection() {
     </Section>
   );
 }
+
 
 
 export function WhyRivaSection() {
