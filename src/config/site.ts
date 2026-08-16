@@ -120,23 +120,23 @@ export const heroHighlights = [
 export const inclusiveBenefits = [
   {
     icon: "chef",
-    title: "Gastronomia",
-    text: "Refeições e restaurantes participantes conforme o regime contratado.",
+    title: "Gastronomia variada",
+    text: "Refeições, restaurantes temáticos e cardápios que acompanham o regime contratado.",
   },
   {
     icon: "wine",
-    title: "Bebidas",
-    text: "Seleção de bebidas de acordo com as regras e horários do resort.",
+    title: "Bebidas inclusas",
+    text: "Seleção de bebidas disponível conforme as regras e horários do resort.",
   },
   {
     icon: "waves",
-    title: "Lazer",
-    text: "Piscinas, recreação e atividades disponíveis durante a hospedagem.",
+    title: "Lazer e recreação",
+    text: "Piscinas, atividades, kids club e espaços para relaxar sem sair da hospedagem.",
   },
   {
     icon: "sparkles",
-    title: "Praticidade",
-    text: "Mais previsibilidade de gastos e menos preocupações no dia a dia.",
+    title: "Orçamento previsível",
+    text: "Mais controle sobre os gastos da viagem: você sabe o que já está pago antes de embarcar.",
   },
 ];
 
@@ -154,7 +154,7 @@ export const leisureCards = [
 export const accommodations = [
   {
     name: "Hotéis e pousadas de charme",
-    capacity: "Do 3 estrelas bem localizado ao boutique de alto padrão",
+    capacity: "Do bem localizado ao boutique de alto padrão",
     description:
       "Selecionamos endereços pela localização, pelo café da manhã e pela avaliação real de quem já se hospedou — não apenas pela diária.",
   },
@@ -206,7 +206,7 @@ export const experiences = [
     name: "Resorts & All Inclusive",
     icon: "sparkles",
     description:
-      "Alguns dias de descanso com gastronomia, lazer e estrutura completa, no Brasil ou no exterior.",
+      "Dias de descanso com gastronomia, lazer e estrutura completa, no Brasil ou no exterior.",
     tags: ["Resort", "Gastronomia", "Lazer", "Aéreo", "Transfer"],
   },
   {
