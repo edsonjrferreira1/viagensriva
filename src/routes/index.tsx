@@ -86,13 +86,11 @@ function Index() {
         <WhyRivaSection />
         <DesireSection />
         <ExperiencesSection />
-        <TravelServicesSection />
         <DestinationsSection />
-        <InclusiveSection />
-        <FamilySection />
-        <CouplesSection />
         <AccommodationsSection />
+        <MomentsSection />
         <ExpertSection />
+
         <TestimonialsSection />
 
 
