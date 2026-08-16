@@ -121,7 +121,6 @@ export function DesireSection() {
           height={900}
           loading="lazy"
         decoding="async"
-          decoding="async"
           className="h-72 w-full rounded-2xl object-cover shadow-lift md:col-span-2 md:h-96"
         />
         <div className="grid gap-4 md:grid-rows-2">
@@ -132,8 +131,6 @@ export function DesireSection() {
             height={900}
             loading="lazy"
         decoding="async"
-            decoding="async"
-          decoding="async"
             className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
           />
           <img
@@ -143,8 +140,6 @@ export function DesireSection() {
             height={900}
             loading="lazy"
         decoding="async"
-            decoding="async"
-          decoding="async"
             className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
           />
         </div>
@@ -243,8 +238,6 @@ export function InclusiveSection() {
             height={900}
             loading="lazy"
         decoding="async"
-            decoding="async"
-          decoding="async"
             className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-72"
           />
           <img
@@ -254,8 +247,6 @@ export function InclusiveSection() {
             height={1200}
             loading="lazy"
         decoding="async"
-            decoding="async"
-          decoding="async"
             className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-72"
           />
         </div>
@@ -342,7 +333,6 @@ export function FamilySection() {
           height={900}
           loading="lazy"
         decoding="async"
-          decoding="async"
           className="h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[26rem]"
         />
       </div>
@@ -361,7 +351,6 @@ export function CouplesSection() {
           height={900}
           loading="lazy"
         decoding="async"
-          decoding="async"
           className="order-2 h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[26rem] lg:order-1"
         />
         <div className="order-1 lg:order-2">
@@ -405,10 +394,6 @@ export function AccommodationsSection() {
                   height={900}
                   loading="lazy"
         decoding="async"
-                  decoding="async"
-                decoding="async"
-            decoding="async"
-          decoding="async"
                   className="h-52 w-full object-cover"
                 />
                 <div className="p-6">
@@ -464,9 +449,6 @@ export function DestinationsSection() {
                 height={900}
                 loading="lazy"
         decoding="async"
-                decoding="async"
-            decoding="async"
-          decoding="async"
                 className="h-72 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10" />
@@ -609,7 +591,6 @@ export function TravelServicesSection() {
           height={1200}
           loading="lazy"
         decoding="async"
-          decoding="async"
           className="h-80 w-full rounded-3xl object-cover shadow-lift lg:h-[36rem]"
         />
       </div>
@@ -652,8 +633,6 @@ export function ExpertSection() {
               height={1125}
               loading="lazy"
         decoding="async"
-            decoding="async"
-          decoding="async"
               className="aspect-[4/5] w-full rounded-2xl object-cover"
             />
           </div>
