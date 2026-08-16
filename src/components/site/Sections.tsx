@@ -181,8 +181,10 @@ export function ExperiencesSection() {
               : index === 3
                 ? "lg:col-start-2 lg:col-span-2"
                 : "lg:col-start-4 lg:col-span-2";
+          const cardId = exp.name.toLowerCase().replace(/[^a-z0-9\s]/g, "").replace(/\s+/g, "-");
           return (
             <a
+              id={`experiencia-${cardId}`}
               key={exp.name}
               href="#cotacao"
               onClick={() => preselectInterest(experienceInterest[exp.name] ?? "Hospedagem")}
@@ -191,6 +193,7 @@ export function ExperiencesSection() {
                 gridClasses,
               )}
             >
+
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
                 <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
               </span>
