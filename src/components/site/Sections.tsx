@@ -180,37 +180,32 @@ export function ExperiencesSection() {
         Como você quer viajar?
       </p>
 
-      <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6">
-        {experiences.map((exp, index) => {
+      <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {experiences.map((exp) => {
           const Icon = experienceIcons[exp.icon] ?? Sparkles;
-          const gridClasses =
-            index < 3
-              ? "lg:col-span-2"
-              : index === 3
-                ? "lg:col-start-2 lg:col-span-2"
-                : "lg:col-start-4 lg:col-span-2";
-          const cardId = exp.name.toLowerCase().replace(/[^a-z0-9\s]/g, "").replace(/\s+/g, "-");
+          const cardId = exp.name
+            .toLowerCase()
+            .replace(/[^a-z0-9\s]/g, "")
+            .replace(/\s+/g, "-");
           return (
             <a
               id={`experiencia-${cardId}`}
               key={exp.name}
               href="#cotacao"
               onClick={() => preselectInterest(experienceInterest[exp.name] ?? "Hospedagem")}
-              className={cn(
-                "group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold",
-                gridClasses,
-              )}
+              className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
-
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
                 <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
               </span>
-              <h3 className="mt-5 text-lg leading-snug text-primary">{exp.name}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
+              <h3 className="mt-5 min-h-[3.5rem] text-lg leading-snug text-primary line-clamp-2">
+                {exp.name}
+              </h3>
+              <p className="mt-3 min-h-[4.5rem] flex-1 text-sm leading-relaxed text-foreground/75 line-clamp-3">
                 {exp.description}
               </p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {exp.tags.slice(0, 4).map((tag) => (
+              <div className="mt-4 min-h-[44px] flex flex-wrap content-start gap-1.5">
+                {exp.tags.map((tag) => (
                   <span
                     key={tag}
                     className="rounded-full border border-primary/20 px-2.5 py-1 text-[11px] text-foreground/75"
