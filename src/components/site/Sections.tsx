@@ -541,33 +541,100 @@ export function ExperiencesSection() {
 }
 
 
-export function WhyAllInclusiveSection() {
+const travelServices = [
+  {
+    icon: Plane,
+    title: "Passagens aéreas",
+    text: "Comparamos companhias, conexões e horários para achar o voo que faz sentido para o seu roteiro — nacional ou internacional.",
+  },
+  {
+    icon: Ship,
+    title: "Cruzeiros",
+    text: "Vários destinos em uma só viagem, com cabine, regime de bordo e excursões escolhidos com você.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Seguro viagem",
+    text: "Cobertura adequada ao destino, ao período e à idade dos passageiros, incluindo exigências de países que pedem seguro obrigatório.",
+  },
+  {
+    icon: BusFront,
+    title: "Transfer",
+    text: "Traslado entre aeroporto, hospedagem e passeios já contratado, para você não chegar no destino resolvendo transporte.",
+  },
+  {
+    icon: Car,
+    title: "Aluguel de carros",
+    text: "Categoria, seguro e retirada organizados para quem quer explorar o destino com autonomia.",
+  },
+];
+
+export function TravelServicesSection() {
   return (
-    <Section tone="sand">
-      <SectionHeading
-        align="center"
-        eyebrow="Por que All Inclusive"
-        title="Mais liberdade para aproveitar suas férias"
-        subtitle="Entre as viagens que organizamos, o regime All Inclusive é uma boa escolha para quem quer previsibilidade de gastos e praticidade durante a hospedagem."
-      />
+    <Section id="agencia-completa" tone="deep">
+      <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div>
+          <SectionHeading
+            invert
+            eyebrow="Agência completa"
+            title="Muito além da hospedagem"
+            subtitle="Resort é só uma parte da viagem. Passagens, cruzeiros, seguro, transfer e carro são organizados pela mesma equipe, na mesma cotação e com um único atendimento."
+          />
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {whyAllInclusive.map((item) => (
-          <div
-            key={item.title}
-            className="rounded-2xl border border-primary/15 bg-card p-6 text-center shadow-soft"
-          >
-            <h3 className="text-xl text-primary">{item.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/75">
-              {item.text}
-            </p>
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+            {travelServices.map((s) => (
+              <li
+                key={s.title}
+                className="rounded-2xl border border-white/25 bg-white/10 p-6 backdrop-blur-sm transition hover:border-gold/60"
+              >
+                <s.icon className="size-6 text-gold" strokeWidth={1.5} aria-hidden="true" />
+                <h3 className="mt-4 text-lg text-white">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/85">
+                  {s.text}
+                </p>
+              </li>
+            ))}
+          </ul>
 
-          </div>
-        ))}
+          <Button asChild variant="gold" size="xl" className="mt-10">
+            <a href="#cotacao">Quero cotar minha viagem completa</a>
+          </Button>
+        </div>
+
+        <img
+          src={servicosImg}
+          alt="Asa de avião sobre o mar ao pôr do sol com navio de cruzeiro ao fundo"
+          width={1600}
+          height={1200}
+          loading="lazy"
+          className="h-80 w-full rounded-3xl object-cover shadow-lift lg:h-[36rem]"
+        />
       </div>
     </Section>
   );
 }
+
+export function GoogleRatingBadge() {
+  return (
+    <div className="border-b border-primary/10 bg-secondary px-4 py-5 sm:px-6">
+      <a
+        href={googleReviews.profileUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mx-auto flex w-fit flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-primary/20 bg-card px-6 py-3 text-center shadow-soft transition hover:border-gold/70"
+      >
+        <Stars />
+        <span className="text-sm font-medium text-primary sm:text-base">
+          {googleReviews.rating} no Google
+        </span>
+        <span className="text-sm text-foreground/80">
+          · {googleReviews.count} avaliações reais
+        </span>
+      </a>
+    </div>
+  );
+}
+
 
 export function ExpertSection() {
   return (
