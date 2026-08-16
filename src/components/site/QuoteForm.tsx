@@ -79,6 +79,7 @@ const momentoOptions: { label: string; hint: string }[] = [
 export function QuoteForm() {
   const [form, setForm] = useState(initial);
   const [interests, setInterests] = useState<string[]>(["Hospedagem"]);
+  const [hasFlex, setHasFlex] = useState(false);
 
   const set = (key: keyof typeof initial) => (value: string) =>
     setForm((f) => ({ ...f, [key]: value }));
@@ -89,6 +90,11 @@ export function QuoteForm() {
         ? list.filter((i) => i !== option)
         : [...list, option],
     );
+
+  const handleFlexCheck = (checked: boolean) => {
+    setHasFlex(checked);
+    if (!checked) set("flexibilidade")("");
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,9 +109,16 @@ export function QuoteForm() {
       `Tipo de viagem: ${form.tipo || "-"}`,
       `Ida: ${form.checkin || "-"}`,
       `Volta: ${form.checkout || "-"}`,
+      `Flexibilidade de datas: ${hasFlex ? form.flexibilidade || "-" : "Não tenho flexibilidade"}`,
       `Adultos: ${form.adultos || "-"}`,
       `Crianças: ${form.criancas || "0"}`,
       `Idades: ${form.idades || "-"}`,
+      "",
+      "Perfil da viagem:",
+      form.perfil || "-",
+      "",
+      "Momento da decisão:",
+      form.momento || "-",
       "",
       "Gostaria de incluir na viagem:",
       interests.length ? interests.join(", ") : "-",
