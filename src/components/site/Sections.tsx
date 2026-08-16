@@ -73,16 +73,6 @@ import servicosImg from "@/assets/servicos-completos.webp";
 
 const destinationImages = [destBeach, destMountain, destInternational, destVacation];
 
-const serviceIcons: Record<string, LucideIcon> = {
-  plane: Plane,
-  bed: BedDouble,
-  ship: Ship,
-  car: Car,
-  shield: ShieldCheck,
-  bus: BusFront,
-  map: MapPinned,
-};
-
 const experienceIcons: Record<string, LucideIcon> = {
   sparkles: Sparkles,
   users: Users,
