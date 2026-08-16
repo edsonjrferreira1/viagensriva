@@ -576,23 +576,34 @@ export function TravelServicesSection() {
 export function GoogleRatingBadge() {
   return (
     <div className="border-b border-primary/10 bg-secondary px-4 py-5 sm:px-6">
-      <a
-        href={googleReviews.profileUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mx-auto flex w-fit flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-primary/20 bg-card px-6 py-3 text-center shadow-soft transition hover:border-gold/70"
-      >
-        <Stars />
-        <span className="text-sm font-medium text-primary sm:text-base">
-          {googleReviews.rating} no Google
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-3">
+        <a
+          href={googleReviews.profileUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-primary/20 bg-card px-6 py-3 text-center shadow-soft transition hover:border-gold/70"
+        >
+          <Stars />
+          <span className="text-sm font-medium text-primary sm:text-base">
+            {googleReviews.rating} no Google
+          </span>
+          <span className="text-sm text-foreground/80">
+            · {googleReviews.count} avaliações reais
+          </span>
+        </a>
+        <span className="flex items-center gap-2 rounded-full border border-primary/20 bg-card px-5 py-3 text-sm text-foreground/85 shadow-soft">
+          <ShieldCheck className="size-4 text-teal" aria-hidden="true" />
+          Agência regularizada · CNPJ {agency.cnpj}
         </span>
-        <span className="text-sm text-foreground/80">
-          · {googleReviews.count} avaliações reais
+        <span className="flex items-center gap-2 rounded-full border border-primary/20 bg-card px-5 py-3 text-sm text-foreground/85 shadow-soft">
+          <BadgeCheck className="size-4 text-teal" aria-hidden="true" />
+          {agency.cadastur}
         </span>
-      </a>
+      </div>
     </div>
   );
 }
+
 
 
 export function ExpertSection() {
