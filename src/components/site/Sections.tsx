@@ -201,35 +201,42 @@ export function ServicesSection() {
 export function InclusiveSection() {
   return (
     <Section id="all-inclusive" tone="deep">
-      <SectionHeading
-        invert
-        align="center"
-        eyebrow="Uma das nossas especialidades"
-        title="Resorts &amp; All Inclusive"
-        subtitle="Para quem quer férias sem logística: gastronomia, bebidas, piscinas e recreação já resolvidos na hospedagem, no Brasil ou no exterior."
-      />
+      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div>
+          <SectionHeading
+            invert
+            eyebrow="Uma das nossas especialidades"
+            title="Resorts &amp; All Inclusive"
+            subtitle="Para quem prefere férias sem logística: gastronomia, bebidas, piscinas e recreação já resolvidos na hospedagem, no Brasil ou no exterior."
+          />
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {inclusiveBenefits.map((b) => {
-          const Icon = benefitIcons[b.icon] ?? Sparkles;
-          return (
-            <div
-              key={b.title}
-              className="rounded-2xl border border-white/25 bg-white/10 p-6 backdrop-blur-sm transition hover:border-gold/60"
-            >
-              <Icon className="size-6 text-gold" aria-hidden="true" />
-              <h3 className="mt-4 text-xl uppercase tracking-wide text-white">
-                {b.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/85">
-                {b.text}
-              </p>
-            </div>
-          );
-        })}
-      </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {inclusiveBenefits.map((b) => {
+              const Icon = benefitIcons[b.icon] ?? Sparkles;
+              return (
+                <div
+                  key={b.title}
+                  className="rounded-2xl border border-white/25 bg-white/10 p-5 backdrop-blur-sm transition hover:border-gold/60"
+                >
+                  <Icon className="size-5 text-gold" aria-hidden="true" />
+                  <h3 className="mt-3 text-lg text-white">{b.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/85">
+                    {b.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
 
-      <div className="mt-14 grid gap-8 lg:grid-cols-2 lg:items-center">
+          <p className="mt-6 text-xs leading-relaxed text-white/75">
+            Itens inclusos variam conforme o resort e o regime contratado.
+          </p>
+
+          <Button asChild variant="gold" size="xl" className="mt-8">
+            <a href="#cotacao">Quero conhecer opções All Inclusive</a>
+          </Button>
+        </div>
+
         <div className="grid grid-cols-2 gap-4">
           <img
             src={gastro}
@@ -237,8 +244,8 @@ export function InclusiveSection() {
             width={1200}
             height={900}
             loading="lazy"
-        decoding="async"
-            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+            decoding="async"
+            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-80"
           />
           <img
             src={lazerImg.url}
@@ -246,21 +253,10 @@ export function InclusiveSection() {
             width={1600}
             height={1200}
             loading="lazy"
-        decoding="async"
-            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+            decoding="async"
+            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-80"
           />
-        </div>
-
-        <div>
-          <h3 className="font-display text-2xl text-sand sm:text-3xl">
-            Gastronomia, piscinas e dias inteiros para aproveitar
-          </h3>
-          <p className="mt-4 text-sm leading-relaxed text-white/90">
-            Do café da manhã ao jantar, dos restaurantes temáticos aos bares à
-            beira da piscina: ajudamos você a escolher o regime de alimentação e
-            a estrutura de lazer que combinam com o ritmo das suas férias.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-2">
+          <div className="col-span-2 flex flex-wrap gap-2">
             {leisureCards.map((c) => (
               <span
                 key={c}
@@ -272,36 +268,10 @@ export function InclusiveSection() {
           </div>
         </div>
       </div>
-
-      <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {whyAllInclusive.map((item) => (
-          <div
-            key={item.title}
-            className="rounded-2xl border border-white/20 bg-white/5 p-6"
-          >
-            <h3 className="font-display text-lg leading-snug text-gold">
-              {item.title}
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/85">
-              {item.text}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-relaxed text-white/75">
-        Serviços e itens incluídos variam conforme o resort e o regime
-        contratado.
-      </p>
-
-      <div className="mt-8 flex justify-center">
-        <Button asChild variant="gold" size="xl">
-          <a href="#cotacao">Quero conhecer opções All Inclusive</a>
-        </Button>
-      </div>
     </Section>
   );
 }
+
 
 
 
