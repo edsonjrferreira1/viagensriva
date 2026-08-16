@@ -70,11 +70,31 @@ import spa from "@/assets/spa-wellness.jpg";
 import destBeach from "@/assets/destination-beach.jpg";
 import destMountain from "@/assets/destination-mountain.jpg";
 import destInternational from "@/assets/destination-international.jpg";
+import destVacation from "@/assets/destination-vacation.jpg";
 import agentImg from "@/assets/agent-placeholder.jpg";
 import panorama from "@/assets/final-cta.jpg";
 
 const inclusiveIcons = [Coffee, UtensilsCrossed, Salad, ChefHat, Wine, Sparkles, Waves];
-const destinationImages = [destBeach, destMountain, destInternational];
+const destinationImages = [destBeach, destMountain, destInternational, destVacation];
+
+const serviceIcons: Record<string, LucideIcon> = {
+  plane: Plane,
+  bed: BedDouble,
+  ship: Ship,
+  car: Car,
+  shield: ShieldCheck,
+  bus: BusFront,
+  map: MapPinned,
+};
+
+const experienceIcons: Record<string, LucideIcon> = {
+  sparkles: Sparkles,
+  users: Users,
+  heart: Heart,
+  luggage: Luggage,
+  ship: Ship,
+};
+
 
 export function DesireSection() {
   return (
