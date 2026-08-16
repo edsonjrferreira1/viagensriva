@@ -16,14 +16,15 @@ export const agency = {
 
 /** Serviços organizados pela agência (viagens nacionais e internacionais). */
 export const agencyServices = [
-  { emoji: "✈️", label: "Passagens aéreas" },
-  { emoji: "🏨", label: "Hospedagens" },
-  { emoji: "🚢", label: "Cruzeiros" },
-  { emoji: "🚗", label: "Aluguel de carros" },
-  { emoji: "🛡️", label: "Seguro viagem" },
-  { emoji: "🚐", label: "Transfer" },
-  { emoji: "🎯", label: "Passeios e experiências" },
-];
+  { icon: "plane", label: "Passagens aéreas" },
+  { icon: "bed", label: "Hospedagens" },
+  { icon: "ship", label: "Cruzeiros" },
+  { icon: "car", label: "Aluguel de carros" },
+  { icon: "shield", label: "Seguro viagem" },
+  { icon: "bus", label: "Transfer" },
+  { icon: "map", label: "Passeios e experiências" },
+] as const;
+
 
 export const expert = {
   name: "Edson Ferreira",
