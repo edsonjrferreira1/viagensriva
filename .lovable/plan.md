@@ -1,6 +1,6 @@
 # Landing page Viagens Riva — Resorts e All Inclusive
 
-Reposicionar a página atual (hoje focada em um resort específico) em uma landing page de marca própria da Viagens Riva, especializada em resorts premium e All Inclusive, sem citar nenhuma rede, hotel ou marca hoteleira.
+Reposicionar a página atual (hoje focada em um resort específico) em uma landing page de marca própria da Viagens Riva, especializada em resorts premium e All Inclusive, sem citar nenhuma rede, hotel ou marca hoteleira. A página terá fundo branco/clean e profissional para acomodar naturalmente a logo da agência (que possui fundo branco), mantendo blocos de cor quentes para sofisticação e conversão.
 
 ## Identidade visual
 
