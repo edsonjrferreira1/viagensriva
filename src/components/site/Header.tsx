@@ -42,12 +42,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className={cn(
-                "text-[0.78rem] tracking-wide transition-colors",
-                scrolled
-                  ? "text-muted-foreground hover:text-teal"
-                  : "text-white/90 hover:text-white",
-              )}
+              className="text-[0.78rem] tracking-wide text-muted-foreground transition-colors hover:text-teal"
             >
               {item.label}
             </a>
@@ -57,7 +52,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Button
             asChild
-            variant={scrolled ? "cta" : "glass"}
+            variant="cta"
             size="sm"
             className="hidden rounded-full px-5 sm:inline-flex"
           >
@@ -67,10 +62,7 @@ export function Header() {
             type="button"
             aria-label="Abrir menu"
             onClick={() => setOpen((v) => !v)}
-            className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-full xl:hidden",
-              scrolled ? "text-primary" : "text-white",
-            )}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-primary xl:hidden"
           >
             <Menu className="size-5" />
           </button>
@@ -80,9 +72,16 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-50 flex flex-col surface-deep xl:hidden">
           <div className="flex items-center justify-between px-4 py-4">
-            <span className="font-display text-xl text-white">
-              Viagens <span className="italic">Riva</span>
+            <span className="inline-flex items-center rounded-xl bg-white px-3 py-2">
+              <img
+                src={logoAsset.url}
+                alt={`Logo ${agency.name}`}
+                width={512}
+                height={512}
+                className="h-10 w-auto object-contain"
+              />
             </span>
+
             <button
               type="button"
               aria-label="Fechar menu"
