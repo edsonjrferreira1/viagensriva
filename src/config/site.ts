@@ -71,6 +71,7 @@ export const defaultWhatsappMessage =
 export const navItems = [
   { label: "Serviços", href: "#servicos" },
   { label: "Experiências", href: "#experiencias" },
+  { label: "Agência completa", href: "#agencia-completa" },
   { label: "All Inclusive", href: "#all-inclusive" },
   { label: "Famílias", href: "#familias" },
   { label: "Casais", href: "#casais" },
