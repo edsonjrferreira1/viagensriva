@@ -710,25 +710,26 @@ export function FaqSection() {
         align="center"
         eyebrow="Dúvidas"
         title="Perguntas frequentes"
-        subtitle="Esclarecemos as principais dúvidas para você planejar sua viagem com mais tranquilidade."
+        subtitle="Esclarecemos as principais dúvidas sobre pagamento, documentação, prazos e serviços para você planejar sua viagem com tranquilidade."
       />
       <Accordion type="single" collapsible className="mx-auto mt-10 max-w-3xl">
         {faq.map((item, i) => (
           <AccordionItem key={item.q} value={`item-${i}`}>
-            <AccordionTrigger className="text-left font-display text-lg text-primary">
+            <AccordionTrigger className="text-left font-display text-lg font-normal text-primary">
               {item.q}
             </AccordionTrigger>
-            <AccordionContent className="whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
+            <AccordionContent className="whitespace-pre-line text-sm leading-relaxed text-foreground/85">
               {item.a}
             </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>
 
-      <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-border bg-card p-8 text-center shadow-soft sm:p-10">
-        <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+      <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-primary/15 bg-card p-8 text-center shadow-soft sm:p-10">
+        <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-foreground/75">
           Ainda ficou com alguma dúvida?
         </p>
+
         <h3 className="mt-3 font-display text-2xl text-primary sm:text-3xl">
           Nossa equipe pode ajudar você a planejar sua viagem.
         </h3>
