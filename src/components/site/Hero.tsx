@@ -1,21 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import heroImg from "@/assets/hero-pordosol.jpg.asset.json";
+import heroDesktop from "@/assets/hero-premium-desktop.jpg.asset.json";
+import heroMobile from "@/assets/hero-premium-mobile.jpg.asset.json";
 import { heroHighlights } from "@/config/site";
-import logoAsset from "@/assets/logo-riva.png.asset.json";
 
 export function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden">
-      <img
-        src={heroImg.url}
-        alt="Piscina de resort à beira-mar ao pôr do sol"
-        width={1512}
-        height={2016}
-        fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 media-overlay" />
+      <picture>
+        <source media="(max-width: 767px)" srcSet={heroMobile.url} />
+        <source media="(min-width: 768px)" srcSet={heroDesktop.url} />
+        <img
+          src={heroDesktop.url}
+          alt="Piscina de borda infinita em resort premium ao pôr do sol"
+          width={1920}
+          height={1088}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" />
+
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-4 pb-14 pt-28 sm:px-6 sm:pb-20">
         <span className="inline-flex w-fit items-center gap-2 rounded-full border border-gold/60 bg-white/10 px-4 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.28em] text-gold backdrop-blur-md">

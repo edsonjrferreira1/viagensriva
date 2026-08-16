@@ -20,6 +20,8 @@ import {
   FamilySection,
   WhyAllInclusiveSection,
   WhyRivaSection,
+  TestimonialsSection,
+
 } from "@/components/site/Sections";
 
 const title = "Viagens Riva | Resorts Premium e All Inclusive";
@@ -58,6 +60,8 @@ function Index() {
         <WhyAllInclusiveSection />
         <ExpertSection />
         <WhyRivaSection />
+        <TestimonialsSection />
+
         <Section id="cotacao">
           <QuoteForm />
         </Section>
