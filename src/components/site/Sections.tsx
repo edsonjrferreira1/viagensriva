@@ -297,7 +297,7 @@ const cruiseIcons: Record<string, LucideIcon> = {
 export function CruisesSection() {
   return (
     <Section id="cruzeiros">
-      <div className="grid items-start gap-10 lg:grid-cols-2">
+      <div className="grid items-stretch gap-10 lg:grid-cols-2">
         <div>
           <SectionHeading
             eyebrow="Cruzeiros"
