@@ -391,10 +391,11 @@ export function AccommodationsSection() {
   return (
     <Section id="acomodacoes">
       <SectionHeading
-        eyebrow="Acomodações"
-        title="Conforto para descansar depois de um dia inteiro de férias"
-        subtitle="As categorias disponíveis variam conforme período e ocupação. Consulte as opções para as suas datas."
+        eyebrow="Hospedagens"
+        title="Um bom lugar para descansar em cada etapa da viagem"
+        subtitle="Hotéis, pousadas, flats e resorts selecionados conforme o roteiro, o período e o orçamento. As categorias variam de acordo com a disponibilidade."
       />
+
 
       <Carousel className="mt-10" opts={{ align: "start" }}>
         <CarouselContent>
