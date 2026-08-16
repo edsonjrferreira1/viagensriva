@@ -168,7 +168,7 @@ export function Header() {
             asChild
             variant="cta"
             size="sm"
-            className="hidden whitespace-nowrap rounded-full px-5 sm:inline-flex"
+            className="hidden whitespace-nowrap rounded-full px-5 text-[0.9rem] sm:inline-flex lg:h-11 lg:px-6"
           >
             <a href="#cotacao">Solicitar cotação</a>
           </Button>
