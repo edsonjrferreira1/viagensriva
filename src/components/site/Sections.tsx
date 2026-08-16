@@ -249,7 +249,7 @@ export function GastronomySection() {
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <img
           src={gastro}
-          alt="Gastronomia variada em resort premium"
+          alt="Mesa com pratos variados durante uma viagem"
           width={1200}
           height={900}
           loading="lazy"
@@ -257,20 +257,20 @@ export function GastronomySection() {
         />
         <div>
           <SectionHeading
-            eyebrow="Gastronomia"
-            title="Férias também são feitas de sabores"
-            subtitle="Experiências gastronômicas variadas para aproveitar durante toda a hospedagem, com opções para diferentes paladares e momentos do dia."
+            eyebrow="Gastronomia e experiências"
+            title="Viajar também é feito de sabores"
+            subtitle="Além de passagens e hospedagem, ajudamos você a incluir na viagem experiências gastronômicas, passeios e momentos que valem a pena reservar com antecedência."
           />
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {[
-              { t: "Restaurantes temáticos", d: "Propostas diferentes para cada refeição." },
-              { t: "Buffet e à la carte", d: "Opções que acompanham o regime contratado." },
-              { t: "Drinks e petiscos", d: "Para acompanhar a piscina e o entardecer." },
-              { t: "Opções para crianças", d: "Cardápios pensados também nos pequenos." },
+              { t: "Restaurantes e roteiros", d: "Sugestões e reservas conforme o destino escolhido." },
+              { t: "Regimes de alimentação", d: "Do café da manhã ao All Inclusive, conforme a hospedagem." },
+              { t: "Passeios e ingressos", d: "Experiências garantidas antes mesmo de embarcar." },
+              { t: "Opções para crianças", d: "Roteiros e cardápios pensados também nos pequenos." },
             ].map((b) => (
               <div key={b.t} className="border-l-2 border-gold pl-4">
                 <h3 className="text-lg text-primary">{b.t}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{b.d}</p>
+                <p className="mt-1 text-sm text-foreground/75">{b.d}</p>
               </div>
             ))}
           </div>
@@ -289,7 +289,7 @@ export function LeisureSection() {
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <img
           src={lazerImg.url}
-          alt="Piscina de borda infinita com espreguiçadeiras e paisagismo tropical em resort de alto padrão"
+          alt="Piscina de borda infinita com espreguiçadeiras e paisagismo tropical"
           width={1600}
           height={1200}
           loading="lazy"
@@ -298,31 +298,32 @@ export function LeisureSection() {
 
         <div>
           <SectionHeading
-            eyebrow="Piscinas e lazer"
+            eyebrow="Lazer e descanso"
             title="Dias inteiros para aproveitar"
-            subtitle="Escolha entre aproveitar a piscina, relaxar de frente para o mar ou simplesmente não fazer nada."
+            subtitle="Praia, piscina, natureza, passeios ou simplesmente não fazer nada: montamos a viagem de acordo com o ritmo que você quer ter nas férias."
           />
           <div className="mt-8 flex flex-wrap gap-2">
             {leisureCards.map((c) => (
               <span
                 key={c}
-                className="rounded-full border border-primary/15 bg-card px-4 py-2 text-xs uppercase tracking-[0.16em] text-primary"
+                className="rounded-full border border-primary/25 bg-card px-4 py-2 text-xs uppercase tracking-[0.16em] text-primary"
               >
                 {c}
               </span>
             ))}
           </div>
-          <p className="mt-8 text-xs text-muted-foreground">
-            A estrutura de lazer varia conforme o resort escolhido.
+          <p className="mt-8 text-xs text-foreground/70">
+            A estrutura disponível varia conforme o destino e os serviços contratados.
           </p>
           <Button asChild variant="navy" size="xl" className="mt-6">
-            <a href="#cotacao">Quero cotar meu lazer</a>
+            <a href="#cotacao">Quero planejar minhas férias</a>
           </Button>
         </div>
       </div>
     </Section>
   );
 }
+
 
 export function FamilySection() {
   return (
