@@ -163,24 +163,25 @@ export const leisureCards = [
 
 export const accommodations = [
   {
-    name: "Hotéis e pousadas de charme",
-    capacity: "Do bem localizado ao boutique de alto padrão",
+    name: "Hotéis e pousadas",
+    capacity: "Do bem localizado ao boutique de charme",
     description:
-      "Selecionamos endereços pela localização, pelo café da manhã e pela avaliação real de quem já se hospedou — não apenas pela diária.",
-  },
-  {
-    name: "Resorts com estrutura completa",
-    capacity: "Pé na areia, All Inclusive ou meia pensão",
-    description:
-      "Piscinas, gastronomia e recreação no mesmo lugar, com o regime de alimentação escolhido de acordo com o seu ritmo de férias.",
+      "Endereços escolhidos pela localização, pelo café da manhã e pela avaliação real de quem já se hospedou.",
   },
   {
     name: "Flats e apartamentos",
     capacity: "Ideal para estadias de 7 noites ou mais",
     description:
-      "Mais espaço, cozinha e autonomia para viagens longas, em família ou quando o roteiro pede uma base fixa no destino.",
+      "Mais espaço, cozinha e autonomia para viagens longas, em família ou quando o roteiro pede uma base fixa.",
+  },
+  {
+    name: "Hospedagens premium",
+    capacity: "Alto padrão e serviço personalizado",
+    description:
+      "Suítes, vistas privilegiadas e atendimento diferenciado para ocasiões que pedem algo especial.",
   },
 ];
+
 
 
 export const destinations = [
