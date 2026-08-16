@@ -323,16 +323,31 @@ export function AccommodationsSection() {
       </div>
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">
-        {accommodations.map((a) => (
+        {accommodations.map((a, i) => {
+          const media = [
+            {
+              src: hospHotel,
+              alt: "Fachada iluminada de pousada de charme com varanda de madeira e jardim tropical ao entardecer",
+            },
+            {
+              src: hospFlat,
+              alt: "Flat com sala integrada, mesa de jantar e cozinha completa, com grande janela e vista da cidade",
+            },
+            {
+              src: hospPremium,
+              alt: "Suíte de alto padrão com piscina privativa e vista para o mar ao pôr do sol",
+            },
+          ][i] ?? { src: hospHotel, alt: `Hospedagem — ${a.name}` };
+          return (
           <article
             key={a.name}
             className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
           >
             <img
-              src={room}
-              alt={`Hospedagem — ${a.name}`}
+              src={media.src}
+              alt={media.alt}
               width={1200}
-              height={900}
+              height={912}
               loading="lazy"
               decoding="async"
               className="h-48 w-full object-cover"
