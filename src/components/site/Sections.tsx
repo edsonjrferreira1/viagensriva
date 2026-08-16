@@ -686,33 +686,34 @@ export function ExpertSection() {
 export function WhyRivaSection() {
   const cards = [
     {
-      icon: BadgeCheck,
-      t: "Atendimento personalizado",
-      d: "Cotação preparada de acordo com o perfil da sua viagem.",
+      icon: Headphones,
+      t: "Atendimento humano, não robô",
+      d: "Você fala com quem entende de viagem e conhece o seu roteiro — sem chatbot e sem fila de call center.",
     },
     {
-      icon: Headphones,
-      t: "Suporte",
-      d: "Orientação antes e durante sua experiência.",
+      icon: BadgeCheck,
+      t: "Suporte antes, durante e depois",
+      d: "Acompanhamos a viagem do planejamento ao retorno, inclusive se algo mudar no meio do caminho.",
     },
     {
       icon: ShieldCheck,
       t: "Agência regularizada",
-      d: "CNPJ ativo e cadastro no Cadastur.",
+      d: `CNPJ ${agency.cnpj} e cadastro no Cadastur: contratação com respaldo legal.`,
     },
     {
       icon: Plane,
-      t: "Viagem completa",
-      d: "Possibilidade de contratar hospedagem, passagem aérea, transfer, seguro viagem e outros serviços.",
+      t: "Cotação sem compromisso",
+      d: "Opções montadas pelo seu perfil de viajante e pelo seu ritmo de decisão, sem pressão de compra.",
     },
   ];
 
   return (
-    <Section tone="sand">
+    <Section id="diferenciais" tone="sand">
       <SectionHeading
-        eyebrow={`Por que planejar com a ${agency.name}?`}
-        title="Sua viagem começa antes do embarque"
-        subtitle={`Na ${agency.name}, o atendimento personalizado acompanha você desde a escolha do destino até o retorno para casa.`}
+        align="center"
+        eyebrow="Por que a Viagens Riva"
+        title="A diferença entre reservar sozinho e viajar acompanhado"
+        subtitle="O que você ganha ao planejar com uma agência de verdade em vez de fechar tudo por conta própria em um site."
       />
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -728,13 +729,15 @@ export function WhyRivaSection() {
         ))}
       </div>
 
-      <p className="mt-8 text-xs text-foreground/70">
-        {agency.name} · CNPJ {agency.cnpj} · {agency.cadastur}
-      </p>
-
+      <div className="mt-10 flex justify-center">
+        <Button asChild variant="cta" size="xl">
+          <a href="#cotacao">Quero uma cotação personalizada</a>
+        </Button>
+      </div>
     </Section>
   );
 }
+
 
 export function FaqSection() {
   return (
