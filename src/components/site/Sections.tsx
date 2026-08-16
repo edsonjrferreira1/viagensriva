@@ -56,22 +56,22 @@ import {
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
 
 
-import desire1 from "@/assets/desire-mosaic-1.jpg";
-import desire2 from "@/assets/desire-mosaic-2.jpg";
-import desire3 from "@/assets/desire-mosaic-3.jpg";
+import desire1 from "@/assets/desire-mosaic-1.webp";
+import desire2 from "@/assets/desire-mosaic-2.webp";
+import desire3 from "@/assets/desire-mosaic-3.webp";
 import lazerImg from "@/assets/lazer-premium.jpg.asset.json";
-import gastro from "@/assets/desire-mosaic-3.jpg";
-import family from "@/assets/family-pool.jpg";
-import couples from "@/assets/couples-dinner.jpg";
-import room from "@/assets/room-suite.jpg";
-import spa from "@/assets/spa-wellness.jpg";
-import destBeach from "@/assets/destination-beach.jpg";
-import destMountain from "@/assets/destination-mountain.jpg";
-import destInternational from "@/assets/destination-international.jpg";
-import destVacation from "@/assets/destination-vacation.jpg";
-import agentImg from "@/assets/agent-placeholder.jpg";
-import panorama from "@/assets/final-cta.jpg";
-import servicosImg from "@/assets/servicos-completos.jpg";
+import gastro from "@/assets/desire-mosaic-3.webp";
+import family from "@/assets/family-pool.webp";
+import couples from "@/assets/couples-dinner.webp";
+import room from "@/assets/room-suite.webp";
+import spa from "@/assets/spa-wellness.webp";
+import destBeach from "@/assets/destination-beach.webp";
+import destMountain from "@/assets/destination-mountain.webp";
+import destInternational from "@/assets/destination-international.webp";
+import destVacation from "@/assets/destination-vacation.webp";
+import agentImg from "@/assets/agent-placeholder.webp";
+import panorama from "@/assets/final-cta.webp";
+import servicosImg from "@/assets/servicos-completos.webp";
 
 
 const destinationImages = [destBeach, destMountain, destInternational, destVacation];
