@@ -339,11 +339,12 @@ export function FamilySection() {
                 Os adultos aproveitam.
               </>
             }
-            subtitle="Piscinas, recreação, Kids Club e refeições variadas: estrutura para que cada um da família aproveite as férias do seu jeito, no mesmo lugar."
+            subtitle="Planejamos cada etapa considerando adultos e crianças: voos, hospedagem, transporte, seguro e experiências para toda a família aproveitar junto."
           />
           <Button asChild variant="navy" size="xl" className="mt-8">
-            <a href="#cotacao">Quero cotar para minha família</a>
+            <a href="#cotacao">Quero planejar a viagem da família</a>
           </Button>
+
         </div>
         <img
           src={family}
