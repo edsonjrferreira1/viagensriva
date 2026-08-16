@@ -25,6 +25,57 @@ const initial = {
   observacoes: "",
 };
 
+const flexOptions = [
+  "Até 1 ou 2 dias",
+  "Até 3 dias",
+  "Até 5 dias",
+  "Até 7 dias",
+  "Tenho bastante flexibilidade",
+  "Posso considerar outras datas se houver uma boa oportunidade",
+];
+
+const perfilOptions: { label: string; hint: string }[] = [
+  {
+    label: "Melhor preço / Promoção",
+    hint: "Quero priorizar as opções mais econômicas e boas oportunidades.",
+  },
+  {
+    label: "Melhor custo-benefício",
+    hint: "Quero equilibrar preço, conforto, horários e qualidade.",
+  },
+  {
+    label: "Mais conforto",
+    hint: "Aceito investir um pouco mais para ter melhores opções de voo, hospedagem ou experiência.",
+  },
+  {
+    label: "Experiência premium",
+    hint: "Quero priorizar qualidade, conforto e experiências diferenciadas.",
+  },
+  {
+    label: "Ainda não sei",
+    hint: "Quero receber orientação para entender qual opção faz mais sentido para mim.",
+  },
+];
+
+const momentoOptions: { label: string; hint: string }[] = [
+  {
+    label: "Quero reservar o quanto antes",
+    hint: "Já estou decidido(a) a viajar e quero avançar assim que encontrarmos uma boa opção.",
+  },
+  {
+    label: "Pretendo reservar nos próximos dias",
+    hint: "Já estou pesquisando para tomar uma decisão em breve.",
+  },
+  {
+    label: "Estou comparando opções",
+    hint: "Ainda estou avaliando destinos, valores ou possibilidades.",
+  },
+  {
+    label: "Estou apenas começando a pesquisar",
+    hint: "Ainda não tenho previsão de fechar a viagem.",
+  },
+];
+
 export function QuoteForm() {
   const [form, setForm] = useState(initial);
   const [interests, setInterests] = useState<string[]>(["Hospedagem"]);
