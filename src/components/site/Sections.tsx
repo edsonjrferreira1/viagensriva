@@ -26,11 +26,13 @@ import {
   Plane,
   MapPin,
   Star,
+  Instagram,
 } from "lucide-react";
 import { Section, SectionHeading } from "./Section";
 import {
   accommodations,
   agency,
+  agencyServices,
   destinations,
   experiences,
   expert,
@@ -39,6 +41,8 @@ import {
   leisureCards,
   whyAllInclusive,
 } from "@/config/site";
+import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
+
 
 import desire1 from "@/assets/desire-mosaic-1.jpg";
 import desire2 from "@/assets/desire-mosaic-2.jpg";
