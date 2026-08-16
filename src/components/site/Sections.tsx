@@ -31,7 +31,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { Section, SectionHeading } from "./Section";
+
 import {
   accommodations,
   agency,
@@ -153,6 +155,7 @@ const experienceInterest: Record<string, string> = {
   Cruzeiros: "Cruzeiro",
   "Férias nacionais e internacionais": "Passagens aéreas",
   "Praia & descanso": "Hospedagem",
+  "Lua de mel": "Hospedagem",
 };
 
 export function ExperiencesSection() {
@@ -169,16 +172,28 @@ export function ExperiencesSection() {
         Como você quer viajar?
       </p>
 
-      <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {experiences.map((exp) => {
+      <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6">
+        {experiences.map((exp, index) => {
           const Icon = experienceIcons[exp.icon] ?? Sparkles;
+          const gridClasses =
+            index < 3
+              ? "lg:col-span-2"
+              : index === 3
+                ? "lg:col-start-2 lg:col-span-2"
+                : "lg:col-start-4 lg:col-span-2";
+          const cardId = exp.name.toLowerCase().replace(/[^a-z0-9\s]/g, "").replace(/\s+/g, "-");
           return (
             <a
+              id={`experiencia-${cardId}`}
               key={exp.name}
               href="#cotacao"
               onClick={() => preselectInterest(experienceInterest[exp.name] ?? "Hospedagem")}
-              className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className={cn(
+                "group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold",
+                gridClasses,
+              )}
             >
+
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
                 <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
               </span>
@@ -204,6 +219,7 @@ export function ExperiencesSection() {
           );
         })}
       </div>
+
 
       {/* Faixa compacta de serviços */}
       <div

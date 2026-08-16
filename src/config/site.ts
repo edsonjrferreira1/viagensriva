@@ -74,7 +74,9 @@ export const experienceMenu = [
   { label: "Cruzeiros", href: "#cruzeiros" },
   { label: "Famílias & Viagens a dois", href: "#momentos" },
   { label: "Férias nacionais e internacionais", href: "#destinos" },
+  { label: "Lua de mel", href: "#experiencia-lua-de-mel" },
 ];
+
 
 export const navItems: {
   label: string;
@@ -240,7 +242,15 @@ export const experiences = [
       "Mar, silêncio e dias sem hora marcada para quem só quer sair da rotina.",
     tags: ["Praia", "Descanso", "Bem-estar", "Férias", "Tranquilidade"],
   },
+  {
+    name: "Lua de mel",
+    icon: "heart",
+    description:
+      "Destinos, hospedagens e experiências especiais para começar essa nova fase com uma viagem inesquecível.",
+    tags: ["Romance", "Experiências", "Conforto", "Destinos especiais"],
+  },
 ];
+
 
 export const faq = [
   {
