@@ -16,7 +16,6 @@ import {
   FinalCta,
   GoogleRatingBadge,
   MomentsSection,
-  ServicesSection,
   WhyRivaSection,
   TestimonialsSection,
 } from "@/components/site/Sections";
@@ -83,10 +82,9 @@ function Index() {
       <main>
         <Hero />
         <GoogleRatingBadge />
-        <ServicesSection />
+        <ExperiencesSection />
         <WhyRivaSection />
         <DesireSection />
-        <ExperiencesSection />
         <CruisesSection />
         <DestinationsSection />
         <AccommodationsSection />

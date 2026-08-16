@@ -27,6 +27,7 @@ import {
   Palmtree,
   Star,
   Instagram,
+  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 
