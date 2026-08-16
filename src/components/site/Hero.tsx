@@ -20,7 +20,7 @@ export function Hero() {
           height={1088}
           fetchPriority="high"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_58%] lg:object-[50%_55%]"
         />
       </picture>
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30" />
