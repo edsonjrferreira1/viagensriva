@@ -1,12 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import {
+
   Accordion,
   AccordionContent,
   AccordionItem,
