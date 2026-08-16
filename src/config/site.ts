@@ -68,19 +68,28 @@ export const whatsappLink = (message: string) =>
 export const defaultWhatsappMessage =
   "Olá! Vi a página da Viagens Riva e gostaria de planejar minha próxima viagem.";
 
-export const navItems = [
+/** Submenu de Experiências (desktop dropdown / mobile recuado). */
+export const experienceMenu = [
+  { label: "Resorts & All Inclusive", href: "#hospedagens" },
+  { label: "Cruzeiros", href: "#servicos" },
+  { label: "Viagens em família", href: "#momentos" },
+  { label: "Viagens a dois", href: "#momentos" },
+  { label: "Férias nacionais e internacionais", href: "#experiencias" },
+];
+
+export const navItems: {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}[] = [
   { label: "Serviços", href: "#servicos" },
-  { label: "Diferenciais", href: "#diferenciais" },
-  { label: "Experiências", href: "#experiencias" },
-  { label: "Agência completa", href: "#agencia-completa" },
-  { label: "All Inclusive", href: "#all-inclusive" },
-  { label: "Famílias", href: "#familias" },
-  { label: "Casais", href: "#casais" },
+  { label: "Experiências", href: "#experiencias", children: experienceMenu },
   { label: "Destinos", href: "#destinos" },
+  { label: "Sobre nós", href: "#sobre" },
   { label: "Avaliações", href: "#avaliacoes" },
-  { label: "Planejar viagem", href: "#cotacao" },
   { label: "Dúvidas", href: "#faq" },
 ];
+
 
 /**
  * Avaliações reais publicadas no Google.
