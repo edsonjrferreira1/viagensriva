@@ -95,7 +95,8 @@ const benefitIcons: Record<string, LucideIcon> = {
 
 export function DesireSection() {
   return (
-    <Section id="inspiracao" tone="sand">
+    <Section id="inspiracao" tone="sand" className="!pb-12 md:!pb-16">
+
       <SectionHeading
         align="center"
         eyebrow="Inspiração"
@@ -103,39 +104,39 @@ export function DesireSection() {
         subtitle="Destinos nacionais e internacionais, roteiros bem planejados e experiências que ficam na memória."
       />
 
-      <div className="mt-12 grid gap-4 md:grid-cols-3">
+      {/* Mosaico editorial: 2 colunas / 2 linhas no desktop */}
+      <div className="mt-10 grid grid-cols-1 gap-3 sm:gap-4 md:h-[540px] md:grid-cols-2 md:grid-rows-2 md:gap-5">
+
         <img
           src={desire1}
-          alt="Vista aérea de destino litorâneo com piscinas e praia ao pôr do sol"
+          alt="Resort premium com piscina e estrutura de viagem sofisticada"
           width={1200}
-          height={900}
-          loading="lazy"
-        decoding="async"
-          className="h-72 w-full rounded-2xl object-cover shadow-lift md:col-span-2 md:h-96"
+          height={1600}
+          loading="eager"
+          decoding="async"
+          className="h-80 w-full rounded-2xl object-cover shadow-lift sm:h-96 md:col-start-1 md:row-span-2 md:h-full md:rounded-3xl"
         />
-        <div className="grid gap-4 md:grid-rows-2">
-          <img
-            src={desire2}
-            alt="Praia tropical com águas cristalinas"
-            width={1200}
-            height={900}
-            loading="lazy"
-        decoding="async"
-            className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
-          />
-          <img
-            src={desire3}
-            alt="Mesa com gastronomia variada durante uma viagem"
-            width={1200}
-            height={900}
-            loading="lazy"
-        decoding="async"
-            className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
-          />
-        </div>
+        <img
+          src={desire2}
+          alt="Praia paradisíaca com águas cristalinas e destino tropical"
+          width={1200}
+          height={800}
+          loading="lazy"
+          decoding="async"
+          className="h-56 w-full rounded-2xl object-cover shadow-soft sm:h-64 md:col-start-2 md:row-start-1 md:h-full md:rounded-3xl"
+        />
+        <img
+          src={desire3}
+          alt="Experiência gastronômica sofisticada durante uma viagem"
+          width={1200}
+          height={800}
+          loading="lazy"
+          decoding="async"
+          className="h-56 w-full rounded-2xl object-cover shadow-soft sm:h-64 md:col-start-2 md:row-start-2 md:h-full md:rounded-3xl"
+        />
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-8 flex justify-center">
         <Button asChild variant="cta" size="xl">
           <a href="#cotacao">Quero planejar minha viagem</a>
         </Button>
@@ -143,6 +144,7 @@ export function DesireSection() {
     </Section>
   );
 }
+
 
 
 /** Mapeia cada experiência para o serviço correspondente no formulário. */
