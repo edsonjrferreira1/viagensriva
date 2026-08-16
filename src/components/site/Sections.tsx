@@ -418,9 +418,8 @@ export function AccommodationsSection() {
 
 export function DestinationsSection() {
   return (
-    <Section id="destinos" tone="deep">
+    <Section id="destinos" tone="sand">
       <SectionHeading
-        invert
         align="center"
         eyebrow="Destinos"
         title="Para onde você quer viajar?"
