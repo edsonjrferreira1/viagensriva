@@ -6,7 +6,10 @@ import { heroHighlights } from "@/config/site";
 
 export function Hero() {
   return (
-    <section id="top" className="relative min-h-[100svh] overflow-hidden">
+    <section
+      id="top"
+      className="relative min-h-[100svh] overflow-hidden lg:min-h-0 lg:h-[80vh] lg:max-h-[860px] lg:min-h-[620px]"
+    >
       <picture>
         <source media="(max-width: 767px)" srcSet={heroMobile.url} />
         <source media="(min-width: 768px)" srcSet={heroDesktop.url} />
