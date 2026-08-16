@@ -430,7 +430,12 @@ export function AccommodationsSection() {
             </p>
 
             <Button asChild variant="gold" size="xl" className="mt-7">
-              <a href="#cotacao">Quero conhecer opções All Inclusive</a>
+              <a
+                href="#cotacao"
+                onClick={() => preselectInterest("Resort / All Inclusive")}
+              >
+                Quero conhecer opções All Inclusive
+              </a>
             </Button>
           </div>
 
