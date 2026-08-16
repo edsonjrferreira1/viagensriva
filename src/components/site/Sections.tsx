@@ -188,6 +188,59 @@ export function ServicesSection() {
   );
 }
 
+export function CruisesSection() {
+  const highlights = [
+    { icon: MapPinned, text: "Vários destinos em um único roteiro" },
+    { icon: Ship, text: "Experiências a bordo" },
+    { icon: UtensilsCrossed, text: "Gastronomia variada" },
+    { icon: Sparkles, text: "Entretenimento todos os dias" },
+    { icon: Plane, text: "Roteiros nacionais e internacionais" },
+    { icon: Users, text: "Casais, famílias e grupos" },
+  ];
+
+  return (
+    <Section id="cruzeiros">
+      <div className="grid items-center gap-10 lg:grid-cols-2">
+        <div>
+          <SectionHeading
+            eyebrow="Cruzeiros"
+            title="Uma viagem. Vários destinos."
+            subtitle="Conheça diferentes destinos em uma única viagem, com hospedagem, gastronomia, entretenimento e experiências a bordo."
+          />
+
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            {highlights.map((h) => (
+              <li
+                key={h.text}
+                className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-soft"
+              >
+                <h.icon className="size-5 shrink-0 text-gold" aria-hidden="true" />
+                <span className="text-sm text-foreground/85">{h.text}</span>
+              </li>
+            ))}
+          </ul>
+
+          <Button asChild variant="gold" size="xl" className="mt-8">
+            <a href="#cotacao" onClick={() => preselectInterest("Cruzeiro")}>
+              Quero cotar um cruzeiro
+            </a>
+          </Button>
+        </div>
+
+        <img
+          src={cruiseImg}
+          alt="Navio de cruzeiro sofisticado navegando ao pôr do sol"
+          width={1600}
+          height={1067}
+          loading="lazy"
+          decoding="async"
+          className="h-full max-h-[520px] w-full rounded-3xl object-cover shadow-lift"
+        />
+      </div>
+    </Section>
+  );
+}
+
 export function AccommodationsSection() {
   return (
     <Section id="hospedagens">
@@ -199,7 +252,10 @@ export function AccommodationsSection() {
       />
 
       {/* Destaque: Resorts & All Inclusive */}
-      <div className="mt-12 overflow-hidden rounded-3xl surface-deep shadow-lift">
+      <div
+        id="resorts"
+        className="mt-12 scroll-mt-24 overflow-hidden rounded-3xl surface-deep shadow-lift lg:scroll-mt-28"
+      >
         <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="eyebrow text-champagne">Uma das nossas especialidades</p>
