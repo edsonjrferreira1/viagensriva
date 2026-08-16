@@ -662,3 +662,76 @@ export function FinalCta() {
     </section>
   );
 }
+
+function Stars({ className = "" }: { className?: string }) {
+  return (
+    <span className={`flex items-center gap-0.5 ${className}`} aria-hidden="true">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} className="size-4 fill-gold text-gold" />
+      ))}
+    </span>
+  );
+}
+
+export function TestimonialsSection() {
+  return (
+    <Section id="avaliacoes" tone="sand">
+      <SectionHeading
+        align="center"
+        eyebrow="Prova social"
+        title="Quem viaja com a gente, recomenda."
+        subtitle="Experiências reais de clientes que confiaram suas viagens à Viagens Riva."
+      />
+
+      <div className="mt-8 flex justify-center">
+        <div className="flex items-center gap-4 rounded-full border border-primary/10 bg-card px-6 py-3 shadow-lift">
+          <Stars />
+          <span className="text-lg font-medium text-primary">
+            {googleReviews.rating} no Google
+          </span>
+          <span className="text-sm text-muted-foreground">
+            {googleReviews.count} avaliações
+          </span>
+        </div>
+      </div>
+
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {googleReviews.items.map((r) => (
+          <figure
+            key={r.author}
+            className="flex h-full flex-col rounded-2xl border border-primary/10 bg-card p-7 shadow-lift"
+          >
+            <Stars />
+            <p className="mt-5 font-display text-xl italic leading-snug text-primary">
+              “{r.highlight}”
+            </p>
+            <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+              {r.text}
+            </blockquote>
+            <figcaption className="mt-6 border-t border-primary/10 pt-4">
+              <span className="block text-sm font-medium text-primary">
+                {r.author}
+              </span>
+              <span className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
+                <BadgeCheck className="size-3.5 text-turquoise" />
+                Avaliação real publicada no Google
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div className="mt-10 text-center">
+        <Button asChild variant="navy" size="xl">
+          <a
+            href={googleReviews.profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver mais avaliações no Google
+          </a>
+        </Button>
+      </div>
+    </Section>
+  );
+}
