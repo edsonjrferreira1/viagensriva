@@ -286,39 +286,73 @@ export function ExperiencesSection() {
   );
 }
 
-export function CruisesSection() {
-  const highlights = [
-    { icon: MapPinned, text: "Vários destinos em um único roteiro" },
-    { icon: Ship, text: "Experiências a bordo" },
-    { icon: UtensilsCrossed, text: "Gastronomia variada" },
-    { icon: Sparkles, text: "Entretenimento todos os dias" },
-    { icon: Plane, text: "Roteiros nacionais e internacionais" },
-    { icon: Users, text: "Casais, famílias e grupos" },
-  ];
+const cruiseIcons: Record<string, LucideIcon> = {
+  map: MapPinned,
+  bed: BedDouble,
+  sparkles: Sparkles,
+  users: Users,
+  ship: Ship,
+};
 
+export function CruisesSection() {
   return (
     <Section id="cruzeiros">
-      <div className="grid items-center gap-10 lg:grid-cols-2">
+      <div className="grid items-start gap-10 lg:grid-cols-2">
         <div>
           <SectionHeading
             eyebrow="Cruzeiros"
             title="Uma viagem. Vários destinos."
-            subtitle="Conheça diferentes destinos em uma única viagem, com hospedagem, gastronomia, entretenimento e experiências a bordo."
+            subtitle={cruiseIntro}
+          />
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/80">
+            {cruiseIntroComplement}
+          </p>
+
+          <img
+            src={cruiseImg}
+            alt="Navio de cruzeiro sofisticado navegando ao pôr do sol"
+            width={1600}
+            height={1067}
+            loading="lazy"
+            decoding="async"
+            className="mt-8 h-64 w-full rounded-3xl object-cover shadow-lift sm:h-80 lg:hidden"
           />
 
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {highlights.map((h) => (
-              <li
-                key={h.text}
-                className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-soft"
-              >
-                <h.icon className="size-5 shrink-0 text-gold" aria-hidden="true" />
-                <span className="text-sm text-foreground/85">{h.text}</span>
-              </li>
-            ))}
+            {cruiseBenefits.map((b) => {
+              const Icon = cruiseIcons[b.icon] ?? Ship;
+              return (
+                <li
+                  key={b.title}
+                  className="rounded-2xl border border-border bg-card px-5 py-4 shadow-soft"
+                >
+                  <span className="flex items-center gap-3">
+                    <Icon className="size-5 shrink-0 text-gold" aria-hidden="true" />
+                    <span className="text-sm font-medium text-primary">{b.title}</span>
+                  </span>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+                    {b.text}
+                  </p>
+                </li>
+              );
+            })}
           </ul>
 
-          <Button asChild variant="gold" size="xl" className="mt-8">
+          <div className="mt-6 rounded-2xl border border-primary/15 bg-secondary/60 px-5 py-5">
+            <p className="text-sm font-medium text-primary">
+              A viagem completa, não só o embarque.
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+              Se precisar, organizamos também o que vem antes e depois do navio:{" "}
+              {cruiseExtras.join(" · ").toLowerCase()}.
+            </p>
+          </div>
+
+          <p className="mt-5 text-xs leading-relaxed text-foreground/70">
+            {cruiseNote}
+          </p>
+
+          <Button asChild variant="gold" size="xl" className="mt-7">
             <a href="#cotacao" onClick={() => preselectInterest("Cruzeiro")}>
               Quero cotar um cruzeiro
             </a>
@@ -332,7 +366,7 @@ export function CruisesSection() {
           height={1067}
           loading="lazy"
           decoding="async"
-          className="h-full max-h-[520px] w-full rounded-3xl object-cover shadow-lift"
+          className="sticky top-28 hidden h-[640px] w-full rounded-3xl object-cover shadow-lift lg:block"
         />
       </div>
     </Section>
