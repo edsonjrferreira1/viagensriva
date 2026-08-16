@@ -57,7 +57,7 @@ export const agencyServices = [
 export const expert = {
   name: "Edson Ferreira",
   role: "Responsável pela agência Viagens Riva",
-  bio: "Professor, mestre e apaixonado pelo mundo das viagens. Junto com a equipe da Viagens Riva, acompanha cada planejamento com atenção ao perfil, ao período e ao orçamento de quem vai viajar.",
+  bio: "Professor, mestre e apaixonado pelo mundo das viagens. À frente da Viagens Riva, acompanha junto com a equipe cada planejamento com atenção ao perfil, ao período e às expectativas de quem vai viajar.",
   image: null as string | null,
 };
 
@@ -210,39 +210,37 @@ export const destinations = [
   },
 ];
 
-/** Formas de viajar — perfis de experiência comercializados pela agência. */
+/** Formas de viajar — estilos de experiência (sem repetir a lista de serviços). */
 export const experiences = [
   {
     name: "Resorts & All Inclusive",
     icon: "sparkles",
     description:
-      "Dias de descanso com gastronomia, lazer e estrutura completa, no Brasil ou no exterior.",
-    tags: ["Resort", "Gastronomia", "Lazer", "Aéreo", "Transfer"],
+      "Dias sem logística: você chega, desacelera e aproveita tudo o que a hospedagem oferece.",
+    tags: ["Descanso", "Gastronomia", "Lazer", "Conforto", "All Inclusive"],
   },
   {
     name: "Cruzeiros",
     icon: "ship",
     description:
-      "Experiências em alto-mar combinando diferentes destinos em uma única viagem.",
-    tags: ["Cruzeiro", "Aéreo", "Transfer", "Roteiros"],
+      "A viagem começa a bordo: você dorme em um destino e acorda em outro, sem trocar de mala.",
+    tags: ["Alto-mar", "Múltiplos destinos", "Entretenimento", "Experiências"],
   },
   {
     name: "Férias nacionais e internacionais",
     icon: "luggage",
     description:
-      "Viagens pelo Brasil ou pelo exterior planejadas de acordo com perfil, período e orçamento.",
-    tags: ["Aéreo", "Hospedagem", "Seguro", "Carro", "Passeios"],
+      "Do Brasil ao exterior, um roteiro com o ritmo certo para o seu tempo livre.",
+    tags: ["Brasil", "Exterior", "Roteiros", "Férias", "Experiências"],
   },
   {
     name: "Praia & descanso",
     icon: "palm",
     description:
-      "Para quem quer desacelerar e aproveitar alguns dias longe da rotina, sem complicação.",
-    tags: ["Praia", "Hospedagem", "Transfer", "Experiências"],
+      "Mar, silêncio e dias sem hora marcada para quem só quer sair da rotina.",
+    tags: ["Praia", "Descanso", "Bem-estar", "Férias", "Tranquilidade"],
   },
 ];
-
-
 
 export const faq = [
   {

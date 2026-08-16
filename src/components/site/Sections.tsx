@@ -34,7 +34,6 @@ import { Section, SectionHeading } from "./Section";
 import {
   accommodations,
   agency,
-  agencyServices,
   destinations,
   experiences,
   expert,
@@ -73,16 +72,6 @@ import servicosImg from "@/assets/servicos-completos.webp";
 
 
 const destinationImages = [destBeach, destMountain, destInternational, destVacation];
-
-const serviceIcons: Record<string, LucideIcon> = {
-  plane: Plane,
-  bed: BedDouble,
-  ship: Ship,
-  car: Car,
-  shield: ShieldCheck,
-  bus: BusFront,
-  map: MapPinned,
-};
 
 const experienceIcons: Record<string, LucideIcon> = {
   sparkles: Sparkles,
@@ -160,7 +149,7 @@ export function ServicesSection() {
         align="center"
         eyebrow="Serviços Viagens Riva"
         title="Cuidamos de cada etapa da sua viagem."
-        subtitle="Organizamos viagens nacionais e internacionais do planejamento ao retorno, reunindo todos os serviços em um só atendimento."
+        subtitle="Da passagem aos passeios no destino, organizamos os serviços da sua viagem em um único atendimento."
       />
 
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -485,7 +474,7 @@ export function ExperiencesSection() {
         align="center"
         eyebrow="Formas de viajar"
         title="Experiências para cada jeito de viajar."
-        subtitle="Escolha o estilo de viagem e montamos o roteiro a partir dele."
+        subtitle="Comece pelo estilo de viagem que combina com você — o roteiro nasce a partir dessa escolha."
       />
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -624,38 +613,34 @@ export function ExpertSection() {
             subtitle={expert.bio}
           />
           <p className="mt-4 text-sm text-foreground/80">
-            {expert.role} · CNPJ {agency.cnpj} · {agency.cadastur}
+            {expert.role}
           </p>
 
           <p className="mt-6 text-sm leading-relaxed text-foreground/80">
-            A Viagens Riva organiza viagens nacionais e internacionais,
-            cuidando de cada etapa do roteiro:
+            A Viagens Riva organiza viagens nacionais e internacionais, do
+            planejamento aos principais serviços necessários para a experiência.
           </p>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {agencyServices.map((s) => {
-              const Icon = serviceIcons[s.icon] ?? MapPinned;
-              return (
-                <li
-                  key={s.label}
-                  className="flex items-center gap-3 rounded-2xl border border-primary/15 bg-card px-4 py-3 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lift"
-                >
 
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-secondary">
-                    <Icon
-                      className="size-[18px] text-primary"
-                      strokeWidth={1.5}
-                      aria-hidden="true"
-                    />
-                  </span>
-                  <span className="text-sm text-primary">{s.label}</span>
-                </li>
-              );
-            })}
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            {[
+              { icon: ShieldCheck, text: `CNPJ ${agency.cnpj}` },
+              { icon: BadgeCheck, text: agency.cadastur },
+              { icon: Headphones, text: "Atendimento personalizado" },
+              { icon: Plane, text: "Viagens nacionais e internacionais" },
+            ].map((item) => (
+              <li
+                key={item.text}
+                className="flex items-center gap-3 rounded-2xl border border-primary/15 bg-card px-4 py-3 shadow-soft"
+              >
+                <item.icon className="size-[18px] shrink-0 text-teal" aria-hidden="true" />
+                <span className="text-sm text-foreground/85">{item.text}</span>
+              </li>
+            ))}
           </ul>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild variant="cta" size="xl">
-              <a href="#cotacao">Quero planejar minha viagem</a>
+              <a href="#cotacao">Falar com a Viagens Riva</a>
             </Button>
 
             <Button asChild variant="outline" size="xl">
