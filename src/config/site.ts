@@ -66,7 +66,7 @@ export const whatsappLink = (message: string) =>
   `https://wa.me/${agency.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 export const defaultWhatsappMessage =
-  "Olá! Vi a página da Viagens Riva e gostaria de planejar minha próxima viagem.";
+  "Olá! Conheci a Viagens Riva pela página e gostaria de conversar sobre uma viagem.";
 
 /** Submenu de Experiências — cada item leva a um bloco de conteúdo real. */
 export const experienceMenu = [
