@@ -39,8 +39,10 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://viagensriva.lovable.app/" },
     ],
     links: [
+      { rel: "canonical", href: "https://viagensriva.lovable.app/" },
       {
         rel: "preload",
         as: "image",
@@ -54,6 +56,21 @@ export const Route = createFileRoute("/")({
         href: heroDesktop.url,
         media: "(min-width: 768px)",
         fetchpriority: "high",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TravelAgency",
+          name: "Viagens Riva",
+          url: "https://viagensriva.lovable.app/",
+          telephone: "+55 62 98217-9433",
+          areaServed: "BR",
+          address: { "@type": "PostalAddress", addressLocality: "Goiânia", addressRegion: "GO", addressCountry: "BR" },
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "5", reviewCount: 23 },
+        }),
       },
     ],
   }),
