@@ -289,6 +289,95 @@ export function QuoteForm() {
               ))}
             </select>
           </Field>
+
+          <div className="sm:col-span-2">
+            <p className="text-sm font-medium text-primary">
+              O que você busca principalmente para esta viagem?
+            </p>
+            <p className="mt-1 text-xs text-foreground/75">
+              Selecione apenas uma opção.
+            </p>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              {perfilOptions.map(({ label, hint }) => {
+                const active = form.perfil === label;
+                return (
+                  <label
+                    key={label}
+                    className={cn(
+                      "flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition",
+                      active
+                        ? "border-primary bg-primary/5"
+                        : "border-border/60 bg-background hover:border-primary/30",
+                    )}
+                  >
+                    <input
+                      type="radio"
+                      name="perfil"
+                      value={label}
+                      checked={active}
+                      onChange={() => set("perfil")(label)}
+                      className="mt-1 size-4 shrink-0 accent-primary"
+                    />
+                    <span className="block">
+                      <span className="block text-sm font-medium text-foreground">
+                        {label}
+                      </span>
+                      <span className="mt-0.5 block text-xs leading-relaxed text-foreground/75">
+                        {hint}
+                      </span>
+                    </span>
+                  </label>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="sm:col-span-2">
+            <p className="text-sm font-medium text-primary">
+              Em que momento você está para fechar sua viagem?
+            </p>
+            <p className="mt-1 text-xs text-foreground/75">
+              Selecione apenas uma opção.
+            </p>
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
+              {momentoOptions.map(({ label, hint }) => {
+                const active = form.momento === label;
+                return (
+                  <label
+                    key={label}
+                    className={cn(
+                      "flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition",
+                      active
+                        ? "border-primary bg-primary/5"
+                        : "border-border/60 bg-background hover:border-primary/30",
+                    )}
+                  >
+                    <input
+                      type="radio"
+                      name="momento"
+                      value={label}
+                      checked={active}
+                      onChange={() => set("momento")(label)}
+                      className="mt-1 size-4 shrink-0 accent-primary"
+                    />
+                    <span className="block">
+                      <span className="block text-sm font-medium text-foreground">
+                        {label}
+                      </span>
+                      <span className="mt-0.5 block text-xs leading-relaxed text-foreground/75">
+                        {hint}
+                      </span>
+                    </span>
+                  </label>
+                );
+              })}
+            </div>
+            <p className="mt-3 text-xs leading-relaxed text-foreground/70">
+              Solicitações de clientes com viagem definida e intenção de reserva
+              mais imediata podem receber prioridade na ordem de atendimento,
+              conforme disponibilidade da equipe.
+            </p>
+          </div>
         </div>
 
         <fieldset className="mt-6">
