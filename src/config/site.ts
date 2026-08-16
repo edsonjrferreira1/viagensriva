@@ -10,7 +10,20 @@ export const agency = {
   cadastur: "Agência cadastrada no Cadastur",
   whatsappNumber: "5562982179433",
   whatsappDisplay: "(62) 98217-9433",
+  instagramHandle: "@viagensriva",
+  instagramUrl: "https://instagram.com/viagensriva",
 };
+
+/** Serviços organizados pela agência (viagens nacionais e internacionais). */
+export const agencyServices = [
+  { emoji: "✈️", label: "Passagens aéreas" },
+  { emoji: "🏨", label: "Hospedagens" },
+  { emoji: "🚢", label: "Cruzeiros" },
+  { emoji: "🚗", label: "Aluguel de carros" },
+  { emoji: "🛡️", label: "Seguro viagem" },
+  { emoji: "🚐", label: "Transfer" },
+  { emoji: "🎯", label: "Passeios e experiências" },
+];
 
 export const expert = {
   name: "Edson Ferreira",
@@ -18,6 +31,7 @@ export const expert = {
   bio: "Professor, mestre e apaixonado pelo mundo das viagens. Acompanha cada cotação com atenção às preferências de quem está planejando a próxima experiência.",
   image: null as string | null,
 };
+
 
 export const whatsappLink = (message: string) =>
   `https://wa.me/${agency.whatsappNumber}?text=${encodeURIComponent(message)}`;
