@@ -161,6 +161,9 @@ const experienceInterest: Record<string, string> = {
   "Férias nacionais e internacionais": "Passagens aéreas",
   "Praia & descanso": "Hospedagem",
   "Lua de mel": "Hospedagem",
+  "Neve & inverno": "Passagens aéreas",
+  "Natureza & aventura": "Passeios e experiências",
+  "Cultura & gastronomia": "Passeios e experiências",
 };
 
 export function ExperiencesSection() {
