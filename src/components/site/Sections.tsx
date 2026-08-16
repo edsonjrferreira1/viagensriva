@@ -41,7 +41,6 @@ import {
   accommodations,
   agency,
   agencyServices,
-  defaultWhatsappMessage,
   destinations,
   experiences,
   expert,
@@ -49,8 +48,7 @@ import {
   googleReviews,
   inclusiveBenefits,
   leisureCards,
-  whatsappLink,
-  whyAllInclusive,
+  
 } from "@/config/site";
 
 import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
@@ -201,35 +199,42 @@ export function ServicesSection() {
 export function InclusiveSection() {
   return (
     <Section id="all-inclusive" tone="deep">
-      <SectionHeading
-        invert
-        align="center"
-        eyebrow="Uma das nossas especialidades"
-        title="Resorts &amp; All Inclusive"
-        subtitle="Para quem quer férias sem logística: gastronomia, bebidas, piscinas e recreação já resolvidos na hospedagem, no Brasil ou no exterior."
-      />
+      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div>
+          <SectionHeading
+            invert
+            eyebrow="Uma das nossas especialidades"
+            title="Resorts &amp; All Inclusive"
+            subtitle="Para quem prefere férias sem logística: gastronomia, bebidas, piscinas e recreação já resolvidos na hospedagem, no Brasil ou no exterior."
+          />
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {inclusiveBenefits.map((b) => {
-          const Icon = benefitIcons[b.icon] ?? Sparkles;
-          return (
-            <div
-              key={b.title}
-              className="rounded-2xl border border-white/25 bg-white/10 p-6 backdrop-blur-sm transition hover:border-gold/60"
-            >
-              <Icon className="size-6 text-gold" aria-hidden="true" />
-              <h3 className="mt-4 text-xl uppercase tracking-wide text-white">
-                {b.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/85">
-                {b.text}
-              </p>
-            </div>
-          );
-        })}
-      </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {inclusiveBenefits.map((b) => {
+              const Icon = benefitIcons[b.icon] ?? Sparkles;
+              return (
+                <div
+                  key={b.title}
+                  className="rounded-2xl border border-white/25 bg-white/10 p-5 backdrop-blur-sm transition hover:border-gold/60"
+                >
+                  <Icon className="size-5 text-gold" aria-hidden="true" />
+                  <h3 className="mt-3 text-lg text-white">{b.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/85">
+                    {b.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
 
-      <div className="mt-14 grid gap-8 lg:grid-cols-2 lg:items-center">
+          <p className="mt-6 text-xs leading-relaxed text-white/75">
+            Itens inclusos variam conforme o resort e o regime contratado.
+          </p>
+
+          <Button asChild variant="gold" size="xl" className="mt-8">
+            <a href="#cotacao">Quero conhecer opções All Inclusive</a>
+          </Button>
+        </div>
+
         <div className="grid grid-cols-2 gap-4">
           <img
             src={gastro}
@@ -237,8 +242,8 @@ export function InclusiveSection() {
             width={1200}
             height={900}
             loading="lazy"
-        decoding="async"
-            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+            decoding="async"
+            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-80"
           />
           <img
             src={lazerImg.url}
@@ -246,21 +251,10 @@ export function InclusiveSection() {
             width={1600}
             height={1200}
             loading="lazy"
-        decoding="async"
-            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+            decoding="async"
+            className="h-56 w-full rounded-2xl object-cover shadow-lift sm:h-80"
           />
-        </div>
-
-        <div>
-          <h3 className="font-display text-2xl text-sand sm:text-3xl">
-            Gastronomia, piscinas e dias inteiros para aproveitar
-          </h3>
-          <p className="mt-4 text-sm leading-relaxed text-white/90">
-            Do café da manhã ao jantar, dos restaurantes temáticos aos bares à
-            beira da piscina: ajudamos você a escolher o regime de alimentação e
-            a estrutura de lazer que combinam com o ritmo das suas férias.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-2">
+          <div className="col-span-2 flex flex-wrap gap-2">
             {leisureCards.map((c) => (
               <span
                 key={c}
@@ -272,36 +266,10 @@ export function InclusiveSection() {
           </div>
         </div>
       </div>
-
-      <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {whyAllInclusive.map((item) => (
-          <div
-            key={item.title}
-            className="rounded-2xl border border-white/20 bg-white/5 p-6"
-          >
-            <h3 className="font-display text-lg leading-snug text-gold">
-              {item.title}
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/85">
-              {item.text}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-relaxed text-white/75">
-        Serviços e itens incluídos variam conforme o resort e o regime
-        contratado.
-      </p>
-
-      <div className="mt-8 flex justify-center">
-        <Button asChild variant="gold" size="xl">
-          <a href="#cotacao">Quero conhecer opções All Inclusive</a>
-        </Button>
-      </div>
     </Section>
   );
 }
+
 
 
 
@@ -480,7 +448,7 @@ export function ExperiencesSection() {
         align="center"
         eyebrow="Formas de viajar"
         title="Experiências para cada jeito de viajar."
-        subtitle="Encontre a experiência que mais combina com o seu jeito de viajar — com passagens, hospedagem, transfer, seguro e passeios organizados por nós."
+        subtitle="Escolha o estilo de viagem e montamos o roteiro a partir dele."
       />
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -511,9 +479,8 @@ export function ExperiencesSection() {
               <Button asChild variant="cta" className="mt-6 w-full">
                 <a href="#cotacao">Montar minha viagem</a>
               </Button>
-              <p className="mt-3 text-center text-xs text-foreground/70">
-                A cotação pode incluir aéreo, hospedagem, transfer, seguro e passeios.
-              </p>
+
+
 
             </article>
           );
@@ -550,6 +517,11 @@ const travelServices = [
     title: "Aluguel de carros",
     text: "Categoria, seguro e retirada organizados para quem quer explorar o destino com autonomia.",
   },
+  {
+    icon: MapPinned,
+    title: "Passeios e experiências",
+    text: "Ingressos, tours e experiências reservados com antecedência, sem fila e sem improviso no destino.",
+  },
 ];
 
 export function TravelServicesSection() {
@@ -560,9 +532,10 @@ export function TravelServicesSection() {
           <SectionHeading
             invert
             eyebrow="Agência completa"
-            title="Muito além da hospedagem"
-            subtitle="Resort é só uma parte da viagem. Passagens, cruzeiros, seguro, transfer e carro são organizados pela mesma equipe, na mesma cotação e com um único atendimento."
+            title="Cada serviço com o mesmo cuidado"
+            subtitle="Aéreo, cruzeiro, seguro, transfer, carro e passeios: todos organizados pela mesma equipe, em um único atendimento."
           />
+
 
           <ul className="mt-10 grid gap-4 sm:grid-cols-2">
             {travelServices.map((s) => (
@@ -601,23 +574,34 @@ export function TravelServicesSection() {
 export function GoogleRatingBadge() {
   return (
     <div className="border-b border-primary/10 bg-secondary px-4 py-5 sm:px-6">
-      <a
-        href={googleReviews.profileUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mx-auto flex w-fit flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-primary/20 bg-card px-6 py-3 text-center shadow-soft transition hover:border-gold/70"
-      >
-        <Stars />
-        <span className="text-sm font-medium text-primary sm:text-base">
-          {googleReviews.rating} no Google
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-3">
+        <a
+          href={googleReviews.profileUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-full border border-primary/20 bg-card px-6 py-3 text-center shadow-soft transition hover:border-gold/70"
+        >
+          <Stars />
+          <span className="text-sm font-medium text-primary sm:text-base">
+            {googleReviews.rating} no Google
+          </span>
+          <span className="text-sm text-foreground/80">
+            · {googleReviews.count} avaliações reais
+          </span>
+        </a>
+        <span className="flex items-center gap-2 rounded-full border border-primary/20 bg-card px-5 py-3 text-sm text-foreground/85 shadow-soft">
+          <ShieldCheck className="size-4 text-teal" aria-hidden="true" />
+          Agência regularizada · CNPJ {agency.cnpj}
         </span>
-        <span className="text-sm text-foreground/80">
-          · {googleReviews.count} avaliações reais
+        <span className="flex items-center gap-2 rounded-full border border-primary/20 bg-card px-5 py-3 text-sm text-foreground/85 shadow-soft">
+          <BadgeCheck className="size-4 text-teal" aria-hidden="true" />
+          {agency.cadastur}
         </span>
-      </a>
+      </div>
     </div>
   );
 }
+
 
 
 export function ExpertSection() {
@@ -675,14 +659,9 @@ export function ExpertSection() {
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Button asChild variant="cta" size="xl">
-              <a
-                href={whatsappLink(defaultWhatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Falar com a {agency.name}
-              </a>
+              <a href="#cotacao">Quero planejar minha viagem</a>
             </Button>
+
             <Button asChild variant="outline" size="xl">
               <a
                 href={agency.instagramUrl}
@@ -705,33 +684,34 @@ export function ExpertSection() {
 export function WhyRivaSection() {
   const cards = [
     {
-      icon: BadgeCheck,
-      t: "Atendimento personalizado",
-      d: "Cotação preparada de acordo com o perfil da sua viagem.",
+      icon: Headphones,
+      t: "Atendimento humano, não robô",
+      d: "Você fala com quem entende de viagem e conhece o seu roteiro — sem chatbot e sem fila de call center.",
     },
     {
-      icon: Headphones,
-      t: "Suporte",
-      d: "Orientação antes e durante sua experiência.",
+      icon: BadgeCheck,
+      t: "Suporte antes, durante e depois",
+      d: "Acompanhamos a viagem do planejamento ao retorno, inclusive se algo mudar no meio do caminho.",
     },
     {
       icon: ShieldCheck,
       t: "Agência regularizada",
-      d: "CNPJ ativo e cadastro no Cadastur.",
+      d: `CNPJ ${agency.cnpj} e cadastro no Cadastur: contratação com respaldo legal.`,
     },
     {
       icon: Plane,
-      t: "Viagem completa",
-      d: "Possibilidade de contratar hospedagem, passagem aérea, transfer, seguro viagem e outros serviços.",
+      t: "Cotação sem compromisso",
+      d: "Opções montadas pelo seu perfil de viajante e pelo seu ritmo de decisão, sem pressão de compra.",
     },
   ];
 
   return (
-    <Section tone="sand">
+    <Section id="diferenciais" tone="sand">
       <SectionHeading
-        eyebrow={`Por que planejar com a ${agency.name}?`}
-        title="Sua viagem começa antes do embarque"
-        subtitle={`Na ${agency.name}, o atendimento personalizado acompanha você desde a escolha do destino até o retorno para casa.`}
+        align="center"
+        eyebrow="Por que a Viagens Riva"
+        title="A diferença entre reservar sozinho e viajar acompanhado"
+        subtitle="O que você ganha ao planejar com uma agência de verdade em vez de fechar tudo por conta própria em um site."
       />
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -747,13 +727,15 @@ export function WhyRivaSection() {
         ))}
       </div>
 
-      <p className="mt-8 text-xs text-foreground/70">
-        {agency.name} · CNPJ {agency.cnpj} · {agency.cadastur}
-      </p>
-
+      <div className="mt-10 flex justify-center">
+        <Button asChild variant="cta" size="xl">
+          <a href="#cotacao">Quero uma cotação personalizada</a>
+        </Button>
+      </div>
     </Section>
   );
 }
+
 
 export function FaqSection() {
   return (
@@ -786,14 +768,9 @@ export function FaqSection() {
           Nossa equipe pode ajudar você a planejar sua viagem.
         </h3>
         <Button asChild variant="cta" size="xl" className="mt-8">
-          <a
-            href={whatsappLink(defaultWhatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Falar com a {agency.name}
-          </a>
+          <a href="#cotacao">Quero planejar minha viagem</a>
         </Button>
+
       </div>
     </Section>
   );

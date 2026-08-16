@@ -25,9 +25,10 @@ import {
 import heroDesktop from "@/assets/hero-premium-desktop.jpg.asset.json";
 import heroMobile from "@/assets/hero-premium-mobile.jpg.asset.json";
 
-const title = "Viagens Riva | Viagens nacionais e internacionais";
+const title =
+  "Agência de Viagens em Goiânia | Passagens, Hospedagem, Cruzeiros e Resorts All Inclusive — Viagens Riva";
 const description =
-  "Agência de viagens que organiza passagens, hospedagens, resorts All Inclusive, cruzeiros, seguro, transfer e passeios. Cotação personalizada via WhatsApp.";
+  "Viagens Riva: agência de viagens em Goiânia com Cadastur. Passagens aéreas, hospedagem, resorts All Inclusive, cruzeiros, seguro viagem, transfer e passeios, nacionais e internacionais. Cotação personalizada.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,8 +39,10 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: "https://viagensriva.lovable.app/" },
     ],
     links: [
+      { rel: "canonical", href: "https://viagensriva.lovable.app/" },
       {
         rel: "preload",
         as: "image",
@@ -55,6 +58,21 @@ export const Route = createFileRoute("/")({
         fetchpriority: "high",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TravelAgency",
+          name: "Viagens Riva",
+          url: "https://viagensriva.lovable.app/",
+          telephone: "+55 62 98217-9433",
+          areaServed: "BR",
+          address: { "@type": "PostalAddress", addressLocality: "Goiânia", addressRegion: "GO", addressCountry: "BR" },
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "5", reviewCount: 23 },
+        }),
+      },
+    ],
   }),
   component: Index,
 });
@@ -67,6 +85,7 @@ function Index() {
         <Hero />
         <GoogleRatingBadge />
         <ServicesSection />
+        <WhyRivaSection />
         <DesireSection />
         <ExperiencesSection />
         <TravelServicesSection />
@@ -76,8 +95,8 @@ function Index() {
         <CouplesSection />
         <AccommodationsSection />
         <ExpertSection />
-        <WhyRivaSection />
         <TestimonialsSection />
+
 
         <Section id="cotacao">
           <QuoteForm />
