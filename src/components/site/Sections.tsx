@@ -27,6 +27,7 @@ import {
   Palmtree,
   Star,
   Instagram,
+  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 
@@ -144,37 +145,90 @@ export function DesireSection() {
 }
 
 
-export function ServicesSection() {
+/** Mapeia cada experiência para o serviço correspondente no formulário. */
+const experienceInterest: Record<string, string> = {
+  "Resorts & All Inclusive": "Resort / All Inclusive",
+  Cruzeiros: "Cruzeiro",
+  "Férias nacionais e internacionais": "Passagens aéreas",
+  "Praia & descanso": "Hospedagem",
+};
+
+export function ExperiencesSection() {
   return (
-    <Section id="servicos">
+    <Section id="experiencias">
       <SectionHeading
         align="center"
-        eyebrow="Serviços Viagens Riva"
-        title="Cuidamos de cada etapa da sua viagem."
-        subtitle="Da passagem aos passeios no destino, organizamos os serviços da sua viagem em um único atendimento."
+        eyebrow="Formas de viajar"
+        title="Escolha como quer viajar. A gente cuida do resto."
+        subtitle="Você escolhe a experiência e a Viagens Riva organiza os serviços necessários para transformar o planejamento em viagem."
       />
 
-      <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {travelServices.map((s) => (
-          <li
-            key={s.title}
-            className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
-          >
-            <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
-              <s.icon
-                className="size-5 text-primary"
-                strokeWidth={1.5}
-                aria-hidden="true"
-              />
-            </span>
-            <h3 className="mt-5 text-lg text-primary">{s.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/75">
-              {s.text}
-            </p>
-          </li>
-        ))}
-      </ul>
+      <p className="mt-10 text-center text-xs uppercase tracking-[0.24em] text-foreground/60">
+        Como você quer viajar?
+      </p>
 
+      <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {experiences.map((exp) => {
+          const Icon = experienceIcons[exp.icon] ?? Sparkles;
+          return (
+            <a
+              key={exp.name}
+              href="#cotacao"
+              onClick={() => preselectInterest(experienceInterest[exp.name] ?? "Hospedagem")}
+              className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            >
+              <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
+                <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
+              </span>
+              <h3 className="mt-5 text-lg leading-snug text-primary">{exp.name}</h3>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
+                {exp.description}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {exp.tags.slice(0, 4).map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-primary/20 px-2.5 py-1 text-[11px] text-foreground/75"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition group-hover:text-gold">
+                Conhecer essa experiência
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </span>
+            </a>
+          );
+        })}
+      </div>
+
+      {/* Faixa compacta de serviços */}
+      <div
+        id="servicos"
+        className="mt-14 scroll-mt-24 rounded-3xl border border-primary/15 bg-secondary/60 px-6 py-8 sm:px-10 lg:scroll-mt-28"
+      >
+        <h3 className="text-center font-display text-2xl text-primary sm:text-[1.7rem]">
+          Podemos cuidar de cada etapa da sua viagem.
+        </h3>
+
+        <ul className="mx-auto mt-7 grid max-w-4xl grid-cols-2 gap-y-6 sm:grid-cols-3 lg:grid-cols-6 lg:gap-y-0">
+          {travelServices.map((s) => (
+            <li
+              key={s.title}
+              className="flex flex-col items-center gap-2 px-2 text-center lg:border-r lg:border-primary/15 lg:last:border-r-0"
+            >
+              <s.icon className="size-6 text-gold" strokeWidth={1.5} aria-hidden="true" />
+              <span className="text-sm leading-snug text-foreground/85">{s.title}</span>
+            </li>
+          ))}
+        </ul>
+
+        <p className="mx-auto mt-7 max-w-2xl text-center text-sm leading-relaxed text-foreground/70">
+          Você pode contratar apenas o que precisa ou montar uma viagem completa em
+          um único atendimento.
+        </p>
+      </div>
 
       <div className="mt-10 flex justify-center">
         <Button asChild variant="cta" size="xl">
@@ -485,93 +539,17 @@ export function DestinationsSection() {
   );
 }
 
-export function ExperiencesSection() {
-  return (
-    <Section id="experiencias">
-      <SectionHeading
-        align="center"
-        eyebrow="Formas de viajar"
-        title="Experiências para cada jeito de viajar."
-        subtitle="Comece pelo estilo de viagem que combina com você — o roteiro nasce a partir dessa escolha."
-      />
-
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {experiences.map((exp) => {
-          const Icon = experienceIcons[exp.icon] ?? Sparkles;
-          return (
-            <article
-              key={exp.name}
-              className="flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
-            >
-              <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
-                <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
-              </span>
-              <h3 className="mt-5 text-xl text-primary">{exp.name}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
-                {exp.description}
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {exp.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-primary/25 px-3 py-1 text-xs text-foreground/80"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <Button asChild variant="cta" className="mt-6 w-full">
-                <a href="#cotacao">Montar minha viagem</a>
-              </Button>
-
-
-
-            </article>
-          );
-        })}
-      </div>
-    </Section>
-  );
-}
-
-
 const travelServices = [
-  {
-    icon: Plane,
-    title: "Passagens aéreas",
-    text: "Companhias, conexões e horários comparados para achar o voo que faz sentido no seu roteiro.",
-  },
-  {
-    icon: BedDouble,
-    title: "Hospedagens",
-    text: "Hotéis, pousadas, flats e resorts selecionados pelo destino, pelo perfil da viagem e pelo investimento.",
-  },
-  {
-    icon: Ship,
-    title: "Cruzeiros",
-    text: "Vários destinos em uma só viagem, com cabine, regime de bordo e excursões escolhidos com você.",
-  },
-  {
-    icon: Car,
-    title: "Aluguel de carros",
-    text: "Categoria, seguro e retirada organizados para explorar o destino com autonomia.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Seguro viagem",
-    text: "Cobertura adequada ao destino, ao período e à idade dos passageiros, inclusive onde é obrigatório.",
-  },
-  {
-    icon: BusFront,
-    title: "Transfer",
-    text: "Traslado entre aeroporto, hospedagem e passeios já contratado antes do embarque.",
-  },
-  {
-    icon: MapPinned,
-    title: "Passeios e experiências",
-    text: "Ingressos, tours e experiências reservados com antecedência, sem fila e sem improviso.",
-  },
+  { icon: Plane, title: "Passagens aéreas" },
+  { icon: BedDouble, title: "Hospedagens" },
+  { icon: BusFront, title: "Transfer" },
+  { icon: ShieldCheck, title: "Seguro viagem" },
+  { icon: Car, title: "Aluguel de carros" },
+  { icon: MapPinned, title: "Passeios e experiências" },
 ];
+
+
+
 
 
 export function GoogleRatingBadge() {
