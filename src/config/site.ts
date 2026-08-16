@@ -74,7 +74,9 @@ export const experienceMenu = [
   { label: "Cruzeiros", href: "#cruzeiros" },
   { label: "Famílias & Viagens a dois", href: "#momentos" },
   { label: "Férias nacionais e internacionais", href: "#destinos" },
+  { label: "Lua de mel", href: "#experiencia-lua-de-mel" },
 ];
+
 
 export const navItems: {
   label: string;
