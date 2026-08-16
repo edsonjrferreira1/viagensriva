@@ -68,17 +68,61 @@ export const whatsappLink = (message: string) =>
 export const defaultWhatsappMessage =
   "Olá! Vi a página da Viagens Riva e gostaria de planejar minha próxima viagem.";
 
-/** Submenu de Experiências (desktop dropdown / mobile recuado). */
+/** Submenu de Experiências — cada item leva a um bloco de conteúdo real. */
 export const experienceMenu = [
-  { label: "Resorts & All Inclusive", href: "#experiencia-resorts-all-inclusive" },
-  { label: "Cruzeiros", href: "#experiencia-cruzeiros" },
-  { label: "Férias nacionais e internacionais", href: "#experiencia-ferias-nacionais-e-internacionais" },
-  { label: "Praia & descanso", href: "#experiencia-praia-descanso" },
-  { label: "Lua de mel", href: "#experiencia-lua-de-mel" },
-  { label: "Neve & inverno", href: "#experiencia-neve-inverno" },
-  { label: "Natureza & aventura", href: "#experiencia-natureza-aventura" },
-  { label: "Cultura & gastronomia", href: "#experiencia-cultura-gastronomia" },
+  { label: "Resorts & All Inclusive", href: "#resorts" },
+  { label: "Cruzeiros", href: "#cruzeiros" },
+  { label: "Famílias & viagens a dois", href: "#momentos" },
+  { label: "Férias nacionais e internacionais", href: "#destinos" },
 ];
+
+/** Conteúdo da seção de cruzeiros. */
+export const cruiseIntro =
+  "Em um cruzeiro, a própria viagem já faz parte das férias. Você embarca, aproveita a estrutura do navio e pode conhecer diferentes destinos ao longo do mesmo roteiro, sem precisar trocar de hospedagem a cada parada.";
+
+export const cruiseIntroComplement =
+  "Existem roteiros nacionais e internacionais, diferentes categorias de cabine e opções para casais, famílias, grupos e comemorações especiais.";
+
+export const cruiseBenefits = [
+  {
+    icon: "map",
+    title: "Vários destinos em uma viagem",
+    text: "Conheça diferentes cidades, praias ou países ao longo do mesmo roteiro.",
+  },
+  {
+    icon: "bed",
+    title: "Sua hospedagem viaja com você",
+    text: "Você permanece na mesma cabine enquanto o navio segue para novos destinos, evitando trocas constantes de hotel e malas.",
+  },
+  {
+    icon: "sparkles",
+    title: "Experiência a bordo",
+    text: "Gastronomia, piscinas, shows, atividades e diferentes opções de entretenimento podem fazer parte da experiência, conforme o navio e a companhia.",
+  },
+  {
+    icon: "users",
+    title: "Para diferentes perfis",
+    text: "Existem cruzeiros para casais, famílias, grupos de amigos, comemorações e diferentes estilos de viajante.",
+  },
+  {
+    icon: "ship",
+    title: "Roteiros nacionais e internacionais",
+    text: "Podemos pesquisar opções no Brasil e no exterior conforme período, disponibilidade e perfil da viagem.",
+  },
+];
+
+/** Serviços complementares que a agência pode organizar junto ao cruzeiro. */
+export const cruiseExtras = [
+  "Passagem aérea quando necessária",
+  "Hospedagem antes ou depois do embarque",
+  "Transfer",
+  "Seguro viagem",
+  "Passeios e experiências",
+];
+
+export const cruiseNote =
+  "Cabines, alimentação, bebidas, atividades e demais serviços incluídos variam conforme companhia marítima, navio, roteiro e tarifa contratada.";
+
 
 
 export const navItems: {
