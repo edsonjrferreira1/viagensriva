@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Instagram } from "lucide-react";
 import { agency, whatsappLink, defaultWhatsappMessage } from "@/config/site";
 import logoAsset from "@/assets/logo-riva.png.asset.json";
 
@@ -7,19 +8,16 @@ export function Footer() {
     <footer className="surface-deep px-4 py-14 sm:px-6">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
         <div>
-          <div className="flex items-center gap-2">
+          <span className="inline-flex items-center rounded-2xl bg-white px-4 py-3">
             <img
               src={logoAsset.url}
               alt={`Logo ${agency.name}`}
               width={512}
               height={512}
               loading="lazy"
-              className="h-10 w-auto object-contain brightness-0 invert"
+              className="h-12 w-auto object-contain sm:h-14"
             />
-            <span className="font-display text-xl text-white">
-              Viagens <span className="italic">Riva</span>
-            </span>
-          </div>
+          </span>
           <p className="mt-4 text-sm text-white/70">{agency.legal}</p>
           <p className="mt-1 text-sm text-white/70">CNPJ: {agency.cnpj}</p>
           <p className="mt-1 text-sm text-white/70">Cadastur: {agency.cadastur}</p>
@@ -37,10 +35,20 @@ export function Footer() {
           >
             {agency.whatsappDisplay}
           </a>
+          <a
+            href={agency.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-2 text-sm text-white/80 hover:text-gold"
+          >
+            <Instagram className="size-4" />
+            {agency.instagramHandle}
+          </a>
           <p className="mt-2 text-sm text-white/70">
             Atendimento e cotações pelo WhatsApp.
           </p>
         </div>
+
 
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">

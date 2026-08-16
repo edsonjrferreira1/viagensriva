@@ -22,42 +22,27 @@ export function Header() {
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-soft"
-          : "bg-transparent",
+          : "bg-white/80 backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <a href="#top" className="flex items-center gap-2">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6">
+        <a href="#top" className="flex items-center" aria-label={agency.name}>
           <img
             src={logoAsset.url}
             alt={`Logo ${agency.name}`}
             width={512}
             height={512}
-            className={cn(
-              "h-10 w-auto object-contain transition",
-              !scrolled && "brightness-0 invert",
-            )}
+            className="h-12 w-auto object-contain sm:h-14 lg:h-16"
           />
-          <span
-            className={cn(
-              "font-display text-lg leading-none tracking-wide",
-              scrolled ? "text-primary" : "text-white",
-            )}
-          >
-            Viagens <span className="italic">Riva</span>
-          </span>
         </a>
+
 
         <nav className="hidden items-center gap-5 xl:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className={cn(
-                "text-[0.78rem] tracking-wide transition-colors",
-                scrolled
-                  ? "text-muted-foreground hover:text-teal"
-                  : "text-white/90 hover:text-white",
-              )}
+              className="text-[0.78rem] tracking-wide text-muted-foreground transition-colors hover:text-teal"
             >
               {item.label}
             </a>
@@ -67,7 +52,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Button
             asChild
-            variant={scrolled ? "cta" : "glass"}
+            variant="cta"
             size="sm"
             className="hidden rounded-full px-5 sm:inline-flex"
           >
@@ -77,10 +62,7 @@ export function Header() {
             type="button"
             aria-label="Abrir menu"
             onClick={() => setOpen((v) => !v)}
-            className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-full xl:hidden",
-              scrolled ? "text-primary" : "text-white",
-            )}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-primary xl:hidden"
           >
             <Menu className="size-5" />
           </button>
@@ -90,9 +72,16 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-50 flex flex-col surface-deep xl:hidden">
           <div className="flex items-center justify-between px-4 py-4">
-            <span className="font-display text-xl text-white">
-              Viagens <span className="italic">Riva</span>
+            <span className="inline-flex items-center rounded-xl bg-white px-3 py-2">
+              <img
+                src={logoAsset.url}
+                alt={`Logo ${agency.name}`}
+                width={512}
+                height={512}
+                className="h-10 w-auto object-contain"
+              />
             </span>
+
             <button
               type="button"
               aria-label="Fechar menu"

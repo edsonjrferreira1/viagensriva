@@ -26,11 +26,13 @@ import {
   Plane,
   MapPin,
   Star,
+  Instagram,
 } from "lucide-react";
 import { Section, SectionHeading } from "./Section";
 import {
   accommodations,
   agency,
+  agencyServices,
   destinations,
   experiences,
   expert,
@@ -39,6 +41,8 @@ import {
   leisureCards,
   whyAllInclusive,
 } from "@/config/site";
+import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
+
 
 import desire1 from "@/assets/desire-mosaic-1.jpg";
 import desire2 from "@/assets/desire-mosaic-2.jpg";
@@ -470,14 +474,18 @@ export function ExpertSection() {
   return (
     <Section>
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <img
-          src={expert.image || agentImg}
-          alt={expert.name}
-          width={816}
-          height={816}
-          loading="lazy"
-          className="mx-auto h-80 w-80 rounded-2xl object-cover shadow-lift sm:h-96 sm:w-96"
-        />
+        <div className="mx-auto w-full max-w-md">
+          <div className="rounded-3xl border border-border bg-card p-3 shadow-lift">
+            <img
+              src={expertImg.url}
+              alt={`${expert.name}, responsável pela ${agency.name}`}
+              width={900}
+              height={1125}
+              loading="lazy"
+              className="aspect-[4/5] w-full rounded-2xl object-cover"
+            />
+          </div>
+        </div>
         <div>
           <SectionHeading
             eyebrow="Quem cuida da sua viagem"
@@ -487,25 +495,44 @@ export function ExpertSection() {
           <p className="mt-4 text-sm text-muted-foreground">
             {expert.role} · CNPJ {agency.cnpj} · {agency.cadastur}
           </p>
-          <div className="mt-8 flex flex-wrap gap-2">
-            {["Atendimento personalizado", "Resorts selecionados", "Suporte antes e durante a viagem"].map((t) => (
-              <span
-                key={t}
-                className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-xs uppercase tracking-[0.16em] text-secondary-foreground"
+
+          <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
+            Organizamos viagens nacionais e internacionais, cuidando de cada
+            etapa do roteiro:
+          </p>
+          <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+            {agencyServices.map((s) => (
+              <li
+                key={s.label}
+                className="flex items-center gap-2 rounded-xl bg-secondary px-3 py-2 text-sm text-secondary-foreground"
               >
-                <BadgeCheck className="size-3.5 text-teal" />
-                {t}
-              </span>
+                <span aria-hidden="true">{s.emoji}</span>
+                {s.label}
+              </li>
             ))}
+          </ul>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Button asChild variant="cta" size="xl">
+              <a href="#cotacao">Falar com {expert.name.split(" ")[0]}</a>
+            </Button>
+            <Button asChild variant="outline" size="xl">
+              <a
+                href={agency.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="size-4" />
+                {agency.instagramHandle}
+              </a>
+            </Button>
           </div>
-          <Button asChild variant="cta" size="xl" className="mt-8">
-            <a href="#cotacao">Falar com {expert.name.split(" ")[0]}</a>
-          </Button>
         </div>
       </div>
     </Section>
   );
 }
+
 
 export function WhyRivaSection() {
   const cards = [
