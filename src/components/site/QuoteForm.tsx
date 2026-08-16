@@ -40,20 +40,20 @@ export function QuoteForm() {
     e.preventDefault();
 
     const message = [
-      "Olá! Gostaria de receber uma cotação personalizada da Viagens Riva.",
+      "Olá! Gostaria de planejar minha próxima viagem com a Viagens Riva.",
       "",
       `Nome: ${form.nome || "-"}`,
       `WhatsApp: ${form.whatsapp || "-"}`,
       `E-mail: ${form.email || "-"}`,
       `Destino de interesse: ${form.destino || "-"}`,
       `Tipo de viagem: ${form.tipo || "-"}`,
-      `Check-in: ${form.checkin || "-"}`,
-      `Check-out: ${form.checkout || "-"}`,
+      `Ida: ${form.checkin || "-"}`,
+      `Volta: ${form.checkout || "-"}`,
       `Adultos: ${form.adultos || "-"}`,
       `Crianças: ${form.criancas || "0"}`,
       `Idades: ${form.idades || "-"}`,
       "",
-      "Tenho interesse em:",
+      "Gostaria de incluir na viagem:",
       interests.length ? interests.join(", ") : "-",
       "",
       "Observações:",
@@ -66,10 +66,11 @@ export function QuoteForm() {
   return (
     <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
       <SectionHeading
-        eyebrow="Cotação personalizada"
-        title="Quanto custa viver essa experiência?"
-        subtitle="Conte para a gente como será sua viagem e receba uma cotação personalizada. Os valores variam conforme período, ocupação, categoria da acomodação, regime escolhido e disponibilidade."
+        eyebrow="Planejamento de viagem"
+        title="Vamos planejar sua próxima viagem?"
+        subtitle="Conte como você quer viajar e receba uma cotação personalizada. Os valores variam conforme período, destino, número de passageiros, serviços escolhidos e disponibilidade."
       />
+
 
       <form
         onSubmit={handleSubmit}
