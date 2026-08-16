@@ -8,21 +8,23 @@ import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import {
   AccommodationsSection,
   CouplesSection,
-  FamilySection,
+  DesireSection,
+  DestinationsSection,
+  ExperiencesSection,
+  ExpertSection,
   FaqSection,
   FinalCta,
   GastronomySection,
   InclusiveSection,
   LeisureSection,
-  LocationSection,
-  ResortSection,
-  SpaSection,
+  FamilySection,
+  WhyAllInclusiveSection,
   WhyRivaSection,
 } from "@/components/site/Sections";
 
-const title = "SERHS Natal com SERHS Inclusive | Cotação Viagens Riva";
+const title = "Viagens Riva | Resorts Premium e All Inclusive";
 const description =
-  "Conheça o SERHS Natal Grand Hotel & Resort e solicite sua cotação personalizada com opção SERHS Inclusive. Hospedagem e serviços para sua viagem a Natal.";
+  "Agência de viagens especializada em resorts premium e All Inclusive no Brasil e no exterior. Cotação personalizada via WhatsApp com a Viagens Riva.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,15 +46,17 @@ function Index() {
       <Header />
       <main>
         <Hero />
-        <ResortSection />
+        <DesireSection />
         <InclusiveSection />
         <GastronomySection />
         <LeisureSection />
         <FamilySection />
         <CouplesSection />
         <AccommodationsSection />
-        <SpaSection />
-        <LocationSection />
+        <DestinationsSection />
+        <ExperiencesSection />
+        <WhyAllInclusiveSection />
+        <ExpertSection />
         <WhyRivaSection />
         <Section id="cotacao">
           <QuoteForm />

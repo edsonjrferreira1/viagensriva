@@ -8,13 +8,13 @@ export const Route = createFileRoute("/termos")({
       {
         name: "description",
         content:
-          "Termos de uso da página de divulgação do SERHS Natal Grand Hotel & Resort administrada pela Viagens Riva.",
+          "Termos de uso da página da Viagens Riva, agência de viagens independente.",
       },
       { property: "og:title", content: "Termos de Uso | Viagens Riva" },
       {
         property: "og:description",
         content:
-          "Condições de uso da página de cotação do SERHS Natal pela Viagens Riva.",
+          "Condições de uso da página de cotação da Viagens Riva.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -34,13 +34,13 @@ function Termos() {
         <p>
           Esta página é administrada pela {agency.name}, agência de viagens
           independente (CNPJ {agency.cnpj}, {agency.cadastur}), para divulgação e
-          comercialização de serviços turísticos. Não se trata do site oficial do
-          SERHS Natal Grand Hotel & Resort.
+          comercialização de serviços turísticos. Não se trata de site oficial de
+          nenhum hotel, resort ou rede hoteleira específica.
         </p>
         <p>
           As informações sobre estrutura, restaurantes, regime de alimentação e
-          serviços do resort são apresentadas de forma comercial e podem sofrer
-          alterações conforme a programação e as regras vigentes do
+          serviços são apresentadas de forma comercial e genérica, podendo sofrer
+          alterações conforme a programação e as regras vigentes de cada
           estabelecimento.
         </p>
         <p>
@@ -52,7 +52,7 @@ function Termos() {
         <p>
           Marcas e nomes de terceiros citados pertencem aos seus respectivos
           titulares e são mencionados apenas para identificar os serviços
-          comercializados.
+          comercializados, quando aplicável.
         </p>
       </div>
     </main>

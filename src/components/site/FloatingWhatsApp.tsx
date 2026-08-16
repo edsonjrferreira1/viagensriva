@@ -8,7 +8,7 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar pelo WhatsApp"
-      className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-ocean px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-ocean-foreground shadow-lift transition hover:bg-ocean/90"
+      className="fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-teal px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-teal-foreground shadow-lift transition hover:bg-teal/90"
     >
       <MessageCircle className="size-5" />
       <span className="hidden sm:inline">Falar pelo WhatsApp</span>
