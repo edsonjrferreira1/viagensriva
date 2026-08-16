@@ -113,7 +113,7 @@ export function QuoteForm() {
               placeholder="Ex: Nordeste, Sul, Caribe, Europa..."
             />
           </Field>
-          <Field label="Check-in" id="checkin">
+          <Field label="Data de ida" id="checkin">
             <Input
               id="checkin"
               type="date"
@@ -121,7 +121,7 @@ export function QuoteForm() {
               onChange={(e) => set("checkin")(e.target.value)}
             />
           </Field>
-          <Field label="Check-out" id="checkout">
+          <Field label="Data de volta" id="checkout">
             <Input
               id="checkout"
               type="date"
@@ -129,6 +129,7 @@ export function QuoteForm() {
               onChange={(e) => set("checkout")(e.target.value)}
             />
           </Field>
+
           <Field label="Adultos" id="adultos">
             <Input
               id="adultos"
