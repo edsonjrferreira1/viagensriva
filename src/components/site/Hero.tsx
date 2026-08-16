@@ -27,7 +27,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
 
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-4 pb-14 pt-28 sm:px-6 sm:pb-20 lg:min-h-0 lg:h-full lg:justify-center lg:pb-10 lg:pt-24">
+      <div className="relative mx-auto flex min-h-[92svh] max-w-7xl flex-col justify-end px-5 pb-12 pt-24 sm:px-6 sm:pb-16 lg:min-h-0 lg:h-full lg:justify-center lg:pb-10 lg:pt-24">
         <span className="inline-flex w-fit items-center gap-2 rounded-full border border-gold/70 bg-black/45 px-4 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.28em] text-gold backdrop-blur-md">
           Viagens nacionais &amp; internacionais
         </span>
