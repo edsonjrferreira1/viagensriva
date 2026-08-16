@@ -1,6 +1,6 @@
 /**
- * Configuração central da landing page.
- * Altere aqui: WhatsApp, dados da agência, números do resort, restaurantes, textos e CTAs.
+ * Configuração central da landing page da Viagens Riva.
+ * Altere aqui: WhatsApp, dados da agência, textos, navegação, destinos, FAQ e CTAs.
  */
 
 export const agency = {
@@ -12,35 +12,36 @@ export const agency = {
   whatsappDisplay: "(62) 98217-9433",
 };
 
-export const resort = {
-  name: "SERHS Natal Grand Hotel & Resort",
-  shortName: "SERHS Natal",
-  city: "Natal/RN",
-  address: "Via Costeira, Natal — Rio Grande do Norte",
-  mapEmbed:
-    "https://www.google.com/maps?q=Via+Costeira,+Natal+-+RN&output=embed",
-  stats: {
-    restaurants: "6",
-    bars: "4",
-    pools: "4",
-  },
+export const expert = {
+  name: "Edson Ferreira",
+  role: "Responsável pela agência Viagens Riva",
+  bio: "Professor, mestre e apaixonado pelo mundo das viagens. Acompanha cada cotação com atenção às preferências de quem está planejando a próxima experiência.",
+  image: null as string | null,
 };
 
 export const whatsappLink = (message: string) =>
   `https://wa.me/${agency.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 export const defaultWhatsappMessage =
-  "Olá! Vi a página do SERHS Natal e gostaria de receber uma cotação.";
+  "Olá! Vi a página da Viagens Riva e gostaria de receber uma cotação personalizada para minha viagem.";
 
 export const navItems = [
-  { label: "O Resort", href: "#resort" },
-  { label: "SERHS Inclusive", href: "#serhs-inclusive" },
+  { label: "Experiências", href: "#experiencias" },
+  { label: "All Inclusive", href: "#all-inclusive" },
   { label: "Gastronomia", href: "#gastronomia" },
-  { label: "Piscinas e Lazer", href: "#lazer" },
-  { label: "Acomodações", href: "#acomodacoes" },
+  { label: "Lazer", href: "#lazer" },
   { label: "Famílias", href: "#familias" },
-  { label: "Localização", href: "#localizacao" },
+  { label: "Casais", href: "#casais" },
+  { label: "Destinos", href: "#destinos" },
+  { label: "Cotação", href: "#cotacao" },
   { label: "Dúvidas", href: "#faq" },
+];
+
+export const heroHighlights = [
+  "Atendimento personalizado",
+  "Resorts selecionados",
+  "Cotação sem compromisso",
+  "Agência regularizada",
 ];
 
 export const inclusiveCards = [
@@ -66,33 +67,28 @@ export const inclusiveCards = [
   },
   {
     title: "Gastronomia",
-    text: "Experiências em restaurantes participantes do SERHS Inclusive.",
+    text: "Experiências em restaurantes participantes do regime All Inclusive.",
   },
-];
-
-export const restaurants = [
-  { name: "Potiguar", note: "Sabores regionais e buffet variado" },
-  { name: "Renato Romagnoni", note: "Inspiração italiana" },
-  { name: "Jangada", note: "Ambiente descontraído à beira das piscinas" },
-  { name: "Tapiro Grill", note: "Carnes e churrasco" },
-  { name: "Marenostrum", note: "Frutos do mar e cozinha mediterrânea" },
-  { name: "SERUTZU Japanese Restaurant", note: "Culinária japonesa" },
+  {
+    title: "Lazer",
+    text: "Piscinas, recreação e atividades incluídas conforme a programação do resort.",
+  },
 ];
 
 export const leisureCards = [
   "Piscinas",
   "Praia",
-  "Lazer",
   "Recreação",
   "Kids Club",
   "Relaxamento",
   "SPA",
+  "Esportes",
+  "Entretenimento",
 ];
 
-/** Acomodações — estrutura pronta para receber as categorias oficiais. */
 export const accommodations = [
   {
-    name: "Categoria a consultar",
+    name: "Acomodação standard",
     capacity: "Ocupação sob consulta",
     description:
       "Quartos e suítes confortáveis para descansar depois de um dia inteiro de férias. Consulte as categorias disponíveis para as suas datas.",
@@ -101,7 +97,7 @@ export const accommodations = [
     name: "Opção para casais",
     capacity: "Ocupação sob consulta",
     description:
-      "Acomodações pensadas para quem quer descansar a dois, com o mar sempre por perto.",
+      "Acomodações pensadas para quem quer descansar a dois, com vistas e conforto especiais.",
   },
   {
     name: "Opção para famílias",
@@ -111,26 +107,88 @@ export const accommodations = [
   },
 ];
 
+export const destinations = [
+  {
+    name: "Litoral brasileiro",
+    description: "Praias, resorts e muito sol para quem quer aproveitar o verão brasileiro.",
+    tag: "Nacional",
+  },
+  {
+    name: "Destinos de montanha",
+    description: "Clima ameno, paisagens verdes e estrutura para descansar em qualquer época.",
+    tag: "Nacional",
+  },
+  {
+    name: "Resorts internacionais",
+    description: "Experiências fora do país com atendimento e suporte em português.",
+    tag: "Internacional",
+  },
+];
+
+export const experiences = [
+  {
+    name: "Resort All Inclusive",
+    destination: "Destino nacional",
+    regime: "All Inclusive",
+    differentials: ["Refeições", "Bebidas", "Lazer", "Recreação"],
+  },
+  {
+    name: "Resort para famílias",
+    destination: "Destino nacional",
+    regime: "Meia pensão ou All Inclusive",
+    differentials: ["Kids Club", "Piscinas", "Recreação", "Família"],
+  },
+  {
+    name: "Experiência a dois",
+    destination: "Nacional ou internacional",
+    regime: "Sob consulta",
+    differentials: ["Romântico", "Bem-estar", "Gastronomia", "Exclusividade"],
+  },
+];
+
+export const whyAllInclusive = [
+  {
+    title: "Previsibilidade",
+    text: "Saiba antecipadamente o que está incluído na sua hospedagem e planeje seu orçamento com mais tranquilidade.",
+  },
+  {
+    title: "Praticidade",
+    text: "Menos preocupação com refeições, bebidas e atividades do dia a dia durante as férias.",
+  },
+  {
+    title: "Variedade",
+    text: "Restaurantes, bares, lazer e recreação reunidos no mesmo lugar, para todos os perfis.",
+  },
+  {
+    title: "Família",
+    text: "Estrutura pensada para que crianças e adultos aproveitem juntos — e separados também.",
+  },
+  {
+    title: "Experiência",
+    text: "Mais tempo para curtir a viagem e menos tempo resolvendo detalhes por conta própria.",
+  },
+];
+
 export const faq = [
   {
-    q: "O SERHS Natal é All Inclusive?",
-    a: "O resort possui o regime SERHS Inclusive, que oferece uma experiência ampla de alimentação e bebidas conforme os cardápios, restaurantes, horários e condições vigentes para a hospedagem.",
+    q: "O que é um resort All Inclusive?",
+    a: "É um regime de hospedagem que inclui, conforme as regras de cada resort, refeições, bebidas, lazer e outras atividades. Cada estabelecimento define o que está incluído, os horários e as condições vigentes.",
   },
   {
     q: "Posso contratar somente hospedagem?",
-    a: "Sim. É possível solicitar cotação somente da hospedagem.",
+    a: "Sim. É possível solicitar cotação somente da hospedagem, com o regime que você preferir.",
   },
   {
     q: "Também posso incluir passagem aérea?",
-    a: "Sim. Podemos preparar uma cotação incluindo hospedagem e passagem aérea.",
+    a: "Sim. Podemos preparar uma cotação incluindo hospedagem e passagem aérea, além de outros serviços.",
   },
   {
     q: "Posso viajar com crianças?",
-    a: "Sim. O resort possui estrutura e experiências voltadas também para famílias com crianças.",
+    a: "Sim. Trabalhamos com resorts que possuem estrutura e experiências voltadas também para famílias com crianças.",
   },
   {
     q: "É possível parcelar?",
-    a: "As condições de pagamento disponíveis serão apresentadas juntamente com a cotação.",
+    a: "As condições de pagamento disponíveis serão apresentadas juntamente com a cotação personalizada.",
   },
   {
     q: "Os preços apresentados são fixos?",
@@ -138,14 +196,26 @@ export const faq = [
   },
   {
     q: "É possível incluir transfer?",
-    a: "Sim. Consulte disponibilidade para incluir transfer e outros serviços na sua viagem.",
+    a: "Sim. Consulte disponibilidade para incluir transfer, seguro viagem e outros serviços na sua viagem.",
   },
 ];
 
 export const interestOptions = [
   "Hospedagem",
   "Hospedagem + passagem aérea",
-  "SERHS Inclusive",
+  "All Inclusive",
   "Transfer",
   "Seguro viagem",
+  "Passeios",
+];
+
+export const tripTypes = [
+  "Ainda não sei",
+  "Família com crianças",
+  "Casal",
+  "Grupo de amigos",
+  "Viagem solo",
+  "Lua de mel",
+  "Aniversário",
+  "Outra ocasião",
 ];

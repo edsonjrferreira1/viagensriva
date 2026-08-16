@@ -5,18 +5,20 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { SectionHeading } from "./Section";
-import { interestOptions, resort, whatsappLink } from "@/config/site";
+import { interestOptions, whatsappLink, tripTypes } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 const initial = {
   nome: "",
   whatsapp: "",
-  cidade: "",
+  email: "",
+  destino: "",
   checkin: "",
   checkout: "",
   adultos: "2",
   criancas: "0",
   idades: "",
+  tipo: "Ainda não sei",
   observacoes: "",
 };
 
@@ -38,11 +40,13 @@ export function QuoteForm() {
     e.preventDefault();
 
     const message = [
-      `Olá! Gostaria de receber uma cotação para o ${resort.name}.`,
+      "Olá! Gostaria de receber uma cotação personalizada da Viagens Riva.",
       "",
       `Nome: ${form.nome || "-"}`,
       `WhatsApp: ${form.whatsapp || "-"}`,
-      `Cidade de origem: ${form.cidade || "-"}`,
+      `E-mail: ${form.email || "-"}`,
+      `Destino de interesse: ${form.destino || "-"}`,
+      `Tipo de viagem: ${form.tipo || "-"}`,
       `Check-in: ${form.checkin || "-"}`,
       `Check-out: ${form.checkout || "-"}`,
       `Adultos: ${form.adultos || "-"}`,
@@ -91,12 +95,21 @@ export function QuoteForm() {
               placeholder="(00) 00000-0000"
             />
           </Field>
-          <Field label="Cidade de origem" id="cidade" className="sm:col-span-2">
+          <Field label="E-mail" id="email" className="sm:col-span-2">
             <Input
-              id="cidade"
-              value={form.cidade}
-              onChange={(e) => set("cidade")(e.target.value)}
-              placeholder="De onde você vai sair"
+              id="email"
+              type="email"
+              value={form.email}
+              onChange={(e) => set("email")(e.target.value)}
+              placeholder="seu@email.com"
+            />
+          </Field>
+          <Field label="Destino de interesse" id="destino" className="sm:col-span-2">
+            <Input
+              id="destino"
+              value={form.destino}
+              onChange={(e) => set("destino")(e.target.value)}
+              placeholder="Ex: Nordeste, Sul, Caribe, Europa..."
             />
           </Field>
           <Field label="Check-in" id="checkin">
@@ -145,6 +158,20 @@ export function QuoteForm() {
               placeholder="Ex.: 4 e 9 anos"
             />
           </Field>
+          <Field label="Tipo de viagem" id="tipo" className="sm:col-span-2">
+            <select
+              id="tipo"
+              value={form.tipo}
+              onChange={(e) => set("tipo")(e.target.value)}
+              className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
+              {tripTypes.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+          </Field>
         </div>
 
         <fieldset className="mt-6">
@@ -160,8 +187,8 @@ export function QuoteForm() {
                   className={cn(
                     "flex cursor-pointer items-center gap-2 rounded-full border px-4 py-2 text-xs transition",
                     active
-                      ? "border-ocean bg-ocean text-ocean-foreground"
-                      : "border-border bg-background text-muted-foreground hover:border-ocean",
+                      ? "border-teal bg-teal text-teal-foreground"
+                      : "border-border bg-background text-muted-foreground hover:border-teal",
                   )}
                 >
                   <Checkbox
@@ -182,7 +209,7 @@ export function QuoteForm() {
             rows={3}
             value={form.observacoes}
             onChange={(e) => set("observacoes")(e.target.value)}
-            placeholder="Datas flexíveis, preferências, ocasião especial..."
+            placeholder="Datas flexíveis, preferências, ocasião especial, necessidades especiais..."
           />
         </Field>
 

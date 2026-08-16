@@ -5,8 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system — Viagens Riva / SERHS Natal
- * Paleta: azul profundo, azul oceano, off-white, areia, bege, champagne.
+ * Design system — Viagens Riva
+ * Paleta: amarelo/dourado dominante, azul-marinho profundo, turquesa,
+ * vermelho-carmim pontual, branco/off-white e areia.
  * Todas as cores em oklch. Nunca usar cores literais em componentes.
  */
 
@@ -38,11 +39,16 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
-  --color-ocean: var(--ocean);
-  --color-ocean-foreground: var(--ocean-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-teal: var(--teal);
+  --color-teal-foreground: var(--teal-foreground);
+  --color-crimson: var(--crimson);
+  --color-crimson-foreground: var(--crimson-foreground);
   --color-sand: var(--sand);
   --color-sand-foreground: var(--sand-foreground);
-  --color-champagne: var(--champagne);
   --color-deep: var(--deep);
   --color-deep-foreground: var(--deep-foreground);
   --color-chart-1: var(--chart-1);
@@ -65,63 +71,74 @@
 :root {
   --radius: 0.5rem;
 
-  --background: oklch(0.985 0.006 95);
-  --foreground: oklch(0.26 0.045 250);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.22 0.05 250);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.26 0.045 250);
+  --card-foreground: oklch(0.22 0.05 250);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.26 0.045 250);
+  --popover-foreground: oklch(0.22 0.05 250);
 
-  /* azul profundo */
-  --primary: oklch(0.33 0.078 248);
-  --primary-foreground: oklch(0.985 0.006 95);
+  /* azul-marinho profundo */
+  --primary: oklch(0.26 0.07 250);
+  --primary-foreground: oklch(0.99 0 100);
 
   /* areia */
-  --secondary: oklch(0.94 0.02 85);
-  --secondary-foreground: oklch(0.33 0.078 248);
+  --secondary: oklch(0.96 0.015 90);
+  --secondary-foreground: oklch(0.26 0.07 250);
 
-  --muted: oklch(0.955 0.012 90);
-  --muted-foreground: oklch(0.5 0.03 250);
+  --muted: oklch(0.97 0.01 90);
+  --muted-foreground: oklch(0.55 0.03 250);
 
-  /* azul oceano */
-  --accent: oklch(0.62 0.098 216);
-  --accent-foreground: oklch(0.985 0.006 95);
+  /* turquesa */
+  --accent: oklch(0.62 0.11 200);
+  --accent-foreground: oklch(0.99 0 100);
 
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0.006 95);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.99 0 100);
 
   --border: oklch(0.9 0.015 90);
   --input: oklch(0.9 0.015 90);
-  --ring: oklch(0.62 0.098 216);
+  --ring: oklch(0.62 0.11 200);
 
-  --ocean: oklch(0.62 0.098 216);
-  --ocean-foreground: oklch(0.985 0.006 95);
-  --sand: oklch(0.93 0.028 82);
-  --sand-foreground: oklch(0.33 0.078 248);
-  --champagne: oklch(0.82 0.075 82);
-  --deep: oklch(0.26 0.062 250);
+  /* tokens complementares */
+  --gold: oklch(0.78 0.13 85);
+  --gold-foreground: oklch(0.2 0.05 250);
+  --navy: oklch(0.2 0.06 250);
+  --navy-foreground: oklch(0.99 0 100);
+  --teal: oklch(0.62 0.11 200);
+  --teal-foreground: oklch(0.99 0 100);
+  --crimson: oklch(0.55 0.18 25);
+  --crimson-foreground: oklch(0.99 0 100);
+  --sand: oklch(0.95 0.025 90);
+  --sand-foreground: oklch(0.26 0.07 250);
+  --deep: oklch(0.2 0.05 250);
   --deep-foreground: oklch(0.97 0.01 90);
 
-  --chart-1: oklch(0.33 0.078 248);
-  --chart-2: oklch(0.62 0.098 216);
-  --chart-3: oklch(0.82 0.075 82);
-  --chart-4: oklch(0.93 0.028 82);
-  --chart-5: oklch(0.5 0.03 250);
+  --chart-1: oklch(0.26 0.07 250);
+  --chart-2: oklch(0.62 0.11 200);
+  --chart-3: oklch(0.78 0.13 85);
+  --chart-4: oklch(0.95 0.025 90);
+  --chart-5: oklch(0.55 0.03 250);
 
-  --sidebar: oklch(0.985 0.006 95);
-  --sidebar-foreground: oklch(0.26 0.045 250);
-  --sidebar-primary: oklch(0.33 0.078 248);
-  --sidebar-primary-foreground: oklch(0.985 0.006 95);
-  --sidebar-accent: oklch(0.94 0.02 85);
-  --sidebar-accent-foreground: oklch(0.33 0.078 248);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.22 0.05 250);
+  --sidebar-primary: oklch(0.26 0.07 250);
+  --sidebar-primary-foreground: oklch(0.99 0 100);
+  --sidebar-accent: oklch(0.96 0.015 90);
+  --sidebar-accent-foreground: oklch(0.26 0.07 250);
   --sidebar-border: oklch(0.9 0.015 90);
-  --sidebar-ring: oklch(0.62 0.098 216);
+  --sidebar-ring: oklch(0.62 0.11 200);
 
   --gradient-deep: linear-gradient(
     135deg,
-    oklch(0.26 0.062 250),
-    oklch(0.38 0.085 232)
+    oklch(0.2 0.05 250),
+    oklch(0.32 0.075 245)
+  );
+  --gradient-gold: linear-gradient(
+    135deg,
+    oklch(0.72 0.13 85),
+    oklch(0.82 0.12 90)
   );
   --gradient-overlay: linear-gradient(
     to top,
@@ -129,8 +146,9 @@
     oklch(0.2 0.05 250 / 0.35) 45%,
     oklch(0.2 0.05 250 / 0.15)
   );
-  --shadow-soft: 0 18px 50px -24px oklch(0.26 0.062 250 / 0.45);
-  --shadow-lift: 0 30px 70px -30px oklch(0.26 0.062 250 / 0.55);
+  --shadow-soft: 0 18px 50px -24px oklch(0.2 0.05 250 / 0.45);
+  --shadow-lift: 0 30px 70px -30px oklch(0.2 0.05 250 / 0.55);
+  --shadow-gold: 0 18px 50px -20px oklch(0.72 0.13 85 / 0.55);
 }
 
 .dark {
@@ -146,11 +164,11 @@
   --secondary-foreground: oklch(0.97 0.01 90);
   --muted: oklch(0.32 0.05 250);
   --muted-foreground: oklch(0.75 0.02 250);
-  --accent: oklch(0.62 0.098 216);
+  --accent: oklch(0.62 0.11 200);
   --accent-foreground: oklch(0.97 0.01 90);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.62 0.098 216);
+  --ring: oklch(0.62 0.11 200);
 }
 
 @layer base {
@@ -185,12 +203,17 @@
   letter-spacing: 0.28em;
   text-transform: uppercase;
   font-weight: 500;
-  color: var(--color-ocean);
+  color: var(--color-teal);
 }
 
 @utility surface-deep {
   background-image: var(--gradient-deep);
   color: var(--deep-foreground);
+}
+
+@utility surface-gold {
+  background-image: var(--gradient-gold);
+  color: var(--gold-foreground);
 }
 
 @utility media-overlay {
@@ -203,6 +226,10 @@
 
 @utility shadow-lift {
   box-shadow: var(--shadow-lift);
+}
+
+@utility shadow-gold {
+  box-shadow: var(--shadow-gold);
 }
 
 @utility section-y {

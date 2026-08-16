@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems, agency } from "@/config/site";
-import logo from "@/assets/logo-riva.png";
+import logoAsset from "@/assets/logo-riva.png.asset.json";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -21,26 +21,26 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/90 backdrop-blur-md shadow-soft"
+          ? "bg-white/95 backdrop-blur-md shadow-soft"
           : "bg-transparent",
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <a href="#top" className="flex items-center gap-2">
           <img
-            src={logo}
+            src={logoAsset.url}
             alt={`Logo ${agency.name}`}
             width={512}
             height={512}
             className={cn(
-              "h-10 w-10 object-contain transition",
+              "h-10 w-auto object-contain transition",
               !scrolled && "brightness-0 invert",
             )}
           />
           <span
             className={cn(
               "font-display text-lg leading-none tracking-wide",
-              scrolled ? "text-primary" : "text-sand",
+              scrolled ? "text-primary" : "text-white",
             )}
           >
             Viagens <span className="italic">Riva</span>
@@ -55,8 +55,8 @@ export function Header() {
               className={cn(
                 "text-[0.78rem] tracking-wide transition-colors",
                 scrolled
-                  ? "text-muted-foreground hover:text-ocean"
-                  : "text-sand/90 hover:text-sand",
+                  ? "text-muted-foreground hover:text-teal"
+                  : "text-white/90 hover:text-white",
               )}
             >
               {item.label}
@@ -79,10 +79,10 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             className={cn(
               "inline-flex h-10 w-10 items-center justify-center rounded-full xl:hidden",
-              scrolled ? "text-primary" : "text-sand",
+              scrolled ? "text-primary" : "text-white",
             )}
           >
-            {open ? <Menu className="size-5" /> : <Menu className="size-5" />}
+            <Menu className="size-5" />
           </button>
         </div>
       </div>
@@ -90,14 +90,14 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-50 flex flex-col surface-deep xl:hidden">
           <div className="flex items-center justify-between px-4 py-4">
-            <span className="font-display text-xl text-sand">
+            <span className="font-display text-xl text-white">
               Viagens <span className="italic">Riva</span>
             </span>
             <button
               type="button"
               aria-label="Fechar menu"
               onClick={() => setOpen(false)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-sand"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-white"
             >
               <X className="size-5" />
             </button>
@@ -108,14 +108,14 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-sand/15 py-4 font-display text-2xl text-sand"
+                className="border-b border-white/15 py-4 font-display text-2xl text-white"
               >
                 {item.label}
               </a>
             ))}
             <Button
               asChild
-              variant="champagne"
+              variant="gold"
               size="xl"
               className="mt-8 w-full"
               onClick={() => setOpen(false)}

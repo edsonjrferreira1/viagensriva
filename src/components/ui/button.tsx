@@ -16,12 +16,17 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "bg-ocean text-ocean-foreground shadow-soft hover:bg-ocean/90 tracking-[0.14em] uppercase font-semibold",
+        cta: "bg-gold text-gold-foreground shadow-gold hover:bg-gold/90 tracking-[0.14em] uppercase font-semibold",
+        navy: "bg-navy text-navy-foreground shadow-soft hover:bg-navy/90 tracking-[0.14em] uppercase font-semibold",
+        teal: "bg-teal text-teal-foreground shadow-soft hover:bg-teal/90 tracking-[0.14em] uppercase font-semibold",
         deep: "surface-deep shadow-soft hover:opacity-90 tracking-[0.14em] uppercase font-semibold",
+        gold: "surface-gold shadow-gold hover:opacity-90 tracking-[0.14em] uppercase font-semibold",
         glass:
-          "border border-sand/50 bg-background/10 text-sand backdrop-blur-md hover:bg-background/20 tracking-[0.14em] uppercase font-medium",
+          "border border-white/50 bg-white/10 text-white backdrop-blur-md hover:bg-white/20 tracking-[0.14em] uppercase font-medium",
+        glassDark:
+          "border border-primary/30 bg-background/80 text-primary backdrop-blur-md hover:bg-background/90 tracking-[0.14em] uppercase font-medium",
         champagne:
-          "bg-champagne text-sand-foreground shadow-soft hover:bg-champagne/85 tracking-[0.14em] uppercase font-semibold",
+          "bg-gold text-gold-foreground shadow-gold hover:bg-gold/85 tracking-[0.14em] uppercase font-semibold",
       },
       size: {
         default: "h-9 px-4 py-2",

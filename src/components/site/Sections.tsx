@@ -19,104 +19,88 @@ import {
   Wine,
   ChefHat,
   Sparkles,
+  Waves,
   BadgeCheck,
   Headphones,
   ShieldCheck,
   Plane,
   MapPin,
+  Star,
 } from "lucide-react";
 import { Section, SectionHeading } from "./Section";
 import {
   accommodations,
   agency,
+  destinations,
+  experiences,
+  expert,
   faq,
   inclusiveCards,
   leisureCards,
-  resort,
-  restaurants,
+  whyAllInclusive,
 } from "@/config/site";
 
-import aerial from "@/assets/resort-aerial.jpg";
-import pools from "@/assets/pools.jpg";
-import gastro1 from "@/assets/gastronomy-1.jpg";
-import gastro2 from "@/assets/gastronomy-2.jpg";
-import drinks from "@/assets/drinks.jpg";
-import family from "@/assets/family.jpg";
-import couples from "@/assets/couples.jpg";
-import room from "@/assets/room.jpg";
-import spa from "@/assets/spa.jpg";
-import panorama from "@/assets/cta-panorama.jpg";
+import desire1 from "@/assets/desire-mosaic-1.jpg";
+import desire2 from "@/assets/desire-mosaic-2.jpg";
+import desire3 from "@/assets/desire-mosaic-3.jpg";
+import lazerImg from "@/assets/lazer-piscinas.jpg.asset.json";
+import gastro from "@/assets/desire-mosaic-3.jpg";
+import family from "@/assets/family-pool.jpg";
+import couples from "@/assets/couples-dinner.jpg";
+import room from "@/assets/room-suite.jpg";
+import spa from "@/assets/spa-wellness.jpg";
+import destBeach from "@/assets/destination-beach.jpg";
+import destMountain from "@/assets/destination-mountain.jpg";
+import destInternational from "@/assets/destination-international.jpg";
+import agentImg from "@/assets/agent-placeholder.jpg";
+import panorama from "@/assets/final-cta.jpg";
 
-const inclusiveIcons = [Coffee, UtensilsCrossed, Salad, ChefHat, Wine, Sparkles];
+const inclusiveIcons = [Coffee, UtensilsCrossed, Salad, ChefHat, Wine, Sparkles, Waves];
+const destinationImages = [destBeach, destMountain, destInternational];
 
-export function ResortSection() {
+export function DesireSection() {
   return (
-    <Section id="resort">
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <div>
-          <SectionHeading
-            eyebrow="O SERHS Natal"
-            title="Um resort para viver Natal de um jeito diferente"
-            subtitle="Um resort à beira-mar na Via Costeira, onde o dia pode começar com o som do mar e terminar com um jantar sem pressa. Praia, piscinas, gastronomia e espaços de descanso reunidos no mesmo lugar."
-          />
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            {[
-              {
-                t: "Praia e piscinas",
-                d: "Dias inteiros entre o mar e as áreas de lazer do resort.",
-              },
-              {
-                t: "Gastronomia",
-                d: "Restaurantes e bares com propostas diferentes.",
-              },
-              {
-                t: "Para as crianças",
-                d: "Recreação e espaços pensados para os pequenos.",
-              },
-              {
-                t: "Para os adultos",
-                d: "Descanso, bem-estar e momentos com calma.",
-              },
-            ].map((b) => (
-              <div key={b.t} className="border-l-2 border-champagne pl-4">
-                <h3 className="text-lg text-primary">{b.t}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{b.d}</p>
-              </div>
-            ))}
-          </div>
-          <Button asChild variant="deep" size="xl" className="mt-9">
-            <a href="#cotacao">Consultar valores</a>
-          </Button>
-        </div>
+    <Section id="experiencias">
+      <SectionHeading
+        align="center"
+        eyebrow="Experiências"
+        title="E se a sua próxima viagem fosse assim?"
+        subtitle="Resorts selecionados que reúnem conforto, gastronomia, lazer e paisagens de tirar o fôlego."
+      />
 
-        <div className="grid gap-4">
+      <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <img
+          src={desire1}
+          alt="Resort tropical com piscinas e praia ao pôr do sol"
+          width={1200}
+          height={900}
+          loading="lazy"
+          className="h-72 w-full rounded-2xl object-cover shadow-lift md:col-span-2 md:h-96"
+        />
+        <div className="grid gap-4 md:grid-rows-2">
           <img
-            src={aerial}
-            alt="Vista aérea da orla de Natal com praia e Via Costeira"
-            width={1600}
-            height={1100}
+            src={desire2}
+            alt="Praia tropical com águas cristalinas"
+            width={1200}
+            height={900}
             loading="lazy"
-            className="h-72 w-full rounded-2xl object-cover shadow-lift sm:h-96"
+            className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
           />
-          <div className="grid grid-cols-2 gap-4">
-            <img
-              src={pools}
-              alt="Complexo de piscinas do resort"
-              width={1400}
-              height={1000}
-              loading="lazy"
-              className="h-40 w-full rounded-2xl object-cover shadow-soft sm:h-52"
-            />
-            <img
-              src={drinks}
-              alt="Drinks tropicais no bar da piscina"
-              width={1200}
-              height={900}
-              loading="lazy"
-              className="h-40 w-full rounded-2xl object-cover shadow-soft sm:h-52"
-            />
-          </div>
+          <img
+            src={desire3}
+            alt="Gastronomia variada em resort"
+            width={1200}
+            height={900}
+            loading="lazy"
+            className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
+          />
         </div>
+      </div>
+
+      <div className="mt-10 flex justify-center">
+        <Button asChild variant="cta" size="xl">
+          <a href="#cotacao">Quero planejar minha viagem</a>
+        </Button>
       </div>
     </Section>
   );
@@ -124,13 +108,13 @@ export function ResortSection() {
 
 export function InclusiveSection() {
   return (
-    <Section id="serhs-inclusive" tone="deep">
+    <Section id="all-inclusive" tone="deep">
       <SectionHeading
         invert
         align="center"
         eyebrow="Regime de alimentação e bebidas"
-        title="SERHS Inclusive"
-        subtitle="Mais liberdade para aproveitar suas férias. O resort possui seu próprio regime de alimentação e bebidas, proporcionando uma experiência semelhante ao conceito All Inclusive."
+        title="O que é All Inclusive?"
+        subtitle="Um conceito de hospedagem que oferece mais liberdade para aproveitar as férias. Cada resort define o que está incluído, os horários e as regras vigentes."
       />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -140,13 +124,13 @@ export function InclusiveSection() {
           return (
             <div
               key={card.title}
-              className="rounded-2xl border border-sand/15 bg-background/5 p-6 backdrop-blur-sm transition hover:border-champagne/50"
+              className="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-sm transition hover:border-gold/50"
             >
-              <Icon className="size-6 text-champagne" />
-              <h3 className="mt-4 text-xl uppercase tracking-wide text-sand">
+              <Icon className="size-6 text-gold" />
+              <h3 className="mt-4 text-xl uppercase tracking-wide text-white">
                 {card.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-sand/70">
+              <p className="mt-2 text-sm leading-relaxed text-white/70">
                 {card.text}
               </p>
             </div>
@@ -154,16 +138,16 @@ export function InclusiveSection() {
         })}
       </div>
 
-      <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-sand/55">
-        Os alimentos e bebidas disponíveis dependem dos cardápios, restaurantes
-        participantes, horários e regras vigentes do SERHS Inclusive.
-        Restaurantes, cardápios, horários, bebidas e serviços disponíveis podem
-        sofrer alterações conforme programação e regras vigentes do resort.
+      <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-white/55">
+        Os alimentos, bebidas e atividades disponíveis dependem dos cardápios,
+        restaurantes participantes, horários e regras vigentes de cada resort.
+        Restaurantes, cardápios, horários, bebidas e serviços podem sofrer
+        alterações conforme programação e regras do estabelecimento escolhido.
       </p>
 
       <div className="mt-10 flex justify-center">
-        <Button asChild variant="champagne" size="xl">
-          <a href="#cotacao">Quero cotar com SERHS Inclusive</a>
+        <Button asChild variant="gold" size="xl">
+          <a href="#cotacao">Quero cotar All Inclusive</a>
         </Button>
       </div>
     </Section>
@@ -173,68 +157,40 @@ export function InclusiveSection() {
 export function GastronomySection() {
   return (
     <Section id="gastronomia">
-      <SectionHeading
-        eyebrow="Gastronomia"
-        title="Férias também são feitas de sabores"
-        subtitle="Uma experiência gastronômica para aproveitar durante toda a hospedagem."
-      />
-
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
+      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <img
-          src={gastro1}
-          alt="Buffet com carnes grelhadas e frutas tropicais"
+          src={gastro}
+          alt="Gastronomia variada em resort premium"
           width={1200}
           height={900}
           loading="lazy"
-          className="h-64 w-full rounded-2xl object-cover shadow-soft md:col-span-2 md:h-80"
+          className="h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[28rem]"
         />
-        <img
-          src={gastro2}
-          alt="Sushi e sashimi em restaurante japonês"
-          width={1200}
-          height={900}
-          loading="lazy"
-          className="h-64 w-full rounded-2xl object-cover shadow-soft md:h-80"
-        />
-      </div>
-
-      <div className="mt-10 flex flex-wrap gap-4">
-        <Stat value={resort.stats.restaurants} label="Restaurantes" />
-        <Stat value={resort.stats.bars} label="Bares" />
-      </div>
-
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {restaurants.map((r) => (
-          <div
-            key={r.name}
-            className="rounded-2xl border border-border bg-card p-6 shadow-soft"
-          >
-            <p className="eyebrow">Restaurante</p>
-            <h3 className="mt-2 text-xl text-primary">{r.name}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{r.note}</p>
+        <div>
+          <SectionHeading
+            eyebrow="Gastronomia"
+            title="Férias também são feitas de sabores"
+            subtitle="Experiências gastronômicas variadas para aproveitar durante toda a hospedagem, com opções para diferentes paladares e momentos do dia."
+          />
+          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            {[
+              { t: "Restaurantes temáticos", d: "Propostas diferentes para cada refeição." },
+              { t: "Buffet e à la carte", d: "Opções que acompanham o regime contratado." },
+              { t: "Drinks e petiscos", d: "Para acompanhar a piscina e o entardecer." },
+              { t: "Opções para crianças", d: "Cardápios pensados também nos pequenos." },
+            ].map((b) => (
+              <div key={b.t} className="border-l-2 border-gold pl-4">
+                <h3 className="text-lg text-primary">{b.t}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{b.d}</p>
+              </div>
+            ))}
           </div>
-        ))}
+          <Button asChild variant="cta" size="xl" className="mt-9">
+            <a href="#cotacao">Quero conhecer as opções</a>
+          </Button>
+        </div>
       </div>
-
-      <p className="mt-6 text-xs text-muted-foreground">
-        Consulte as experiências disponíveis para o regime contratado.
-      </p>
-
-      <Button asChild variant="cta" size="xl" className="mt-8">
-        <a href="#cotacao">Quero viver essa experiência</a>
-      </Button>
     </Section>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="rounded-2xl bg-secondary px-7 py-5">
-      <p className="font-display text-4xl leading-none text-primary">{value}</p>
-      <p className="mt-1 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-        {label}
-      </p>
-    </div>
   );
 }
 
@@ -243,10 +199,10 @@ export function LeisureSection() {
     <Section id="lazer" tone="sand">
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <img
-          src={pools}
-          alt="Piscinas do resort com palmeiras e espreguiçadeiras"
-          width={1400}
-          height={1000}
+          src={lazerImg.url}
+          alt="Área de lazer de resort com piscinas e coqueiros"
+          width={1512}
+          height={2016}
           loading="lazy"
           className="h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[28rem]"
         />
@@ -256,14 +212,6 @@ export function LeisureSection() {
             title="Dias inteiros para aproveitar"
             subtitle="Escolha entre aproveitar a piscina, relaxar de frente para o mar ou simplesmente não fazer nada."
           />
-          <div className="mt-8 inline-block rounded-2xl bg-card px-7 py-5 shadow-soft">
-            <p className="font-display text-4xl leading-none text-primary">
-              {resort.stats.pools}
-            </p>
-            <p className="mt-1 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              Piscinas
-            </p>
-          </div>
           <div className="mt-8 flex flex-wrap gap-2">
             {leisureCards.map((c) => (
               <span
@@ -274,6 +222,12 @@ export function LeisureSection() {
               </span>
             ))}
           </div>
+          <p className="mt-8 text-xs text-muted-foreground">
+            A estrutura de lazer varia conforme o resort escolhido.
+          </p>
+          <Button asChild variant="navy" size="xl" className="mt-6">
+            <a href="#cotacao">Quero cotar meu lazer</a>
+          </Button>
         </div>
       </div>
     </Section>
@@ -296,13 +250,13 @@ export function FamilySection() {
             }
             subtitle="Piscinas, recreação, Kids Club e refeições variadas: estrutura para que cada um da família aproveite as férias do seu jeito, no mesmo lugar."
           />
-          <Button asChild variant="deep" size="xl" className="mt-8">
+          <Button asChild variant="navy" size="xl" className="mt-8">
             <a href="#cotacao">Quero cotar para minha família</a>
           </Button>
         </div>
         <img
           src={family}
-          alt="Crianças se divertindo na piscina do resort"
+          alt="Família se divertindo na piscina de resort"
           width={1200}
           height={900}
           loading="lazy"
@@ -315,11 +269,11 @@ export function FamilySection() {
 
 export function CouplesSection() {
   return (
-    <Section tone="sand">
+    <Section id="casais" tone="sand">
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <img
           src={couples}
-          alt="Casal jantando em terraço com vista para o mar"
+          alt="Casal jantando em restaurante com vista para o mar"
           width={1200}
           height={900}
           loading="lazy"
@@ -329,7 +283,7 @@ export function CouplesSection() {
           <SectionHeading
             eyebrow="Para casais"
             title="Também existe espaço para desacelerar a dois"
-            subtitle="Jantares com calma, drinks ao entardecer, momentos de bem-estar e o mar como cenário. Uma viagem para descansar de verdade."
+            subtitle="Jantares com calma, drinks ao entardecer, momentos de bem-estar e cenários especiais. Uma viagem para descansar de verdade."
           />
           <Button asChild variant="cta" size="xl" className="mt-8">
             <a href="#cotacao">Quero planejar minha viagem</a>
@@ -392,67 +346,161 @@ export function AccommodationsSection() {
   );
 }
 
-export function SpaSection() {
+export function DestinationsSection() {
   return (
-    <Section tone="deep">
-      <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-        <div>
-          <SectionHeading
-            invert
-            eyebrow="Bem-estar"
-            title="Um tempo só para você"
-            subtitle="O resort conta com o Kensho SPA Zen, com experiências voltadas a relaxamento, massagens e bem-estar para equilibrar os dias de férias."
-          />
-          <p className="mt-6 text-xs text-sand/55">
-            Serviços sujeitos a contratação e disponibilidade.
-          </p>
-          <Button asChild variant="champagne" size="xl" className="mt-8">
-            <a href="#cotacao">Falar com um consultor</a>
-          </Button>
-        </div>
-        <img
-          src={spa}
-          alt="Sala de massagem do SPA com toalhas e orquídeas"
-          width={1200}
-          height={900}
-          loading="lazy"
-          className="h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[26rem]"
-        />
+    <Section id="destinos" tone="deep">
+      <SectionHeading
+        invert
+        align="center"
+        eyebrow="Destinos"
+        title="Para onde você quer viajar?"
+        subtitle="Trabalhamos com resorts e hotéis selecionados no Brasil e no exterior. Conte para a gente o seu destino dos sonhos."
+      />
+
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {destinations.map((d, i) => {
+          const img = destinationImages[i % destinationImages.length];
+          return (
+            <div
+              key={d.name}
+              className="group overflow-hidden rounded-2xl border border-white/15 bg-white/5 shadow-soft transition hover:border-gold/50"
+            >
+              <img
+                src={img}
+                alt={`Destino — ${d.name}`}
+                width={1200}
+                height={900}
+                loading="lazy"
+                className="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="p-6">
+                <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-gold">
+                  {d.tag}
+                </span>
+                <h3 className="mt-2 text-xl text-white">{d.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">
+                  {d.description}
+                </p>
+                <Button asChild variant="gold" size="sm" className="mt-5">
+                  <a href="#cotacao">Ver opções</a>
+                </Button>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </Section>
   );
 }
 
-export function LocationSection() {
+export function ExperiencesSection() {
   return (
-    <Section id="localizacao">
+    <Section>
+      <SectionHeading
+        align="center"
+        eyebrow="Seleção Viagens Riva"
+        title="Experiências selecionadas"
+        subtitle="Opções de hospedagem pensadas para diferentes perfis de viagem."
+      />
+
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {experiences.map((exp) => (
+          <div
+            key={exp.name}
+            className="rounded-2xl border border-border bg-card p-6 shadow-soft"
+          >
+            <div className="flex items-center gap-2">
+              <Star className="size-4 text-gold" />
+              <span className="text-[0.65rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                {exp.destination}
+              </span>
+            </div>
+            <h3 className="mt-3 text-xl text-primary">{exp.name}</h3>
+            <p className="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">
+              Regime: {exp.regime}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {exp.differentials.map((diff) => (
+                <span
+                  key={diff}
+                  className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground"
+                >
+                  {diff}
+                </span>
+              ))}
+            </div>
+            <Button asChild variant="cta" className="mt-6 w-full">
+              <a href="#cotacao">Solicitar cotação</a>
+            </Button>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+export function WhyAllInclusiveSection() {
+  return (
+    <Section tone="sand">
+      <SectionHeading
+        align="center"
+        eyebrow="Por que All Inclusive"
+        title="Mais liberdade para aproveitar suas férias"
+        subtitle="Descubra as vantagens de reservar uma experiência com tudo incluso, sob medida para o seu perfil."
+      />
+
+      <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {whyAllInclusive.map((item) => (
+          <div
+            key={item.title}
+            className="rounded-2xl border border-border bg-card p-6 text-center shadow-soft"
+          >
+            <h3 className="text-xl text-primary">{item.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              {item.text}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+export function ExpertSection() {
+  return (
+    <Section>
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <img
+          src={expert.image || agentImg}
+          alt={expert.name}
+          width={816}
+          height={816}
+          loading="lazy"
+          className="mx-auto h-80 w-80 rounded-2xl object-cover shadow-lift sm:h-96 sm:w-96"
+        />
         <div>
           <SectionHeading
-            eyebrow="Localização"
-            title="Natal aos seus pés"
-            subtitle="O resort fica na Via Costeira, em Natal/RN, de frente para o mar e próximo à região de Ponta Negra — um dos pontos mais procurados da cidade."
+            eyebrow="Quem cuida da sua viagem"
+            title={expert.name}
+            subtitle={expert.bio}
           />
+          <p className="mt-4 text-sm text-muted-foreground">
+            {expert.role} · CNPJ {agency.cnpj} · {agency.cadastur}
+          </p>
           <div className="mt-8 flex flex-wrap gap-2">
-            {["Natal/RN", "Via Costeira", "À beira-mar"].map((t) => (
+            {["Atendimento personalizado", "Resorts selecionados", "Suporte antes e durante a viagem"].map((t) => (
               <span
                 key={t}
                 className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-xs uppercase tracking-[0.16em] text-secondary-foreground"
               >
-                <MapPin className="size-3.5" />
+                <BadgeCheck className="size-3.5 text-teal" />
                 {t}
               </span>
             ))}
           </div>
-        </div>
-        <div className="overflow-hidden rounded-2xl shadow-lift">
-          <iframe
-            title="Mapa — Via Costeira, Natal/RN"
-            src={resort.mapEmbed}
-            loading="lazy"
-            className="h-80 w-full border-0 sm:h-[26rem]"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          <Button asChild variant="cta" size="xl" className="mt-8">
+            <a href="#cotacao">Falar com {expert.name.split(" ")[0]}</a>
+          </Button>
         </div>
       </div>
     </Section>
@@ -497,7 +545,7 @@ export function WhyRivaSection() {
             key={c.t}
             className="rounded-2xl border border-border bg-card p-6 shadow-soft"
           >
-            <c.icon className="size-6 text-ocean" />
+            <c.icon className="size-6 text-teal" />
             <h3 className="mt-4 text-lg text-primary">{c.t}</h3>
             <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
           </div>
@@ -540,23 +588,23 @@ export function FinalCta() {
     <section className="relative overflow-hidden">
       <img
         src={panorama}
-        alt="Praia panorâmica ao pôr do sol no litoral do Rio Grande do Norte"
+        alt="Praia tropical ao pôr do sol"
         width={1920}
-        height={900}
+        height={1080}
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 media-overlay" />
       <div className="relative mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
-        <h2 className="text-3xl leading-tight text-sand sm:text-5xl">
-          Suas próximas férias podem ser aqui.
+        <h2 className="text-3xl leading-tight text-white sm:text-5xl">
+          Suas próximas férias podem começar aqui.
         </h2>
-        <p className="mt-5 text-sm leading-relaxed text-sand/85 sm:text-base">
-          Mar, piscinas, gastronomia e dias inteiros para aproveitar. Conte para
-          a gente quando você pretende viajar e receba sua cotação personalizada
-          para o SERHS Natal.
+        <p className="mt-5 text-sm leading-relaxed text-white/85 sm:text-base">
+          Resorts selecionados, gastronomia, lazer e dias inteiros para aproveitar.
+          Conte para a gente quando você pretende viajar e receba sua cotação
+          personalizada.
         </p>
-        <Button asChild variant="champagne" size="xl" className="mt-8">
+        <Button asChild variant="gold" size="xl" className="mt-8">
           <a href="#cotacao">Quero receber minha cotação</a>
         </Button>
       </div>

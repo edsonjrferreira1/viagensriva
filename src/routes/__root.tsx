@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SERHS Natal com SERHS Inclusive | Cotação Viagens Riva" },
+      { title: "Viagens Riva | Resorts Premium e All Inclusive" },
       {
         name: "description",
         content:
-          "Conheça o SERHS Natal Grand Hotel & Resort e solicite sua cotação personalizada com a Viagens Riva.",
+          "Agência de viagens especializada em resorts premium e All Inclusive no Brasil e no exterior. Cotação personalizada via WhatsApp.",
       },
       { name: "author", content: "Viagens Riva" },
       { property: "og:type", content: "website" },
@@ -114,7 +114,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>

@@ -8,7 +8,7 @@ export const Route = createFileRoute("/privacidade")({
       {
         name: "description",
         content:
-          "Saiba como a Viagens Riva coleta e utiliza os dados enviados no formulário de cotação do SERHS Natal.",
+          "Saiba como a Viagens Riva coleta e utiliza os dados enviados no formulário de cotação.",
       },
       { property: "og:title", content: "Política de Privacidade | Viagens Riva" },
       {
@@ -33,9 +33,9 @@ function Privacidade() {
       <div className="mt-8 space-y-5 text-sm leading-relaxed text-muted-foreground">
         <p>
           A {agency.name} (CNPJ {agency.cnpj}) coleta apenas os dados informados
-          voluntariamente no formulário de cotação: nome, WhatsApp, cidade de
-          origem, datas de viagem, número de hóspedes, idades das crianças,
-          serviços de interesse e observações.
+          voluntariamente no formulário de cotação: nome, WhatsApp, e-mail,
+          destino de interesse, tipo de viagem, datas de viagem, número de hóspedes,
+          idades das crianças, serviços de interesse e observações.
         </p>
         <p>
           Esses dados são utilizados exclusivamente para elaborar e enviar sua
