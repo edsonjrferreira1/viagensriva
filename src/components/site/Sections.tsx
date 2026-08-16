@@ -101,6 +101,55 @@ const benefitIcons: Record<string, LucideIcon> = {
   utensils: UtensilsCrossed,
 };
 
+export function DesireSection() {
+  return (
+    <Section id="inspiracao" tone="sand">
+      <SectionHeading
+        align="center"
+        eyebrow="Inspiração"
+        title="E se a sua próxima viagem fosse assim?"
+        subtitle="Destinos nacionais e internacionais, roteiros bem planejados e experiências que ficam na memória."
+      />
+
+      <div className="mt-12 grid gap-4 md:grid-cols-3">
+        <img
+          src={desire1}
+          alt="Vista aérea de destino litorâneo com piscinas e praia ao pôr do sol"
+          width={1200}
+          height={900}
+          loading="lazy"
+          className="h-72 w-full rounded-2xl object-cover shadow-lift md:col-span-2 md:h-96"
+        />
+        <div className="grid gap-4 md:grid-rows-2">
+          <img
+            src={desire2}
+            alt="Praia tropical com águas cristalinas"
+            width={1200}
+            height={900}
+            loading="lazy"
+            className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
+          />
+          <img
+            src={desire3}
+            alt="Mesa com gastronomia variada durante uma viagem"
+            width={1200}
+            height={900}
+            loading="lazy"
+            className="h-40 w-full rounded-2xl object-cover shadow-soft md:h-full"
+          />
+        </div>
+      </div>
+
+      <div className="mt-10 flex justify-center">
+        <Button asChild variant="cta" size="xl">
+          <a href="#cotacao">Quero planejar minha viagem</a>
+        </Button>
+      </div>
+    </Section>
+  );
+}
+
+
 export function ServicesSection() {
   return (
     <Section id="servicos">
