@@ -49,7 +49,7 @@ import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
 import desire1 from "@/assets/desire-mosaic-1.jpg";
 import desire2 from "@/assets/desire-mosaic-2.jpg";
 import desire3 from "@/assets/desire-mosaic-3.jpg";
-import lazerImg from "@/assets/lazer-piscinas.jpg.asset.json";
+import lazerImg from "@/assets/lazer-premium.jpg.asset.json";
 import gastro from "@/assets/desire-mosaic-3.jpg";
 import family from "@/assets/family-pool.jpg";
 import couples from "@/assets/couples-dinner.jpg";
@@ -206,12 +206,13 @@ export function LeisureSection() {
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <img
           src={lazerImg.url}
-          alt="Área de lazer de resort com piscinas e coqueiros"
-          width={1512}
-          height={2016}
+          alt="Piscina de borda infinita com espreguiçadeiras e paisagismo tropical em resort de alto padrão"
+          width={1600}
+          height={1200}
           loading="lazy"
           className="h-72 w-full rounded-2xl object-cover shadow-lift sm:h-[28rem]"
         />
+
         <div>
           <SectionHeading
             eyebrow="Piscinas e lazer"
