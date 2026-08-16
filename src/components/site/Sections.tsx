@@ -481,9 +481,8 @@ export function ExperiencesSection() {
               <Button asChild variant="cta" className="mt-6 w-full">
                 <a href="#cotacao">Montar minha viagem</a>
               </Button>
-              <p className="mt-3 text-center text-xs text-foreground/70">
-                A cotação pode incluir aéreo, hospedagem, transfer, seguro e passeios.
-              </p>
+
+
 
             </article>
           );
