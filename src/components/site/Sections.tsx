@@ -538,71 +538,20 @@ export function DestinationsSection() {
   );
 }
 
-export function ExperiencesSection() {
-  return (
-    <Section id="experiencias">
-      <SectionHeading
-        align="center"
-        eyebrow="Formas de viajar"
-        title="Experiências para cada jeito de viajar."
-        subtitle="Comece pelo estilo de viagem que combina com você — o roteiro nasce a partir dessa escolha."
-      />
-
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {experiences.map((exp) => {
-          const Icon = experienceIcons[exp.icon] ?? Sparkles;
-          return (
-            <article
-              key={exp.name}
-              className="flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-7 shadow-soft transition hover:-translate-y-1 hover:shadow-lift"
-            >
-              <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
-                <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
-              </span>
-              <h3 className="mt-5 text-xl text-primary">{exp.name}</h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
-                {exp.description}
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {exp.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-primary/25 px-3 py-1 text-xs text-foreground/80"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <Button asChild variant="cta" className="mt-6 w-full">
-                <a href="#cotacao">Montar minha viagem</a>
-              </Button>
-
-
-
-            </article>
-          );
-        })}
-      </div>
-    </Section>
-  );
-}
-
-
 const travelServices = [
+  { icon: Plane, title: "Passagens aéreas" },
+  { icon: BedDouble, title: "Hospedagens" },
+  { icon: BusFront, title: "Transfer" },
+  { icon: ShieldCheck, title: "Seguro viagem" },
+  { icon: Car, title: "Aluguel de carros" },
+  { icon: MapPinned, title: "Passeios e experiências" },
+];
+
+const _unusedServices = [
   {
-    icon: Plane,
-    title: "Passagens aéreas",
-    text: "Companhias, conexões e horários comparados para achar o voo que faz sentido no seu roteiro.",
-  },
-  {
-    icon: BedDouble,
-    title: "Hospedagens",
-    text: "Hotéis, pousadas, flats e resorts selecionados pelo destino, pelo perfil da viagem e pelo investimento.",
-  },
-  {
-    icon: Ship,
-    title: "Cruzeiros",
-    text: "Vários destinos em uma só viagem, com cabine, regime de bordo e excursões escolhidos com você.",
+    icon: Car,
+    title: "Aluguel de carros",
+    text: "Categoria, seguro e retirada organizados para explorar o destino com autonomia.",
   },
   {
     icon: Car,
