@@ -70,11 +70,14 @@ export const defaultWhatsappMessage =
 
 /** Submenu de Experiências (desktop dropdown / mobile recuado). */
 export const experienceMenu = [
-  { label: "Resorts & All Inclusive", href: "#resorts" },
-  { label: "Cruzeiros", href: "#cruzeiros" },
-  { label: "Famílias & Viagens a dois", href: "#momentos" },
-  { label: "Férias nacionais e internacionais", href: "#destinos" },
+  { label: "Resorts & All Inclusive", href: "#experiencia-resorts-all-inclusive" },
+  { label: "Cruzeiros", href: "#experiencia-cruzeiros" },
+  { label: "Férias nacionais e internacionais", href: "#experiencia-ferias-nacionais-e-internacionais" },
+  { label: "Praia & descanso", href: "#experiencia-praia-descanso" },
   { label: "Lua de mel", href: "#experiencia-lua-de-mel" },
+  { label: "Neve & inverno", href: "#experiencia-neve-inverno" },
+  { label: "Natureza & aventura", href: "#experiencia-natureza-aventura" },
+  { label: "Cultura & gastronomia", href: "#experiencia-cultura-gastronomia" },
 ];
 
 
