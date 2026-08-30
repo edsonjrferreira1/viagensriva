@@ -34,9 +34,11 @@ import {
 } from "lucide-react";
 
 import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Section, SectionHeading } from "./Section";
 import {
+  type CarouselApi,
   Carousel,
   CarouselContent,
   CarouselItem,
@@ -537,6 +539,28 @@ export function AccommodationsSection() {
 }
 
 export function DestinationsSection() {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const revealAnchoredDestination = () => {
+      const destinationId = decodeURIComponent(window.location.hash.slice(1));
+      const destinationIndex = destinations.findIndex(
+        (destination) => destination.id === destinationId,
+      );
+
+      if (destinationIndex >= 0) {
+        carouselApi.scrollTo(destinationIndex);
+      }
+    };
+
+    revealAnchoredDestination();
+    window.addEventListener("hashchange", revealAnchoredDestination);
+
+    return () => window.removeEventListener("hashchange", revealAnchoredDestination);
+  }, [carouselApi]);
+
   return (
     <Section id="destinos" tone="sand">
       <SectionHeading
@@ -548,6 +572,7 @@ export function DestinationsSection() {
 
       <Carousel
         opts={{ align: "start", containScroll: "trimSnaps" }}
+        setApi={setCarouselApi}
         className="mt-8"
       >
         <CarouselContent className="-ml-4">
@@ -556,11 +581,11 @@ export function DestinationsSection() {
           return (
             <CarouselItem
               key={d.name}
-              className="basis-[82%] pl-4 sm:basis-1/2 lg:basis-1/3"
+              id={d.id}
+              className="scroll-mt-[104px] basis-[82%] pl-4 sm:basis-1/2 lg:basis-1/3"
             >
             <article
-              id={d.id}
-              className="group relative flex h-full scroll-mt-[104px] overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
+              className="group relative flex h-full overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
             >
               <img
                 src={img}
