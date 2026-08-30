@@ -218,13 +218,13 @@ export function ExperiencesSection() {
       {/* Faixa compacta de serviços */}
       <div
         id="servicos"
-        className="mt-14 scroll-mt-[104px] rounded-3xl border border-primary/15 bg-secondary/60 px-6 py-8 sm:px-10"
+        className="mt-8 scroll-mt-[104px] rounded-3xl border border-primary/15 bg-secondary/60 px-6 py-8 sm:px-10"
       >
         <h3 className="text-center font-display text-2xl text-primary sm:text-[1.7rem]">
           Podemos cuidar de cada etapa da sua viagem.
         </h3>
 
-        <ul className="mx-auto mt-7 grid max-w-4xl grid-cols-2 gap-y-6 sm:grid-cols-3 lg:grid-cols-6 lg:gap-y-0">
+        <ul className="mx-auto mt-6 grid max-w-4xl grid-cols-2 gap-y-5 sm:grid-cols-3 lg:grid-cols-6 lg:gap-y-0">
           {travelServices.map((s) => (
             <li
               key={s.title}
@@ -236,13 +236,13 @@ export function ExperiencesSection() {
           ))}
         </ul>
 
-        <p className="mx-auto mt-7 max-w-2xl text-center text-sm leading-relaxed text-foreground/70">
+        <p className="mx-auto mt-5 max-w-2xl text-center text-sm leading-relaxed text-foreground/70">
           Você pode contratar apenas o que precisa ou montar uma viagem completa em
           um único atendimento.
         </p>
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-7 flex justify-center">
         <Button asChild variant="cta" size="xl">
           <a href="#cotacao">Quero planejar minha viagem</a>
         </Button>
@@ -311,7 +311,7 @@ export function CruisesSection() {
               return (
                 <li
                   key={b.title}
-                  className="rounded-2xl border border-border bg-card px-5 py-4 shadow-soft"
+                  className="rounded-2xl border border-border bg-card px-5 py-3 shadow-soft"
                 >
                   <span className="flex items-center gap-3">
                     <Icon className="size-5 shrink-0 text-gold" aria-hidden="true" />
@@ -339,7 +339,7 @@ export function CruisesSection() {
             {cruiseNote}
           </p>
 
-          <Button asChild variant="gold" size="xl" className="mt-7">
+          <Button asChild variant="gold" size="xl" className="mt-6">
             <a href="#cotacao" onClick={() => preselectInterest("Cruzeiro")}>
               Quero cotar um cruzeiro
             </a>
@@ -439,7 +439,7 @@ export function AccommodationsSection() {
               Os serviços incluídos variam conforme o resort e o regime contratado.
             </p>
 
-            <Button asChild variant="gold" size="xl" className="mt-7">
+            <Button asChild variant="gold" size="xl" className="mt-6">
               <a
                 href="#cotacao"
                 onClick={() => preselectInterest("Resort / All Inclusive")}
@@ -760,7 +760,7 @@ export function WhyRivaSection() {
         subtitle="O que você ganha ao planejar com uma agência de verdade em vez de fechar tudo por conta própria em um site."
       />
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((c) => (
           <div
             key={c.t}
@@ -773,7 +773,7 @@ export function WhyRivaSection() {
         ))}
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-7 flex justify-center">
         <Button asChild variant="cta" size="xl">
           <a href="#cotacao">Quero uma cotação personalizada</a>
         </Button>
@@ -823,7 +823,7 @@ export function FaqSection() {
         </Link>
       </div>
 
-      <div className="mx-auto mt-8 max-w-3xl rounded-3xl border border-primary/15 bg-card p-7 text-center shadow-soft">
+      <div className="mx-auto mt-8 max-w-3xl rounded-3xl border border-primary/15 bg-card p-6 text-center shadow-soft">
         <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-foreground/75">
           Ainda ficou com alguma dúvida?
         </p>
@@ -912,7 +912,7 @@ export function TestimonialsSection() {
         {googleReviews.items.map((r) => (
           <figure
             key={r.author}
-            className="flex h-full flex-col rounded-2xl border border-primary/20 bg-card p-7 shadow-lift"
+            className="flex h-full flex-col rounded-2xl border border-primary/20 bg-card p-6 shadow-lift"
           >
             <Stars />
             <p className="mt-5 font-display text-xl italic leading-snug text-primary">
