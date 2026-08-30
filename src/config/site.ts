@@ -663,4 +663,278 @@ export const servicePages: Record<string, ServicePage> = {
     preselectInterest: "Resort / All Inclusive",
     serviceType: "Pacotes em resorts All Inclusive",
   },
+
+  "pacotes-de-viagem": {
+    slug: "pacotes-de-viagem",
+    eyebrow: "Pacotes de viagem",
+    h1: "Pacotes de viagem nacionais e internacionais",
+    title: "Pacotes de Viagem Nacionais e Internacionais | Viagens Riva",
+    description:
+      "Pacotes de viagem nacionais e internacionais montados sob medida pela Viagens Riva: aéreo, hospedagem, transfer, seguro e passeios em um único orçamento.",
+    intro: [
+      "Pacote é quando aéreo, hospedagem e serviços chegam num orçamento só, já com as datas batendo entre si. Você não precisa fechar cada parte separada e torcer para tudo se encaixar.",
+      "Nem todo pacote é fechado. A maior parte do que montamos é sob medida: você diz o destino, o período e o ritmo que quer, e a viagem é montada em cima disso.",
+    ],
+    heroImage: "aviao",
+    photos: [
+      { image: "aviao", alt: "Avião na pista de um aeroporto ao entardecer" },
+      { image: "vacation", alt: "Destino de férias com paisagem aberta" },
+      { image: "family", alt: "Família aproveitando a piscina durante a viagem" },
+    ],
+    cards: [
+      {
+        icon: "sparkles",
+        title: "Pronto ou sob medida",
+        text: "Pacotes de operadora costumam sair mais em conta em datas fixas. Sob medida, você escolhe hotel, categoria de voo e o que entra ou sai.",
+      },
+      {
+        icon: "bed",
+        title: "O que costuma entrar",
+        text: "Aéreo, hospedagem e transfer são a base. Seguro, passeios, aluguel de carro e ingressos entram conforme a viagem.",
+      },
+      {
+        icon: "map",
+        title: "Nacional",
+        text: "Litoral, serra, capitais e destinos de férias, com voos e hospedagem ajustados ao calendário de quem viaja.",
+      },
+      {
+        icon: "plane",
+        title: "Internacional",
+        text: "Roteiros fora do país com documentação, seguro, transfer e passeios organizados junto, para você não descobrir pendência em cima da hora.",
+      },
+      {
+        icon: "users",
+        title: "Grupos e comemorações",
+        text: "Aniversário, formatura, viagem de amigos ou família grande: o pacote muda quando são muitas pessoas, e a negociação também.",
+      },
+      {
+        icon: "alert",
+        title: "Quando o pacote compensa — e quando não",
+        text: "Em alta temporada e destino com poucos voos, o pacote costuma sair melhor. Em viagem curta e com data flexível, às vezes vale separar. Falamos isso com você antes de fechar, não depois.",
+      },
+    ],
+    highlight: {
+      title: "Formas de pagamento facilitadas",
+      text: "Trabalhamos com cartão de crédito parcelado, Pix à vista e boleto. As condições variam conforme o produto e o fornecedor, e são apresentadas junto com a proposta.",
+    },
+    note: "Valores, disponibilidade e serviços incluídos variam conforme período, destino, número de passageiros e fornecedor. Toda cotação é personalizada.",
+    preselectInterest: "Passagens aéreas",
+    serviceType: "Pacotes de viagem",
+  },
+
+  "passagens-aereas": {
+    slug: "passagens-aereas",
+    eyebrow: "Passagens aéreas",
+    h1: "Passagens aéreas: bagagem, alterações e o que conferir antes de comprar",
+    title: "Passagem Aérea: Regras de Bagagem e de Alteração | Viagens Riva",
+    description:
+      "Como funcionam bagagem de mão, bagagem despachada, tipos de tarifa e alteração de passagem aérea. Explicado sem letra miúda pela Viagens Riva.",
+    intro: [
+      "A maior parte dos problemas com passagem aérea não acontece no dia do voo: acontece na hora da compra, quando alguém escolhe a tarifa mais barata sem saber o que ela não inclui.",
+      "Reunimos aqui o que costuma gerar dúvida e custar dinheiro depois — bagagem, tipo de tarifa e alteração. São as regras que a gente confere em toda emissão.",
+    ],
+    heroImage: "aviao",
+    photos: [
+      { image: "aviao", alt: "Vista do saguão de um aeroporto com avião na pista ao entardecer" },
+      { image: "vacation", alt: "Destino de férias com paisagem aberta" },
+      { image: "international", alt: "Destino internacional em dia de sol" },
+    ],
+    cards: [
+      {
+        icon: "luggage",
+        title: "Bagagem de mão",
+        text: "Em geral você tem direito a um item pessoal, que vai embaixo do assento, mais uma bagagem de mão no compartimento superior. Peso e dimensões mudam conforme a companhia e a tarifa contratada.",
+      },
+      {
+        icon: "luggage",
+        title: "Bagagem despachada",
+        text: "Não depende do voo, depende da tarifa. A mesma rota pode ter tarifa sem despacho, com uma peça ou com duas. Comprar o despacho depois costuma custar mais do que já sair com ele incluso.",
+      },
+      {
+        icon: "ticket",
+        title: "A diferença entre as tarifas está nas regras",
+        text: "Entre a tarifa mais barata e a mais cara do mesmo voo, o assento é igual. O que muda é bagagem, direito a remarcar, valor da multa e possibilidade de reembolso.",
+      },
+      {
+        icon: "alert",
+        title: "Alteração quase sempre tem custo",
+        text: "Na maioria das tarifas, remarcar envolve a multa da companhia mais a diferença de tarifa, quando o novo voo estiver mais caro. Bilhetes flexíveis, que custam mais na compra, costumam não cobrar multa — mas a diferença de tarifa continua valendo. De um jeito ou de outro, alteração tem valor a pagar. Desconfie de quem disser que é grátis.",
+      },
+      {
+        icon: "clock",
+        title: "Peça a remarcação com antecedência",
+        text: "As companhias têm prazo limite para aceitar mudança antes do embarque. Deixar para a última hora costuma transformar remarcação em passagem perdida.",
+      },
+      {
+        icon: "map",
+        title: "Conexão, escala e bagagem",
+        text: "Em roteiros com mais de uma companhia, a bagagem nem sempre segue direto até o destino final. Isso muda o tempo de conexão que você precisa ter.",
+      },
+    ],
+    note: "Regras de bagagem, tarifa e alteração variam conforme a companhia aérea, o trecho e a tarifa contratada. Confirmamos cada item com você antes de emitir o bilhete.",
+    preselectInterest: "Passagens aéreas",
+    serviceType: "Emissão de passagens aéreas",
+  },
+
+  "seguro-viagem": {
+    slug: "seguro-viagem",
+    eyebrow: "Seguro viagem",
+    h1: "Seguro viagem: o que a cobertura resolve",
+    title: "Seguro Viagem: Tipos de Cobertura e Como Escolher | Viagens Riva",
+    description:
+      "O que o seguro viagem cobre: emergência médica, odontológico, bagagem, cancelamento e traslado. Entenda os tipos de apólice com a Viagens Riva.",
+    intro: [
+      "Seguro viagem é daquelas coisas que parecem custo até o dia em que deixam de ser. Uma consulta de emergência fora do país custa, sozinha, mais do que a apólice da viagem inteira.",
+      "O que ele resolve depende inteiramente do tipo de cobertura contratada. Abaixo estão os itens que costumam aparecer nas apólices, para você saber o que perguntar.",
+    ],
+    heroImage: "seguro",
+    photos: [
+      { image: "seguro", alt: "Viajante consultando o celular no aeroporto" },
+      { image: "aviao", alt: "Avião na pista de um aeroporto ao entardecer" },
+      { image: "international", alt: "Destino internacional em dia de sol" },
+    ],
+    cards: [
+      {
+        icon: "shield",
+        title: "Emergência médica e hospitalar",
+        text: "Atendimento, exames e internação durante a viagem, dentro dos limites e das condições da apólice contratada.",
+      },
+      {
+        icon: "sparkles",
+        title: "Atendimento odontológico",
+        text: "Emergências de dente, que costumam ficar de fora quando a pessoa contrata a cobertura mais básica sem olhar.",
+      },
+      {
+        icon: "luggage",
+        title: "Bagagem extraviada ou danificada",
+        text: "Indenização quando a mala não chega, chega danificada ou atrasa, conforme o previsto na apólice.",
+      },
+      {
+        icon: "alert",
+        title: "Cancelamento e interrupção de viagem",
+        text: "Ressarcimento quando a viagem precisa ser cancelada ou interrompida por motivo previsto em contrato.",
+      },
+      {
+        icon: "map",
+        title: "Traslado médico e traslado de corpo",
+        text: "Remoção para outro hospital e, no caso mais grave, o traslado de volta. É a cobertura que ninguém quer usar e que mais pesa quando falta.",
+      },
+      {
+        icon: "plane",
+        title: "Nacional e internacional",
+        text: "Existe apólice para viagem dentro do Brasil e para o exterior, com coberturas diferentes. Alguns destinos exigem seguro para permitir a entrada.",
+      },
+    ],
+    note: "Tudo depende do tipo de cobertura contratada. Cada apólice tem limites, prazos, carências e exclusões próprios, informados antes da contratação. Nós ajudamos a comparar e a escolher.",
+    preselectInterest: "Seguro viagem",
+    serviceType: "Seguro viagem",
+  },
+
+  "transporte-no-destino": {
+    slug: "transporte-no-destino",
+    eyebrow: "Transporte no destino",
+    h1: "Transfer e aluguel de carro no destino",
+    title: "Transfer e Aluguel de Carro para Viagem | Viagens Riva",
+    description:
+      "Transfer de aeroporto, traslado privativo ou compartilhado e aluguel de carro no destino, organizados junto com a sua viagem pela Viagens Riva.",
+    intro: [
+      "Como você vai se locomover muda o roteiro inteiro. Um destino de praia com pontos espalhados pede carro. Uma capital com trânsito e estacionamento caro quase sempre não.",
+      "Organizamos as duas coisas junto com a viagem, para você não desembarcar tendo que resolver transporte na hora, que é quando sai mais caro.",
+    ],
+    heroImage: "carro",
+    photos: [
+      { image: "carro", alt: "Carro em estrada litorânea com vista para o mar" },
+      { image: "aviao", alt: "Avião na pista de um aeroporto ao entardecer" },
+      { image: "vacation", alt: "Destino de férias com paisagem aberta" },
+    ],
+    cards: [
+      {
+        icon: "car",
+        title: "Transfer aeroporto–hospedagem",
+        text: "Motorista esperando no desembarque, com o trajeto já pago. Resolve principalmente a chegada de madrugada e a viagem com criança pequena ou muita bagagem.",
+      },
+      {
+        icon: "users",
+        title: "Privativo ou compartilhado",
+        text: "O compartilhado sai mais em conta e para em outros hotéis no caminho. O privativo vai direto e costuma compensar a partir de três pessoas.",
+      },
+      {
+        icon: "car",
+        title: "Aluguel de carro: quando compensa",
+        text: "Vale quando o roteiro tem vários pontos, praias distantes ou cidades próximas. Em capital grande, o custo de estacionamento costuma anular a vantagem.",
+      },
+      {
+        icon: "alert",
+        title: "O que conferir antes de retirar",
+        text: "Habilitação válida, cartão de crédito no nome do condutor para o bloqueio de caução, e qual proteção está incluída. É onde mais gente se surpreende no balcão.",
+      },
+      {
+        icon: "users",
+        title: "Crianças e cadeirinha",
+        text: "A cadeirinha é obrigatória por faixa etária e precisa ser reservada junto com o carro, porque a locadora tem quantidade limitada.",
+      },
+      {
+        icon: "clock",
+        title: "Combustível e pedágio",
+        text: "Cada locadora tem uma política de devolução de tanque, e alguns roteiros têm pedágio que pesa. Vale considerar isso na comparação com o transfer.",
+      },
+    ],
+    note: "Valores, políticas de proteção, caução e devolução variam conforme a locadora, a cidade e o período. Confirmamos as condições antes da reserva.",
+    preselectInterest: "Transfer",
+    serviceType: "Transfer e aluguel de carro",
+  },
+
+  "passeios-e-experiencias": {
+    slug: "passeios-e-experiencias",
+    eyebrow: "Passeios e experiências",
+    h1: "Passeios e experiências no destino",
+    title: "Passeios, Ingressos e Experiências no Destino | Viagens Riva",
+    description:
+      "Passeios guiados, ingressos de atrações e experiências locais reservados antecipadamente pela Viagens Riva, organizados junto com o restante da viagem.",
+    intro: [
+      "Passeio é o que a pessoa lembra depois. E é também o que mais fica de fora do planejamento, porque parece que dá para resolver no destino — até chegar e descobrir que a atração está esgotada para o dia.",
+      "Reservamos os passeios junto com a viagem, encaixados no roteiro e nos horários de voo, para você não perder um dia inteiro por causa de fila ou de disponibilidade.",
+    ],
+    heroImage: "passeio",
+    photos: [
+      { image: "passeio", alt: "Grupo pequeno em passeio guiado ao ar livre no fim da tarde" },
+      { image: "gastronomy", alt: "Mesa com pratos variados durante a viagem" },
+      { image: "vacation", alt: "Destino de férias com paisagem aberta" },
+    ],
+    cards: [
+      {
+        icon: "ticket",
+        title: "Reservar antes ou no destino",
+        text: "Reservar antes garante data, horário e costuma sair mais barato. No destino você ganha flexibilidade, mas depende do que sobrou.",
+      },
+      {
+        icon: "clock",
+        title: "Ingressos e atrações com fila",
+        text: "Parques, museus e atrações concorridas trabalham com horário marcado e esgotam em alta temporada. Esse é o item que mais frustra quando fica para depois.",
+      },
+      {
+        icon: "users",
+        title: "Privativo ou em grupo",
+        text: "O passeio em grupo é mais econômico e tem horário fixo. O privativo permite ajustar o ritmo, e faz diferença com criança pequena ou idoso no roteiro.",
+      },
+      {
+        icon: "utensils",
+        title: "Gastronomia e experiências locais",
+        text: "Passeios de comida, visitas a produtores e experiências que mostram o destino por dentro, além dos pontos turísticos.",
+      },
+      {
+        icon: "map",
+        title: "Encaixe no roteiro",
+        text: "Um passeio de dia inteiro no dia do voo de volta não funciona. Montamos a ordem considerando horário de chegada, distância e o cansaço de cada dia.",
+      },
+      {
+        icon: "alert",
+        title: "Alta temporada",
+        text: "Em feriado e férias escolares, os passeios esgotam antes das hospedagens. Quando a viagem é nesse período, é o primeiro item que a gente trava.",
+      },
+    ],
+    note: "Disponibilidade, horários e valores dos passeios variam conforme o destino, a época e o operador local. Confirmamos tudo antes da reserva.",
+    preselectInterest: "Passeios e experiências",
+    serviceType: "Passeios e experiências",
+  },
 };

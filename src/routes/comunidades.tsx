@@ -41,7 +41,7 @@ export const Route = createFileRoute("/comunidades")({
     links: [
       {
         rel: "canonical",
-        href: "https://viagensriva.lovable.app/comunidades",
+        href: "https://viagensriva.com/comunidades",
       },
     ],
   }),

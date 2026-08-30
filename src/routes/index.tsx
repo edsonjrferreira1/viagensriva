@@ -34,10 +34,10 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:url", content: "https://viagensriva.lovable.app/" },
+      { property: "og:url", content: "https://viagensriva.com/" },
     ],
     links: [
-      { rel: "canonical", href: "https://viagensriva.lovable.app/" },
+      { rel: "canonical", href: "https://viagensriva.com/" },
       {
         rel: "preload",
         as: "image",
@@ -60,7 +60,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "TravelAgency",
           name: "Viagens Riva",
-          url: "https://viagensriva.lovable.app/",
+          url: "https://viagensriva.com/",
           telephone: "+55 62 98217-9433",
           areaServed: "BR",
           address: { "@type": "PostalAddress", addressLocality: "Goiânia", addressRegion: "GO", addressCountry: "BR" },
