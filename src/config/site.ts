@@ -781,8 +781,8 @@ export const servicePages: Record<string, ServicePage> = {
       },
       {
         icon: "shield",
-        title: "Você tem 24 horas para desistir",
-        text: "Se a passagem foi comprada com sete dias ou mais de antecedência em relação ao voo, existe o direito de cancelar sem custo em até 24 horas após a compra. Passado esse prazo, valem as regras da tarifa contratada.",
+        title: "Desistência em até 24 horas",
+        text: "Se a passagem foi adquirida com antecedência igual ou superior a 7 dias da data do embarque, você pode solicitar a desistência em até 24 horas contadas do recebimento do comprovante da passagem, conforme a regulamentação da ANAC. Se for usar essa possibilidade, entre em contato conosco assim que tomar a decisão — evite deixar para o fim do prazo, porque o cancelamento precisa ser processado junto à companhia aérea ou ao fornecedor responsável, e isso leva tempo.",
       },
       {
         icon: "alert",
