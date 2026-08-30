@@ -66,7 +66,12 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <a href="#cotacao" className="hover:text-white">
+              <Link to="/comunidades" className="hover:text-white">
+                Comunidades de Ofertas
+              </Link>
+            </li>
+            <li>
+              <a href="/#cotacao" className="hover:text-white">
                 Contato
               </a>
             </li>

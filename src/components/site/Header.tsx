@@ -1,5 +1,7 @@
+import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems, agency } from "@/config/site";
@@ -22,7 +24,37 @@ const sectionIds = [
   "faq",
 ];
 
+function NavA({
+  href,
+  children,
+  className,
+  onClick,
+}: {
+  href: string;
+  children: ReactNode;
+  className?: string;
+  onClick?: () => void;
+}) {
+  if (href.startsWith("/") && !href.includes("#")) {
+    return (
+      <Link to={href} className={className} onClick={onClick}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} className={className} onClick={onClick}>
+      {children}
+    </a>
+  );
+}
+
+
 export function Header() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
+  const resolve = (href: string) =>
+    href.startsWith("#") ? (isHome ? href : `/${href}`) : href;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -106,7 +138,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:gap-6">
         <a
-          href="#top"
+          href={isHome ? "#top" : "/"}
           className="flex shrink-0 items-center"
           aria-label={agency.name}
         >
@@ -132,7 +164,7 @@ export function Header() {
                 onMouseLeave={scheduleClose}
               >
                 <a
-                  href={item.href}
+                  href={resolve(item.href)}
                   aria-haspopup="true"
                   aria-expanded={openDropdown === item.href}
                   onClick={() => setOpenDropdown(null)}
@@ -154,7 +186,7 @@ export function Header() {
                       {item.children.map((child) => (
                         <li key={child.label}>
                           <a
-                            href={child.href}
+                            href={resolve(child.href)}
                             onClick={() => setOpenDropdown(null)}
                             className="block rounded-xl px-4 py-2.5 text-[0.95rem] text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
                           >
@@ -167,9 +199,9 @@ export function Header() {
                 )}
               </div>
             ) : (
-              <a
+              <NavA
                 key={item.href}
-                href={item.href}
+                href={resolve(item.href)}
                 className={cn(
                   "inline-flex items-center whitespace-nowrap border-b-2 border-transparent py-1 text-[0.94rem] font-medium leading-none tracking-wide transition-colors",
                   isActive(item)
@@ -178,7 +210,7 @@ export function Header() {
                 )}
               >
                 {item.label}
-              </a>
+              </NavA>
             ),
           )}
         </nav>
@@ -190,7 +222,7 @@ export function Header() {
             size="sm"
             className="hidden whitespace-nowrap rounded-full px-5 text-[0.9rem] sm:inline-flex lg:h-11 lg:px-6"
           >
-            <a href="#cotacao">Solicitar cotação</a>
+            <a href={resolve("#cotacao")}>Solicitar cotação</a>
           </Button>
           <button
             type="button"
@@ -240,13 +272,13 @@ export function Header() {
                   {navItems.map((item) => (
                     <li key={item.href} className="border-b border-white/10">
                       <div className="flex items-center justify-between">
-                        <a
-                          href={item.href}
+                        <NavA
+                          href={resolve(item.href)}
                           onClick={() => setOpen(false)}
                           className="block flex-1 py-4 text-lg font-medium text-white"
                         >
                           {item.label}
-                        </a>
+                        </NavA>
                         {item.children && (
                           <button
                             type="button"
@@ -273,7 +305,7 @@ export function Header() {
                           {item.children.map((child) => (
                             <li key={child.label}>
                               <a
-                                href={child.href}
+                                href={resolve(child.href)}
                                 onClick={() => setOpen(false)}
                                 className="block py-2.5 text-sm text-white/80"
                               >
@@ -294,7 +326,7 @@ export function Header() {
                   className="mt-6 w-full"
                   onClick={() => setOpen(false)}
                 >
-                  <a href="#cotacao">Solicitar cotação</a>
+                  <a href={resolve("#cotacao")}>Solicitar cotação</a>
                 </Button>
               </nav>
             </div>
