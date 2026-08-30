@@ -453,6 +453,14 @@ export function QuoteForm() {
           Ao enviar, seus dados são organizados em uma única mensagem no
           WhatsApp da Viagens Riva.
         </p>
+        <p className="mt-2 text-center text-[0.7rem] leading-relaxed text-foreground/70">
+          Seus dados são usados apenas para elaborar sua cotação e prestar
+          atendimento. Saiba mais na nossa{" "}
+          <a href="/privacidade" className="underline underline-offset-2">
+            Política de Privacidade
+          </a>
+          .
+        </p>
         <p className="mt-2 text-center text-xs text-foreground/80">
           Acompanhe também no Instagram{" "}
           <a
