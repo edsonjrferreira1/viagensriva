@@ -1,4 +1,4 @@
-import type { AnchorHTMLAttributes } from "react";
+import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, useRouterState } from "@tanstack/react-router";
@@ -31,7 +31,7 @@ function NavA({
   onClick,
 }: {
   href: string;
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   onClick?: () => void;
 }) {
