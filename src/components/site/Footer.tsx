@@ -5,7 +5,7 @@ import logoAsset from "@/assets/logo-riva.png";
 
 export function Footer() {
   return (
-    <footer className="surface-deep px-4 py-14 sm:px-6">
+    <footer className="surface-deep px-4 pb-28 pt-14 sm:px-6 sm:pb-24">
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
         <div>
           <span className="inline-flex items-center rounded-2xl bg-white px-4 py-3">
@@ -68,6 +68,11 @@ export function Footer() {
             <li>
               <Link to="/comunidades" className="hover:text-white">
                 Comunidades de Ofertas
+              </Link>
+            </li>
+            <li>
+              <Link to="/duvidas" className="hover:text-white">
+                Dúvidas frequentes
               </Link>
             </li>
             <li>
