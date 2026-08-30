@@ -13,7 +13,7 @@ export function CommunitiesInvite() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-white/85">
             Comunidades no WhatsApp separadas por região de embarque, com
-            passagens e pacotes selecionados algumas vezes por semana.
+            passagens e pacotes selecionados ao longo da semana.
           </p>
           <ul className="mt-5 flex flex-wrap gap-2">
             {communities.map((c) => (

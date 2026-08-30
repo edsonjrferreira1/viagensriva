@@ -282,7 +282,7 @@ export const travelCards: {
     name: "Flats e apartamentos",
     tag: "Hospedagem",
     description:
-      "Mais espaço, cozinha e autonomia para estadias de 7 noites ou mais, em família ou quando o roteiro pede uma base fixa.",
+      "Cozinha, lavanderia e mais espaço. Costumam fazer sentido em estadias mais longas, com família grande ou quando o roteiro pede uma base fixa na cidade.",
     image: "flat",
     interest: "Hospedagem",
     href: "/servicos/hospedagens",
@@ -407,7 +407,7 @@ export const faq: {
   {
     q: "O que está incluído em um resort All Inclusive?",
     a:
-      "Varia conforme cada resort e o regime contratado. Normalmente, o All Inclusive pode contemplar refeições, petiscos, bebidas e algumas atividades durante a hospedagem.\n\nAntes da reserva, informamos exatamente o que está incluído na opção escolhida.",
+      "Varia conforme cada resort e o regime contratado. Normalmente o All Inclusive contempla refeições, bebidas e parte das atividades durante a hospedagem.\n\nSe você quiser saber exatamente o que entra no resort escolhido — refeições, tipos de bebida, serviços e atividades — levantamos essa informação e passamos antes de você fechar.",
   },
   {
     q: "Vocês oferecem suporte depois que a viagem é contratada?",
@@ -425,7 +425,7 @@ export const faq: {
     q: "Como faço para receber as promoções?",
     home: true,
     a:
-      "A Viagens Riva mantém comunidades de ofertas no WhatsApp separadas por região de embarque — Rio de Janeiro, São Paulo, Goiânia e Brasília, e Petrolina.\n\nVocê escolhe a sua e recebe as ofertas algumas vezes por semana, já com voo, hospedagem e valor final. É só entrar na página de Comunidades.",
+      "A Viagens Riva mantém comunidades de ofertas no WhatsApp separadas por região de embarque — Rio de Janeiro, São Paulo, Goiânia e Brasília, e Petrolina.\n\nVocê escolhe a sua e recebe ofertas selecionadas ao longo da semana, com voo, hospedagem e o valor da oferta, sujeito à disponibilidade no momento da consulta. É só entrar na página de Comunidades.",
     link: { label: "Ver as comunidades de ofertas", to: "/comunidades" },
   },
 ];
@@ -616,7 +616,7 @@ export const servicePages: Record<string, ServicePage> = {
     },
     highlightNote:
       "Atenção às taxas locais: muitos destinos e hospedagens cobram taxa de turismo ou taxa de serviço diretamente no local, que não entra no valor da reserva. Sempre que a informação estiver disponível na tarifa, apontamos na cotação.",
-    note: "Café da manhã, horários de check-in e check-out, política para crianças e taxas locais variam conforme a hospedagem e a tarifa contratada. Confirmamos cada item antes de você fechar.",
+    note: "Café da manhã, horários de check-in e check-out e política para crianças variam conforme a hospedagem e a tarifa contratada. Confirmamos esses pontos com você antes de fechar.",
     preselectInterest: "Hospedagem",
     serviceType: "Reserva de hospedagem",
   },
@@ -670,7 +670,7 @@ export const servicePages: Record<string, ServicePage> = {
       {
         icon: "palm",
         title: "No Brasil e no exterior",
-        text: "Cotamos resorts no litoral brasileiro e no exterior, incluindo Caribe e México, com aéreo, transfer e seguro organizados no mesmo atendimento.",
+        text: "Cotamos resorts no litoral brasileiro e no exterior, incluindo Caribe e México, conforme disponibilidade nas nossas plataformas de reserva, com aéreo, transfer e seguro organizados no mesmo atendimento.",
       },
     ],
     note: "Os serviços incluídos variam conforme o resort e o regime contratado. Se você quiser a lista completa do que está e do que não está incluso — refeições, tipos de bebida, serviços e atividades — levantamos essa informação e passamos antes de você fechar.",
@@ -822,7 +822,7 @@ export const servicePages: Record<string, ServicePage> = {
     description:
       "O que o seguro viagem cobre: emergência médica, odontológico, bagagem, cancelamento e traslado. Entenda os tipos de apólice com a Viagens Riva.",
     intro: [
-      "Seguro viagem é daquelas coisas que parecem custo até o dia em que deixam de ser. Uma consulta de emergência fora do país custa, sozinha, mais do que a apólice da viagem inteira.",
+      "Seguro viagem é daquelas coisas que parecem custo até o dia em que deixam de ser. Uma consulta de emergência fora do país costuma custar mais do que a apólice da viagem inteira.",
       "O que ele resolve depende inteiramente do tipo de cobertura contratada. Abaixo estão os itens que costumam aparecer nas apólices, para você saber o que perguntar.",
     ],
     heroImage: "seguro",
@@ -894,7 +894,7 @@ export const servicePages: Record<string, ServicePage> = {
       {
         icon: "users",
         title: "Privativo ou compartilhado",
-        text: "O compartilhado sai mais em conta e para em outros hotéis no caminho. O privativo vai direto e costuma compensar a partir de três pessoas.",
+        text: "O compartilhado sai mais em conta e para em outros hotéis no caminho. O privativo vai direto e costuma compensar quando o grupo é maior, há muita bagagem ou o horário é apertado.",
       },
       {
         icon: "car",
@@ -943,7 +943,7 @@ export const servicePages: Record<string, ServicePage> = {
       {
         icon: "ticket",
         title: "Reservar antes ou no destino",
-        text: "Reservar antes garante data, horário e costuma sair mais barato. No destino você ganha flexibilidade, mas depende do que sobrou.",
+        text: "Reservar antes costuma garantir a data e o horário que você quer, e sair mais barato. No destino você ganha flexibilidade, mas depende do que ainda estiver disponível.",
       },
       {
         icon: "clock",
