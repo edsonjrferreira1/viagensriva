@@ -35,6 +35,13 @@ import hospPremium from "@/assets/hosp-premium.jpg";
 import resortAerial from "@/assets/resort-aerial.webp";
 import gastro from "@/assets/gastronomy-1.webp";
 import lazerImg from "@/assets/lazer-premium.jpg";
+import aviaoImg from "@/assets/servico-aviao.jpg";
+import seguroImg from "@/assets/servico-seguro.jpg";
+import carroImg from "@/assets/servico-carro.jpg";
+import passeioImg from "@/assets/servico-passeio.jpg";
+import vacationImg from "@/assets/destination-vacation.webp";
+import internationalImg from "@/assets/destination-international.webp";
+import familyImg from "@/assets/family-pool.webp";
 
 const images: Record<string, string> = {
   cruise: cruiseImg,
@@ -46,6 +53,13 @@ const images: Record<string, string> = {
   resort: resortAerial,
   gastronomy: gastro,
   lazer: lazerImg,
+  aviao: aviaoImg,
+  seguro: seguroImg,
+  carro: carroImg,
+  passeio: passeioImg,
+  vacation: vacationImg,
+  international: internationalImg,
+  family: familyImg,
 };
 
 const icons: Record<string, LucideIcon> = {
@@ -61,6 +75,13 @@ const icons: Record<string, LucideIcon> = {
   wine: Wine,
   chef: ChefHat,
   utensils: UtensilsCrossed,
+  plane: Plane,
+  car: Car,
+  shield: ShieldCheck,
+  ticket: Ticket,
+  luggage: Luggage,
+  clock: Clock,
+  alert: TriangleAlert,
 };
 
 const SITE = "https://viagensriva.com";
