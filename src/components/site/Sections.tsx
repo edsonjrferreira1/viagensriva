@@ -227,7 +227,8 @@ export function TravelSection() {
               className="flex px-2 text-center lg:border-r lg:border-primary/15 lg:last:border-r-0"
             >
               <Link
-                to={s.to}
+                to="/servicos/$slug"
+                params={{ slug: s.slug }}
                 className="flex w-full flex-col items-center gap-2 rounded-xl px-1 py-2 transition-colors hover:bg-primary/5"
               >
                 <s.icon className="size-6 text-gold" strokeWidth={1.5} aria-hidden="true" />
