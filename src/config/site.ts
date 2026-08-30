@@ -742,33 +742,53 @@ export const servicePages: Record<string, ServicePage> = {
     cards: [
       {
         icon: "luggage",
-        title: "Bagagem de mão",
-        text: "Em geral você tem direito a um item pessoal, que vai embaixo do assento, mais uma bagagem de mão no compartimento superior. Peso e dimensões mudam conforme a companhia e a tarifa contratada.",
+        title: "Bagagem de mão depende da tarifa, não do voo",
+        text: "Em muitas tarifas promocionais, principalmente internacionais, entra apenas o item pessoal: a mochila que cabe embaixo do assento. A bagagem de mão no compartimento superior é um direito da tarifa, não do bilhete. Confira antes de comprar, não no embarque.",
       },
       {
         icon: "luggage",
-        title: "Bagagem despachada",
-        text: "Não depende do voo, depende da tarifa. A mesma rota pode ter tarifa sem despacho, com uma peça ou com duas. Comprar o despacho depois costuma custar mais do que já sair com ele incluso.",
+        title: "Bagagem despachada: olhe o peso, não só a quantidade",
+        text: "O que mais muda entre companhias e tarifas é o limite de peso por peça, e não apenas quantas peças você pode levar. Excesso é cobrado no balcão do aeroporto e sai bem mais caro do que contratar antes. Confirme o que o seu bilhete inclui.",
       },
       {
         icon: "ticket",
-        title: "A diferença entre as tarifas está nas regras",
-        text: "Entre a tarifa mais barata e a mais cara do mesmo voo, o assento é igual. O que muda é bagagem, direito a remarcar, valor da multa e possibilidade de reembolso.",
+        title: "Tarifas: mudam as regras, e às vezes a cabine",
+        text: "Dentro da mesma cabine, o assento é o mesmo: o que separa a tarifa barata da cara é bagagem, direito a remarcar, valor da multa e reembolso. Atenção: uma tarifa muito mais cara pode ser de outra cabine, como executiva ou premium economy — aí mudam assento, serviço e franquia de bagagem.",
+      },
+      {
+        icon: "alert",
+        title: "O preço da busca não é o preço final",
+        text: "Bagagem, marcação de assento e taxas entram depois. Duas tarifas separadas por duzentos reais na tela podem terminar iguais, ou invertidas, depois de somar o despacho. É essa conta que fazemos antes de indicar uma opção.",
+      },
+      {
+        icon: "users",
+        title: "Assento marcado tem custo à parte",
+        text: "Na maioria das tarifas econômicas, escolher assento é pago, e mais caro ainda nas fileiras de saída de emergência e de espaço extra. Viajando em família, isso costuma pesar mais no total do que a própria bagagem.",
       },
       {
         icon: "alert",
         title: "Alteração quase sempre tem custo",
-        text: "Na maioria das tarifas, remarcar envolve a multa da companhia mais a diferença de tarifa, quando o novo voo estiver mais caro. Bilhetes flexíveis, que custam mais na compra, costumam não cobrar multa — mas a diferença de tarifa continua valendo. De um jeito ou de outro, alteração tem valor a pagar. Desconfie de quem disser que é grátis.",
+        text: "Na maioria das tarifas, remarcar envolve a multa da companhia mais a diferença de tarifa, quando o novo voo estiver mais caro. Bilhetes flexíveis, que custam mais na compra, costumam não cobrar multa — mas a diferença de tarifa continua valendo. De um jeito ou de outro, alteração tem valor a pagar.",
       },
       {
         icon: "clock",
         title: "Peça a remarcação com antecedência",
-        text: "As companhias têm prazo limite para aceitar mudança antes do embarque. Deixar para a última hora costuma transformar remarcação em passagem perdida.",
+        text: "As companhias têm prazo limite para aceitar mudança antes do embarque. Deixar para a última hora costuma transformar remarcação em passagem perdida, sem direito a nada.",
+      },
+      {
+        icon: "shield",
+        title: "Você tem 24 horas para desistir",
+        text: "Se a passagem foi comprada com sete dias ou mais de antecedência em relação ao voo, existe o direito de cancelar sem custo em até 24 horas após a compra. Passado esse prazo, valem as regras da tarifa contratada.",
+      },
+      {
+        icon: "alert",
+        title: "O nome do bilhete precisa bater com o documento",
+        text: "A passagem é emitida no nome do passageiro, e corrigir nome depois costuma ter taxa, quando a companhia aceita. Confira nome completo e documento antes de autorizar a emissão.",
       },
       {
         icon: "map",
-        title: "Conexão, escala e bagagem",
-        text: "Em roteiros com mais de uma companhia, a bagagem nem sempre segue direto até o destino final. Isso muda o tempo de conexão que você precisa ter.",
+        title: "Conexão: tempo e bagagem",
+        text: "Quando o roteiro tem mais de uma companhia e os bilhetes não estão na mesma reserva, pode ser preciso retirar a mala e despachar de novo na conexão. Isso muda o tempo mínimo que você precisa deixar entre um voo e outro.",
       },
     ],
     highlight: {

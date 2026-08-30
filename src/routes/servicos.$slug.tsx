@@ -22,6 +22,7 @@ import {
   Waves,
   Wine,
   ArrowRight,
+  BadgeCheck,
   type LucideIcon,
 } from "lucide-react";
 
@@ -31,7 +32,7 @@ import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Section, SectionHeading } from "@/components/site/Section";
-import { servicePages, whatsappLink } from "@/config/site";
+import { servicePages, whatsappLink, agency } from "@/config/site";
 
 import cruiseImg from "@/assets/cruise-premium.jpg";
 import cruiseOnboardImg from "@/assets/cruise-onboard.jpg";
