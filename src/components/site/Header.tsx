@@ -27,21 +27,28 @@ const sectionIds = [
 function NavA({
   href,
   children,
-  ...rest
-}: AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) {
+  className,
+  onClick,
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+}) {
   if (href.startsWith("/") && !href.includes("#")) {
     return (
-      <Link to={href} {...rest}>
+      <Link to={href} className={className} onClick={onClick}>
         {children}
       </Link>
     );
   }
   return (
-    <a href={href} {...rest}>
+    <a href={href} className={className} onClick={onClick}>
       {children}
     </a>
   );
 }
+
 
 export function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
