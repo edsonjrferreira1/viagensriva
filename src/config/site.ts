@@ -329,7 +329,11 @@ export const experiences = [
 ];
 
 
-export const faq = [
+export const faq: {
+  q: string;
+  a: string;
+  link?: { label: string; to: string };
+}[] = [
   {
     q: "Quais são as formas de pagamento?",
     a:
