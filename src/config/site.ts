@@ -124,12 +124,10 @@ export const navItems: {
   children?: { label: string; href: string }[];
 }[] = [
   { label: "Experiências", href: "#experiencias" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Destinos", href: "#destinos" },
-  { label: "Comunidades", href: "/comunidades" },
+  { label: "Cruzeiros", href: "#cruzeiros" },
+  { label: "Hospedagens", href: "#hospedagens" },
   { label: "Sobre nós", href: "#sobre" },
-  { label: "Avaliações", href: "#avaliacoes" },
-  { label: "Dúvidas", href: "#faq" },
+  { label: "Comunidades", href: "/comunidades" },
 ];
 
 
@@ -226,114 +224,97 @@ export const accommodations = [
 
 
 
-export const destinations = [
+/**
+ * Bloco único "Experiências e destinos" — carrossel com foto.
+ * Substitui os antigos blocos `experiences` (cards brancos) e `destinations`.
+ * `image` é a chave do mapa `travelImages` em Sections.tsx.
+ * `tripType` / `destination` / `interest` pré-selecionam o campo correspondente
+ * no formulário de cotação quando o card é clicado.
+ */
+export const travelCards: {
+  id: string;
+  name: string;
+  tag: string;
+  description: string;
+  image: string;
+  tripType?: string;
+  destination?: string;
+  interest?: string;
+}[] = [
+  {
+    id: "exp-resorts",
+    name: "Resorts & All Inclusive",
+    tag: "Experiência",
+    description:
+      "Dias sem logística: você chega, desacelera e aproveita tudo o que a hospedagem oferece.",
+    image: "resort",
+    interest: "Resort / All Inclusive",
+  },
+  {
+    id: "exp-cruzeiros",
+    name: "Cruzeiros",
+    tag: "Experiência",
+    description:
+      "A viagem começa a bordo: você dorme em um destino e acorda em outro, sem trocar de mala.",
+    image: "cruise",
+    interest: "Cruzeiro",
+  },
   {
     id: "destinos-praia",
     name: "Destinos de praia",
+    tag: "Sol e mar",
     description:
       "Sol, mar e dias de descanso: praias brasileiras e internacionais para desacelerar de verdade.",
-    tag: "Sol e mar",
-    preference: "Praia",
+    image: "beach",
+    destination: "Praia",
   },
   {
     id: "destinos-montanha",
     name: "Destinos de montanha",
-    description:
-      "Clima agradável, natureza e charme para viajar em qualquer época do ano.",
     tag: "Serra e natureza",
-    preference: "Montanha / natureza",
+    description:
+      "Clima agradável, natureza e charme para viajar em qualquer época do ano — inclusive no inverno.",
+    image: "mountain",
+    destination: "Montanha / natureza",
   },
   {
     id: "destinos-internacionais",
     name: "Destinos internacionais",
+    tag: "Internacional",
     description:
       "Viagens fora do país com planejamento completo: aéreo, hospedagem, seguro, transfer e passeios.",
-    tag: "Internacional",
-    preference: "Internacional",
+    image: "international",
+    destination: "Internacional",
+  },
+  {
+    id: "exp-familia",
+    name: "Viagens em família",
+    tag: "Experiência",
+    description:
+      "Voos, hospedagem, transporte, seguro e experiências planejados considerando adultos e crianças.",
+    image: "family",
+    tripType: "Família com crianças",
+  },
+  {
+    id: "exp-casais",
+    name: "Lua de mel & viagens a dois",
+    tag: "Experiência",
+    description:
+      "Destinos e hospedagens para casais que querem comemorar uma data especial ou apenas descansar.",
+    image: "couples",
+    tripType: "Lua de mel",
   },
   {
     id: "destinos-ferias",
-    name: "Destinos de férias",
+    name: "Férias nacionais",
+    tag: "Férias",
     description:
       "Roteiros pensados para as férias em família ou entre amigos, com ritmo, conforto e experiências na medida.",
-    tag: "Férias",
-    preference: "Férias",
+    image: "vacation",
+    destination: "Férias",
   },
 ];
 
-/** Formas de viajar — estilos de experiência (sem repetir a lista de serviços). */
-export const experiences = [
-  {
-    name: "Resorts & All Inclusive",
-    icon: "sparkles",
-    description:
-      "Dias sem logística: você chega, desacelera e aproveita tudo o que a hospedagem oferece.",
-    tags: ["Descanso", "Gastronomia", "Lazer", "Conforto"],
-  },
-  {
-    name: "Cruzeiros",
-    icon: "ship",
-    description:
-      "A viagem começa a bordo: você dorme em um destino e acorda em outro, sem trocar de mala.",
-    tags: ["Alto-mar", "Múltiplos destinos", "Entretenimento", "Experiências"],
-  },
-  {
-    name: "Férias nacionais e internacionais",
-    icon: "luggage",
-    description:
-      "Do Brasil ao exterior, um roteiro com o ritmo certo para o seu tempo livre.",
-    tags: ["Brasil", "Exterior", "Roteiros", "Férias"],
-  },
-  {
-    name: "Praia & descanso",
-    icon: "palm",
-    description:
-      "Mar, silêncio e dias sem hora marcada para quem só quer sair da rotina.",
-    tags: ["Praia", "Descanso", "Bem-estar", "Tranquilidade"],
-  },
-  {
-    name: "Lua de mel",
-    icon: "heart",
-    description:
-      "Destinos, hospedagens e experiências especiais para começar essa nova fase com uma viagem inesquecível.",
-    tags: ["Romance", "Experiências", "Conforto", "Destinos especiais"],
-  },
-  {
-    name: "Neve & inverno",
-    icon: "snowflake",
-    description:
-      "Destinos para viver o frio, paisagens de inverno e experiências que transformam a estação em parte da viagem.",
-    tags: ["Neve", "Inverno", "Montanha", "Experiências"],
-  },
-  {
-    name: "Natureza & aventura",
-    icon: "mountain",
-    description:
-      "Viagens para quem quer descobrir paisagens, natureza e experiências diferentes da rotina.",
-    tags: ["Natureza", "Aventura", "Paisagens", "Experiências"],
-  },
-  {
-    name: "Viagens em família",
-    icon: "users",
-    description:
-      "Voos, hospedagem, transporte, seguro e experiências planejados considerando adultos e crianças.",
-    tags: ["Família", "Crianças", "Estrutura", "Recreação"],
-  },
-  {
-    name: "Viagens a dois",
-    icon: "heart",
-    description:
-      "Destinos, hospedagens e experiências para casais que querem descansar ou comemorar uma data especial.",
-    tags: ["A dois", "Romance", "Descanso", "Ocasiões"],
-  },
-  {
-    name: "Cultura & gastronomia",
-    icon: "utensils",
-    description:
-      "Destinos para conhecer também pelos sabores, história, cultura e experiências locais.",
-    tags: ["Cultura", "Gastronomia", "História", "Experiências"],
-  },
-];
 
 
 export const faq: {
