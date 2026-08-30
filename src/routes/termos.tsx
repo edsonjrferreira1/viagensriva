@@ -40,7 +40,8 @@ function Termos() {
           Esta página é administrada pela {agency.name}, agência de viagens
           independente (CNPJ {agency.cnpj}, {agency.cadastur}), para divulgação e
           comercialização de serviços turísticos. Não se trata de site oficial de
-          nenhum hotel, resort ou rede hoteleira específica.
+          nenhum hotel, resort, rede hoteleira, companhia aérea, companhia
+          marítima ou operadora de turismo.
         </p>
         <p>
           As informações sobre estrutura, restaurantes, regime de alimentação e
@@ -58,6 +59,14 @@ function Termos() {
           Marcas e nomes de terceiros citados pertencem aos seus respectivos
           titulares e são mencionados apenas para identificar os serviços
           comercializados, quando aplicável.
+        </p>
+        <p>
+          Em produtos comercializados por operadoras de turismo, o contrato de
+          viagem é firmado diretamente entre o cliente e a operadora
+          responsável, e o pagamento é realizado pelo cliente diretamente a ela.
+          Nesses casos, a Viagens Riva atua na intermediação: pesquisa, monta a
+          proposta, acompanha a reserva e presta suporte, sem figurar como parte
+          contratante do serviço turístico.
         </p>
       </div>
     </main>
