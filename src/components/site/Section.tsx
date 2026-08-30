@@ -16,7 +16,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "section-y scroll-mt-24 px-4 sm:px-6 lg:scroll-mt-28",
+        "section-y scroll-mt-[104px] px-4 sm:px-6",
         tone === "sand" && "bg-secondary",
         tone === "deep" && "surface-deep",
         className,

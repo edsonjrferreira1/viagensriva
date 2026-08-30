@@ -4,7 +4,7 @@ import { communities } from "@/config/site";
 
 export function CommunitiesInvite() {
   return (
-    <section id="comunidades" className="surface-deep scroll-mt-24 px-4 py-16 sm:px-6 lg:scroll-mt-28">
+    <section id="comunidades" className="surface-deep scroll-mt-[104px] px-4 py-16 sm:px-6">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-2xl">
           <p className="eyebrow text-champagne">Comunidades de ofertas</p>

@@ -256,7 +256,7 @@ export function ExperiencesSection() {
       {/* Faixa compacta de serviços */}
       <div
         id="servicos"
-        className="mt-14 scroll-mt-24 rounded-3xl border border-primary/15 bg-secondary/60 px-6 py-8 sm:px-10 lg:scroll-mt-28"
+        className="mt-14 scroll-mt-[104px] rounded-3xl border border-primary/15 bg-secondary/60 px-6 py-8 sm:px-10"
       >
         <h3 className="text-center font-display text-2xl text-primary sm:text-[1.7rem]">
           Podemos cuidar de cada etapa da sua viagem.
@@ -434,7 +434,7 @@ export function AccommodationsSection() {
       {/* Destaque: Resorts & All Inclusive */}
       <div
         id="resorts"
-        className="mt-12 scroll-mt-24 overflow-hidden rounded-3xl surface-deep shadow-lift lg:scroll-mt-28"
+        className="mt-12 scroll-mt-[104px] overflow-hidden rounded-3xl surface-deep shadow-lift"
       >
         <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
           <div>
@@ -603,7 +603,7 @@ export function MomentsSection() {
           <article
             id={c.id}
             key={c.eyebrow}
-            className="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft lg:scroll-mt-28"
+            className="flex h-full scroll-mt-[104px] flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft"
           >
             <img
               src={c.img}
@@ -656,7 +656,7 @@ export function DestinationsSection() {
             <article
               id={d.id}
               key={d.name}
-              className="group relative scroll-mt-24 overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50 lg:scroll-mt-28"
+              className="group relative scroll-mt-[104px] overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
             >
               <img
                 src={img}

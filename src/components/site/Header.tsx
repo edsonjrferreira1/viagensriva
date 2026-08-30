@@ -1,23 +1,18 @@
 import type { ReactNode } from "react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems, agency } from "@/config/site";
 import logoAsset from "@/assets/logo-riva.png.asset.json";
 import { cn } from "@/lib/utils";
 
+// A ordem do menu espelha a ordem das seções na página — manter sincronizado.
 const sectionIds = [
-  "servicos",
-  "diferenciais",
-  "inspiracao",
   "experiencias",
-  "cruzeiros",
+  "servicos",
   "destinos",
-  "hospedagens",
-  "resorts",
-  "momentos",
   "sobre",
   "avaliacoes",
   "cotacao",
@@ -49,7 +44,6 @@ function NavA({
   );
 }
 
-
 export function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
@@ -58,10 +52,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string | null>(null);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [mounted, setMounted] = useState(false);
-  const [mobileAccordion, setMobileAccordion] = useState<string | null>(null);
 
   useEffect(() => setMounted(true), []);
 
@@ -79,7 +70,6 @@ export function Header() {
     };
   }, [open]);
 
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -87,7 +77,9 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Scroll-spy: destaca no menu a seção visível no momento.
   useEffect(() => {
+    if (!isHome) return;
     const els = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
@@ -104,28 +96,15 @@ export function Header() {
     );
     els.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [isHome]);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpenDropdown(null);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
-
-  const isActive = (item: { href: string; children?: { href: string }[] }) =>
-    active === item.href ||
-    Boolean(item.children?.some((c) => c.href === active)) ||
-    (item.href === "#hospedagens" && active === "#resorts");
-
-  const scheduleClose = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setOpenDropdown(null), 160);
-  };
-  const cancelClose = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-  };
+  const linkClass = (href: string) =>
+    cn(
+      "inline-flex items-center whitespace-nowrap border-b-2 border-transparent py-1 text-[0.94rem] font-medium leading-none tracking-wide transition-colors",
+      active === href
+        ? "border-gold text-primary"
+        : "text-foreground/80 hover:text-teal",
+    );
 
   return (
     <header
@@ -152,67 +131,15 @@ export function Header() {
         </a>
 
         <nav className="hidden h-full items-center gap-4 lg:flex xl:gap-6">
-          {navItems.map((item) =>
-            item.children ? (
-              <div
-                key={item.href}
-                className="relative flex h-full items-center"
-                onMouseEnter={() => {
-                  cancelClose();
-                  setOpenDropdown(item.href);
-                }}
-                onMouseLeave={scheduleClose}
-              >
-                <a
-                  href={resolve(item.href)}
-                  aria-haspopup="true"
-                  aria-expanded={openDropdown === item.href}
-                  onClick={() => setOpenDropdown(null)}
-                  onFocus={() => setOpenDropdown(item.href)}
-                  className={cn(
-                    "inline-flex items-center gap-1 whitespace-nowrap border-b-2 border-transparent py-1 text-[0.94rem] font-medium leading-none tracking-wide transition-colors",
-                    isActive(item)
-                      ? "border-gold text-primary"
-                      : "text-foreground/80 hover:text-teal",
-                  )}
-                >
-                  {item.label}
-                  <ChevronDown className="size-3.5" aria-hidden="true" />
-                </a>
-
-                {openDropdown === item.href && (
-                  <div className="absolute left-1/2 top-full w-64 -translate-x-1/2 pt-3">
-                    <ul className="overflow-hidden rounded-2xl border border-primary/15 bg-white p-2 shadow-lift">
-                      {item.children.map((child) => (
-                        <li key={child.label}>
-                          <a
-                            href={resolve(child.href)}
-                            onClick={() => setOpenDropdown(null)}
-                            className="block rounded-xl px-4 py-2.5 text-[0.95rem] text-foreground/85 transition-colors hover:bg-secondary hover:text-primary"
-                          >
-                            {child.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <NavA
-                key={item.href}
-                href={resolve(item.href)}
-                className={cn(
-                  "inline-flex items-center whitespace-nowrap border-b-2 border-transparent py-1 text-[0.94rem] font-medium leading-none tracking-wide transition-colors",
-                  isActive(item)
-                    ? "border-gold text-primary"
-                    : "text-foreground/80 hover:text-teal",
-                )}
-              >
-                {item.label}
-              </NavA>
-            ),
-          )}
+          {navItems.map((item) => (
+            <NavA
+              key={item.href}
+              href={resolve(item.href)}
+              className={linkClass(item.href)}
+            >
+              {item.label}
+            </NavA>
+          ))}
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
@@ -271,50 +198,13 @@ export function Header() {
                 <ul className="flex flex-col">
                   {navItems.map((item) => (
                     <li key={item.href} className="border-b border-white/10">
-                      <div className="flex items-center justify-between">
-                        <NavA
-                          href={resolve(item.href)}
-                          onClick={() => setOpen(false)}
-                          className="block flex-1 py-4 text-lg font-medium text-white"
-                        >
-                          {item.label}
-                        </NavA>
-                        {item.children && (
-                          <button
-                            type="button"
-                            aria-label={`Abrir subitens de ${item.label}`}
-                            aria-expanded={mobileAccordion === item.href}
-                            onClick={() =>
-                              setMobileAccordion((v) =>
-                                v === item.href ? null : item.href,
-                              )
-                            }
-                            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-white/80"
-                          >
-                            <ChevronDown
-                              className={cn(
-                                "size-5 transition-transform",
-                                mobileAccordion === item.href && "rotate-180",
-                              )}
-                            />
-                          </button>
-                        )}
-                      </div>
-                      {item.children && mobileAccordion === item.href && (
-                        <ul className="pb-3 pl-3">
-                          {item.children.map((child) => (
-                            <li key={child.label}>
-                              <a
-                                href={resolve(child.href)}
-                                onClick={() => setOpen(false)}
-                                className="block py-2.5 text-sm text-white/80"
-                              >
-                                {child.label}
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                      <NavA
+                        href={resolve(item.href)}
+                        onClick={() => setOpen(false)}
+                        className="block py-4 text-lg font-medium text-white"
+                      >
+                        {item.label}
+                      </NavA>
                     </li>
                   ))}
                 </ul>
