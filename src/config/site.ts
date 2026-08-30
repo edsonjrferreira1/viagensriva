@@ -124,8 +124,8 @@ export const navItems: {
   children?: { label: string; href: string }[];
 }[] = [
   { label: "Experiências", href: "#experiencias" },
-  { label: "Cruzeiros", href: "#cruzeiros" },
-  { label: "Hospedagens", href: "#hospedagens" },
+  { label: "Cruzeiros", href: "/servicos/cruzeiros" },
+  { label: "Hospedagens", href: "/servicos/hospedagens" },
   { label: "Sobre nós", href: "#sobre" },
   { label: "Comunidades", href: "/comunidades" },
 ];
