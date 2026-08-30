@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComunidadesRouteImport } from './routes/comunidades'
+import { Route as DuvidasRouteImport } from './routes/duvidas'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as TermosRouteImport } from './routes/termos'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const ComunidadesRoute = ComunidadesRouteImport.update({
   id: '/comunidades',
   path: '/comunidades',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DuvidasRoute = DuvidasRouteImport.update({
+  id: '/duvidas',
+  path: '/duvidas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacidadeRoute = PrivacidadeRouteImport.update({
@@ -38,12 +44,14 @@ const TermosRoute = TermosRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/comunidades': typeof ComunidadesRoute
+  '/duvidas': typeof DuvidasRoute
   '/privacidade': typeof PrivacidadeRoute
   '/termos': typeof TermosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/comunidades': typeof ComunidadesRoute
+  '/duvidas': typeof DuvidasRoute
   '/privacidade': typeof PrivacidadeRoute
   '/termos': typeof TermosRoute
 }
@@ -51,20 +59,23 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/comunidades': typeof ComunidadesRoute
+  '/duvidas': typeof DuvidasRoute
   '/privacidade': typeof PrivacidadeRoute
   '/termos': typeof TermosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/comunidades' | '/privacidade' | '/termos'
+  fullPaths: '/' | '/comunidades' | '/duvidas' | '/privacidade' | '/termos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/comunidades' | '/privacidade' | '/termos'
-  id: '__root__' | '/' | '/comunidades' | '/privacidade' | '/termos'
+  to: '/' | '/comunidades' | '/duvidas' | '/privacidade' | '/termos'
+  id:
+    '__root__' | '/' | '/comunidades' | '/duvidas' | '/privacidade' | '/termos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ComunidadesRoute: typeof ComunidadesRoute
+  DuvidasRoute: typeof DuvidasRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
   TermosRoute: typeof TermosRoute
 }
@@ -83,6 +94,13 @@ declare module '@tanstack/react-router' {
       path: '/comunidades'
       fullPath: '/comunidades'
       preLoaderRoute: typeof ComunidadesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/duvidas': {
+      id: '/duvidas'
+      path: '/duvidas'
+      fullPath: '/duvidas'
+      preLoaderRoute: typeof DuvidasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacidade': {
@@ -105,6 +123,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ComunidadesRoute: ComunidadesRoute,
+  DuvidasRoute: DuvidasRoute,
   PrivacidadeRoute: PrivacidadeRoute,
   TermosRoute: TermosRoute,
 }
