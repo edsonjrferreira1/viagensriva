@@ -65,10 +65,10 @@ import {
   defaultWhatsappMessage,
 } from "@/config/site";
 
-import expertImg from "@/assets/edson-ferreira.jpg.asset.json";
-import cruiseImg from "@/assets/cruise-premium.jpg.asset.json";
-import cruiseOnboardImg from "@/assets/cruise-onboard.jpg.asset.json";
-import cruiseDiningImg from "@/assets/cruise-dining.jpg.asset.json";
+import expertImg from "@/assets/edson-ferreira.jpg";
+import cruiseImg from "@/assets/cruise-premium.jpg";
+import cruiseOnboardImg from "@/assets/cruise-onboard.jpg";
+import cruiseDiningImg from "@/assets/cruise-dining.jpg";
 
 /** Pré-seleciona serviço, destino ou tipo de viagem no formulário de cotação. */
 function preselect(detail: {
@@ -86,7 +86,7 @@ function preselectInterest(option: string) {
 
 import desire1 from "@/assets/desire-mosaic-1.webp";
 import desire2 from "@/assets/desire-mosaic-2.webp";
-import lazerImg from "@/assets/lazer-premium.jpg.asset.json";
+import lazerImg from "@/assets/lazer-premium.jpg";
 import gastro from "@/assets/gastronomy-1.webp";
 import hospHotel from "@/assets/hosp-hoteis-pousadas.jpg";
 import hospFlat from "@/assets/hosp-flats.jpg";
@@ -277,7 +277,7 @@ export function CruisesSection() {
 
           <div className="mt-8 grid gap-3 lg:hidden">
             <img
-              src={cruiseImg.url}
+              src={cruiseImg}
               alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
               width={1600}
               height={1067}
@@ -287,7 +287,7 @@ export function CruisesSection() {
             />
             <div className="grid grid-cols-2 gap-3">
               <img
-                src={cruiseOnboardImg.url}
+                src={cruiseOnboardImg}
                 alt="Piscina e espreguiçadeiras no deck de um navio de cruzeiro ao entardecer"
                 width={1408}
                 height={1008}
@@ -296,7 +296,7 @@ export function CruisesSection() {
                 className="h-32 w-full rounded-2xl object-cover shadow-soft sm:h-40"
               />
               <img
-                src={cruiseDiningImg.url}
+                src={cruiseDiningImg}
                 alt="Jantar sofisticado a bordo com vista para o mar durante o pôr do sol"
                 width={1408}
                 height={1008}
@@ -350,7 +350,7 @@ export function CruisesSection() {
 
         <div className="hidden h-full min-h-[520px] grid-rows-[1.35fr_1fr] gap-4 lg:grid">
           <img
-            src={cruiseImg.url}
+            src={cruiseImg}
             alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
             width={1600}
             height={1067}
@@ -360,7 +360,7 @@ export function CruisesSection() {
           />
           <div className="grid grid-cols-2 gap-4">
             <img
-              src={cruiseOnboardImg.url}
+              src={cruiseOnboardImg}
               alt="Piscina e espreguiçadeiras no deck de um navio de cruzeiro ao entardecer"
               width={1408}
               height={1008}
@@ -369,7 +369,7 @@ export function CruisesSection() {
               className="h-full w-full rounded-3xl object-cover shadow-lift"
             />
             <img
-              src={cruiseDiningImg.url}
+              src={cruiseDiningImg}
               alt="Jantar sofisticado a bordo com vista para o mar durante o pôr do sol"
               width={1408}
               height={1008}
@@ -462,7 +462,7 @@ export function AccommodationsSection() {
               className="h-40 w-full rounded-2xl object-cover shadow-lift sm:h-52"
             />
             <img
-              src={lazerImg.url}
+              src={lazerImg}
               alt="Piscina de borda infinita com espreguiçadeiras e paisagismo tropical"
               width={1600}
               height={1200}
@@ -680,7 +680,7 @@ export function ExpertSection() {
         <div className="mx-auto w-full max-w-md">
           <div className="rounded-3xl border border-border bg-card p-3 shadow-lift">
             <img
-              src={expertImg.url}
+              src={expertImg}
               alt={`${expert.name}, responsável pela ${agency.name}`}
               width={900}
               height={1125}

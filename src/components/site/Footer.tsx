@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram } from "lucide-react";
 import { agency, whatsappLink, defaultWhatsappMessage } from "@/config/site";
-import logoAsset from "@/assets/logo-riva.png.asset.json";
+import logoAsset from "@/assets/logo-riva.png";
 
 export function Footer() {
   return (
@@ -10,7 +10,7 @@ export function Footer() {
         <div>
           <span className="inline-flex items-center rounded-2xl bg-white px-4 py-3">
             <img
-              src={logoAsset.url}
+              src={logoAsset}
               alt={`Logo ${agency.name}`}
               width={512}
               height={512}

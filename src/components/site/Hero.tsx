@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import heroDesktop from "@/assets/hero-premium-desktop.jpg.asset.json";
-import heroMobile from "@/assets/hero-premium-mobile.jpg.asset.json";
+import heroDesktop from "@/assets/hero-premium-desktop.jpg";
+import heroMobile from "@/assets/hero-premium-mobile.jpg";
 import { heroHighlights } from "@/config/site";
 
 export function Hero() {
@@ -11,10 +11,10 @@ export function Hero() {
       className="relative flex min-h-[480px] items-center overflow-hidden lg:min-h-[560px] lg:max-h-[660px]"
     >
       <picture>
-        <source media="(max-width: 767px)" srcSet={heroMobile.url} />
-        <source media="(min-width: 768px)" srcSet={heroDesktop.url} />
+        <source media="(max-width: 767px)" srcSet={heroMobile} />
+        <source media="(min-width: 768px)" srcSet={heroDesktop} />
         <img
-          src={heroDesktop.url}
+          src={heroDesktop}
           alt="Piscina de borda infinita em resort premium ao pôr do sol"
           width={1920}
           height={1088}
