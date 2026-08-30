@@ -33,6 +33,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { Section, SectionHeading } from "./Section";
 
@@ -891,6 +892,14 @@ export function FaqSection() {
             </AccordionTrigger>
             <AccordionContent className="whitespace-pre-line text-sm leading-relaxed text-foreground/85">
               {item.a}
+              {item.link && (
+                <Link
+                  to={item.link.to}
+                  className="mt-3 inline-flex font-medium text-teal underline underline-offset-4"
+                >
+                  {item.link.label}
+                </Link>
+              )}
             </AccordionContent>
           </AccordionItem>
         ))}

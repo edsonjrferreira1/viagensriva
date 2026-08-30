@@ -5,6 +5,7 @@ import { Section } from "@/components/site/Section";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
+import { CommunitiesInvite } from "@/components/site/CommunitiesInvite";
 import {
   AccommodationsSection,
   CruisesSection,
@@ -93,6 +94,8 @@ function Index() {
 
         <TestimonialsSection />
 
+
+        <CommunitiesInvite />
 
         <Section id="cotacao">
           <QuoteForm />
