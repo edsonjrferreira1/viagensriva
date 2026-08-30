@@ -54,8 +54,7 @@ import {
   cruiseIntro,
   cruiseIntroComplement,
   cruiseNote,
-  destinations,
-  experiences,
+  travelCards,
   expert,
   faq,
   googleReviews,
@@ -84,8 +83,6 @@ function preselectInterest(option: string) {
 }
 
 
-import desire1 from "@/assets/desire-mosaic-1.webp";
-import desire2 from "@/assets/desire-mosaic-2.webp";
 import lazerImg from "@/assets/lazer-premium.jpg";
 import gastro from "@/assets/gastronomy-1.webp";
 import hospHotel from "@/assets/hosp-hoteis-pousadas.jpg";
@@ -93,24 +90,27 @@ import hospFlat from "@/assets/hosp-flats.jpg";
 import hospPremium from "@/assets/hosp-premium.jpg";
 import spa from "@/assets/spa-wellness.webp";
 import destMountain from "@/assets/destination-mountain.webp";
+import destBeach from "@/assets/destination-beach.webp";
+import destVacation from "@/assets/destination-vacation.webp";
+import resortAerial from "@/assets/resort-aerial.webp";
+import familyPool from "@/assets/family-pool.webp";
+import couplesImg from "@/assets/couples.webp";
 import destInternational from "@/assets/destination-international.webp";
 import agentImg from "@/assets/agent-placeholder.webp";
 import panorama from "@/assets/final-cta.webp";
 import servicosImg from "@/assets/servicos-completos.webp";
 
 
-const destinationImages = [desire2, destMountain, destInternational, desire1];
-
-const experienceIcons: Record<string, LucideIcon> = {
-  sparkles: Sparkles,
-  users: Users,
-  heart: Heart,
-  luggage: Luggage,
-  ship: Ship,
-  palm: Palmtree,
-  snowflake: Snowflake,
-  mountain: Mountain,
-  utensils: UtensilsCrossed,
+/** Fotos do carrossel de experiências e destinos (chave = campo `image`). */
+const travelImages: Record<string, string> = {
+  resort: resortAerial,
+  cruise: cruiseImg,
+  beach: destBeach,
+  mountain: destMountain,
+  international: destInternational,
+  family: familyPool,
+  couples: couplesImg,
+  vacation: destVacation,
 };
 
 const benefitIcons: Record<string, LucideIcon> = {
@@ -121,106 +121,93 @@ const benefitIcons: Record<string, LucideIcon> = {
   utensils: UtensilsCrossed,
 };
 
-/**
- * Cada experiência aponta para o bloco de conteúdo correspondente.
- * "Cultura & gastronomia" não tem bloco próprio: vai direto ao formulário.
- */
-const experienceLinks: Record<
-  string,
-  { href: string; cta: string; preselect?: Parameters<typeof preselect>[0] }
-> = {
-  "Resorts & All Inclusive": { href: "#resorts", cta: "Conhecer essa experiência" },
-  Cruzeiros: { href: "#cruzeiros", cta: "Conhecer essa experiência" },
-  "Férias nacionais e internacionais": { href: "#destinos", cta: "Conhecer essa experiência" },
-  "Praia & descanso": { href: "#destinos-praia", cta: "Conhecer essa experiência" },
-  "Lua de mel": {
-    href: "#cotacao",
-    cta: "Planejar essa experiência",
-    preselect: { tripType: "Lua de mel" },
-  },
-  "Viagens em família": {
-    href: "#cotacao",
-    cta: "Planejar essa experiência",
-    preselect: { tripType: "Família com crianças" },
-  },
-  "Viagens a dois": {
-    href: "#cotacao",
-    cta: "Planejar essa experiência",
-    preselect: { tripType: "Casal" },
-  },
-  "Neve & inverno": { href: "#destinos-montanha", cta: "Conhecer essa experiência" },
-  "Natureza & aventura": { href: "#destinos-montanha", cta: "Conhecer essa experiência" },
-  "Cultura & gastronomia": {
-    href: "#cotacao",
-    cta: "Planejar essa experiência",
-    preselect: {
-      interest: "Passeios e experiências",
-      destination: "Cultura & gastronomia",
-    },
-  },
-};
 
-export function ExperiencesSection() {
+export function TravelSection() {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  // Permite abrir a página já com um card específico visível (ex.: #destinos-praia).
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const revealAnchoredCard = () => {
+      const cardId = decodeURIComponent(window.location.hash.slice(1));
+      const index = travelCards.findIndex((card) => card.id === cardId);
+      if (index >= 0) carouselApi.scrollTo(index);
+    };
+
+    revealAnchoredCard();
+    window.addEventListener("hashchange", revealAnchoredCard);
+    return () => window.removeEventListener("hashchange", revealAnchoredCard);
+  }, [carouselApi]);
+
   return (
     <Section id="experiencias">
       <SectionHeading
         align="center"
-        eyebrow="Formas de viajar"
+        eyebrow="Experiências e destinos"
         title="Escolha como quer viajar. A gente cuida do resto."
-        subtitle="Você escolhe a experiência e a Viagens Riva organiza os serviços necessários para transformar o planejamento em viagem."
+        subtitle="Você escolhe a experiência ou o destino e a Viagens Riva organiza os serviços necessários para transformar o planejamento em viagem."
       />
 
-      <p className="mt-7 text-center text-xs uppercase tracking-[0.24em] text-foreground/60">
-        Como você quer viajar?
-      </p>
-
-      <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {experiences.map((exp) => {
-          const Icon = experienceIcons[exp.icon] ?? Sparkles;
-          const link = experienceLinks[exp.name] ?? {
-            href: "#cotacao",
-            cta: "Planejar essa experiência",
-          };
-          return (
-            <a
-              key={exp.name}
-              href={link.href}
-              onClick={() => link.preselect && preselect(link.preselect)}
-              className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-4 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+      <Carousel
+        opts={{ align: "start", containScroll: "trimSnaps" }}
+        setApi={setCarouselApi}
+        className="mt-8"
+      >
+        <CarouselContent className="-ml-4">
+          {travelCards.map((card) => (
+            <CarouselItem
+              key={card.id}
+              id={card.id}
+              className="scroll-mt-[104px] basis-[82%] pl-4 sm:basis-1/2 lg:basis-1/3"
             >
-              <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
-                <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
-              </span>
-              <h3 className="mt-3 min-h-[2.9rem] text-base leading-snug text-primary line-clamp-2">
-                {exp.name}
-              </h3>
-              <p className="mt-1.5 min-h-[3.5rem] text-sm leading-relaxed text-foreground/75 line-clamp-3">
-                {exp.description}
-              </p>
-              <div className="mt-2.5 flex flex-1 flex-wrap content-start gap-1.5">
-                {exp.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-primary/20 px-2.5 py-1 text-[11px] text-foreground/75"
-                  >
-                    {tag}
+              <article className="group relative flex h-full overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50">
+                <img
+                  src={travelImages[card.image] ?? destBeach}
+                  alt={card.name}
+                  width={1200}
+                  height={900}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-80 w-full object-cover transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10" />
+                <div className="absolute inset-x-0 bottom-0 p-6">
+                  <span className="text-[0.65rem] font-medium uppercase tracking-[0.22em] text-gold">
+                    {card.tag}
                   </span>
-                ))}
-              </div>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition group-hover:text-gold">
-                {link.cta}
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </span>
-            </a>
-          );
-        })}
-      </div>
+                  <h3 className="mt-2 text-2xl text-white">{card.name}</h3>
+                  <p className="mt-2 max-w-md text-sm leading-relaxed text-white/90">
+                    {card.description}
+                  </p>
 
+                  <Button asChild variant="gold" size="sm" className="mt-5">
+                    <a
+                      href="#cotacao"
+                      onClick={() =>
+                        preselect({
+                          tripType: card.tripType,
+                          destination: card.destination,
+                          interest: card.interest,
+                        })
+                      }
+                    >
+                      Quero receber opções
+                    </a>
+                  </Button>
+                </div>
+              </article>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="hidden lg:flex" />
+        <CarouselNext className="hidden lg:flex" />
+      </Carousel>
 
-      {/* Faixa compacta de serviços */}
+      {/* Faixa compacta de serviços — mantém a âncora #servicos usada no topo da página */}
       <div
         id="servicos"
-        className="mt-8 scroll-mt-[104px] rounded-3xl border border-primary/15 bg-secondary/60 px-6 py-8 sm:px-10"
+        className="mt-10 scroll-mt-[104px] rounded-3xl border border-primary/15 bg-secondary/60 px-6 py-8 sm:px-10"
       >
         <h3 className="text-center font-display text-2xl text-primary sm:text-[1.7rem]">
           Podemos cuidar de cada etapa da sua viagem.
@@ -242,12 +229,6 @@ export function ExperiencesSection() {
           Você pode contratar apenas o que precisa ou montar uma viagem completa em
           um único atendimento.
         </p>
-      </div>
-
-      <div className="mt-7 flex justify-center">
-        <Button asChild variant="cta" size="xl">
-          <a href="#cotacao">Quero planejar minha viagem</a>
-        </Button>
       </div>
     </Section>
   );
@@ -517,14 +498,6 @@ export function AccommodationsSection() {
               <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
                 {a.description}
               </p>
-              <Button asChild variant="outline" className="mt-5 w-full rounded-full">
-                <a
-                  href="#cotacao"
-                  onClick={() => preselectInterest("Hospedagem")}
-                >
-                  Consultar disponibilidade
-                </a>
-              </Button>
             </div>
           </article>
           </CarouselItem>
@@ -534,95 +507,14 @@ export function AccommodationsSection() {
         <CarouselPrevious className="hidden lg:flex" />
         <CarouselNext className="hidden lg:flex" />
       </Carousel>
-    </Section>
-  );
-}
 
-export function DestinationsSection() {
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-
-  useEffect(() => {
-    if (!carouselApi) return;
-
-    const revealAnchoredDestination = () => {
-      const destinationId = decodeURIComponent(window.location.hash.slice(1));
-      const destinationIndex = destinations.findIndex(
-        (destination) => destination.id === destinationId,
-      );
-
-      if (destinationIndex >= 0) {
-        carouselApi.scrollTo(destinationIndex);
-      }
-    };
-
-    revealAnchoredDestination();
-    window.addEventListener("hashchange", revealAnchoredDestination);
-
-    return () => window.removeEventListener("hashchange", revealAnchoredDestination);
-  }, [carouselApi]);
-
-  return (
-    <Section id="destinos" tone="sand">
-      <SectionHeading
-        align="center"
-        eyebrow="Destinos"
-        title="Para onde você quer viajar?"
-        subtitle="Do Brasil ao exterior, ajudamos você a encontrar a experiência ideal para as suas próximas férias."
-      />
-
-      <Carousel
-        opts={{ align: "start", containScroll: "trimSnaps" }}
-        setApi={setCarouselApi}
-        className="mt-8"
-      >
-        <CarouselContent className="-ml-4">
-        {destinations.map((d, i) => {
-          const img = destinationImages[i % destinationImages.length];
-          return (
-            <CarouselItem
-              key={d.name}
-              id={d.id}
-              className="scroll-mt-[104px] basis-[82%] pl-4 sm:basis-1/2 lg:basis-1/3"
-            >
-            <article
-              className="group relative flex h-full overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
-            >
-              <img
-                src={img}
-                alt={`Destino — ${d.name}`}
-                width={1200}
-                height={900}
-                loading="lazy"
-        decoding="async"
-                className="h-72 w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10" />
-              <div className="absolute inset-x-0 bottom-0 p-6">
-                <span className="text-[0.65rem] font-medium uppercase tracking-[0.22em] text-gold">
-                  {d.tag}
-                </span>
-                <h3 className="mt-2 text-2xl text-white">{d.name}</h3>
-                <p className="mt-2 max-w-md text-sm leading-relaxed text-white/90">
-                  {d.description}
-                </p>
-
-                <Button asChild variant="gold" size="sm" className="mt-5">
-                  <a
-                    href="#cotacao"
-                    onClick={() => preselect({ destination: d.preference })}
-                  >
-                    Quero receber opções
-                  </a>
-                </Button>
-              </div>
-            </article>
-            </CarouselItem>
-          );
-        })}
-        </CarouselContent>
-        <CarouselPrevious className="hidden lg:flex" />
-        <CarouselNext className="hidden lg:flex" />
-      </Carousel>
+      <div className="mt-8 flex justify-center">
+        <Button asChild variant="outline" size="lg" className="rounded-full">
+          <a href="#cotacao" onClick={() => preselectInterest("Hospedagem")}>
+            Consultar hospedagens
+          </a>
+        </Button>
+      </div>
     </Section>
   );
 }
@@ -848,25 +740,6 @@ export function FaqSection() {
         </Link>
       </div>
 
-      <div className="mx-auto mt-8 max-w-3xl rounded-3xl border border-primary/15 bg-card p-6 text-center shadow-soft">
-        <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-foreground/75">
-          Ainda ficou com alguma dúvida?
-        </p>
-
-        <h3 className="mt-3 font-display text-2xl text-primary sm:text-3xl">
-          Nossa equipe pode ajudar você a planejar sua viagem.
-        </h3>
-        <Button asChild variant="cta" size="xl" className="mt-6">
-          <a
-            href={whatsappLink(defaultWhatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Falar com a Viagens Riva
-          </a>
-        </Button>
-
-      </div>
     </Section>
   );
 }
