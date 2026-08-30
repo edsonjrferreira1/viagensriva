@@ -63,7 +63,7 @@ const icons: Record<string, LucideIcon> = {
   utensils: UtensilsCrossed,
 };
 
-const SITE = "https://viagensriva.lovable.app";
+const SITE = "https://viagensriva.com";
 
 export const Route = createFileRoute("/servicos/$slug")({
   loader: ({ params }) => {
