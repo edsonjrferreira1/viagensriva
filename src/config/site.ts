@@ -728,7 +728,7 @@ export const servicePages: Record<string, ServicePage> = {
     h1: "Passagens aéreas: bagagem, alterações e o que conferir antes de comprar",
     title: "Passagem Aérea: Regras de Bagagem e de Alteração | Viagens Riva",
     description:
-      "Como funcionam bagagem de mão, bagagem despachada, tipos de tarifa e alteração de passagem aérea. Explicado sem letra miúda pela Viagens Riva.",
+      "Como funcionam bagagem, tipos de tarifa e alteração de passagem aérea. A Viagens Riva também emite passagens com as suas milhas, conforme as regras de cada programa.",
     intro: [
       "A maior parte dos problemas com passagem aérea não acontece no dia do voo: acontece na hora da compra, quando alguém escolhe a tarifa mais barata sem saber o que ela não inclui.",
       "Reunimos aqui o que costuma gerar dúvida e custar dinheiro depois — bagagem, tipo de tarifa e alteração. São as regras que a gente confere em toda emissão.",
@@ -771,6 +771,10 @@ export const servicePages: Record<string, ServicePage> = {
         text: "Em roteiros com mais de uma companhia, a bagagem nem sempre segue direto até o destino final. Isso muda o tempo de conexão que você precisa ter.",
       },
     ],
+    highlight: {
+      title: "Tem milhas paradas e não sabe como usar?",
+      text: "Muita gente acumula milhas por anos e nunca emite, por não conhecer as regras do programa ou não saber quando vale a pena trocar. Podemos emitir sua passagem usando as suas próprias milhas, conforme o que cada programa permite, cobrando uma taxa de serviço combinada antes da emissão. Você acompanha o processo do início ao fim e recebe o bilhete em seu nome. Se fizer sentido, completamos a viagem com hospedagem, transfer, seguro e passeios.",
+    },
     note: "Regras de bagagem, tarifa e alteração variam conforme a companhia aérea, o trecho e a tarifa contratada. Confirmamos cada item com você antes de emitir o bilhete.",
     preselectInterest: "Passagens aéreas",
     serviceType: "Emissão de passagens aéreas",
