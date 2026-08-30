@@ -7,30 +7,17 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  UtensilsCrossed,
-  Wine,
-  ChefHat,
-  Sparkles,
-  Waves,
   BadgeCheck,
   Headphones,
   ShieldCheck,
   Plane,
   MapPinned,
   BedDouble,
-  Ship,
   Car,
   BusFront,
-  Users,
-  Heart,
-  Luggage,
-  Palmtree,
   Star,
   Instagram,
   ArrowRight,
-  Snowflake,
-  Mountain,
-  type LucideIcon,
 } from "lucide-react";
 
 import { Link } from "@tanstack/react-router";
@@ -47,27 +34,17 @@ import {
 } from "@/components/ui/carousel";
 
 import {
-  accommodations,
   agency,
-  cruiseBenefits,
-  cruiseExtras,
-  cruiseIntro,
-  cruiseIntroComplement,
-  cruiseNote,
   travelCards,
   expert,
   faq,
   googleReviews,
-  inclusiveBenefits,
-  leisureCards,
   whatsappLink,
   defaultWhatsappMessage,
 } from "@/config/site";
 
 import expertImg from "@/assets/edson-ferreira.jpg";
 import cruiseImg from "@/assets/cruise-premium.webp";
-import cruiseOnboardImg from "@/assets/cruise-onboard.jpg";
-import cruiseDiningImg from "@/assets/cruise-dining.jpg";
 
 /** Pré-seleciona serviço, destino ou tipo de viagem no formulário de cotação. */
 function preselect(detail: {
@@ -78,17 +55,9 @@ function preselect(detail: {
   window.dispatchEvent(new CustomEvent("riva:preselect", { detail }));
 }
 
-function preselectInterest(option: string) {
-  preselect({ interest: option });
-}
-
-
-import lazerImg from "@/assets/lazer-premium.webp";
-import gastro from "@/assets/gastronomy-1.webp";
 import hospHotel from "@/assets/hosp-hoteis-pousadas.jpg";
 import hospFlat from "@/assets/hosp-flats.jpg";
 import hospPremium from "@/assets/hosp-premium.jpg";
-import spa from "@/assets/spa-wellness.webp";
 import destMountain from "@/assets/destination-mountain.webp";
 import destBeach from "@/assets/destination-beach.webp";
 import destVacation from "@/assets/destination-vacation.webp";
@@ -96,9 +65,7 @@ import resortAerial from "@/assets/resort-aerial.webp";
 import familyPool from "@/assets/family-pool.webp";
 import couplesImg from "@/assets/couples.webp";
 import destInternational from "@/assets/destination-international.webp";
-import agentImg from "@/assets/agent-placeholder.webp";
 import panorama from "@/assets/final-cta.webp";
-import servicosImg from "@/assets/servicos-completos.webp";
 
 
 /** Fotos do carrossel de experiências e destinos (chave = campo `image`). */
