@@ -22,6 +22,7 @@ import {
   Waves,
   Wine,
   ArrowRight,
+  BadgeCheck,
   type LucideIcon,
 } from "lucide-react";
 
@@ -31,7 +32,7 @@ import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Section, SectionHeading } from "@/components/site/Section";
-import { servicePages, whatsappLink } from "@/config/site";
+import { servicePages, whatsappLink, agency } from "@/config/site";
 
 import cruiseImg from "@/assets/cruise-premium.jpg";
 import cruiseOnboardImg from "@/assets/cruise-onboard.jpg";
@@ -280,6 +281,15 @@ function ServicePageView() {
               <p className="mt-3 text-sm leading-relaxed text-foreground/80">
                 {page.highlight.text}
               </p>
+            </div>
+          )}
+
+          {slug === "passagens-aereas" && (
+            <div className="mt-5 flex flex-wrap items-center gap-2 rounded-full border border-primary/15 bg-card px-5 py-3 text-sm text-foreground/85 shadow-soft">
+              <BadgeCheck className="size-4 text-teal" aria-hidden="true" />
+              <span>
+                {agency.name} · CNPJ {agency.cnpj} · {agency.cadastur}
+              </span>
             </div>
           )}
 

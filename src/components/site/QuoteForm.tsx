@@ -78,7 +78,7 @@ const momentoOptions: { label: string; hint: string }[] = [
 
 export function QuoteForm() {
   const [form, setForm] = useState(initial);
-  const [interests, setInterests] = useState<string[]>(["Hospedagem"]);
+  const [interests, setInterests] = useState<string[]>([]);
   const [hasFlex, setHasFlex] = useState(false);
 
   useEffect(() => {
