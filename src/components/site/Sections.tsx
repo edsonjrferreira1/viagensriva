@@ -603,7 +603,7 @@ export function MomentsSection() {
           <article
             id={c.id}
             key={c.eyebrow}
-            className="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft lg:scroll-mt-28"
+            className="flex h-full scroll-mt-[104px] flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft"
           >
             <img
               src={c.img}
