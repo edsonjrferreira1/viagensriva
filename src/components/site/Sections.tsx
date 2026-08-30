@@ -184,15 +184,15 @@ export function ExperiencesSection() {
               key={exp.name}
               href={link.href}
               onClick={() => link.preselect && preselect(link.preselect)}
-              className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-5 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-4 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
                 <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
               </span>
-              <h3 className="mt-3.5 min-h-[3.25rem] text-lg leading-snug text-primary line-clamp-2">
+              <h3 className="mt-3 min-h-[2.9rem] text-base leading-snug text-primary line-clamp-2">
                 {exp.name}
               </h3>
-              <p className="mt-2 min-h-[3.75rem] text-sm leading-relaxed text-foreground/75 line-clamp-3">
+              <p className="mt-1.5 min-h-[3.5rem] text-sm leading-relaxed text-foreground/75 line-clamp-3">
                 {exp.description}
               </p>
               <div className="mt-2.5 flex flex-1 flex-wrap content-start gap-1.5">
@@ -305,7 +305,7 @@ export function CruisesSection() {
             </div>
           </div>
 
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {cruiseBenefits.map((b) => {
               const Icon = cruiseIcons[b.icon] ?? Ship;
               return (
@@ -325,17 +325,17 @@ export function CruisesSection() {
             })}
           </ul>
 
-          <div className="mt-6 rounded-2xl border border-primary/15 bg-secondary/60 px-5 py-5">
-            <p className="text-sm font-medium text-primary">
-              A viagem completa, não só o embarque.
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/80">
-              Se precisar, organizamos também o que vem antes e depois do navio:{" "}
+          <div className="mt-5 rounded-2xl border border-primary/15 bg-secondary/60 px-5 py-4">
+            <p className="text-sm leading-relaxed text-foreground/80">
+              <span className="font-medium text-primary">
+                A viagem completa, não só o embarque.
+              </span>{" "}
+              Organizamos também o que vem antes e depois do navio:{" "}
               {cruiseExtras.join(" · ").toLowerCase()}.
             </p>
           </div>
 
-          <p className="mt-5 text-xs leading-relaxed text-foreground/70">
+          <p className="mt-4 text-xs leading-relaxed text-foreground/70">
             {cruiseNote}
           </p>
 
@@ -409,7 +409,7 @@ export function AccommodationsSection() {
               resolvidos na hospedagem, no Brasil ou no exterior.
             </p>
 
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {inclusiveBenefits.map((b) => {
                 const Icon = benefitIcons[b.icon] ?? Sparkles;
                 return (
@@ -424,7 +424,7 @@ export function AccommodationsSection() {
               })}
             </ul>
 
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-4 flex flex-wrap gap-2">
               {leisureCards.slice(0, 5).map((c) => (
                 <span
                   key={c}
@@ -435,7 +435,7 @@ export function AccommodationsSection() {
               ))}
             </div>
 
-            <p className="mt-5 text-xs leading-relaxed text-white/80">
+            <p className="mt-4 text-xs leading-relaxed text-white/80">
               Os serviços incluídos variam conforme o resort e o regime contratado.
             </p>
 
@@ -457,7 +457,7 @@ export function AccommodationsSection() {
               height={900}
               loading="lazy"
               decoding="async"
-              className="h-44 w-full rounded-2xl object-cover shadow-lift sm:h-60"
+              className="h-40 w-full rounded-2xl object-cover shadow-lift sm:h-52"
             />
             <img
               src={lazerImg.url}
@@ -466,7 +466,7 @@ export function AccommodationsSection() {
               height={1200}
               loading="lazy"
               decoding="async"
-              className="h-44 w-full rounded-2xl object-cover shadow-lift sm:h-60"
+              className="h-40 w-full rounded-2xl object-cover shadow-lift sm:h-52"
             />
           </div>
         </div>
@@ -764,7 +764,7 @@ export function WhyRivaSection() {
         {cards.map((c) => (
           <div
             key={c.t}
-            className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft"
+            className="rounded-2xl border border-primary/15 bg-card p-5 shadow-soft"
           >
             <c.icon className="size-6 text-teal" aria-hidden="true" />
             <h3 className="mt-4 text-lg text-primary">{c.t}</h3>
@@ -859,7 +859,7 @@ export function FinalCta() {
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/60 to-black/75" />
-      <div className="relative mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+      <div className="relative mx-auto max-w-3xl px-4 py-14 text-center sm:px-6 sm:py-16">
         <h2 className="text-3xl leading-tight text-white sm:text-5xl">
           Vamos começar a planejar sua próxima viagem?
         </h2>
