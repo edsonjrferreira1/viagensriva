@@ -313,6 +313,20 @@ export const experiences = [
     tags: ["Natureza", "Aventura", "Paisagens", "Experiências"],
   },
   {
+    name: "Viagens em família",
+    icon: "users",
+    description:
+      "Voos, hospedagem, transporte, seguro e experiências planejados considerando adultos e crianças.",
+    tags: ["Família", "Crianças", "Estrutura", "Recreação"],
+  },
+  {
+    name: "Viagens a dois",
+    icon: "heart",
+    description:
+      "Destinos, hospedagens e experiências para casais que querem descansar ou comemorar uma data especial.",
+    tags: ["A dois", "Romance", "Descanso", "Ocasiões"],
+  },
+  {
     name: "Cultura & gastronomia",
     icon: "utensils",
     description:
@@ -325,20 +339,25 @@ export const experiences = [
 export const faq: {
   q: string;
   a: string;
+  /** Perguntas marcadas aparecem no bloco resumido da home. */
+  home?: boolean;
   link?: { label: string; to: string };
 }[] = [
   {
     q: "Quais são as formas de pagamento?",
+    home: true,
     a:
       "Trabalhamos com diferentes formas de pagamento.\n\n💳 Cartão de crédito: pacotes podem ter parcelamento em até 10x sem juros, conforme as condições disponíveis para a reserva.\n\n💰 Pix: pagamento à vista com possibilidade de desconto.\n\n📄 Boleto: disponível mediante análise de crédito, podendo haver opções de parcelamento em até 10 ou 12 vezes sem juros, de acordo com a aprovação e as condições disponíveis.\n\nAs condições exatas são apresentadas juntamente com cada cotação.",
   },
   {
     q: "Posso contratar somente alguns serviços ou preciso fechar um pacote completo?",
+    home: true,
     a:
       "Você escolhe. Podemos cotar apenas passagens aéreas, apenas hospedagem, apenas seguro viagem ou transfer, por exemplo.\n\nTambém podemos montar a viagem completa, reunindo aéreo, hospedagem, transfer, seguro, aluguel de carro, passeios e experiências em uma única cotação.",
   },
   {
     q: "Vocês montam a viagem completa, do começo ao fim?",
+    home: true,
     a:
       "Sim. Organizamos viagens nacionais e internacionais de forma completa: escolha do destino, voos, hospedagem, deslocamentos, seguro, passeios e experiências.\n\nO roteiro é montado de acordo com o seu perfil, o período disponível e o orçamento definido.",
   },
@@ -354,16 +373,19 @@ export const faq: {
   },
   {
     q: "É possível alterar ou cancelar uma viagem depois da reserva?",
+    home: true,
     a:
       "Sim, porém as condições dependem das regras da tarifa, hospedagem, companhia aérea e demais serviços contratados.\n\nAlgumas tarifas permitem alteração ou cancelamento mediante multas e diferença tarifária, enquanto outras possuem condições mais restritivas.\n\nAntes da confirmação da reserva, apresentamos as principais regras aplicáveis.",
   },
   {
     q: "Com quanto tempo de antecedência é melhor reservar?",
+    home: true,
     a:
       "Quanto maior a antecedência, normalmente maiores são as possibilidades de encontrar boas opções de voos, hospedagens e condições de pagamento.\n\nEm períodos de alta procura, como férias, feriados, réveillon e carnaval, recomendamos iniciar o planejamento com antecedência ainda maior.",
   },
   {
     q: "Os preços apresentados são fixos?",
+    home: true,
     a:
       "Não. Tarifas de passagens, hospedagens, cruzeiros e pacotes são dinâmicas e podem mudar conforme disponibilidade, período da viagem, quantidade de passageiros e condições dos fornecedores.\n\nUma cotação representa as condições disponíveis no momento da pesquisa e está sujeita a alteração até a confirmação da reserva.",
   },
@@ -379,11 +401,13 @@ export const faq: {
   },
   {
     q: "Vocês oferecem suporte depois que a viagem é contratada?",
+    home: true,
     a:
       "Sim. O atendimento da Viagens Riva não termina após a reserva.\n\nNossa equipe auxilia com orientações antes da viagem e presta suporte relacionado aos serviços contratados sempre que necessário.",
   },
   {
     q: "Como faço para receber as promoções?",
+    home: true,
     a:
       "A Viagens Riva mantém comunidades de ofertas no WhatsApp separadas por região de embarque — Rio de Janeiro, São Paulo, Goiânia e Brasília, e Petrolina.\n\nVocê escolhe a sua e recebe as ofertas algumas vezes por semana, já com voo, hospedagem e valor final. É só entrar na página de Comunidades.",
     link: { label: "Ver as comunidades de ofertas", to: "/comunidades" },
