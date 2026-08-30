@@ -240,6 +240,8 @@ export const travelCards: {
   tripType?: string;
   destination?: string;
   interest?: string;
+  /** Quando presente, o card leva para uma página de serviço. */
+  href?: string;
 }[] = [
   {
     id: "exp-resorts",
@@ -249,6 +251,7 @@ export const travelCards: {
       "Dias sem logística: você chega, desacelera e aproveita tudo o que a hospedagem oferece.",
     image: "resort",
     interest: "Resort / All Inclusive",
+    href: "/servicos/resorts-all-inclusive",
   },
   {
     id: "exp-cruzeiros",
@@ -258,6 +261,7 @@ export const travelCards: {
       "A viagem começa a bordo: você dorme em um destino e acorda em outro, sem trocar de mala.",
     image: "cruise",
     interest: "Cruzeiro",
+    href: "/servicos/cruzeiros",
   },
   {
     id: "hosp-hoteis-pousadas",
@@ -267,6 +271,7 @@ export const travelCards: {
       "Endereços escolhidos pela localização, pelo café da manhã e pela avaliação real de quem já se hospedou.",
     image: "hotel",
     interest: "Hospedagem",
+    href: "/servicos/hospedagens",
   },
   {
     id: "hosp-flats",
@@ -276,6 +281,7 @@ export const travelCards: {
       "Mais espaço, cozinha e autonomia para estadias de 7 noites ou mais, em família ou quando o roteiro pede uma base fixa.",
     image: "flat",
     interest: "Hospedagem",
+    href: "/servicos/hospedagens",
   },
   {
     id: "hosp-premium",
@@ -285,6 +291,7 @@ export const travelCards: {
       "Suítes, vistas privilegiadas e atendimento diferenciado para ocasiões que pedem algo especial.",
     image: "premium",
     interest: "Hospedagem",
+    href: "/servicos/hospedagens",
   },
   {
     id: "destinos-praia",
