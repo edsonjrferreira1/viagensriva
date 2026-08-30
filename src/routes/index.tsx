@@ -6,17 +6,16 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { CommunitiesInvite } from "@/components/site/CommunitiesInvite";
+import { BackToTop } from "@/components/site/BackToTop";
 import {
   AccommodationsSection,
   CruisesSection,
-  DesireSection,
   DestinationsSection,
   ExperiencesSection,
   ExpertSection,
   FaqSection,
   FinalCta,
   GoogleRatingBadge,
-  MomentsSection,
   WhyRivaSection,
   TestimonialsSection,
 } from "@/components/site/Sections";
@@ -85,11 +84,9 @@ function Index() {
         <GoogleRatingBadge />
         <ExperiencesSection />
         <WhyRivaSection />
-        <DesireSection />
         <CruisesSection />
         <DestinationsSection />
         <AccommodationsSection />
-        <MomentsSection />
         <ExpertSection />
 
         <TestimonialsSection />
@@ -106,6 +103,7 @@ function Index() {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <BackToTop />
     </div>
   );
 }

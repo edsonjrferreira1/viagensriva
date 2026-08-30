@@ -238,7 +238,13 @@
 }
 
 @utility section-y {
-  padding-block: 5rem;
+  padding-block: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-y {
+    padding-block: 3.5rem;
+  }
 }
 
 @theme inline {

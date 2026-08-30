@@ -36,6 +36,13 @@ import {
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { Section, SectionHeading } from "./Section";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 import {
   accommodations,
@@ -77,25 +84,20 @@ function preselectInterest(option: string) {
 
 import desire1 from "@/assets/desire-mosaic-1.webp";
 import desire2 from "@/assets/desire-mosaic-2.webp";
-import desire3 from "@/assets/desire-mosaic-3.webp";
 import lazerImg from "@/assets/lazer-premium.jpg.asset.json";
 import gastro from "@/assets/gastronomy-1.webp";
-import family from "@/assets/family-pool.webp";
-import couples from "@/assets/couples-dinner.webp";
 import hospHotel from "@/assets/hosp-hoteis-pousadas.jpg";
 import hospFlat from "@/assets/hosp-flats.jpg";
 import hospPremium from "@/assets/hosp-premium.jpg";
 import spa from "@/assets/spa-wellness.webp";
-import destBeach from "@/assets/destination-beach.webp";
 import destMountain from "@/assets/destination-mountain.webp";
 import destInternational from "@/assets/destination-international.webp";
-import destVacation from "@/assets/destination-vacation.webp";
 import agentImg from "@/assets/agent-placeholder.webp";
 import panorama from "@/assets/final-cta.webp";
 import servicosImg from "@/assets/servicos-completos.webp";
 
 
-const destinationImages = [destBeach, destMountain, destInternational, destVacation];
+const destinationImages = [desire2, destMountain, destInternational, desire1];
 
 const experienceIcons: Record<string, LucideIcon> = {
   sparkles: Sparkles,
@@ -117,60 +119,6 @@ const benefitIcons: Record<string, LucideIcon> = {
   utensils: UtensilsCrossed,
 };
 
-export function DesireSection() {
-  return (
-    <Section id="inspiracao" tone="sand" className="!pb-12 md:!pb-16">
-
-      <SectionHeading
-        align="center"
-        eyebrow="Inspiração"
-        title="E se a sua próxima viagem fosse assim?"
-        subtitle="Destinos nacionais e internacionais, roteiros bem planejados e experiências que ficam na memória."
-      />
-
-      {/* Mosaico editorial: 2 colunas / 2 linhas no desktop */}
-      <div className="mt-10 grid grid-cols-1 gap-3 sm:gap-4 md:h-[540px] md:grid-cols-2 md:grid-rows-2 md:gap-5">
-
-        <img
-          src={desire1}
-          alt="Resort premium com piscina e estrutura de viagem sofisticada"
-          width={1200}
-          height={1600}
-          loading="eager"
-          decoding="async"
-          className="h-80 w-full rounded-2xl object-cover shadow-lift sm:h-96 md:col-start-1 md:row-span-2 md:h-full md:rounded-3xl"
-        />
-        <img
-          src={desire2}
-          alt="Praia paradisíaca com águas cristalinas e destino tropical"
-          width={1200}
-          height={800}
-          loading="lazy"
-          decoding="async"
-          className="h-56 w-full rounded-2xl object-cover shadow-soft sm:h-64 md:col-start-2 md:row-start-1 md:h-full md:rounded-3xl"
-        />
-        <img
-          src={desire3}
-          alt="Experiência gastronômica sofisticada durante uma viagem"
-          width={1200}
-          height={800}
-          loading="lazy"
-          decoding="async"
-          className="h-56 w-full rounded-2xl object-cover shadow-soft sm:h-64 md:col-start-2 md:row-start-2 md:h-full md:rounded-3xl"
-        />
-      </div>
-
-      <div className="mt-8 flex justify-center">
-        <Button asChild variant="cta" size="xl">
-          <a href="#cotacao">Quero planejar minha viagem</a>
-        </Button>
-      </div>
-    </Section>
-  );
-}
-
-
-
 /**
  * Cada experiência aponta para o bloco de conteúdo correspondente.
  * "Cultura & gastronomia" não tem bloco próprio: vai direto ao formulário.
@@ -183,7 +131,21 @@ const experienceLinks: Record<
   Cruzeiros: { href: "#cruzeiros", cta: "Conhecer essa experiência" },
   "Férias nacionais e internacionais": { href: "#destinos", cta: "Conhecer essa experiência" },
   "Praia & descanso": { href: "#destinos-praia", cta: "Conhecer essa experiência" },
-  "Lua de mel": { href: "#momentos-dois", cta: "Conhecer essa experiência" },
+  "Lua de mel": {
+    href: "#cotacao",
+    cta: "Planejar essa experiência",
+    preselect: { tripType: "Lua de mel" },
+  },
+  "Viagens em família": {
+    href: "#cotacao",
+    cta: "Planejar essa experiência",
+    preselect: { tripType: "Família com crianças" },
+  },
+  "Viagens a dois": {
+    href: "#cotacao",
+    cta: "Planejar essa experiência",
+    preselect: { tripType: "Casal" },
+  },
   "Neve & inverno": { href: "#destinos-montanha", cta: "Conhecer essa experiência" },
   "Natureza & aventura": { href: "#destinos-montanha", cta: "Conhecer essa experiência" },
   "Cultura & gastronomia": {
@@ -206,11 +168,11 @@ export function ExperiencesSection() {
         subtitle="Você escolhe a experiência e a Viagens Riva organiza os serviços necessários para transformar o planejamento em viagem."
       />
 
-      <p className="mt-10 text-center text-xs uppercase tracking-[0.24em] text-foreground/60">
+      <p className="mt-7 text-center text-xs uppercase tracking-[0.24em] text-foreground/60">
         Como você quer viajar?
       </p>
 
-      <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {experiences.map((exp) => {
           const Icon = experienceIcons[exp.icon] ?? Sparkles;
           const link = experienceLinks[exp.name] ?? {
@@ -222,18 +184,18 @@ export function ExperiencesSection() {
               key={exp.name}
               href={link.href}
               onClick={() => link.preselect && preselect(link.preselect)}
-              className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-4 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
                 <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
               </span>
-              <h3 className="mt-5 min-h-[3.5rem] text-lg leading-snug text-primary line-clamp-2">
+              <h3 className="mt-3 min-h-[2.9rem] text-base leading-snug text-primary line-clamp-2">
                 {exp.name}
               </h3>
-              <p className="mt-3 min-h-[4.5rem] flex-1 text-sm leading-relaxed text-foreground/75 line-clamp-3">
+              <p className="mt-1.5 min-h-[3.5rem] text-sm leading-relaxed text-foreground/75 line-clamp-3">
                 {exp.description}
               </p>
-              <div className="mt-4 min-h-[44px] flex flex-wrap content-start gap-1.5">
+              <div className="mt-2.5 flex flex-1 flex-wrap content-start gap-1.5">
                 {exp.tags.map((tag) => (
                   <span
                     key={tag}
@@ -243,7 +205,7 @@ export function ExperiencesSection() {
                   </span>
                 ))}
               </div>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition group-hover:text-gold">
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition group-hover:text-gold">
                 {link.cta}
                 <ArrowRight className="size-4" aria-hidden="true" />
               </span>
@@ -256,13 +218,13 @@ export function ExperiencesSection() {
       {/* Faixa compacta de serviços */}
       <div
         id="servicos"
-        className="mt-14 scroll-mt-[104px] rounded-3xl border border-primary/15 bg-secondary/60 px-6 py-8 sm:px-10"
+        className="mt-8 scroll-mt-[104px] rounded-3xl border border-primary/15 bg-secondary/60 px-6 py-8 sm:px-10"
       >
         <h3 className="text-center font-display text-2xl text-primary sm:text-[1.7rem]">
           Podemos cuidar de cada etapa da sua viagem.
         </h3>
 
-        <ul className="mx-auto mt-7 grid max-w-4xl grid-cols-2 gap-y-6 sm:grid-cols-3 lg:grid-cols-6 lg:gap-y-0">
+        <ul className="mx-auto mt-6 grid max-w-4xl grid-cols-2 gap-y-5 sm:grid-cols-3 lg:grid-cols-6 lg:gap-y-0">
           {travelServices.map((s) => (
             <li
               key={s.title}
@@ -274,13 +236,13 @@ export function ExperiencesSection() {
           ))}
         </ul>
 
-        <p className="mx-auto mt-7 max-w-2xl text-center text-sm leading-relaxed text-foreground/70">
+        <p className="mx-auto mt-5 max-w-2xl text-center text-sm leading-relaxed text-foreground/70">
           Você pode contratar apenas o que precisa ou montar uma viagem completa em
           um único atendimento.
         </p>
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-7 flex justify-center">
         <Button asChild variant="cta" size="xl">
           <a href="#cotacao">Quero planejar minha viagem</a>
         </Button>
@@ -343,13 +305,13 @@ export function CruisesSection() {
             </div>
           </div>
 
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {cruiseBenefits.map((b) => {
               const Icon = cruiseIcons[b.icon] ?? Ship;
               return (
                 <li
                   key={b.title}
-                  className="rounded-2xl border border-border bg-card px-5 py-4 shadow-soft"
+                  className="rounded-2xl border border-border bg-card px-5 py-3 shadow-soft"
                 >
                   <span className="flex items-center gap-3">
                     <Icon className="size-5 shrink-0 text-gold" aria-hidden="true" />
@@ -363,28 +325,28 @@ export function CruisesSection() {
             })}
           </ul>
 
-          <div className="mt-6 rounded-2xl border border-primary/15 bg-secondary/60 px-5 py-5">
-            <p className="text-sm font-medium text-primary">
-              A viagem completa, não só o embarque.
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/80">
-              Se precisar, organizamos também o que vem antes e depois do navio:{" "}
+          <div className="mt-5 rounded-2xl border border-primary/15 bg-secondary/60 px-5 py-4">
+            <p className="text-sm leading-relaxed text-foreground/80">
+              <span className="font-medium text-primary">
+                A viagem completa, não só o embarque.
+              </span>{" "}
+              Organizamos também o que vem antes e depois do navio:{" "}
               {cruiseExtras.join(" · ").toLowerCase()}.
             </p>
           </div>
 
-          <p className="mt-5 text-xs leading-relaxed text-foreground/70">
+          <p className="mt-4 text-xs leading-relaxed text-foreground/70">
             {cruiseNote}
           </p>
 
-          <Button asChild variant="gold" size="xl" className="mt-7">
+          <Button asChild variant="gold" size="xl" className="mt-6">
             <a href="#cotacao" onClick={() => preselectInterest("Cruzeiro")}>
               Quero cotar um cruzeiro
             </a>
           </Button>
         </div>
 
-        <div className="hidden h-full min-h-[640px] grid-rows-[1.35fr_1fr] gap-4 lg:grid">
+        <div className="hidden h-full min-h-[520px] grid-rows-[1.35fr_1fr] gap-4 lg:grid">
           <img
             src={cruiseImg.url}
             alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
@@ -434,9 +396,9 @@ export function AccommodationsSection() {
       {/* Destaque: Resorts & All Inclusive */}
       <div
         id="resorts"
-        className="mt-12 scroll-mt-[104px] overflow-hidden rounded-3xl surface-deep shadow-lift"
+        className="mt-8 scroll-mt-[104px] overflow-hidden rounded-3xl surface-deep shadow-lift"
       >
-        <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="eyebrow text-champagne">Uma das nossas especialidades</p>
             <h3 className="mt-3 font-display text-3xl leading-tight text-sand sm:text-4xl">
@@ -447,7 +409,7 @@ export function AccommodationsSection() {
               resolvidos na hospedagem, no Brasil ou no exterior.
             </p>
 
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {inclusiveBenefits.map((b) => {
                 const Icon = benefitIcons[b.icon] ?? Sparkles;
                 return (
@@ -462,7 +424,7 @@ export function AccommodationsSection() {
               })}
             </ul>
 
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-4 flex flex-wrap gap-2">
               {leisureCards.slice(0, 5).map((c) => (
                 <span
                   key={c}
@@ -473,11 +435,11 @@ export function AccommodationsSection() {
               ))}
             </div>
 
-            <p className="mt-5 text-xs leading-relaxed text-white/80">
+            <p className="mt-4 text-xs leading-relaxed text-white/80">
               Os serviços incluídos variam conforme o resort e o regime contratado.
             </p>
 
-            <Button asChild variant="gold" size="xl" className="mt-7">
+            <Button asChild variant="gold" size="xl" className="mt-6">
               <a
                 href="#cotacao"
                 onClick={() => preselectInterest("Resort / All Inclusive")}
@@ -495,7 +457,7 @@ export function AccommodationsSection() {
               height={900}
               loading="lazy"
               decoding="async"
-              className="h-52 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+              className="h-40 w-full rounded-2xl object-cover shadow-lift sm:h-52"
             />
             <img
               src={lazerImg.url}
@@ -504,13 +466,17 @@ export function AccommodationsSection() {
               height={1200}
               loading="lazy"
               decoding="async"
-              className="h-52 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+              className="h-40 w-full rounded-2xl object-cover shadow-lift sm:h-52"
             />
           </div>
         </div>
       </div>
 
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
+      <Carousel
+        opts={{ align: "start", containScroll: "trimSnaps" }}
+        className="mt-8"
+      >
+        <CarouselContent className="-ml-4">
         {accommodations.map((a, i) => {
           const media = [
             {
@@ -527,10 +493,11 @@ export function AccommodationsSection() {
             },
           ][i] ?? { src: hospHotel, alt: `Hospedagem — ${a.name}` };
           return (
-          <article
+          <CarouselItem
             key={a.name}
-            className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
+            className="basis-[82%] pl-4 sm:basis-1/2 lg:basis-1/3"
           >
+          <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
             <img
               src={media.src}
               alt={media.alt}
@@ -540,7 +507,7 @@ export function AccommodationsSection() {
               decoding="async"
               className="h-48 w-full object-cover"
             />
-            <div className="flex flex-1 flex-col p-6">
+            <div className="flex flex-1 flex-col p-5">
               <h3 className="text-xl text-primary">{a.name}</h3>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
                 {a.capacity}
@@ -558,86 +525,16 @@ export function AccommodationsSection() {
               </Button>
             </div>
           </article>
+          </CarouselItem>
           );
         })}
-      </div>
+        </CarouselContent>
+        <CarouselPrevious className="hidden lg:flex" />
+        <CarouselNext className="hidden lg:flex" />
+      </Carousel>
     </Section>
   );
 }
-
-export function MomentsSection() {
-  const cards = [
-    {
-      id: "momentos-familia",
-      img: family,
-      alt: "Família se divertindo na piscina de resort",
-      eyebrow: "Viagens em família",
-      title: "As crianças se divertem. Os adultos aproveitam.",
-      text: "Voos, hospedagem, transporte, seguro e experiências planejados considerando adultos e crianças.",
-      tripType: "Família com crianças",
-      variant: "navy" as const,
-    },
-    {
-      id: "momentos-dois",
-      img: couples,
-      alt: "Casal jantando em restaurante com vista para o mar",
-      eyebrow: "Viagens a dois",
-      title: "Também existe espaço para desacelerar a dois.",
-      text: "Destinos, hospedagens e experiências para casais que querem descansar ou comemorar uma data especial.",
-      tripType: "Casal",
-      variant: "cta" as const,
-    },
-  ];
-
-  return (
-    <Section id="momentos" tone="sand">
-      <SectionHeading
-        align="center"
-        eyebrow="Perfis de viagem"
-        title="Viagens para cada momento da sua vida"
-        subtitle="Cada viagem tem um ritmo diferente — e o roteiro é montado a partir dele."
-      />
-
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {cards.map((c) => (
-          <article
-            id={c.id}
-            key={c.eyebrow}
-            className="flex h-full scroll-mt-[104px] flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft"
-          >
-            <img
-              src={c.img}
-              alt={c.alt}
-              width={1200}
-              height={900}
-              loading="lazy"
-              decoding="async"
-              className="h-64 w-full object-cover sm:h-72"
-            />
-            <div className="flex flex-1 flex-col p-7">
-              <p className="eyebrow">{c.eyebrow}</p>
-              <h3 className="mt-3 font-display text-2xl leading-snug text-primary">
-                {c.title}
-              </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
-                {c.text}
-              </p>
-              <Button asChild variant={c.variant} size="xl" className="mt-6">
-                <a
-                  href="#cotacao"
-                  onClick={() => preselect({ tripType: c.tripType })}
-                >
-                  Quero planejar minha viagem
-                </a>
-              </Button>
-            </div>
-          </article>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
 
 export function DestinationsSection() {
   return (
@@ -649,14 +546,21 @@ export function DestinationsSection() {
         subtitle="Do Brasil ao exterior, ajudamos você a encontrar a experiência ideal para as suas próximas férias."
       />
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <Carousel
+        opts={{ align: "start", containScroll: "trimSnaps" }}
+        className="mt-8"
+      >
+        <CarouselContent className="-ml-4">
         {destinations.map((d, i) => {
           const img = destinationImages[i % destinationImages.length];
           return (
+            <CarouselItem
+              key={d.name}
+              className="basis-[82%] pl-4 sm:basis-1/2 lg:basis-1/3"
+            >
             <article
               id={d.id}
-              key={d.name}
-              className="group relative scroll-mt-[104px] overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
+              className="group relative flex h-full scroll-mt-[104px] overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
             >
               <img
                 src={img}
@@ -665,10 +569,10 @@ export function DestinationsSection() {
                 height={900}
                 loading="lazy"
         decoding="async"
-                className="h-72 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-80"
+                className="h-72 w-full object-cover transition duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10" />
-              <div className="absolute inset-x-0 bottom-0 p-7">
+              <div className="absolute inset-x-0 bottom-0 p-6">
                 <span className="text-[0.65rem] font-medium uppercase tracking-[0.22em] text-gold">
                   {d.tag}
                 </span>
@@ -687,9 +591,13 @@ export function DestinationsSection() {
                 </Button>
               </div>
             </article>
+            </CarouselItem>
           );
         })}
-      </div>
+        </CarouselContent>
+        <CarouselPrevious className="hidden lg:flex" />
+        <CarouselNext className="hidden lg:flex" />
+      </Carousel>
     </Section>
   );
 }
@@ -852,11 +760,11 @@ export function WhyRivaSection() {
         subtitle="O que você ganha ao planejar com uma agência de verdade em vez de fechar tudo por conta própria em um site."
       />
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((c) => (
           <div
             key={c.t}
-            className="rounded-2xl border border-primary/15 bg-card p-6 shadow-soft"
+            className="rounded-2xl border border-primary/15 bg-card p-5 shadow-soft"
           >
             <c.icon className="size-6 text-teal" aria-hidden="true" />
             <h3 className="mt-4 text-lg text-primary">{c.t}</h3>
@@ -865,7 +773,7 @@ export function WhyRivaSection() {
         ))}
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-7 flex justify-center">
         <Button asChild variant="cta" size="xl">
           <a href="#cotacao">Quero uma cotação personalizada</a>
         </Button>
@@ -884,8 +792,8 @@ export function FaqSection() {
         title="Perguntas frequentes"
         subtitle="Esclarecemos as principais dúvidas sobre pagamento, documentação, prazos e serviços para você planejar sua viagem com tranquilidade."
       />
-      <Accordion type="single" collapsible className="mx-auto mt-10 max-w-3xl">
-        {faq.map((item, i) => (
+      <Accordion type="single" collapsible className="mx-auto mt-8 max-w-3xl">
+        {faq.filter((item) => item.home).map((item, i) => (
           <AccordionItem key={item.q} value={`item-${i}`}>
             <AccordionTrigger className="text-left font-display text-lg font-normal text-primary">
               {item.q}
@@ -905,7 +813,17 @@ export function FaqSection() {
         ))}
       </Accordion>
 
-      <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-primary/15 bg-card p-8 text-center shadow-soft sm:p-10">
+      <div className="mx-auto mt-6 max-w-3xl text-center">
+        <Link
+          to="/duvidas"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary underline underline-offset-4 transition hover:text-gold"
+        >
+          Ver todas as dúvidas
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </Link>
+      </div>
+
+      <div className="mx-auto mt-8 max-w-3xl rounded-3xl border border-primary/15 bg-card p-6 text-center shadow-soft">
         <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-foreground/75">
           Ainda ficou com alguma dúvida?
         </p>
@@ -913,7 +831,7 @@ export function FaqSection() {
         <h3 className="mt-3 font-display text-2xl text-primary sm:text-3xl">
           Nossa equipe pode ajudar você a planejar sua viagem.
         </h3>
-        <Button asChild variant="cta" size="xl" className="mt-8">
+        <Button asChild variant="cta" size="xl" className="mt-6">
           <a
             href={whatsappLink(defaultWhatsappMessage)}
             target="_blank"
@@ -941,7 +859,7 @@ export function FinalCta() {
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/60 to-black/75" />
-      <div className="relative mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
+      <div className="relative mx-auto max-w-3xl px-4 py-14 text-center sm:px-6 sm:py-16">
         <h2 className="text-3xl leading-tight text-white sm:text-5xl">
           Vamos começar a planejar sua próxima viagem?
         </h2>
@@ -990,11 +908,11 @@ export function TestimonialsSection() {
         </div>
       </div>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <div className="mt-8 grid gap-6 md:grid-cols-3">
         {googleReviews.items.map((r) => (
           <figure
             key={r.author}
-            className="flex h-full flex-col rounded-2xl border border-primary/20 bg-card p-7 shadow-lift"
+            className="flex h-full flex-col rounded-2xl border border-primary/20 bg-card p-6 shadow-lift"
           >
             <Stars />
             <p className="mt-5 font-display text-xl italic leading-snug text-primary">
@@ -1017,7 +935,7 @@ export function TestimonialsSection() {
         ))}
       </div>
 
-      <div className="mt-10 text-center">
+      <div className="mt-8 text-center">
         <Button asChild variant="navy" size="xl">
           <a
             href={googleReviews.profileUrl}
