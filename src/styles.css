@@ -235,3 +235,14 @@
 @utility section-y {
   padding-block: 5rem;
 }
+
+@theme inline {
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+}
+
+:root {
+  /* verde WhatsApp — uso exclusivo nos botões de entrar nas comunidades */
+  --whatsapp: oklch(0.72 0.17 152);
+  --whatsapp-foreground: oklch(0.99 0 100);
+}

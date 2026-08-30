@@ -133,6 +133,7 @@ export const navItems: {
   { label: "Serviços", href: "#servicos" },
   { label: "Experiências", href: "#experiencias", children: experienceMenu },
   { label: "Destinos", href: "#destinos" },
+  { label: "Comunidades", href: "/comunidades" },
   { label: "Sobre nós", href: "#sobre" },
   { label: "Avaliações", href: "#avaliacoes" },
   { label: "Dúvidas", href: "#faq" },
@@ -384,7 +385,55 @@ export const faq = [
     a:
       "Sim. O atendimento da Viagens Riva não termina após a reserva.\n\nNossa equipe auxilia com orientações antes da viagem e presta suporte relacionado aos serviços contratados sempre que necessário.",
   },
+  {
+    q: "Como faço para receber as promoções?",
+    a:
+      "A Viagens Riva mantém comunidades de ofertas no WhatsApp separadas por região de embarque — Rio de Janeiro, São Paulo, Goiânia e Brasília, e Petrolina.\n\nVocê escolhe a sua e recebe as ofertas algumas vezes por semana, já com voo, hospedagem e valor final. É só entrar na página de Comunidades.",
+    link: { label: "Ver as comunidades de ofertas", to: "/comunidades" },
+  },
 ];
+
+/** Comunidades de ofertas no WhatsApp, separadas por região de embarque. */
+export const communities = [
+  {
+    id: "rio",
+    name: "Rio de Janeiro",
+    airports: "GIG · SDU",
+    description:
+      "Saídas do Galeão e Santos Dumont para destinos nacionais e internacionais.",
+    link: "https://chat.whatsapp.com/KI1qRpi2ctOABEgwhdqMqB",
+    alt: "Pão de Açúcar e orla do Rio de Janeiro ao entardecer",
+  },
+  {
+    id: "sao-paulo",
+    name: "São Paulo",
+    airports: "GRU · CGH · VCP",
+    description:
+      "Saídas de Guarulhos, Congonhas e Viracopos, com a maior malha aérea do país.",
+    link: "https://chat.whatsapp.com/KhpmozmxVjb4pcA7tqLc7c",
+    alt: "Skyline de São Paulo com a Ponte Estaiada ao anoitecer",
+  },
+  {
+    id: "goiania-brasilia",
+    name: "Goiânia e Brasília",
+    airports: "GYN · BSB",
+    description:
+      "Saídas do Centro-Oeste, com as conexões que valem a pena para quem embarca em Goiânia ou Brasília.",
+    link: "https://chat.whatsapp.com/LsiZMzJbUju9WyPjtdLlO7",
+    alt: "Arquitetura modernista de Brasília",
+  },
+  {
+    id: "petrolina",
+    name: "Petrolina",
+    airports: "PNZ",
+    description: "Saídas de Petrolina e região do Vale do São Francisco.",
+    link: "https://chat.whatsapp.com/KffHckm9HfDAjFcJS8FeQC",
+    alt: "Vinhedos do Vale do São Francisco, região de Petrolina",
+  },
+] as const;
+
+export const communityWaitlistMessage =
+  "Olá! Gostaria de ser avisado quando abrir a comunidade de ofertas para a minha região de embarque. Eu embarco de: ";
 
 /** Serviços que o cliente pode marcar no formulário (seleção múltipla). */
 export const interestOptions = [
