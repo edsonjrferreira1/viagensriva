@@ -485,3 +485,182 @@ export const tripTypes = [
   "Aniversário",
   "Outra ocasião",
 ];
+
+/**
+ * Páginas de serviço (/servicos/$slug).
+ * Para criar uma página nova, basta acrescentar um bloco aqui — sem arquivo novo.
+ */
+export type ServicePage = {
+  slug: string;
+  eyebrow: string;
+  h1: string;
+  title: string;
+  description: string;
+  intro: [string, string];
+  /** Chaves do mapa de imagens em src/routes/servicos.$slug.tsx */
+  heroImage: string;
+  photos: { image: string; alt: string }[];
+  cards: { icon: string; title: string; text: string; to?: string }[];
+  highlight?: { title: string; text: string };
+  note: string;
+  preselectInterest: string;
+  serviceType: string;
+};
+
+export const servicePages: Record<string, ServicePage> = {
+  cruzeiros: {
+    slug: "cruzeiros",
+    eyebrow: "Cruzeiros",
+    h1: "Cruzeiros nacionais e internacionais",
+    title: "Cruzeiros Nacionais e Internacionais | Viagens Riva",
+    description:
+      "Cruzeiros nacionais e internacionais com a Viagens Riva: roteiros, cabines, aéreo, transfer e seguro organizados em um único atendimento. Cotação sem compromisso.",
+    intro: [cruiseIntro, cruiseIntroComplement],
+    heroImage: "cruise",
+    photos: [
+      {
+        image: "cruise",
+        alt: "Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer",
+      },
+      {
+        image: "cruiseOnboard",
+        alt: "Piscina e espreguiçadeiras no deck de um navio de cruzeiro ao entardecer",
+      },
+      {
+        image: "cruiseDining",
+        alt: "Jantar sofisticado a bordo com vista para o mar durante o pôr do sol",
+      },
+    ],
+    cards: cruiseBenefits.map((b) => ({
+      icon: b.icon,
+      title: b.title,
+      text: b.text,
+    })),
+    highlight: {
+      title: "A viagem completa, não só o embarque.",
+      text: `Organizamos também o que vem antes e depois do navio: ${cruiseExtras
+        .join(" · ")
+        .toLowerCase()}.`,
+    },
+    note: cruiseNote,
+    preselectInterest: "Cruzeiro",
+    serviceType: "Cruzeiros",
+  },
+
+  hospedagens: {
+    slug: "hospedagens",
+    eyebrow: "Hospedagens",
+    h1: "Hospedagens para cada estilo de viagem",
+    title:
+      "Hospedagem para Viagem: Hotéis, Pousadas, Flats e Resorts | Viagens Riva",
+    description:
+      "Hotéis, pousadas pé na areia, flats, hotéis urbanos e hospedagens premium selecionados pela Viagens Riva conforme destino, perfil da viagem e investimento.",
+    intro: [
+      "De uma pousada pé na areia a um flat com cozinha para 15 noites, o tipo de hospedagem muda completamente a viagem. Selecionamos as opções pelo destino, pelo perfil de quem viaja e pelo investimento — e conferimos localização e avaliações recentes antes de indicar.",
+      "Você não precisa saber de antemão qual formato faz mais sentido. Conte como é a viagem e nós apresentamos as opções que se encaixam, com os prós e contras de cada uma.",
+    ],
+    heroImage: "hotel",
+    photos: [
+      { image: "hotel", alt: "Hotel com piscina e área de convivência" },
+      { image: "flat", alt: "Sala de estar de um flat com cozinha integrada" },
+      { image: "premium", alt: "Suíte premium com vista privilegiada" },
+    ],
+    cards: [
+      {
+        icon: "bed",
+        title: "Hotéis e pousadas",
+        text: "Do bem localizado e econômico ao boutique de charme. Escolhemos pela localização real, pelo café da manhã e pela avaliação de quem já se hospedou.",
+      },
+      {
+        icon: "palm",
+        title: "Pousadas pé na areia",
+        text: "Acesso direto à praia, sem depender de carro ou travessia. Ideal para quem quer acordar e já estar na areia.",
+      },
+      {
+        icon: "home",
+        title: "Flats e apartamentos",
+        text: "Cozinha, lavanderia e mais espaço. Compensam a partir de 7 noites, em família ou quando o roteiro pede uma base fixa na cidade.",
+      },
+      {
+        icon: "building",
+        title: "Hotéis urbanos",
+        text: "Para viagens a trabalho, city tour ou conexão longa. Prioridade para quem está perto do centro, do aeroporto ou do metrô.",
+      },
+      {
+        icon: "sparkles",
+        title: "Hospedagens premium",
+        text: "Suítes, vistas privilegiadas e serviço personalizado, para aniversário, lua de mel ou uma data que pede algo diferente.",
+      },
+      {
+        icon: "waves",
+        title: "Resorts & All Inclusive",
+        text: "Refeições, bebidas e lazer já resolvidos na hospedagem.",
+        to: "/servicos/resorts-all-inclusive",
+      },
+    ],
+    highlight: {
+      title: "O que a gente confere antes de indicar",
+      text: "Localização real no mapa e não só o nome do bairro · avaliações dos últimos meses, não as antigas · o que o café da manhã inclui de fato · política de cancelamento e de crianças · taxas cobradas no destino, que não aparecem no valor da reserva.",
+    },
+    note: "Café da manhã, horários de check-in e check-out, política para crianças e taxas locais variam conforme a hospedagem e a tarifa contratada. Confirmamos cada item antes de você fechar.",
+    preselectInterest: "Hospedagem",
+    serviceType: "Reserva de hospedagem",
+  },
+
+  "resorts-all-inclusive": {
+    slug: "resorts-all-inclusive",
+    eyebrow: "Resorts & All Inclusive",
+    h1: "Resorts e All Inclusive no Brasil e no exterior",
+    title: "Resort All Inclusive: Como Funciona e o Que Está Incluso | Viagens Riva",
+    description:
+      "Como funciona o regime all inclusive, o que costuma estar incluso, como se compara à pensão completa e meia pensão, e resorts no Brasil e no exterior com a Viagens Riva.",
+    intro: [
+      "All inclusive é o regime em que refeições, bebidas e boa parte do lazer já estão pagos antes de você embarcar. Na prática, é a viagem em que você não abre a carteira a cada decisão — e sabe quanto vai gastar antes de sair de casa.",
+      'O que muda de um resort para outro é justamente o que está dentro do "tudo incluso". Abaixo está o que costuma entrar, o que varia, e como o all inclusive se compara aos outros regimes.',
+    ],
+    heroImage: "resort",
+    photos: [
+      { image: "resort", alt: "Vista aérea de um resort à beira-mar" },
+      { image: "gastronomy", alt: "Mesa com pratos variados durante a viagem" },
+      {
+        image: "lazer",
+        alt: "Piscina de borda infinita com espreguiçadeiras e paisagismo tropical",
+      },
+    ],
+    cards: [
+      {
+        icon: "utensils",
+        title: "O que costuma estar incluso",
+        text: "Refeições no restaurante principal, bebidas não alcoólicas, acesso às piscinas e à programação de lazer e recreação do resort.",
+      },
+      {
+        icon: "chef",
+        title: "All inclusive x pensão completa x meia pensão",
+        text: "All inclusive soma refeições, bebidas e lazer. Pensão completa é café, almoço e jantar, sem bebidas. Meia pensão é café mais uma refeição. Só café da manhã é o regime mais comum em hotel de cidade.",
+      },
+      {
+        icon: "wine",
+        title: "Bebidas: onde mora a diferença",
+        text: "Alguns resorts incluem bebida alcoólica nacional, outros cobram à parte, e há os que separam rótulos premium. É o item que mais muda de um para outro.",
+      },
+      {
+        icon: "waves",
+        title: "Lazer e recreação",
+        text: "Piscinas, esportes, atividades guiadas e programação noturna. Em alguns resorts o spa e passeios externos são cobrados separadamente.",
+      },
+      {
+        icon: "users",
+        title: "Kids club e famílias",
+        text: "Recreação monitorada por faixa etária, cardápio infantil e estrutura de piscina para crianças. A idade atendida muda conforme o resort.",
+      },
+      {
+        icon: "palm",
+        title: "No Brasil e no exterior",
+        text: "Cotamos resorts no litoral brasileiro e no exterior, incluindo Caribe e México, com aéreo, transfer e seguro organizados no mesmo atendimento.",
+      },
+    ],
+    note: "Os serviços incluídos variam conforme o resort e o regime contratado. Antes de fechar, confirmamos por escrito o que está e o que não está incluso na sua reserva.",
+    preselectInterest: "Resort / All Inclusive",
+    serviceType: "Pacotes em resorts All Inclusive",
+  },
+};
