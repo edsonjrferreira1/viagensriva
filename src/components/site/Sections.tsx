@@ -83,13 +83,6 @@ const travelImages: Record<string, string> = {
   vacation: destVacation,
 };
 
-const benefitIcons: Record<string, LucideIcon> = {
-  chef: ChefHat,
-  wine: Wine,
-  waves: Waves,
-  sparkles: Sparkles,
-  utensils: UtensilsCrossed,
-};
 
 
 export function TravelSection() {
