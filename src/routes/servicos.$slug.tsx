@@ -108,10 +108,7 @@ export const Route = createFileRoute("/servicos/$slug")({
       };
     }
     const url = `${SITE}/servicos/${page.slug}`;
-    const heroSrc = images[page.heroImage];
-    const ogImage = heroSrc
-      ? `${SITE}${heroSrc.startsWith("/") ? heroSrc : `/${heroSrc}`}`
-      : `${SITE}/og-viagens-riva.jpg`;
+    const ogImage = `${SITE}/og-viagens-riva.jpg`;
     return {
       meta: [
         { title: page.title },
@@ -122,6 +119,8 @@ export const Route = createFileRoute("/servicos/$slug")({
         { property: "og:url", content: url },
         { name: "twitter:card", content: "summary_large_image" },
         { property: "og:image", content: ogImage },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
         { property: "og:locale", content: "pt_BR" },
         { name: "twitter:image", content: ogImage },
       ],
