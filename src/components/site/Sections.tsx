@@ -172,7 +172,7 @@ export function ExperiencesSection() {
         Como você quer viajar?
       </p>
 
-      <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {experiences.map((exp) => {
           const Icon = experienceIcons[exp.icon] ?? Sparkles;
           const link = experienceLinks[exp.name] ?? {
@@ -346,7 +346,7 @@ export function CruisesSection() {
           </Button>
         </div>
 
-        <div className="hidden h-full min-h-[640px] grid-rows-[1.35fr_1fr] gap-4 lg:grid">
+        <div className="hidden h-full min-h-[520px] grid-rows-[1.35fr_1fr] gap-4 lg:grid">
           <img
             src={cruiseImg.url}
             alt="Navio de cruzeiro navegando em águas cristalinas com luz dourada do entardecer"
@@ -396,9 +396,9 @@ export function AccommodationsSection() {
       {/* Destaque: Resorts & All Inclusive */}
       <div
         id="resorts"
-        className="mt-12 scroll-mt-[104px] overflow-hidden rounded-3xl surface-deep shadow-lift"
+        className="mt-8 scroll-mt-[104px] overflow-hidden rounded-3xl surface-deep shadow-lift"
       >
-        <div className="grid gap-8 p-7 sm:p-10 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="eyebrow text-champagne">Uma das nossas especialidades</p>
             <h3 className="mt-3 font-display text-3xl leading-tight text-sand sm:text-4xl">
@@ -457,7 +457,7 @@ export function AccommodationsSection() {
               height={900}
               loading="lazy"
               decoding="async"
-              className="h-52 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+              className="h-44 w-full rounded-2xl object-cover shadow-lift sm:h-60"
             />
             <img
               src={lazerImg.url}
@@ -466,7 +466,7 @@ export function AccommodationsSection() {
               height={1200}
               loading="lazy"
               decoding="async"
-              className="h-52 w-full rounded-2xl object-cover shadow-lift sm:h-72"
+              className="h-44 w-full rounded-2xl object-cover shadow-lift sm:h-60"
             />
           </div>
         </div>
@@ -823,7 +823,7 @@ export function FaqSection() {
         </Link>
       </div>
 
-      <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-primary/15 bg-card p-8 text-center shadow-soft sm:p-10">
+      <div className="mx-auto mt-8 max-w-3xl rounded-3xl border border-primary/15 bg-card p-7 text-center shadow-soft">
         <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-foreground/75">
           Ainda ficou com alguma dúvida?
         </p>
@@ -831,7 +831,7 @@ export function FaqSection() {
         <h3 className="mt-3 font-display text-2xl text-primary sm:text-3xl">
           Nossa equipe pode ajudar você a planejar sua viagem.
         </h3>
-        <Button asChild variant="cta" size="xl" className="mt-8">
+        <Button asChild variant="cta" size="xl" className="mt-6">
           <a
             href={whatsappLink(defaultWhatsappMessage)}
             target="_blank"
@@ -859,7 +859,7 @@ export function FinalCta() {
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/60 to-black/75" />
-      <div className="relative mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
+      <div className="relative mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
         <h2 className="text-3xl leading-tight text-white sm:text-5xl">
           Vamos começar a planejar sua próxima viagem?
         </h2>
@@ -908,7 +908,7 @@ export function TestimonialsSection() {
         </div>
       </div>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <div className="mt-8 grid gap-6 md:grid-cols-3">
         {googleReviews.items.map((r) => (
           <figure
             key={r.author}
@@ -935,7 +935,7 @@ export function TestimonialsSection() {
         ))}
       </div>
 
-      <div className="mt-10 text-center">
+      <div className="mt-8 text-center">
         <Button asChild variant="navy" size="xl">
           <a
             href={googleReviews.profileUrl}
