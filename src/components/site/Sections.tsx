@@ -224,10 +224,15 @@ export function TravelSection() {
           {travelServices.map((s) => (
             <li
               key={s.title}
-              className="flex flex-col items-center gap-2 px-2 text-center lg:border-r lg:border-primary/15 lg:last:border-r-0"
+              className="flex px-2 text-center lg:border-r lg:border-primary/15 lg:last:border-r-0"
             >
-              <s.icon className="size-6 text-gold" strokeWidth={1.5} aria-hidden="true" />
-              <span className="text-sm leading-snug text-foreground/85">{s.title}</span>
+              <Link
+                to={s.to}
+                className="flex w-full flex-col items-center gap-2 rounded-xl px-1 py-2 transition-colors hover:bg-primary/5"
+              >
+                <s.icon className="size-6 text-gold" strokeWidth={1.5} aria-hidden="true" />
+                <span className="text-sm leading-snug text-foreground/85">{s.title}</span>
+              </Link>
             </li>
           ))}
         </ul>
@@ -235,6 +240,16 @@ export function TravelSection() {
         <p className="mx-auto mt-5 max-w-2xl text-center text-sm leading-relaxed text-foreground/70">
           Você pode contratar apenas o que precisa ou montar uma viagem completa em
           um único atendimento.
+        </p>
+
+        <p className="mt-3 text-center text-sm">
+          <Link
+            to="/servicos/$slug"
+            params={{ slug: "pacotes-de-viagem" }}
+            className="font-medium text-primary underline-offset-4 hover:underline"
+          >
+            Prefere tudo montado em um orçamento só? Conheça nossos pacotes de viagem
+          </Link>
         </p>
       </div>
     </Section>
