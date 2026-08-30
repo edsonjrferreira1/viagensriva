@@ -36,6 +36,13 @@ import {
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { Section, SectionHeading } from "./Section";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 import {
   accommodations,
@@ -77,25 +84,20 @@ function preselectInterest(option: string) {
 
 import desire1 from "@/assets/desire-mosaic-1.webp";
 import desire2 from "@/assets/desire-mosaic-2.webp";
-import desire3 from "@/assets/desire-mosaic-3.webp";
 import lazerImg from "@/assets/lazer-premium.jpg.asset.json";
 import gastro from "@/assets/gastronomy-1.webp";
-import family from "@/assets/family-pool.webp";
-import couples from "@/assets/couples-dinner.webp";
 import hospHotel from "@/assets/hosp-hoteis-pousadas.jpg";
 import hospFlat from "@/assets/hosp-flats.jpg";
 import hospPremium from "@/assets/hosp-premium.jpg";
 import spa from "@/assets/spa-wellness.webp";
-import destBeach from "@/assets/destination-beach.webp";
 import destMountain from "@/assets/destination-mountain.webp";
 import destInternational from "@/assets/destination-international.webp";
-import destVacation from "@/assets/destination-vacation.webp";
 import agentImg from "@/assets/agent-placeholder.webp";
 import panorama from "@/assets/final-cta.webp";
 import servicosImg from "@/assets/servicos-completos.webp";
 
 
-const destinationImages = [destBeach, destMountain, destInternational, destVacation];
+const destinationImages = [desire2, destMountain, destInternational, desire1];
 
 const experienceIcons: Record<string, LucideIcon> = {
   sparkles: Sparkles,
@@ -117,60 +119,6 @@ const benefitIcons: Record<string, LucideIcon> = {
   utensils: UtensilsCrossed,
 };
 
-export function DesireSection() {
-  return (
-    <Section id="inspiracao" tone="sand" className="!pb-12 md:!pb-16">
-
-      <SectionHeading
-        align="center"
-        eyebrow="Inspiração"
-        title="E se a sua próxima viagem fosse assim?"
-        subtitle="Destinos nacionais e internacionais, roteiros bem planejados e experiências que ficam na memória."
-      />
-
-      {/* Mosaico editorial: 2 colunas / 2 linhas no desktop */}
-      <div className="mt-10 grid grid-cols-1 gap-3 sm:gap-4 md:h-[540px] md:grid-cols-2 md:grid-rows-2 md:gap-5">
-
-        <img
-          src={desire1}
-          alt="Resort premium com piscina e estrutura de viagem sofisticada"
-          width={1200}
-          height={1600}
-          loading="eager"
-          decoding="async"
-          className="h-80 w-full rounded-2xl object-cover shadow-lift sm:h-96 md:col-start-1 md:row-span-2 md:h-full md:rounded-3xl"
-        />
-        <img
-          src={desire2}
-          alt="Praia paradisíaca com águas cristalinas e destino tropical"
-          width={1200}
-          height={800}
-          loading="lazy"
-          decoding="async"
-          className="h-56 w-full rounded-2xl object-cover shadow-soft sm:h-64 md:col-start-2 md:row-start-1 md:h-full md:rounded-3xl"
-        />
-        <img
-          src={desire3}
-          alt="Experiência gastronômica sofisticada durante uma viagem"
-          width={1200}
-          height={800}
-          loading="lazy"
-          decoding="async"
-          className="h-56 w-full rounded-2xl object-cover shadow-soft sm:h-64 md:col-start-2 md:row-start-2 md:h-full md:rounded-3xl"
-        />
-      </div>
-
-      <div className="mt-8 flex justify-center">
-        <Button asChild variant="cta" size="xl">
-          <a href="#cotacao">Quero planejar minha viagem</a>
-        </Button>
-      </div>
-    </Section>
-  );
-}
-
-
-
 /**
  * Cada experiência aponta para o bloco de conteúdo correspondente.
  * "Cultura & gastronomia" não tem bloco próprio: vai direto ao formulário.
@@ -183,7 +131,21 @@ const experienceLinks: Record<
   Cruzeiros: { href: "#cruzeiros", cta: "Conhecer essa experiência" },
   "Férias nacionais e internacionais": { href: "#destinos", cta: "Conhecer essa experiência" },
   "Praia & descanso": { href: "#destinos-praia", cta: "Conhecer essa experiência" },
-  "Lua de mel": { href: "#momentos-dois", cta: "Conhecer essa experiência" },
+  "Lua de mel": {
+    href: "#cotacao",
+    cta: "Planejar essa experiência",
+    preselect: { tripType: "Lua de mel" },
+  },
+  "Viagens em família": {
+    href: "#cotacao",
+    cta: "Planejar essa experiência",
+    preselect: { tripType: "Família com crianças" },
+  },
+  "Viagens a dois": {
+    href: "#cotacao",
+    cta: "Planejar essa experiência",
+    preselect: { tripType: "Casal" },
+  },
   "Neve & inverno": { href: "#destinos-montanha", cta: "Conhecer essa experiência" },
   "Natureza & aventura": { href: "#destinos-montanha", cta: "Conhecer essa experiência" },
   "Cultura & gastronomia": {
@@ -206,11 +168,11 @@ export function ExperiencesSection() {
         subtitle="Você escolhe a experiência e a Viagens Riva organiza os serviços necessários para transformar o planejamento em viagem."
       />
 
-      <p className="mt-10 text-center text-xs uppercase tracking-[0.24em] text-foreground/60">
+      <p className="mt-7 text-center text-xs uppercase tracking-[0.24em] text-foreground/60">
         Como você quer viajar?
       </p>
 
-      <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {experiences.map((exp) => {
           const Icon = experienceIcons[exp.icon] ?? Sparkles;
           const link = experienceLinks[exp.name] ?? {
@@ -222,18 +184,18 @@ export function ExperiencesSection() {
               key={exp.name}
               href={link.href}
               onClick={() => link.preselect && preselect(link.preselect)}
-              className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-6 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="group flex h-full flex-col rounded-3xl border border-primary/15 bg-card p-5 shadow-soft transition hover:-translate-y-1 hover:border-gold/60 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
             >
               <span className="flex size-11 items-center justify-center rounded-full bg-secondary">
                 <Icon className="size-5 text-primary" strokeWidth={1.5} aria-hidden="true" />
               </span>
-              <h3 className="mt-5 min-h-[3.5rem] text-lg leading-snug text-primary line-clamp-2">
+              <h3 className="mt-3.5 min-h-[3.25rem] text-lg leading-snug text-primary line-clamp-2">
                 {exp.name}
               </h3>
-              <p className="mt-3 min-h-[4.5rem] flex-1 text-sm leading-relaxed text-foreground/75 line-clamp-3">
+              <p className="mt-2 min-h-[3.75rem] text-sm leading-relaxed text-foreground/75 line-clamp-3">
                 {exp.description}
               </p>
-              <div className="mt-4 min-h-[44px] flex flex-wrap content-start gap-1.5">
+              <div className="mt-2.5 flex flex-1 flex-wrap content-start gap-1.5">
                 {exp.tags.map((tag) => (
                   <span
                     key={tag}
@@ -243,7 +205,7 @@ export function ExperiencesSection() {
                   </span>
                 ))}
               </div>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition group-hover:text-gold">
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary transition group-hover:text-gold">
                 {link.cta}
                 <ArrowRight className="size-4" aria-hidden="true" />
               </span>
@@ -564,80 +526,6 @@ export function AccommodationsSection() {
     </Section>
   );
 }
-
-export function MomentsSection() {
-  const cards = [
-    {
-      id: "momentos-familia",
-      img: family,
-      alt: "Família se divertindo na piscina de resort",
-      eyebrow: "Viagens em família",
-      title: "As crianças se divertem. Os adultos aproveitam.",
-      text: "Voos, hospedagem, transporte, seguro e experiências planejados considerando adultos e crianças.",
-      tripType: "Família com crianças",
-      variant: "navy" as const,
-    },
-    {
-      id: "momentos-dois",
-      img: couples,
-      alt: "Casal jantando em restaurante com vista para o mar",
-      eyebrow: "Viagens a dois",
-      title: "Também existe espaço para desacelerar a dois.",
-      text: "Destinos, hospedagens e experiências para casais que querem descansar ou comemorar uma data especial.",
-      tripType: "Casal",
-      variant: "cta" as const,
-    },
-  ];
-
-  return (
-    <Section id="momentos" tone="sand">
-      <SectionHeading
-        align="center"
-        eyebrow="Perfis de viagem"
-        title="Viagens para cada momento da sua vida"
-        subtitle="Cada viagem tem um ritmo diferente — e o roteiro é montado a partir dele."
-      />
-
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {cards.map((c) => (
-          <article
-            id={c.id}
-            key={c.eyebrow}
-            className="flex h-full scroll-mt-[104px] flex-col overflow-hidden rounded-3xl border border-primary/15 bg-card shadow-soft"
-          >
-            <img
-              src={c.img}
-              alt={c.alt}
-              width={1200}
-              height={900}
-              loading="lazy"
-              decoding="async"
-              className="h-64 w-full object-cover sm:h-72"
-            />
-            <div className="flex flex-1 flex-col p-7">
-              <p className="eyebrow">{c.eyebrow}</p>
-              <h3 className="mt-3 font-display text-2xl leading-snug text-primary">
-                {c.title}
-              </h3>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/75">
-                {c.text}
-              </p>
-              <Button asChild variant={c.variant} size="xl" className="mt-6">
-                <a
-                  href="#cotacao"
-                  onClick={() => preselect({ tripType: c.tripType })}
-                >
-                  Quero planejar minha viagem
-                </a>
-              </Button>
-            </div>
-          </article>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
 
 export function DestinationsSection() {
   return (
