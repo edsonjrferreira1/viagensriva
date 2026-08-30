@@ -582,7 +582,7 @@ export function DestinationsSection() {
             <CarouselItem
               key={d.name}
               id={d.id}
-              className="basis-[82%] pl-4 sm:basis-1/2 lg:basis-1/3"
+              className="scroll-mt-[104px] basis-[82%] pl-4 sm:basis-1/2 lg:basis-1/3"
             >
             <article
               className="group relative flex h-full overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
