@@ -68,13 +68,6 @@ export const whatsappLink = (message: string) =>
 export const defaultWhatsappMessage =
   "Olá! Conheci a Viagens Riva pela página e gostaria de conversar sobre uma viagem.";
 
-/** Submenu de Experiências — cada item leva a um bloco de conteúdo real. */
-export const experienceMenu = [
-  { label: "Resorts & All Inclusive", href: "#resorts" },
-  { label: "Cruzeiros", href: "#cruzeiros" },
-  { label: "Famílias & viagens a dois", href: "#momentos" },
-  { label: "Férias nacionais e internacionais", href: "#destinos" },
-];
 
 /** Conteúdo da seção de cruzeiros. */
 export const cruiseIntro =
@@ -130,8 +123,8 @@ export const navItems: {
   href: string;
   children?: { label: string; href: string }[];
 }[] = [
+  { label: "Experiências", href: "#experiencias" },
   { label: "Serviços", href: "#servicos" },
-  { label: "Experiências", href: "#experiencias", children: experienceMenu },
   { label: "Destinos", href: "#destinos" },
   { label: "Comunidades", href: "/comunidades" },
   { label: "Sobre nós", href: "#sobre" },

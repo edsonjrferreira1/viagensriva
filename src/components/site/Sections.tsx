@@ -656,7 +656,7 @@ export function DestinationsSection() {
             <article
               id={d.id}
               key={d.name}
-              className="group relative scroll-mt-24 overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50 lg:scroll-mt-28"
+              className="group relative scroll-mt-[104px] overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
             >
               <img
                 src={img}
