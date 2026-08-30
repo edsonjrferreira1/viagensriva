@@ -284,6 +284,15 @@ function ServicePageView() {
             </div>
           )}
 
+          {slug === "passagens-aereas" && (
+            <div className="mt-5 flex flex-wrap items-center gap-2 rounded-full border border-primary/15 bg-card px-5 py-3 text-sm text-foreground/85 shadow-soft">
+              <BadgeCheck className="size-4 text-teal" aria-hidden="true" />
+              <span>
+                {agency.name} · CNPJ {agency.cnpj} · {agency.cadastur}
+              </span>
+            </div>
+          )}
+
           <p className="mt-5 text-xs leading-relaxed text-foreground/70">
             {page.note}
           </p>
