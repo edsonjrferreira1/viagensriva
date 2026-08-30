@@ -135,10 +135,14 @@ export const navItems: {
  * Avaliações reais publicadas no Google.
  * Para atualizar a nota ou a quantidade, altere `rating` e `count`.
  */
+// ATENÇÃO: rating e count são atualizados manualmente. Conferir no perfil do Google
+// periodicamente — o valor também alimenta o aggregateRating do JSON-LD da home.
 export const googleReviews = {
   rating: "5,0",
-  count: 23,
-  profileUrl: "https://share.google/k24MKSS3qRVz2ec5M",
+  count: 25,
+  // Link oficial do Perfil da Empresa no Google. NÃO usar a variante terminada em /review —
+  // essa abre o formulário de escrever avaliação, não a lista.
+  profileUrl: "https://g.page/r/CcDDR5RBnqDMEBM",
   items: [
     {
       highlight: "Cuidou de todos os detalhes da minha viagem.",
@@ -353,7 +357,7 @@ export const faq: {
     q: "Quais são as formas de pagamento?",
     home: true,
     a:
-      "Trabalhamos com diferentes formas de pagamento.\n\n💳 Cartão de crédito: pacotes podem ter parcelamento em até 10x sem juros, conforme as condições disponíveis para a reserva.\n\n💰 Pix: pagamento à vista com possibilidade de desconto.\n\n📄 Boleto: disponível mediante análise de crédito, podendo haver opções de parcelamento em até 10 ou 12 vezes sem juros, de acordo com a aprovação e as condições disponíveis.\n\nAs condições exatas são apresentadas juntamente com cada cotação.",
+      "Trabalhamos com cartão de crédito parcelado, Pix à vista e boleto.\n\nAs condições de parcelamento, prazos e eventuais descontos variam conforme o produto contratado, o fornecedor e a forma de pagamento escolhida. Por isso, as condições exatas disponíveis para a sua viagem são apresentadas junto com a cotação, antes de qualquer confirmação.",
   },
   {
     q: "Posso contratar somente alguns serviços ou preciso fechar um pacote completo?",
