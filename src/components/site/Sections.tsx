@@ -71,9 +71,9 @@ import cruiseDiningImg from "@/assets/cruise-dining.jpg";
 
 /** Pré-seleciona serviço, destino ou tipo de viagem no formulário de cotação. */
 function preselect(detail: {
-  interest?: string;
-  destination?: string;
-  tripType?: string;
+  interest?: string | undefined;
+  destination?: string | undefined;
+  tripType?: string | undefined;
 }) {
   window.dispatchEvent(new CustomEvent("riva:preselect", { detail }));
 }
@@ -105,6 +105,9 @@ import servicosImg from "@/assets/servicos-completos.webp";
 const travelImages: Record<string, string> = {
   resort: resortAerial,
   cruise: cruiseImg,
+  hotel: hospHotel,
+  flat: hospFlat,
+  premium: hospPremium,
   beach: destBeach,
   mountain: destMountain,
   international: destInternational,

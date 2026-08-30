@@ -260,6 +260,33 @@ export const travelCards: {
     interest: "Cruzeiro",
   },
   {
+    id: "hosp-hoteis-pousadas",
+    name: "Hotéis e pousadas",
+    tag: "Hospedagem",
+    description:
+      "Endereços escolhidos pela localização, pelo café da manhã e pela avaliação real de quem já se hospedou.",
+    image: "hotel",
+    interest: "Hospedagem",
+  },
+  {
+    id: "hosp-flats",
+    name: "Flats e apartamentos",
+    tag: "Hospedagem",
+    description:
+      "Mais espaço, cozinha e autonomia para estadias de 7 noites ou mais, em família ou quando o roteiro pede uma base fixa.",
+    image: "flat",
+    interest: "Hospedagem",
+  },
+  {
+    id: "hosp-premium",
+    name: "Hospedagens premium",
+    tag: "Hospedagem",
+    description:
+      "Suítes, vistas privilegiadas e atendimento diferenciado para ocasiões que pedem algo especial.",
+    image: "premium",
+    interest: "Hospedagem",
+  },
+  {
     id: "destinos-praia",
     name: "Destinos de praia",
     tag: "Sol e mar",
@@ -303,15 +330,6 @@ export const travelCards: {
       "Destinos e hospedagens para casais que querem comemorar uma data especial ou apenas descansar.",
     image: "couples",
     tripType: "Lua de mel",
-  },
-  {
-    id: "destinos-ferias",
-    name: "Férias nacionais",
-    tag: "Férias",
-    description:
-      "Roteiros pensados para as férias em família ou entre amigos, com ritmo, conforto e experiências na medida.",
-    image: "vacation",
-    destination: "Férias",
   },
 ];
 
