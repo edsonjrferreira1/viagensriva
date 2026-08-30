@@ -671,8 +671,8 @@ export function WhyRivaSection() {
   const cards = [
     {
       icon: Headphones,
-      t: "Atendimento humano, não robô",
-      d: "Você fala com quem entende de viagem e conhece o seu roteiro — sem chatbot e sem fila de call center.",
+      t: "Planejamento feito por gente",
+      d: "Sua viagem é montada por um agente que conhece o seu roteiro e o seu perfil — não por um comparador de preços que devolve uma lista e some.",
     },
     {
       icon: BadgeCheck,

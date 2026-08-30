@@ -35,6 +35,16 @@ export function Footer() {
           >
             {agency.whatsappDisplay}
           </a>
+          <p className="mt-2 text-xs leading-relaxed text-white/70">
+            Cotações: seg a sex, 8h–18h · sáb até 12h
+            <br />
+            Suporte a quem está viajando: todos os dias, a qualquer horário
+            <br />
+            Emergência durante a viagem: ligue para{" "}
+            <a href="tel:+5562982179433" className="underline underline-offset-2">
+              (62) 98217-9433
+            </a>
+          </p>
           <a
             href={agency.instagramUrl}
             target="_blank"

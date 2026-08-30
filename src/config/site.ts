@@ -416,6 +416,12 @@ export const faq: {
       "Sim. O atendimento da Viagens Riva não termina após a reserva.\n\nNossa equipe auxilia com orientações antes da viagem e presta suporte relacionado aos serviços contratados sempre que necessário.",
   },
   {
+    q: "Qual é o horário de atendimento?",
+    home: true,
+    a:
+      "Cotações e orçamentos são atendidos de segunda a sexta, das 8h às 18h, e aos sábados até meio-dia. Nesse período, respondemos em até 4 horas úteis.\n\nPara quem já está viajando, o suporte funciona todos os dias: pode chamar no WhatsApp a qualquer momento que retornamos assim que possível. Em caso de urgência durante a viagem, você também pode ligar.",
+  },
+  {
     q: "Como faço para receber as promoções?",
     home: true,
     a:
@@ -506,6 +512,8 @@ export type ServicePage = {
   photos: { image: string; alt: string }[];
   cards: { icon: string; title: string; text: string; to?: string }[];
   highlight?: { title: string; text: string };
+  /** Aviso exibido logo abaixo do bloco destacado, em texto menor. */
+  highlightNote?: string;
   note: string;
   preselectInterest: string;
   serviceType: string;
@@ -583,12 +591,12 @@ export const servicePages: Record<string, ServicePage> = {
       {
         icon: "home",
         title: "Flats e apartamentos",
-        text: "Cozinha, lavanderia e mais espaço. Compensam a partir de 7 noites, em família ou quando o roteiro pede uma base fixa na cidade.",
+        text: "Cozinha, lavanderia e mais espaço. Costumam fazer sentido em estadias mais longas, com família grande ou quando o roteiro pede uma base fixa na cidade.",
       },
       {
         icon: "building",
         title: "Hotéis urbanos",
-        text: "Para viagens a trabalho, city tour ou conexão longa. Prioridade para quem está perto do centro, do aeroporto ou do metrô.",
+        text: "Para viagens a trabalho, city tour ou conexão longa. A escolha costuma girar em torno da localização que faz sentido para o seu roteiro na cidade.",
       },
       {
         icon: "sparkles",
@@ -604,8 +612,10 @@ export const servicePages: Record<string, ServicePage> = {
     ],
     highlight: {
       title: "O que a gente confere antes de indicar",
-      text: "Localização real no mapa e não só o nome do bairro · avaliações dos últimos meses, não as antigas · o que o café da manhã inclui de fato · política de cancelamento e de crianças · taxas cobradas no destino, que não aparecem no valor da reserva.",
+      text: "Localização real no mapa, e não só o nome do bairro · avaliações dos últimos meses, não as antigas · o que o café da manhã inclui de fato · política de cancelamento e de crianças.",
     },
+    highlightNote:
+      "Atenção às taxas locais: muitos destinos e hospedagens cobram taxa de turismo ou taxa de serviço diretamente no local, que não entra no valor da reserva. Sempre que a informação estiver disponível na tarifa, apontamos na cotação.",
     note: "Café da manhã, horários de check-in e check-out, política para crianças e taxas locais variam conforme a hospedagem e a tarifa contratada. Confirmamos cada item antes de você fechar.",
     preselectInterest: "Hospedagem",
     serviceType: "Reserva de hospedagem",
@@ -635,7 +645,7 @@ export const servicePages: Record<string, ServicePage> = {
       {
         icon: "utensils",
         title: "O que costuma estar incluso",
-        text: "Refeições no restaurante principal, bebidas não alcoólicas, acesso às piscinas e à programação de lazer e recreação do resort.",
+        text: "Refeições, bebidas alcoólicas e não alcoólicas e acesso à programação de lazer e recreação do resort. É essa a lógica do regime: o essencial da estadia já pago antes do embarque.",
       },
       {
         icon: "chef",
@@ -645,7 +655,7 @@ export const servicePages: Record<string, ServicePage> = {
       {
         icon: "wine",
         title: "Bebidas: onde mora a diferença",
-        text: "Alguns resorts incluem bebida alcoólica nacional, outros cobram à parte, e há os que separam rótulos premium. É o item que mais muda de um para outro.",
+        text: "O que muda de um resort para outro é a seleção: alguns trabalham com rótulos nacionais, outros oferecem importados ou uma carta premium cobrada à parte. Se quiser saber exatamente o que entra no resort escolhido, a gente levanta e informa antes de você fechar.",
       },
       {
         icon: "waves",
@@ -663,7 +673,7 @@ export const servicePages: Record<string, ServicePage> = {
         text: "Cotamos resorts no litoral brasileiro e no exterior, incluindo Caribe e México, com aéreo, transfer e seguro organizados no mesmo atendimento.",
       },
     ],
-    note: "Os serviços incluídos variam conforme o resort e o regime contratado. Antes de fechar, confirmamos por escrito o que está e o que não está incluso na sua reserva.",
+    note: "Os serviços incluídos variam conforme o resort e o regime contratado. Se você quiser a lista completa do que está e do que não está incluso — refeições, tipos de bebida, serviços e atividades — levantamos essa informação e passamos antes de você fechar.",
     preselectInterest: "Resort / All Inclusive",
     serviceType: "Pacotes em resorts All Inclusive",
   },

@@ -297,6 +297,12 @@ function ServicePageView() {
             </div>
           )}
 
+          {page.highlightNote && (
+            <p className="mt-3 text-xs leading-relaxed text-foreground/70">
+              {page.highlightNote}
+            </p>
+          )}
+
           {slug === "passagens-aereas" && (
             <div className="mt-5 flex flex-wrap items-center gap-2 rounded-full border border-primary/15 bg-card px-5 py-3 text-sm text-foreground/85 shadow-soft">
               <BadgeCheck className="size-4 text-teal" aria-hidden="true" />

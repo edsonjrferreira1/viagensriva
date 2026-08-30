@@ -454,6 +454,17 @@ export function QuoteForm() {
           WhatsApp da Viagens Riva.
         </p>
         <p className="mt-2 text-center text-[0.7rem] leading-relaxed text-foreground/70">
+          Cotações: segunda a sexta, das 8h às 18h, e sábado até meio-dia.
+          Respondemos em até 4 horas úteis. Mensagens recebidas fora desse
+          período entram no próximo horário de atendimento. Já está viajando e
+          precisa de suporte? Chame no WhatsApp a qualquer momento — e, em caso
+          de emergência, ligue para{" "}
+          <a href="tel:+5562982179433" className="underline underline-offset-2">
+            (62) 98217-9433
+          </a>
+          .
+        </p>
+        <p className="mt-2 text-center text-[0.7rem] leading-relaxed text-foreground/70">
           Seus dados são usados apenas para elaborar sua cotação e prestar
           atendimento. Saiba mais na nossa{" "}
           <a href="/privacidade" className="underline underline-offset-2">
