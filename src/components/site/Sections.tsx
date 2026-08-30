@@ -185,18 +185,22 @@ export function TravelSection() {
                   </p>
 
                   <Button asChild variant="gold" size="sm" className="mt-5">
-                    <a
-                      href="#cotacao"
-                      onClick={() =>
-                        preselect({
-                          tripType: card.tripType,
-                          destination: card.destination,
-                          interest: card.interest,
-                        })
-                      }
-                    >
-                      Quero receber opções
-                    </a>
+                    {card.href ? (
+                      <Link to={card.href}>Conhecer</Link>
+                    ) : (
+                      <a
+                        href="#cotacao"
+                        onClick={() =>
+                          preselect({
+                            tripType: card.tripType,
+                            destination: card.destination,
+                            interest: card.interest,
+                          })
+                        }
+                      >
+                        Quero receber opções
+                      </a>
+                    )}
                   </Button>
                 </div>
               </article>

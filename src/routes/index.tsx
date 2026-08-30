@@ -8,8 +8,6 @@ import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { CommunitiesInvite } from "@/components/site/CommunitiesInvite";
 import { BackToTop } from "@/components/site/BackToTop";
 import {
-  AccommodationsSection,
-  CruisesSection,
   TravelSection,
   ExpertSection,
   FaqSection,
@@ -83,8 +81,6 @@ function Index() {
         <GoogleRatingBadge />
         <TravelSection />
         <WhyRivaSection />
-        <CruisesSection />
-        <AccommodationsSection />
         <ExpertSection />
 
         <TestimonialsSection />
