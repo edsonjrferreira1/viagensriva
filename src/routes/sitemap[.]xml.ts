@@ -19,11 +19,10 @@ export const Route = createFileRoute("/sitemap.xml")({
           ...staticPaths,
           ...Object.keys(servicePages).map((slug) => `/servicos/${slug}`),
         ];
-        const today = new Date().toISOString().slice(0, 10);
         const urls = paths
           .map(
             (path) =>
-              `  <url>\n    <loc>${SITE}${path}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>${path === "/" ? "1.0" : "0.8"}</priority>\n  </url>`,
+              `  <url>\n    <loc>${SITE}${path}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${path === "/" ? "1.0" : "0.8"}</priority>\n  </url>`,
           )
           .join("\n");
 
