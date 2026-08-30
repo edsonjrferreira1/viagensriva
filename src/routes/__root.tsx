@@ -86,6 +86,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Viagens Riva" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: "https://viagensriva.com/og-viagens-riva.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:locale", content: "pt_BR" },
+      { name: "twitter:image", content: "https://viagensriva.com/og-viagens-riva.jpg" },
     ],
     links: [
       {

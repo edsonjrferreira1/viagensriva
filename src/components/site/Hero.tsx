@@ -35,7 +35,7 @@ export function Hero() {
           Viagens selecionadas para quem merece o extraordinário.
         </h1>
         <p className="mt-3 max-w-2xl font-display text-xl italic leading-snug text-white sm:text-3xl">
-          Viagens nacionais e internacionais planejadas para você.
+          Agência de viagens em Goiânia: roteiros nacionais e internacionais planejados para você.
         </p>
         <p className="mt-3 max-w-2xl text-[0.95rem] leading-relaxed text-white/95 sm:text-base">
           Passagens, hospedagens, resorts, cruzeiros e experiências para você
