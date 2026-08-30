@@ -5,7 +5,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems, agency } from "@/config/site";
-import logoAsset from "@/assets/logo-riva.png.asset.json";
+import logoAsset from "@/assets/logo-riva.png";
 import { cn } from "@/lib/utils";
 
 // A ordem do menu espelha a ordem das seções na página — manter sincronizado.
@@ -122,7 +122,7 @@ export function Header() {
           aria-label={agency.name}
         >
           <img
-            src={logoAsset.url}
+            src={logoAsset}
             alt={`Logo ${agency.name}`}
             width={512}
             height={512}
@@ -177,7 +177,7 @@ export function Header() {
               <div className="flex shrink-0 items-center justify-between border-b border-white/10 px-4 py-3">
                 <span className="inline-flex items-center rounded-lg bg-white px-2.5 py-1.5">
                   <img
-                    src={logoAsset.url}
+                    src={logoAsset}
                     alt={`Logo ${agency.name}`}
                     width={512}
                     height={512}

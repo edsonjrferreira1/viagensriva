@@ -20,8 +20,8 @@ import {
   TestimonialsSection,
 } from "@/components/site/Sections";
 
-import heroDesktop from "@/assets/hero-premium-desktop.jpg.asset.json";
-import heroMobile from "@/assets/hero-premium-mobile.jpg.asset.json";
+import heroDesktop from "@/assets/hero-premium-desktop.jpg";
+import heroMobile from "@/assets/hero-premium-mobile.jpg";
 
 const title =
   "Agência de Viagens em Goiânia | Passagens, Hospedagem, Cruzeiros e Resorts All Inclusive — Viagens Riva";
@@ -44,14 +44,14 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: heroMobile.url,
+        href: heroMobile,
         media: "(max-width: 767px)",
         fetchpriority: "high",
       },
       {
         rel: "preload",
         as: "image",
-        href: heroDesktop.url,
+        href: heroDesktop,
         media: "(min-width: 768px)",
         fetchpriority: "high",
       },
