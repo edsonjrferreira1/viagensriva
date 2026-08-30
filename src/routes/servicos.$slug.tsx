@@ -34,7 +34,7 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 import { Section, SectionHeading } from "@/components/site/Section";
 import { servicePages, whatsappLink, agency } from "@/config/site";
 
-import cruiseImg from "@/assets/cruise-premium.jpg";
+import cruiseImg from "@/assets/cruise-premium.webp";
 import cruiseOnboardImg from "@/assets/cruise-onboard.jpg";
 import cruiseDiningImg from "@/assets/cruise-dining.jpg";
 import hospHotel from "@/assets/hosp-hoteis-pousadas.jpg";
@@ -42,7 +42,7 @@ import hospFlat from "@/assets/hosp-flats.jpg";
 import hospPremium from "@/assets/hosp-premium.jpg";
 import resortAerial from "@/assets/resort-aerial.webp";
 import gastro from "@/assets/gastronomy-1.webp";
-import lazerImg from "@/assets/lazer-premium.jpg";
+import lazerImg from "@/assets/lazer-premium.webp";
 import aviaoImg from "@/assets/servico-aviao.jpg";
 import seguroImg from "@/assets/servico-seguro.jpg";
 import carroImg from "@/assets/servico-carro.jpg";

@@ -65,7 +65,7 @@ import {
 } from "@/config/site";
 
 import expertImg from "@/assets/edson-ferreira.jpg";
-import cruiseImg from "@/assets/cruise-premium.jpg";
+import cruiseImg from "@/assets/cruise-premium.webp";
 import cruiseOnboardImg from "@/assets/cruise-onboard.jpg";
 import cruiseDiningImg from "@/assets/cruise-dining.jpg";
 
@@ -83,7 +83,7 @@ function preselectInterest(option: string) {
 }
 
 
-import lazerImg from "@/assets/lazer-premium.jpg";
+import lazerImg from "@/assets/lazer-premium.webp";
 import gastro from "@/assets/gastronomy-1.webp";
 import hospHotel from "@/assets/hosp-hoteis-pousadas.jpg";
 import hospFlat from "@/assets/hosp-flats.jpg";
