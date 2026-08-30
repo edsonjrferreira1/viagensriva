@@ -10,8 +10,7 @@ import { BackToTop } from "@/components/site/BackToTop";
 import {
   AccommodationsSection,
   CruisesSection,
-  DestinationsSection,
-  ExperiencesSection,
+  TravelSection,
   ExpertSection,
   FaqSection,
   FinalCta,
@@ -82,10 +81,9 @@ function Index() {
       <main>
         <Hero />
         <GoogleRatingBadge />
-        <ExperiencesSection />
+        <TravelSection />
         <WhyRivaSection />
         <CruisesSection />
-        <DestinationsSection />
         <AccommodationsSection />
         <ExpertSection />
 
