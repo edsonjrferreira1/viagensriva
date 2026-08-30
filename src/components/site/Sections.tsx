@@ -542,12 +542,12 @@ export function AccommodationsSection() {
 }
 
 const travelServices = [
-  { icon: Plane, title: "Passagens aéreas" },
-  { icon: BedDouble, title: "Hospedagens" },
-  { icon: BusFront, title: "Transfer" },
-  { icon: ShieldCheck, title: "Seguro viagem" },
-  { icon: Car, title: "Aluguel de carros" },
-  { icon: MapPinned, title: "Passeios e experiências" },
+  { icon: Plane, title: "Passagens aéreas", slug: "passagens-aereas" },
+  { icon: BedDouble, title: "Hospedagens", slug: "hospedagens" },
+  { icon: BusFront, title: "Transfer", slug: "transporte-no-destino" },
+  { icon: ShieldCheck, title: "Seguro viagem", slug: "seguro-viagem" },
+  { icon: Car, title: "Aluguel de carros", slug: "transporte-no-destino" },
+  { icon: MapPinned, title: "Passeios e experiências", slug: "passeios-e-experiencias" },
 ];
 
 
