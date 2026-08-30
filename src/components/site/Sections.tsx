@@ -472,7 +472,11 @@ export function AccommodationsSection() {
         </div>
       </div>
 
-      <div className="mt-8 grid gap-6 md:grid-cols-3">
+      <Carousel
+        opts={{ align: "start", containScroll: "trimSnaps" }}
+        className="mt-8"
+      >
+        <CarouselContent className="-ml-4">
         {accommodations.map((a, i) => {
           const media = [
             {
@@ -489,10 +493,11 @@ export function AccommodationsSection() {
             },
           ][i] ?? { src: hospHotel, alt: `Hospedagem — ${a.name}` };
           return (
-          <article
+          <CarouselItem
             key={a.name}
-            className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
+            className="basis-[82%] pl-4 sm:basis-1/2 lg:basis-1/3"
           >
+          <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
             <img
               src={media.src}
               alt={media.alt}
@@ -502,7 +507,7 @@ export function AccommodationsSection() {
               decoding="async"
               className="h-48 w-full object-cover"
             />
-            <div className="flex flex-1 flex-col p-6">
+            <div className="flex flex-1 flex-col p-5">
               <h3 className="text-xl text-primary">{a.name}</h3>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-foreground/70">
                 {a.capacity}
@@ -520,9 +525,13 @@ export function AccommodationsSection() {
               </Button>
             </div>
           </article>
+          </CarouselItem>
           );
         })}
-      </div>
+        </CarouselContent>
+        <CarouselPrevious className="hidden lg:flex" />
+        <CarouselNext className="hidden lg:flex" />
+      </Carousel>
     </Section>
   );
 }
@@ -537,14 +546,21 @@ export function DestinationsSection() {
         subtitle="Do Brasil ao exterior, ajudamos você a encontrar a experiência ideal para as suas próximas férias."
       />
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
+      <Carousel
+        opts={{ align: "start", containScroll: "trimSnaps" }}
+        className="mt-8"
+      >
+        <CarouselContent className="-ml-4">
         {destinations.map((d, i) => {
           const img = destinationImages[i % destinationImages.length];
           return (
+            <CarouselItem
+              key={d.name}
+              className="basis-[82%] pl-4 sm:basis-1/2 lg:basis-1/3"
+            >
             <article
               id={d.id}
-              key={d.name}
-              className="group relative scroll-mt-[104px] overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
+              className="group relative flex h-full scroll-mt-[104px] overflow-hidden rounded-3xl border border-white/15 shadow-soft transition hover:border-gold/50"
             >
               <img
                 src={img}
@@ -553,10 +569,10 @@ export function DestinationsSection() {
                 height={900}
                 loading="lazy"
         decoding="async"
-                className="h-72 w-full object-cover transition duration-700 group-hover:scale-105 sm:h-80"
+                className="h-72 w-full object-cover transition duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/10" />
-              <div className="absolute inset-x-0 bottom-0 p-7">
+              <div className="absolute inset-x-0 bottom-0 p-6">
                 <span className="text-[0.65rem] font-medium uppercase tracking-[0.22em] text-gold">
                   {d.tag}
                 </span>
@@ -575,9 +591,13 @@ export function DestinationsSection() {
                 </Button>
               </div>
             </article>
+            </CarouselItem>
           );
         })}
-      </div>
+        </CarouselContent>
+        <CarouselPrevious className="hidden lg:flex" />
+        <CarouselNext className="hidden lg:flex" />
+      </Carousel>
     </Section>
   );
 }
@@ -772,8 +792,8 @@ export function FaqSection() {
         title="Perguntas frequentes"
         subtitle="Esclarecemos as principais dúvidas sobre pagamento, documentação, prazos e serviços para você planejar sua viagem com tranquilidade."
       />
-      <Accordion type="single" collapsible className="mx-auto mt-10 max-w-3xl">
-        {faq.map((item, i) => (
+      <Accordion type="single" collapsible className="mx-auto mt-8 max-w-3xl">
+        {faq.filter((item) => item.home).map((item, i) => (
           <AccordionItem key={item.q} value={`item-${i}`}>
             <AccordionTrigger className="text-left font-display text-lg font-normal text-primary">
               {item.q}
@@ -793,7 +813,17 @@ export function FaqSection() {
         ))}
       </Accordion>
 
-      <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-primary/15 bg-card p-8 text-center shadow-soft sm:p-10">
+      <div className="mx-auto mt-6 max-w-3xl text-center">
+        <Link
+          to="/duvidas"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary underline underline-offset-4 transition hover:text-gold"
+        >
+          Ver todas as dúvidas
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </Link>
+      </div>
+
+      <div className="mx-auto mt-10 max-w-3xl rounded-3xl border border-primary/15 bg-card p-8 text-center shadow-soft sm:p-10">
         <p className="text-[0.7rem] font-medium uppercase tracking-[0.2em] text-foreground/75">
           Ainda ficou com alguma dúvida?
         </p>
