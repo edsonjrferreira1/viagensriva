@@ -156,7 +156,7 @@ function Comunidades() {
                 <p className="mt-1 text-xs font-medium uppercase tracking-[0.16em] text-accent">
                   {c.airports}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/75">
+                <p className="mt-3 mb-5 text-sm leading-relaxed text-foreground/75">
                   {c.description}
                 </p>
                 <a
@@ -164,8 +164,7 @@ function Comunidades() {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-comunidade={c.id}
-                  className="mt-auto inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 pt-6 text-sm font-semibold text-whatsapp-foreground transition hover:bg-whatsapp/90"
-                  style={{ paddingTop: undefined }}
+                  className="mt-auto inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-whatsapp px-5 py-3 text-sm font-semibold text-whatsapp-foreground transition hover:bg-whatsapp/90"
                 >
                   Entrar na comunidade →
                 </a>
