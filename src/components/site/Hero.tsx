@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[92svh] overflow-hidden lg:min-h-0 lg:h-[80vh] lg:max-h-[860px] lg:min-h-[620px]"
+      className="relative flex min-h-[480px] items-center overflow-hidden lg:min-h-[560px] lg:max-h-[660px]"
     >
       <picture>
         <source media="(max-width: 767px)" srcSet={heroMobile.url} />
@@ -20,14 +20,13 @@ export function Hero() {
           height={1088}
           fetchPriority="high"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-[50%_58%] lg:object-[50%_55%]"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_45%] lg:object-[50%_40%]"
         />
       </picture>
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" />
 
-
-      <div className="relative mx-auto flex min-h-[92svh] max-w-7xl flex-col justify-end px-5 pb-12 pt-24 sm:px-6 sm:pb-16 lg:min-h-0 lg:h-full lg:justify-center lg:pb-10 lg:pt-24">
+      <div className="relative mx-auto flex w-full max-w-7xl flex-col justify-center px-5 pb-10 pt-[104px] sm:px-6 sm:pb-12 sm:pt-[120px] lg:pb-16 lg:pt-[136px]">
         <span className="inline-flex w-fit items-center gap-2 rounded-full border border-gold/70 bg-black/45 px-4 py-1.5 text-[0.68rem] font-medium uppercase tracking-[0.28em] text-gold backdrop-blur-md">
           Viagens nacionais &amp; internacionais
         </span>
@@ -44,7 +43,6 @@ export function Hero() {
         </p>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-6">
-
           <Button asChild variant="cta" size="xl" className="w-full sm:w-auto">
             <a href="#cotacao">Quero planejar minha viagem</a>
           </Button>
@@ -64,7 +62,6 @@ export function Hero() {
             </li>
           ))}
         </ul>
-
       </div>
     </section>
   );
